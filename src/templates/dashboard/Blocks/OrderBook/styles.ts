@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const Wrapper = styled.section`
   background-color:#2E303C;
   border-radius: 0 3rem 3rem 3rem;
-  padding: 0.2rem;
   max-width: 36rem;
   width: 100%;
   padding: 2rem;

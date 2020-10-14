@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.section`
+export const Section = styled.section`
   background: #2E303C;
   border-radius: 0 3rem 3rem 3rem;
-  padding: 0.2rem;
   max-width: 34rem;
   width: 100%;
   padding: 2rem;
 `
-export const WrapperTitle = styled.div`
+export const Header = styled.div`
   display: flex;
   flex-direction:row;
   justify-content: space-between;

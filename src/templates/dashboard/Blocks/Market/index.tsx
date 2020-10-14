@@ -7,13 +7,13 @@ import SearchInput from 'components/general/SearchInput'
 import * as S from './styles'
 
 const Market = () => (
-  <S.Wrapper>
-    <S.WrapperTitle>
+  <S.Section>
+    <S.Header>
       <Heading title="Market" />
       <Dropdown title="Pair | USD">
         <p>Testing</p>
       </Dropdown>
-    </S.WrapperTitle>
+    </S.Header>
     <S.WrapperActions>
       <SearchInput placeholder="Search.." type="search"/>
       <S.ContainerActions>
@@ -23,9 +23,8 @@ const Market = () => (
     </S.WrapperActions>
     <S.WrapperTokens>
       <MarketTable />
-
     </S.WrapperTokens>
-</S.Wrapper>
+  </S.Section>
 )
 
 export default Market

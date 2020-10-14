@@ -4,7 +4,7 @@ export default {
     gutter: '3.2rem'
   },
   border: {
-    radius: '0.4rem'
+    radius: '0.7rem'
   },
   font: {
     family:
@@ -43,6 +43,7 @@ export default {
     none:"none"
   },
   spacings: {
+    xxxsmall: '0.5rem',
     xxsmall: '0.8rem',
     xsmall: '1.6rem',
     small: '2.4rem',
@@ -68,3 +69,5 @@ export default {
     alwaysOnTop: 50
   }
 }
+
+

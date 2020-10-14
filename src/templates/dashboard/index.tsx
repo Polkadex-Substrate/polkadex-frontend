@@ -1,15 +1,17 @@
 import React from 'react'
 
-import Market from './Blocks/Market'
-import OrderBook from './Blocks/OrderBook'
-import Transactions from './Blocks/Transactions'
+import Market from './blocks/Market'
+import MarketOrder from './blocks/MarketOrder'
+import OrderBook from './blocks/OrderBook'
+import Transactions from './blocks/Transactions'
 
 export default function Dashboard() {
   return (
     <>
       {/* <Market /> */}
+      <MarketOrder />
       {/* <Transactions /> */}
-      <OrderBook />
+      {/* <OrderBook /> */}
     </>
   )
 }
