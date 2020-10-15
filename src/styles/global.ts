@@ -38,6 +38,27 @@ const GlobalStyles: GlobalStyleComponent<
     }
   `}
 
+  .animation {
+    animation-duration: 0.3s;
+    -webkit-animation-duration: 0.3s;
+    -webkit-animation-name: slideIn;
+    animation-name: slideIn;
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0rem);
+      opacity: 1;
+    }
+    0% {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+  }
   /* work-sans-300 - latin */
   @font-face {
     font-family: 'Work Sans';
@@ -63,6 +84,17 @@ const GlobalStyles: GlobalStyleComponent<
     url('/fonts/work-sans-v8-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
   }
 
+/* ----------------------------------------------------------------------------------------------------
+Reset Link
+----------------------------------------------------------------------------------------------------*/
+
+a,
+a:hover,
+a:active,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
 /* ----------------------------------------------------------------------------------------------------
 Super Form Reset
 ----------------------------------------------------------------------------------------------------*/
