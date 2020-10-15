@@ -4,10 +4,10 @@ export type SearchInputProps = {
     placeholder: string
     type: string
 }
-const SearchInput = (props:SearchInputProps) => (
+const SearchInput = ({placeholder, type}:SearchInputProps) => (
 <S.Wrapper>
     <S.Image src="/img/icons/Search.svg" />
-    <S.Input {...props}/>
+    <S.Input type={type} placeholder={placeholder} />
 </S.Wrapper>
 )
 

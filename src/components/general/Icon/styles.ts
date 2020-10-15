@@ -14,9 +14,9 @@ const WrapperModifier = {
     }
   `,
   Medium: (theme: DefaultTheme) => css`
-    height: 3rem;
-    width: 3rem;
-    padding: ${theme.spacings.xxsmall};
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: ${theme.spacings.xsmall};
     border-radius: ${theme.border.radius};
   `,
   Large: (theme: DefaultTheme) => css`
@@ -48,6 +48,7 @@ export const Wrapper = styled.div<Partial<IconProps>>`
     display: flex;
     align-items:center;
     justify-content: center;
+    cursor: pointer;
     ${background && WrapperModifier[background](theme)};
     ${size && WrapperModifier[size](theme)};
     :hover {

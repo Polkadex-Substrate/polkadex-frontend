@@ -10,14 +10,14 @@ const MarketOrder = () => (
       <li>Buy DOT</li>
       <li>Sell DOT</li>
     </S.Tab>
-        <Dropdown title="Market Order">
+        <Dropdown title="Market Order" >
           <p>exmeplo</p>
         </Dropdown>
     </S.Header>
 
     <S.WrapperOrder>
       <S.ContainerWallet>
-        <Icon source="Wallet" background="darkGray" />
+        <Icon source="Wallet" background="DarkGray" size="Medium" />
         <S.WrapperBalance>
           <span>Available</span>
           <S.Span>0.93871332 DOT</S.Span>

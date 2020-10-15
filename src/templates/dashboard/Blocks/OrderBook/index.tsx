@@ -11,9 +11,9 @@ const OrderBook = () => (
       <Heading title="Order Book" />
       <S.ContainerTitle>
         <S.ContainerActions>
-          <Icon source="OrderAsc" background="darkGray" />
-          <Icon source="Order" background="darkGray" />
-          <Icon source="OrderDesc" background="darkGray" />
+          <Icon source="OrderAsc" background="DarkGray" />
+          <Icon source="Order" background="DarkGray" />
+          <Icon source="OrderDesc" background="DarkGray" />
         </S.ContainerActions>
         <Dropdown title="0.1">
           <p>Test</p>

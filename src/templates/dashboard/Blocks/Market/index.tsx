@@ -1,3 +1,4 @@
+import { Input } from 'components/general/Checkbox/styles'
 import Dropdown from 'components/general/Dropdown'
 import Heading from 'components/general/Heading'
 import Icon from 'components/general/Icon'
@@ -17,8 +18,8 @@ const Market = () => (
     <S.WrapperActions>
       <SearchInput placeholder="Search.." type="search"/>
       <S.ContainerActions>
-        <Icon source="Settings" background="darkGray"/>
-        <Icon source="Star" background="none" />
+        <Icon source="Settings" size="Medium" background="DarkGray"/>
+        <Icon source="Star" size="Medium" background="None" />
       </S.ContainerActions>
     </S.WrapperActions>
     <S.WrapperTokens>

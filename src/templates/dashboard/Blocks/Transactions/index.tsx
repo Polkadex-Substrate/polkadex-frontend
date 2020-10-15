@@ -24,7 +24,7 @@ const Transactions = () => (
           <Dropdown title="All Transactions">
             <p>exmeplo</p>
           </Dropdown>
-          <Icon source="History" background="darkGray" />
+          <Icon source="History" background="DarkGray" />
         </S.ContainerTransactions>
       </S.WrapperActions>
     </S.Header>

@@ -2,14 +2,14 @@ import { useState } from "react"
 
 import * as S from './styles'
 
-type DropdownItem = {
-  title: string
-  link?: string
-  action?:()=> void
-}
+// type DropdownItem = {
+//  title: string
+//  link?: string
+//  action?:()=> void
+// }
 export type DropdownProps = {
   title: string,
-  children: DropdownItem[]
+  children?: JSX.Element
   active?: boolean
 }
 
@@ -26,7 +26,7 @@ const Dropdown = ({ title="Dropdown", children, active = false}: DropdownProps) 
       </S.Header>
       {state &&
        <S.WrapperContent className="animation">
-          <a href="#">Realizando un simple test</a>
+        {children}
         </S.WrapperContent>
       }
     </S.Wrapper>

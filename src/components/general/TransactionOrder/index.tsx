@@ -48,8 +48,8 @@ const TransactionOrder = ({date, coin, pair, side, price, fee, total}:Transactio
 
     <S.Td>
       <S.ContainerActions>
-        <Icon source="Close" background="primary"/>
-        <Icon source="Options" background="none"/>
+        <Icon source="Close" background="Primary" size="Small"/>
+        <Icon source="Options" background="None"/>
       </S.ContainerActions>
 
     </S.Td>

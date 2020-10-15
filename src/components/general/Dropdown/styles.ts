@@ -1,10 +1,10 @@
-import { transform } from '@babel/core';
 import styled, { css } from 'styled-components'
 
 import { DropdownProps } from '.';
 
 export const Wrapper = styled.div`
   width: fit-content;
+  position: relative;
 `;
 
 export const Header = styled.div`
@@ -43,13 +43,16 @@ export const Image = styled.img<Partial<DropdownProps>>`
 
 // Dropdown Content
 export const WrapperContent = styled.div`
+  position: absolute;
   background-color:#2E303C;
   color: white;
   border-radius: 0 1rem 1rem 1rem;
   width: auto;
   padding: 1rem;
   margin-top: 0.3rem;
-
+  -webkit-box-shadow: 0 7px 18px 0 rgba(0, 0, 0, 0.27);
+  -moz-box-shadow: 0 7px 18px 0 rgba(0, 0, 0, 0.27);
+  box-shadow: 0 7px 18px 0 rgba(0, 0, 0, 0.27);
   a {
     padding: 0.5rem;
   }

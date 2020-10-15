@@ -23,6 +23,7 @@ export const ContainerActions = styled.div`
 export const ContainerTitle = styled.div`
   display:flex;
   flex-direction:row;
+  align-items:center;
 `
 export const WrapperTable = styled.div`
 `
