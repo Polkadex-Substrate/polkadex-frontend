@@ -9,27 +9,34 @@ export type TransactionOrderProps = {
   price: number
   fee: number
   total: number
+  pending?: boolean
 }
 
-const TransactionOrder = ({date, coin, pair, side, price, fee, total}:TransactionOrderProps) => (
+const TransactionOrder = ({date, pending = false, coin, pair, side, price, fee, total}:TransactionOrderProps) => (
   <S.Tr>
     <S.Td>
       <S.ContainerFlex>
-        <S.Image src="/img/icons/Clock.svg" />
-        <span>{date}</span>
+        {pending ?
+          <>
+          <S.Image src="/img/icons/Clock.svg" />
+          <span>Pending</span>
+          </> :
+          date
+        }
+
       </S.ContainerFlex>
     </S.Td>
 
     <S.Td>
       <S.ContainerFlex>
-        <S.Image src="/img/icons/Clock.svg" />
+        <S.Image src={`img/cryptocurrencies/${pair}.svg`}  />
         <span>{coin} / {pair}</span>
       </S.ContainerFlex>
     </S.Td>
 
     <S.Td>
       <S.ContainerFlex>
-        <S.Image src="/img/icons/Clock.svg" />
+        <S.Image src={`img/icons/${side}.svg`} />
         <span>{side}</span>
       </S.ContainerFlex>
     </S.Td>
@@ -48,8 +55,9 @@ const TransactionOrder = ({date, coin, pair, side, price, fee, total}:Transactio
 
     <S.Td>
       <S.ContainerActions>
-        <Icon source="Close" background="Primary" size="Small"/>
-        <Icon source="Options" background="None"/>
+        {pending && <Icon source="Close" background="Primary" size="XSmall" />}
+
+        <Icon source="Options" background="None" size='Small'/>
       </S.ContainerActions>
 
     </S.Td>

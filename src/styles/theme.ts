@@ -34,11 +34,12 @@ export default {
   colors: {
     primary: '#E6007A',
     secondary: '#3CD3C1',
+    green:'#0CA564',
     mainBg: '#1C2023',
     white: '#FAFAFA',
     black: '#030517',
     lightGray: '#EBEEF4',
-    gray: '#8F8F8F',
+    gray: '#2E303C',
     darkGray: '#1c2023',
     none:"none"
   },

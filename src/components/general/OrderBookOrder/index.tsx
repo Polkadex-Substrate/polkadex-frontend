@@ -5,8 +5,9 @@ export type OrderBookOrderProps = {
   coin: string
   amountPair: number
   pair: string
+  sell?: boolean
 }
-const OrderBookOrder = ({ price, amountCoin, coin, amountPair, pair}:OrderBookOrderProps) => (
+const OrderBookOrder = ({ price, sell = false, amountCoin, coin, amountPair, pair}:OrderBookOrderProps) => (
   <S.Tr>
     <S.Td>
       {price}
@@ -14,7 +15,7 @@ const OrderBookOrder = ({ price, amountCoin, coin, amountPair, pair}:OrderBookOr
 
     <S.Td>
       <S.ContainerFlex>
-        <span>{amountCoin} {coin}</span>
+        <S.Span sell={sell}>{amountCoin} {coin}</S.Span>
         <S.Image src="/img/icons/Exchange.svg"/>
         <span>{amountPair} {pair}</span>
       </S.ContainerFlex>

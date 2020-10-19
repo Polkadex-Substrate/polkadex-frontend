@@ -1,12 +1,14 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.section`
-  background-color:#2E303C;
+export const Wrapper = styled.div`
+  background-color:#242633;
   border-radius: 0 3rem 3rem 3rem;
-  max-width: 36rem;
+  max-width: 35rem;
   width: 100%;
   padding: 2rem;
+  box-shadow: 0px 0px 99px rgba(0, 0, 0, 0.65);
 `
+
 export const WrapperTitle = styled.div`
   display:flex;
   flex-direction:row;

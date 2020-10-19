@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 export const Section = styled.section`
-  max-width: 38rem;
+  max-width: 32rem;
   width: 100%;
+  margin-left: 1rem;
 `
 // Header
 export const Header = styled.div`
@@ -30,13 +31,15 @@ export const Tab = styled.ul`
 export const WrapperOrder = styled.div`
   background: #2E303C;
   border-radius: 0 3rem 3rem 3rem;
-  padding: 2rem;
+  padding: 4.5rem 3rem;
+  box-shadow: 0px 30px 45px rgba(0, 0, 0, 0.17);
 `;
 
 export const ContainerWallet = styled.div`
   display:flex;
   flex-direction: row;
   align-items:center;
+  margin-bottom: 2.5rem;
 `;
 export const WrapperBalance = styled.div`
   display:flex;
@@ -52,6 +55,8 @@ export const WrapperActions = styled.div`
   display: flex;
   flex-direction: row;
   justify-content:space-between;
+  align-items:center;
+  font-size: 1.2rem;
 `;
 
 

@@ -9,22 +9,29 @@ const Transactions = () => (
 <S.Section>
     <S.Header>
       <S.Tab>
-        <li>Open Orders</li>
-        <li>Order History</li>
-        <li>Trade History</li>
-        <li>Funds</li>
+        <li>
+          <a href="#">Open Orders</a>
+        </li>
+        <li>
+          <a href="#">Order History</a></li>
+        <li>
+          <a href="#">Trade History</a>
+        </li>
+        <li>
+          <a href="#">Funds</a>
+        </li>
       </S.Tab>
       <S.WrapperActions>
-        <Checkbox title="Hide Otgher Pairs" />
+        <Checkbox title="Hide Other Pairs" checked={true}/>
         <S.ContainerActions>
           <Checkbox title="Buy" />
           <Checkbox title="Sell" />
         </S.ContainerActions>
         <S.ContainerTransactions>
           <Dropdown title="All Transactions">
-            <p>exmeplo</p>
+            <p>Testing..</p>
           </Dropdown>
-          <Icon source="History" background="DarkGray" />
+          <Icon source="Transactions" background="Gray" size="Medium" />
         </S.ContainerTransactions>
       </S.WrapperActions>
     </S.Header>

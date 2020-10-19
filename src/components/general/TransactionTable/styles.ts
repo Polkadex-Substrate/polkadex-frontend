@@ -8,7 +8,7 @@ export const Table = styled.table`
   text-align:left;
 `
 export const Thead = styled.thead`
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #8BA1BE;
   tr {
     display: grid;

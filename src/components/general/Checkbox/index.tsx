@@ -1,13 +1,16 @@
 import * as S from './styles'
 export type CheckboxPropx = {
   title: string
+  checked?: boolean
 }
 
-const Checkbox = ({ title }) => (
-  <S.Wrapper>
-    <S.Input type="checkbox" />
-    <S.Label>{title}</S.Label>
-  </S.Wrapper>
+const Checkbox = ({ title, checked }: CheckboxPropx) => (
+  <S.Label>
+    <S.Input type="checkbox"/>
+    <S.Span></S.Span>
+    <S.Title>{title}</S.Title>
+
+  </S.Label>
 )
 
 export default Checkbox

@@ -1,6 +1,6 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 
-import { ButtonProps } from '.'
+import { ListItemProps } from '.'
 
 const wrapperModifier = {
   Small: (theme:DefaultTheme) => css`
@@ -30,14 +30,15 @@ const wrapperModifier = {
   `
 }
 
-export const Wrapper = styled.button<Partial<ButtonProps>>`
+export const Wrapper = styled.div<Partial<ListItemProps>>`
 ${({ theme, size, darkMode, fullWidth }) => css`
-  background-color: #1C2023;
   border: 0;
   border-radius: ${theme.border.radius};
   padding: ${theme.spacings.xxsmall};
   color: white;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: inline-block;
+  cursor: pointer;
 
   ${wrapperModifier[size](theme)}
   ${darkMode ? wrapperModifier.Dark(theme) : wrapperModifier.Light(theme) }
@@ -48,7 +49,6 @@ ${({ theme, size, darkMode, fullWidth }) => css`
   }
   :active {
     background-color: ${theme.colors.primary};
-    transform: translateY(0.4rem);
   }
 `}
 `

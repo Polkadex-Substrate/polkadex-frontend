@@ -9,13 +9,14 @@ const inputModifier = {
   `
 }
 
-export const Wrapper = styled.section``
+export const Wrapper = styled.div`
+  margin-bottom: 2rem;
+`
 export const ContainerInput = styled.div`
   display: flex;
   flex-direction: column;
 `
 export const Label = styled.label`
-  margin-bottom: 1rem;
   color: white;
   img {
     width: 1.1rem;
@@ -30,6 +31,9 @@ export const Box = styled.div<Partial<InputProps>>`
     border-bottom: 0.1rem solid ${theme.colors.white};
     width: ${fullWidth ? "100%" : "20rem"};
     ${inputInfo && inputModifier.Flex()}
+    :hover {
+      border-bottom-color: ${theme.colors.primary};
+    }
   `}
 `
 export const Span = styled.span`

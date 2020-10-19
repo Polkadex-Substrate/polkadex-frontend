@@ -2,21 +2,30 @@ import styled, { css, DefaultTheme } from 'styled-components'
 
 import { IconProps } from '.'
 const WrapperModifier = {
-  Small: (theme: DefaultTheme) => css`
-    height: 1.8rem;
-    width: 1.8rem;
+  XSmall: (theme: DefaultTheme) => css`
+    height: 1.9rem;
+    width: 1.9rem;
     padding: ${theme.spacings.xxxsmall} ;
     border-radius: 0.5rem;
-
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  `,
+  Small: (theme: DefaultTheme) => css`
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: ${theme.spacings.xxxsmall} ;
+    border-radius: 0.5rem;
     img {
       width: 100%;
       height: 100%;
     }
   `,
   Medium: (theme: DefaultTheme) => css`
-    height: 2.5rem;
-    width: 2.5rem;
-    padding: ${theme.spacings.xsmall};
+    height: 3.1rem;
+    width: 3.1rem;
+    padding: 0.8rem;
     border-radius: ${theme.border.radius};
   `,
   Large: (theme: DefaultTheme) => css`
@@ -40,6 +49,10 @@ const WrapperModifier = {
   Primary: (theme: DefaultTheme) => css`
     background-color:${theme.colors.primary};
     color: ${theme.colors.white};
+  `,
+  Gray: (theme: DefaultTheme) => css`
+    background-color:${theme.colors.gray};
+    color: ${theme.colors.white};
   `
 }
 
@@ -58,4 +71,6 @@ export const Wrapper = styled.div<Partial<IconProps>>`
 `
 
 
-export const Image = styled.img``
+export const Image = styled.img`
+  width:100%;
+`

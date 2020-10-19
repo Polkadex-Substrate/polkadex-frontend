@@ -47,7 +47,7 @@ export const WrapperContent = styled.div`
   background-color:#2E303C;
   color: white;
   border-radius: 0 1rem 1rem 1rem;
-  width: auto;
+  width: 100%;
   padding: 1rem;
   margin-top: 0.3rem;
   -webkit-box-shadow: 0 7px 18px 0 rgba(0, 0, 0, 0.27);

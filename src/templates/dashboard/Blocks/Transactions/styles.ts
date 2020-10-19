@@ -1,17 +1,19 @@
 import styled from 'styled-components'
 
-export const Section = styled.section``
+export const Section = styled.section`
+  padding: 1rem 0;
+`
 
 // Header
 export const Header = styled.div`
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-columns: 1.2fr 0.8fr;
   padding: 2rem 0;
 `
 export const Tab = styled.ul`
   li {
     font-size: 1.4rem;
-    font-weight: 700;
+    font-weight: 800;
     display:inline-block;
   }
 

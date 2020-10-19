@@ -1,7 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+import { OrderBookOrderProps } from '.'
 
 export const Tr = styled.tr`
-  background-color: #2E303C;
   margin-bottom:1.2rem;
   border-radius: 0 1rem 1rem 1rem;
 `
@@ -13,4 +14,10 @@ export const ContainerFlex = styled.div`
 
 export const Image = styled.img`
   margin: 0 1rem;
+  width: 1.5rem;
+`
+export const Span = styled.span <Pick<OrderBookOrderProps, 'sell'>>`
+  ${({ theme, sell }) => css`
+    color: ${sell ? theme.colors.primary : theme.colors.green};
+  `}
 `

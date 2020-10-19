@@ -24,6 +24,7 @@ const TransactionTable = () => (
           price={0.00798219}
           fee={0.00012900}
           total={0.001434442}
+          pending={true}
         />
         <TransactionOrder
           date="Pending"

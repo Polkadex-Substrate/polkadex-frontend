@@ -5,7 +5,7 @@ export type InputProps = {
   icon?: 'None' | 'ArrowVerticalBottom' | 'ArrowVerticalTop'
   placeholder?: string
   type: 'text' | 'email' | 'password' | 'url' | 'number'
-  value: number
+  value?: number
   inputInfo?: string
   fullWidth?: boolean
 }
@@ -14,7 +14,6 @@ const Input = ({ label = 'Label', placeholder = 'Text..', type = "text", icon = 
 
   return (
     <S.Wrapper>
-      <form>
         <S.ContainerInput>
           <S.Label>
             {icon !== 'None' && <img src={`/img/icons/${icon}.svg`} />} {label}
@@ -24,7 +23,6 @@ const Input = ({ label = 'Label', placeholder = 'Text..', type = "text", icon = 
             {inputInfo && <S.Span>{inputInfo}</S.Span>}
           </S.Box>
         </S.ContainerInput>
-      </form>
     </S.Wrapper>
   )
 }
