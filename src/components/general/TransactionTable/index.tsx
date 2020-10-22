@@ -16,6 +16,7 @@ const TransactionTable = () => (
         </S.Tr>
       </S.Thead>
       <S.Tbody>
+
         <TransactionOrder
           date="Pending"
           coin="DOT"
@@ -27,15 +28,7 @@ const TransactionTable = () => (
           pending={true}
         />
         <TransactionOrder
-          date="Pending"
-          coin="DOT"
-          pair="BTC"
-          side="Buy"
-          price={0.00798219}
-          fee={0.00012900}
-          total={0.001434442}
-        /> <TransactionOrder
-          date="Pending"
+          date="July 09, 2020 10:52:03"
           coin="DOT"
           pair="BTC"
           side="Buy"
@@ -43,6 +36,26 @@ const TransactionTable = () => (
           fee={0.00012900}
           total={0.001434442}
         />
+        <TransactionOrder
+          date="July 09, 2020 10:52:03"
+          coin="DOT"
+          pair="BTC"
+          side="Buy"
+          price={0.00798219}
+          fee={0.00012900}
+          total={0.001434442}
+        />
+        <TransactionOrder
+          date="July 09, 2020 10:52:03"
+          coin="DOT"
+          pair="BTC"
+          side="Buy"
+          price={0.00798219}
+          fee={0.00012900}
+          total={0.001434442}
+        />
+
+
       </S.Tbody>
     </S.Table>
 

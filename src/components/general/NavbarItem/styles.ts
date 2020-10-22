@@ -5,7 +5,7 @@ import { NavbarItemPops } from '.'
 export const Wrapper = styled.div``
 export const Label = styled.span`
   ${({ theme }) => css`
-    font-size: ${theme.font.sizes.xsmall};
+    font-size: 1.1rem;;
     color: #8BA1BE;
     opacity: 0.7;
     font-weight:700;

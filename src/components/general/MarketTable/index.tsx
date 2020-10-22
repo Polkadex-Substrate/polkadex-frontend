@@ -12,10 +12,10 @@ const MarketTable = () => (
         </S.Tr>
       </S.Thead>
       <S.Tbody>
-        <MarketToken name="Bitcoin" shortName="BTC" source="bitcoin" pricing={10.411} volume={7.1} percent={23.09} />
+        <MarketToken name="Bitcoin" shortName="BTC" source="BTC" pricing={10.411} volume={7.1} percent={23.09} />
         <MarketToken name="Aragon" shortName="AR" source="aragon" pricing={10.411} volume={7.1} percent={23.09} />
         <MarketToken name="Ethereum" shortName="ETH" source="ether" pricing={10.411} volume={7.1} percent={23.09} />
-        <MarketToken name="Dogecoin" shortName="DOGE" source="dogecoin" pricing={10.411} volume={7.1} percent={23.09} />
+        <MarketToken name="Dogecoin" shortName="DOGE" source="DOGE" pricing={10.411} volume={7.1} percent={23.09} />
         <MarketToken name="Emercoin" shortName="EMR" source="emercoin" pricing={10.411} volume={7.1} percent={23.09} />
       </S.Tbody>
     </S.Table>

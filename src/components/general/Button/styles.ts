@@ -37,6 +37,7 @@ ${({ theme, size, darkMode, fullWidth }) => css`
   border-radius: ${theme.border.radius};
   padding: ${theme.spacings.xxsmall};
   color: white;
+  cursor:pointer;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 
   ${wrapperModifier[size](theme)}

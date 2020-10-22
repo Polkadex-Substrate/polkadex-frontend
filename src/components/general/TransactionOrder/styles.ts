@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import media from "styled-media-query"
 export const Tr = styled.tr`
   background-color: #2E303C;
   padding:1.2rem;
@@ -26,4 +26,16 @@ export const ContainerActions = styled.div`
   flex-direction:row;
   align-items:center;
   justify-content:flex-end;
+    ${media.lessThan('large')`
+      justify-content:flex-start;
+  `}
+`
+export const Tag = styled.span`
+  display:block;
+  margin-bottom: 1rem;
+  display: none;
+  opacity: 0.5;
+  ${media.lessThan('large')`
+    display: block;
+  `}
 `

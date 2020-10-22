@@ -1,20 +1,33 @@
+import Link from 'components/general/Link'
+import NavbarDropdown from 'components/general/NavbarDropdown'
 import NavbarItem from 'components/general/NavbarItem'
+import NavbarLanguage from 'components/general/NavbarLanguage'
 import NavbarPair from 'components/general/NavbarPair'
 
 import * as S from './styles'
-
+const testPairs = [
+  {
+    id: 1,
+    name: "BTC"
+  },
+  {
+    id: 2,
+    name: "USDT"
+  },
+  {
+    id: 3,
+    name: "DOT"
+  },
+  {
+    id: 4,
+    name: "ETH"
+  },
+]
 const Navbar = () => (
 <S.Wrapper>
     <S.WrapperInfo>
       <S.ContainerPair>
-        <NavbarPair coin={{
-          name:"BTC",
-          img:"/img/cryptocurrencies/dash.svg"
-        }}
-          pair={{
-            name: "BTC"
-          }}
-        />
+        <NavbarPair coin="BTC" pairs={testPairs}/>
       </S.ContainerPair>
       <S.ContainerInfo>
         <NavbarItem label="Last Trade Price (BTC)" info="0.03209666" />
@@ -42,11 +55,77 @@ const Navbar = () => (
       </S.ContainerInfo>
     </S.WrapperInfo>
     <S.WrapperLinks>
-      <a href="#">Market</a>
-      <a href="#">Trade</a>
-      <a href="#">Derivatives</a>
-      <a href="#">Finance</a>
-      <a href="#">EN/US</a>
+      <Link title="Market" href="#" />
+      <NavbarDropdown title="Trade">
+        <>
+          <S.WrapperDropdownContent href="#">
+            <S.DropdownTitle>
+              Title here
+          </S.DropdownTitle>
+            <S.DropdownDescription>
+              Neque porro quisquam est qui dolorem ipsum.
+          </S.DropdownDescription>
+          </S.WrapperDropdownContent>
+          <S.WrapperDropdownContent href="#">
+            <S.DropdownTitle>
+              Title here
+          </S.DropdownTitle>
+            <S.DropdownDescription>
+              Neque porro quisquam est qui dolorem ipsum.
+          </S.DropdownDescription>
+          </S.WrapperDropdownContent>
+        </>
+      </NavbarDropdown>
+      <NavbarDropdown title="Derivatives">
+        <>
+          <S.WrapperDropdownContent href="#">
+            <S.DropdownTitle>
+              Title here
+          </S.DropdownTitle>
+            <S.DropdownDescription>
+              Neque porro quisquam est qui dolorem ipsum.
+          </S.DropdownDescription>
+          </S.WrapperDropdownContent>
+          <S.WrapperDropdownContent href="#">
+            <S.DropdownTitle>
+              Title here
+          </S.DropdownTitle>
+            <S.DropdownDescription>
+              Neque porro quisquam est qui dolorem ipsum.
+          </S.DropdownDescription>
+          </S.WrapperDropdownContent>
+        </>
+      </NavbarDropdown>
+      <NavbarDropdown title="Finance">
+        <>
+          <S.WrapperDropdownContent href="#">
+          <S.DropdownTitle>
+            Title here
+          </S.DropdownTitle>
+          <S.DropdownDescription>
+            Neque porro quisquam est qui dolorem ipsum.
+          </S.DropdownDescription>
+        </S.WrapperDropdownContent>
+          <S.WrapperDropdownContent href="#">
+          <S.DropdownTitle>
+            Title here
+          </S.DropdownTitle>
+          <S.DropdownDescription>
+            Neque porro quisquam est qui dolorem ipsum.
+          </S.DropdownDescription>
+        </S.WrapperDropdownContent>
+          <S.WrapperDropdownContent href="#">
+          <S.DropdownTitle>
+            Title here
+          </S.DropdownTitle>
+          <S.DropdownDescription>
+            Neque porro quisquam est qui dolorem ipsum.
+          </S.DropdownDescription>
+          </S.WrapperDropdownContent>
+          </>
+      </NavbarDropdown>
+      <NavbarLanguage/>
+
     </S.WrapperLinks>
 </S.Wrapper>
 )

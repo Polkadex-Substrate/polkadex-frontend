@@ -47,16 +47,18 @@ export const WrapperContent = styled.div`
   background-color:#2E303C;
   color: white;
   border-radius: 0 1rem 1rem 1rem;
-  width: 100%;
   padding: 1rem;
-  margin-top: 0.3rem;
   -webkit-box-shadow: 0 7px 18px 0 rgba(0, 0, 0, 0.27);
   -moz-box-shadow: 0 7px 18px 0 rgba(0, 0, 0, 0.27);
   box-shadow: 0 7px 18px 0 rgba(0, 0, 0, 0.27);
+  right: 0;
   a {
     padding: 0.5rem;
   }
-  a:not(:last-child){
-    border-bottom: 0.1rem solid white;
-  }
+
+`;
+export const ContainerContent = styled.div`
+  display: flex;
+  flex-direction:column;
+  align-items:flex-start;
 `;

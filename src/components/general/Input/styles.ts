@@ -38,6 +38,7 @@ export const Box = styled.div<Partial<InputProps>>`
 `
 export const Span = styled.span`
   color: white;
+  opacity: 0.8;
 `
 
 export const Input = styled.input`

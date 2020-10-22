@@ -8,9 +8,10 @@ import * as S from './styles'
 //  action?:()=> void
 // }
 export type DropdownProps = {
-  title: string,
+  title: string | number,
   children?: JSX.Element
   active?: boolean
+  action?: (name:void)=> void
 }
 
 const Dropdown = ({ title="Dropdown", children, active = false}: DropdownProps) => {
@@ -25,8 +26,10 @@ const Dropdown = ({ title="Dropdown", children, active = false}: DropdownProps) 
         </S.WrapperImage>
       </S.Header>
       {state &&
-       <S.WrapperContent className="animation">
-        {children}
+        <S.WrapperContent className="animation">
+        <S.ContainerContent>
+            {children}
+          </S.ContainerContent>
         </S.WrapperContent>
       }
     </S.Wrapper>

@@ -17,7 +17,7 @@ const MarketToken = ({name, shortName,source, pricing, volume, percent}:MarketTo
           <CoinIcon source={`/img/cryptocurrencies/${source}.svg`} />
           <S.ContainerCoinName>
             <span> {name} </span>
-            <span> {shortName} </span>
+            <S.Span> {shortName} </S.Span>
           </S.ContainerCoinName>
         </S.ContainerCoin>
       </S.Td>

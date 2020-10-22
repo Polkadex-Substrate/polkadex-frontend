@@ -4,7 +4,7 @@ export type InputProps = {
   label?: string
   icon?: 'None' | 'ArrowVerticalBottom' | 'ArrowVerticalTop'
   placeholder?: string
-  type: 'text' | 'email' | 'password' | 'url' | 'number'
+  type?: 'text' | 'email' | 'password' | 'url' | 'number'
   value?: number
   inputInfo?: string
   fullWidth?: boolean

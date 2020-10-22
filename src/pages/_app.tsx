@@ -1,3 +1,5 @@
+import 'react-tabs/style/react-tabs.css';
+
 import { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from 'styles/global'

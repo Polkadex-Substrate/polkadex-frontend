@@ -4,7 +4,7 @@ export type CheckboxPropx = {
   checked?: boolean
 }
 
-const Checkbox = ({ title, checked }: CheckboxPropx) => (
+const Checkbox = ({ title }: CheckboxPropx) => (
   <S.Label>
     <S.Input type="checkbox"/>
     <S.Span></S.Span>

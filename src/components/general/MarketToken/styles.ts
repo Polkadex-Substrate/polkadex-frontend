@@ -24,3 +24,6 @@ export const PricingVolume = styled.p`
   color: #E6007A;
   font-weight: 600;
 `
+export const Span = styled.span`
+  color:#8BA1BE;
+`

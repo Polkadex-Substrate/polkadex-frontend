@@ -1,4 +1,6 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+import { OrderBookTableProps } from '.'
 
 export const Wrapper = styled.div``
 
@@ -6,6 +8,9 @@ export const Wrapper = styled.div``
 export const Table = styled.table`
   width: 100%;
   text-align:left;
+  border-collapse: collapse;
+  display:table;
+
 `
 export const Thead = styled.thead`
   font-size: 1.2rem;
@@ -19,26 +24,35 @@ export const Thead = styled.thead`
 export const Tbody = styled.tbody`
   color: white;
   font-size: 1.2rem;
+  height: 13rem;
+  display: block;
+  overflow-y: auto;
   tr {
     display: grid;
     grid-template-columns: 2fr 4fr;
     align-items:center;
   }
 `
-
 export const Tr = styled.tr``
 export const Th = styled.th``
 
-export const Container= styled.div``
-
-export const LastTransaction = styled.div`
+export const LastTransaction = styled.div<Pick<OrderBookTableProps,'active'>>`
   background-color:#1D2127;
   padding: 1.5rem 1rem;
   text-align:center;
   margin: 1rem 0;
+  border-radius: 0.5rem;
+  margin-right: 2rem;
+  span {
+    font-weight: 700;
+  ${({active, theme }) => css`
+    color: ${active ? theme.colors.primary: theme.colors.white};
+  `}
+  }
+
+
 `
-export const WrapperBuy = styled.div``
-export const WrapperSell = styled.div``
+
 
 
 

@@ -12,7 +12,6 @@ const OrderBookOrder = ({ price, sell = false, amountCoin, coin, amountPair, pai
     <S.Td>
       {price}
     </S.Td>
-
     <S.Td>
       <S.ContainerFlex>
         <S.Span sell={sell}>{amountCoin} {coin}</S.Span>

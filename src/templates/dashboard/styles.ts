@@ -1,19 +1,14 @@
 import styled from 'styled-components'
-
-// MR - Menu Left
-// NB - Notifications Block
-// NM - Navbar Menu
-// GB - Graph Block
-// MB - Market Block
-// MOB - Market Order Block
-// TB - Transactions Block
-
+import media from "styled-media-query";
 
 export const Wrapper = styled.main`
   display: flex;
   flex-direction:row;
   height: 100vh;
   overflow-y: hidden;
+  max-width: 192rem;
+  margin: 0 auto;
+  box-shadow: 0px -36px 99px rgba(0, 0, 0, 0.5);
 `
 
 export const WrapperMain = styled.div`
@@ -23,6 +18,11 @@ export const WrapperMain = styled.div`
   padding: 0 1rem;
 `;
 export const WrapperGraph = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  ${media.greaterThan('large')`
+    grid-template-columns: 2.9fr 1.1fr;
+  `}
+  ${media.greaterThan('huge')`
+    grid-template-columns: 3fr 1fr;
+  `}
 `;

@@ -237,7 +237,7 @@ vertical-align:top;
 overflow:auto;
 }
 
-/* Selects
+/* Selects ------------------------------------
 -----------------------------------------------*/
 
 select
@@ -250,6 +250,57 @@ select[multiple]
 /* Move the label to the top */
 vertical-align:top;
 }
+/* Custom Scroll ------------------------------------
+-----------------------------------------------*/
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #5F697E;
+  border-radius: 2rem;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 2rem;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+/* React Tabs ------------------------------------
+-----------------------------------------------*/
+.react-tabs__tab-list {
+  border-bottom:none;
+  padding: 0;
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.react-tabs__tab {
+  padding: 0;
+  cursor: pointer;
+}
+.react-tabs__tab:first-child {
+  margin-right:1rem;
+}
+.react-tabs__tab--selected {
+  font-weight:bold;
+  background: none;
+  border:none;
+}
+
+.react-tabs__tab:focus {
+  box-shadow: none;
+  border-color: transparent;
+  outline: none;
+}
+
+.react-tabs__tab:focus:after {
+  background:transparent;
+}
+
 `
 
 export default GlobalStyles
