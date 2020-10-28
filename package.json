@@ -14,10 +14,18 @@
     "generate": "yarn plop --plopfile generators/plopfile.js"
   },
   "dependencies": {
+    "d3-dsv": "^2.0.0",
+    "d3-format": "^2.0.0",
+    "d3-scale": "^3.2.3",
+    "d3-time-format": "^3.0.0",
+    "moment": "^2.29.1",
     "next": "9.5.5",
     "react": "16.13.1",
+    "react-dates": "^21.8.0",
     "react-dom": "16.13.1",
+    "react-stockcharts": "^0.7.8",
     "react-tabs": "^3.1.1",
+    "shortid": "^2.2.16",
     "styled-components": "^5.2.0",
     "styled-media-query": "^2.1.2"
   },

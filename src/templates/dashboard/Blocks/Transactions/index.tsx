@@ -2,16 +2,29 @@ import Checkbox from 'components/general/Checkbox'
 import Dropdown from 'components/general/Dropdown'
 import DropdownItem from 'components/general/DropdownItem';
 import Icon from 'components/general/Icon'
-import Link from 'components/general/Link';
 import TransactionTable from 'components/general/TransactionTable'
 import { useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
+import { ITransactions } from './ITransactions';
 import * as S from './styles'
 
-const Transactions = () => {
-  const [filterState, setFilterState] = useState("All Transactions")
-  const handleChange = (select: string) => setFilterState(select)
+const initialFilters = {
+  hiddenPairs: false,
+  onlyBuy: false,
+  onlySell: false,
+  status: "All Transactions"
+}
+
+const Transactions = ({ data, remove }: ITransactions, pair = "DOT") => {
+  const [filters, setFilters] = useState(initialFilters)
+
+  // Filters Actions
+  const handleChangeHidden = () =>  setFilters({ ...filters, hiddenPairs: !filters.hiddenPairs })
+  const handleChangeStatus = (status: string) => setFilters({ ...filters, status })
+  const handleChangeBuy = () => setFilters({ ...filters, onlyBuy: !filters.onlyBuy })
+  const handleChangeSell = () => setFilters({ ...filters, onlySell: !filters.onlySell! })
+
   return (
     <S.Section>
       <Tabs>
@@ -23,36 +36,37 @@ const Transactions = () => {
             <Tab>Funds</Tab>
           </TabList>
           <S.WrapperActions>
-            <Checkbox title="Hide Other Pairs" checked={true} />
+            <Checkbox title="Hide Other Pairs" checked={filters.hiddenPairs} action={handleChangeHidden} />
             <S.ContainerActions>
-              <Checkbox title="Buy" />
-              <Checkbox title="Sell" />
+              <Checkbox title="Buy" checked={filters.onlyBuy} action={handleChangeBuy}/>
+              <Checkbox title="Sell" checked={filters.onlySell} action={handleChangeSell}/>
             </S.ContainerActions>
             <S.ContainerTransactions>
-              <Dropdown title={filterState}>
+              <Dropdown title={filters.status}>
                 <>
-                  <DropdownItem title="All Transactions" handleAction={handleChange} />
-                  <DropdownItem title="Pending" handleAction={handleChange} />
-                  <DropdownItem title="Completed" handleAction={handleChange} />
-                  <DropdownItem title="Canceled" handleAction={handleChange} />
+                  <DropdownItem title="All Transactions" handleAction={handleChangeStatus} />
+                  <DropdownItem title="Pending" handleAction={ handleChangeStatus} />
+                  <DropdownItem title="Completed" handleAction={handleChangeStatus} />
+                  <DropdownItem title="Canceled" handleAction={handleChangeStatus} />
                 </>
               </Dropdown>
               <Icon source="Transactions" background="Gray" size="Medium" />
+
             </S.ContainerTransactions>
           </S.WrapperActions>
         </S.Header>
         <TabPanel>
-          <TransactionTable />
+          <TransactionTable data={data} remove={remove} filters={filters}/>
+        </TabPanel>
+        {/* <TabPanel>
+          <TransactionTable data={data} />
         </TabPanel>
         <TabPanel>
-          <TransactionTable />
+          <TransactionTable data={data} />
         </TabPanel>
         <TabPanel>
-          <TransactionTable />
-        </TabPanel>
-        <TabPanel>
-          <TransactionTable />
-        </TabPanel>
+          <TransactionTable data={data} />
+        </TabPanel> */}
       </Tabs>
 
     </S.Section>

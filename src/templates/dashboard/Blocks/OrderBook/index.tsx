@@ -3,15 +3,25 @@ import DropdownItem from 'components/general/DropdownItem'
 import Heading from 'components/general/Heading'
 import OrderBookIcon from 'components/general/OrderBookIcon'
 import OrderBookTable from 'components/general/OrderBookTable'
-import {useState} from "react"
+import {useMemo,useState} from "react"
 
+import { IOrderBookData } from '../Graph/IGraph'
 import * as S from './styles'
 
-const OrderBook = () => {
+type Props = {
+  data: IOrderBookData[]
+}
+
+const OrderBook = ({ data }: Props) => {
   const [filterState, setFilterState] = useState("Order")
   const [sizeState, setSizeState] = useState(0.01)
-  const handleChange = (select: string): void => setFilterState(select)
-  const handleAction = (select: number): void => setSizeState(select)
+
+  const handleChange = (select: string) => setFilterState(select)
+  const handleAction = (select: number) => setSizeState(select)
+
+  const lastOrderBook = (data) => data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]
+
+  const last = useMemo<IOrderBookData>(() => lastOrderBook(data), [data])
 
   return (
     <S.Wrapper>
@@ -35,7 +45,7 @@ const OrderBook = () => {
           </Dropdown>
         </S.ContainerTitle>
       </S.WrapperTitle>
-        <OrderBookTable />
+      <OrderBookTable data={data} active={last && last.price}/>
     </S.Wrapper>
   )
 }

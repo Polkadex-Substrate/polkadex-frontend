@@ -1,22 +1,20 @@
+import { IOrderBookData } from 'templates/dashboard/blocks/Graph/IGraph'
+
 import * as S from './styles'
-export type OrderBookOrderProps = {
-  price: number
-  amountCoin: number
-  coin: string
-  amountPair: number
-  pair: string
-  sell?: boolean
+
+type Props = {
+  data: IOrderBookData
 }
-const OrderBookOrder = ({ price, sell = false, amountCoin, coin, amountPair, pair}:OrderBookOrderProps) => (
+const OrderBookOrder = ({data}:Props) => (
   <S.Tr>
     <S.Td>
-      {price}
+      {data.price}
     </S.Td>
     <S.Td>
       <S.ContainerFlex>
-        <S.Span sell={sell}>{amountCoin} {coin}</S.Span>
+        <S.Span sell={data.side === "sell"}>{data.amount} {data.coin}</S.Span>
         <S.Image src="/img/icons/Exchange.svg"/>
-        <span>{amountPair} {pair}</span>
+        <span>{data.total} {data.pair}</span>
       </S.ContainerFlex>
     </S.Td>
   </S.Tr>

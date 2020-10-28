@@ -14,7 +14,7 @@ export type DropdownProps = {
   action?: (name:void)=> void
 }
 
-const Dropdown = ({ title="Dropdown", children, active = false}: DropdownProps) => {
+const Dropdown = ({ title="Dropdown", children}: DropdownProps) => {
 
   const [state, setState] = useState(false)
   return (

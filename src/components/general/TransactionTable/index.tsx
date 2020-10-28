@@ -1,65 +1,47 @@
+import { ITransactionData, ITransactions } from 'templates/dashboard/blocks/Transactions/ITransactions'
+
 import TransactionOrder from '../TransactionOrder'
 import * as S from './styles'
 
-const TransactionTable = () => (
-  <S.Wrapper>
-    <S.Table>
-      <S.Thead>
-        <S.Tr>
-          <S.Th>Date</S.Th>
-          <S.Th>Pair</S.Th>
-          <S.Th>Side</S.Th>
-          <S.Th>Price</S.Th>
-          <S.Th>Fee</S.Th>
-          <S.Th>Total</S.Th>
-          <S.Th></S.Th>
-        </S.Tr>
-      </S.Thead>
-      <S.Tbody>
+type Props = {
+  data?: ITransactionData[]
+  remove?: (id:string) => void
+  filters?: {
+    hiddenPairs: boolean
+    onlyBuy: boolean
+    onlySell: boolean
+    status: string
+  }
+}
 
-        <TransactionOrder
-          date="Pending"
-          coin="DOT"
-          pair="BTC"
-          side="Buy"
-          price={0.00798219}
-          fee={0.00012900}
-          total={0.001434442}
-          pending={true}
-        />
-        <TransactionOrder
-          date="July 09, 2020 10:52:03"
-          coin="DOT"
-          pair="BTC"
-          side="Buy"
-          price={0.00798219}
-          fee={0.00012900}
-          total={0.001434442}
-        />
-        <TransactionOrder
-          date="July 09, 2020 10:52:03"
-          coin="DOT"
-          pair="BTC"
-          side="Buy"
-          price={0.00798219}
-          fee={0.00012900}
-          total={0.001434442}
-        />
-        <TransactionOrder
-          date="July 09, 2020 10:52:03"
-          coin="DOT"
-          pair="BTC"
-          side="Buy"
-          price={0.00798219}
-          fee={0.00012900}
-          total={0.001434442}
-        />
+const TransactionTable = ({ data, remove, filters }: Props) => (
+  <>
+    {data && <S.Wrapper>
+      <S.Table>
+        <S.Thead>
+          <S.Tr>
+            <S.Th>Date</S.Th>
+            <S.Th>Pair</S.Th>
+            <S.Th>Side</S.Th>
+            <S.Th>Price</S.Th>
+            <S.Th>Fee</S.Th>
+            <S.Th>Total</S.Th>
+            <S.Th></S.Th>
+          </S.Tr>
+        </S.Thead>
+        <S.Tbody>
+          {data && data.map(item => (
+            <TransactionOrder
+              key={item.id}
+              data={item}
+              remove={() => remove(item.id)}
+            />))}
+        </S.Tbody>
+      </S.Table>
 
+    </S.Wrapper> }
+  </>
 
-      </S.Tbody>
-    </S.Table>
-
-  </S.Wrapper>
 )
 
 export default TransactionTable

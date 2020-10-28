@@ -300,6 +300,8 @@ vertical-align:top;
 .react-tabs__tab:focus:after {
   background:transparent;
 }
+/* React StockCharts ------------------------------------
+-----------------------------------------------*/
 
 `
 
