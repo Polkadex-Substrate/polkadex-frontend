@@ -1,6 +1,4 @@
 import 'react-tabs/style/react-tabs.css';
-import 'react-dates/initialize';
-import 'react-dates/lib/css/_datepicker.css';
 
 import { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
