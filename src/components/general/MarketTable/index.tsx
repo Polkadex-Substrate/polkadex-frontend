@@ -1,7 +1,11 @@
+import { IMarketToken } from "utils/Interfaces"
+
 import MarketToken from '../MarketToken'
 import * as S from './styles'
-
-const MarketTable = () => (
+type Props = {
+  coins: IMarketToken[]
+}
+const MarketTable = ({ coins }: Props) => (
 <S.Wrapper>
     <S.Table>
       <S.Thead>
@@ -12,11 +16,9 @@ const MarketTable = () => (
         </S.Tr>
       </S.Thead>
       <S.Tbody>
-        <MarketToken name="Bitcoin" shortName="BTC" source="BTC" pricing={10.411} volume={7.1} percent={23.09} />
-        <MarketToken name="Aragon" shortName="AR" source="aragon" pricing={10.411} volume={7.1} percent={23.09} />
-        <MarketToken name="Ethereum" shortName="ETH" source="ether" pricing={10.411} volume={7.1} percent={23.09} />
-        <MarketToken name="Dogecoin" shortName="DOGE" source="DOGE" pricing={10.411} volume={7.1} percent={23.09} />
-        <MarketToken name="Emercoin" shortName="EMR" source="emercoin" pricing={10.411} volume={7.1} percent={23.09} />
+        {coins && coins.map((item:IMarketToken) => (
+          <MarketToken key={item.id} name={item.name} quote={item.quote} symbol={item.symbol} />
+        ))}
       </S.Tbody>
     </S.Table>
 

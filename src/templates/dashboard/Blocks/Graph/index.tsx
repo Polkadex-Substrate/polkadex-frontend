@@ -1,3 +1,4 @@
+import DateRange from 'components/general/DateRange'
 import Dropdown from 'components/general/Dropdown'
 import Icon from 'components/general/Icon'
 import ListItemButton from 'components/general/ListItemButton'
@@ -20,10 +21,34 @@ const Graph = ({ orderbook, graphData }: IGraph) => {
           <S.FlexWrapper>
             <S.List>
               <Icon source="Edit" />
-              <Icon source="History" />
+
+              <S.Item>
+                1h
+              </S.Item>
+              <S.Item>
+                24h
+              </S.Item>
+              <S.Item>
+                7d
+              </S.Item>
+              <S.Item>
+                1m
+              </S.Item>
+              <S.Item>
+                1y
+              </S.Item>
+              <S.Item>
+                all
+              </S.Item>
+              <DateRange position='left'/>
             </S.List>
           </S.FlexWrapper>
-          <Dropdown title="Candles" />
+          <Dropdown title="Candles">
+            <div>
+              <div>Candled</div>
+              <div>Area</div>
+          </div>
+          </Dropdown>
           <S.FlexWrapper>
             <S.List>
               <ListItemButton title="Original" size="Small" />

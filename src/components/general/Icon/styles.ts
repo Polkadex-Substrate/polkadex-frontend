@@ -56,7 +56,7 @@ const WrapperModifier = {
   `
 }
 
-export const Wrapper = styled.a<Partial<IconProps>>`
+export const Wrapper = styled.div<Partial<IconProps>>`
   ${({ theme, background, size }) => css`
     display: flex;
     align-items:center;

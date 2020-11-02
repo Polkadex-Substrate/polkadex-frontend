@@ -13,5 +13,7 @@ export const Image = styled.img`
 `
 export const Input = styled.input`
   color: white;
+  width:100%;
+
 `
 

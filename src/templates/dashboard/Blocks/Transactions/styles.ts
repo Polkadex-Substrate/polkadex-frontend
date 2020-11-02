@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import media from "styled-media-query"
+
 export const Section = styled.section`
+  grid-area:transactions;
   padding: 1rem 0;
 `
 

@@ -26,7 +26,7 @@ const NavbarPair = ({ coin, pairs }: NavbarPairProps) => {
           Coin
       </S.Label>
         <S.Container>
-          <S.Image src={`img/cryptocurrencies/${coin}.svg`} />
+          <S.Image src={`img/cryptocurrencies/${coin}.png`} />
           <S.Name>
             {coin}
           </S.Name>

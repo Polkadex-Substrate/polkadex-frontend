@@ -1,5 +1,6 @@
 import { LogoText } from 'components/general/Logo/styles';
 import styled from 'styled-components'
+import { WrapperMain } from 'templates/dashboard/styles';
 
 export const WrapperIcon = styled.a`
   display: flex;
@@ -53,6 +54,7 @@ export const Wrapper = styled.nav`
     display:block;
     opacity: 1;
   }
+
 `
 
 export const Logo = styled.img`

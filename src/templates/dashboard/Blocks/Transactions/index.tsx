@@ -1,4 +1,5 @@
 import Checkbox from 'components/general/Checkbox'
+import DateRange from 'components/general/DateRange';
 import Dropdown from 'components/general/Dropdown'
 import DropdownItem from 'components/general/DropdownItem';
 import Icon from 'components/general/Icon'
@@ -50,23 +51,22 @@ const Transactions = ({ data, remove }: ITransactions, pair = "DOT") => {
                   <DropdownItem title="Canceled" handleAction={handleChangeStatus} />
                 </>
               </Dropdown>
-              <Icon source="Transactions" background="Gray" size="Medium" />
-
+              <DateRange />
             </S.ContainerTransactions>
           </S.WrapperActions>
         </S.Header>
         <TabPanel>
           <TransactionTable data={data} remove={remove} filters={filters}/>
         </TabPanel>
-        {/* <TabPanel>
-          <TransactionTable data={data} />
+        <TabPanel>
+          <TransactionTable data={data} remove={remove} filters={filters}/>
         </TabPanel>
         <TabPanel>
-          <TransactionTable data={data} />
+          <TransactionTable data={data} remove={remove} filters={filters} />
         </TabPanel>
         <TabPanel>
-          <TransactionTable data={data} />
-        </TabPanel> */}
+          <TransactionTable data={data} remove={remove} filters={filters} />
+        </TabPanel>
       </Tabs>
 
     </S.Section>

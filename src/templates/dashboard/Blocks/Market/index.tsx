@@ -6,8 +6,8 @@ import SearchInput from 'components/general/SearchInput'
 
 import * as S from './styles'
 
-const Market = () => (
-  <S.Section>
+const Market = ({ coins}) => (
+  <S.Section >
     <S.Header>
       <Heading title="Market" />
       <Dropdown title="Pair | USD">
@@ -22,7 +22,7 @@ const Market = () => (
       </S.ContainerActions>
     </S.WrapperActions>
     <S.WrapperTokens>
-      <MarketTable />
+      <MarketTable coins={coins}/>
     </S.WrapperTokens>
   </S.Section>
 )

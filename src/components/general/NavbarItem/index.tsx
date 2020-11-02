@@ -1,16 +1,16 @@
+
 import * as S from './styles'
 
 export type NavbarItemPops = {
   label?: string
-  info?: string | number
-  color?: 'Red'
+  info?: string
 }
-const NavbarItem = ({label, info, color}: NavbarItemPops) => (
+const NavbarItem = ({label, info}: NavbarItemPops) => (
 <S.Wrapper>
     <S.Label>
       {label}
     </S.Label>
-    <S.Info color={color}>
+    <S.Info>
       {info}
     </S.Info>
 </S.Wrapper>

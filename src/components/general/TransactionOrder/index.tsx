@@ -28,7 +28,7 @@ const TransactionOrder = ({ data, remove }: Props) => (
     <S.Td>
       <S.Tag>Pair</S.Tag>
       <S.ContainerFlex>
-        <S.Image src={`img/cryptocurrencies/${data.coin}.svg`}  />
+        <S.Image src={`img/cryptocurrencies/${data.coin}.png`}  />
         <span>{data.coin} / {data.pair}</span>
       </S.ContainerFlex>
     </S.Td>

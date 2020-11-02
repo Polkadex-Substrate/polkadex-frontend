@@ -1,6 +1,9 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import media from "styled-media-query";
 
+type Props = {
+  marketActive: boolean
+}
 export const Wrapper = styled.main`
   display: flex;
   flex-direction:row;
@@ -17,12 +20,21 @@ export const WrapperMain = styled.div`
   width: 100%;
   padding: 0 1rem;
 `;
-export const WrapperGraph = styled.div`
+export const WrapperGraph = styled.div<Props>`
   display: grid;
-  ${media.greaterThan('large')`
-    grid-template-columns: 3fr 1fr;
+  grid-template-areas:
+    'graph'
+    'marketorder'
+    'transactions';
+  ${media.greaterThan<Props>('large')`
+    ${({marketActive }) => css`
+    grid-template-areas: ${marketActive ? `
+      'graph graph graph'
+      'transactions transactions marketorder';
+      ` : `
+      'graph graph marketorder'
+      'transactions transactions transactions'`};
+    `}
   `}
-  ${media.greaterThan('huge')`
-    grid-template-columns: 2.9fr 0.9fr;
-  `}
+
 `;

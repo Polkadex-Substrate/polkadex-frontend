@@ -12,9 +12,8 @@ export const Label = styled.span`
   ` }
 `
 export const Info = styled.p<Partial<NavbarItemPops>>`
-  ${({ theme,color }) => css`
+  ${({ theme }) => css`
     font-size: ${theme.font.sizes.medium};
-    color: ${color ? theme.colors.primary : 'inherit'};
     font-weight:700;
   ` }
 `

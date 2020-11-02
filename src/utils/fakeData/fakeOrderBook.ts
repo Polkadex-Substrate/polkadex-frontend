@@ -50,7 +50,7 @@ const fakeOrderBook = [
     total: 2.62844,
   },
   {
-    id: 3,
+    id: 6,
     date: new Date("2020-06-06"),
     pair: "DOT",
     coin: "BTC",
@@ -60,7 +60,7 @@ const fakeOrderBook = [
     total: 0.054256,
   },
   {
-    id: 3,
+    id: 7,
     date: new Date("2020-07-07"),
     pair: "DOT",
     coin: "BTC",
@@ -70,7 +70,7 @@ const fakeOrderBook = [
     total: 0.054256,
   },
   {
-    id: 3,
+    id: 8,
     date: new Date("2020-08-08"),
     pair: "DOT",
     coin: "BTC",
@@ -80,7 +80,7 @@ const fakeOrderBook = [
     total: 0.054256,
   },
   {
-    id: 3,
+    id: 9,
     date: new Date("2020-09-09"),
     pair: "DOT",
     coin: "BTC",
@@ -90,7 +90,7 @@ const fakeOrderBook = [
     total: 0.054256,
   },
   {
-    id: 4,
+    id: 10,
     date: new Date("2020-10-10"),
     pair: "DOT",
     coin: "BTC",
@@ -100,7 +100,7 @@ const fakeOrderBook = [
     total: 1.65568,
   },
   {
-    id: 5,
+    id: 11,
     date: new Date("2020-01-01"),
     pair: "DOT",
     coin: "BTC",

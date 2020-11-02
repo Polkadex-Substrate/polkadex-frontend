@@ -4,7 +4,7 @@ import Logo from 'components/general/Logo'
 import * as S from './styles'
 
 export type MenuProps = {
-  handleChange: ()=> void
+  handleChange?: ()=> void
 }
 const Menu = ({handleChange}:MenuProps) => (
   <S.Wrapper>
@@ -24,7 +24,6 @@ const Menu = ({handleChange}:MenuProps) => (
           <div>
             <S.Span>Exchange</S.Span>
           </div>
-
         </S.WrapperIcon>
         <S.WrapperIcon href="#">
           <div>

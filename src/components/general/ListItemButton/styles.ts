@@ -50,5 +50,8 @@ ${({ theme, size, darkMode, fullWidth }) => css`
   :active {
     background-color: ${theme.colors.primary};
   }
+  :not(:last-child){
+    margin-right: 1rem;
+  }
 `}
 `

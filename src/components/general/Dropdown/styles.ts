@@ -5,6 +5,7 @@ import { DropdownProps } from '.';
 export const Wrapper = styled.div`
   width: fit-content;
   position: relative;
+  z-index:10;
 `;
 
 export const Header = styled.div`

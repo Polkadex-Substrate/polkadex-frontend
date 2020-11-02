@@ -26,6 +26,7 @@ const MarketOrder = () => {
             </>
           </Dropdown>
         </S.Header>
+
         <TabPanel>
           <MarketOrderAction type="Buy" />
         </TabPanel>

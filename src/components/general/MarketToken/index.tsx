@@ -1,38 +1,39 @@
+
+import Dinero from "dinero.js"
+import { IMarketToken } from "utils/Interfaces"
+
 import CoinIcon from '../CoinIcon'
 import * as S from './styles'
 
-export type MarketTokenProps = {
-  name: string
-  shortName: string
-  source: string
-  pricing: number
-  volume: number
-  percent: number
-}
+const MarketToken = ({ name, symbol, quote }: IMarketToken) => {
 
-const MarketToken = ({name, shortName,source, pricing, volume, percent}:MarketTokenProps) => (
-    <S.Tr>
+  return (
+    <S.Tr onClick={()=> console.log("Change Coin")}>
       <S.Td>
-        <S.ContainerCoin>
-          <CoinIcon source={`/img/cryptocurrencies/${source}.svg`} />
+        <S.ContainerCoin >
+          <CoinIcon source={`/img/cryptocurrencies/${symbol}.png`} />
           <S.ContainerCoinName>
             <span> {name} </span>
-            <S.Span> {shortName} </S.Span>
+            <S.Span> {symbol} </S.Span>
           </S.ContainerCoinName>
         </S.ContainerCoin>
       </S.Td>
-      <S.Td>${pricing}</S.Td>
+      <S.Td>
+        {Dinero({ amount: Math.round(quote.USD.price * 100) }).toFormat('$0,0.00')}
+      </S.Td>
+
       <S.Td>
         <S.ContainerPricing>
           <S.PricingPercent>
-            ${volume}mi
-              </S.PricingPercent>
-          <S.PricingVolume>
-            {percent}%
-              </S.PricingVolume>
+            {Dinero({ amount: Math.round(quote.USD.volume_24h * 100) }).toFormat('$0,0').toString().slice(0, 6)}
+          </S.PricingPercent>
+          <S.PricingVolume negative={Math.sign(quote.USD.percent_change_24h) === -1}>
+            {quote.USD.percent_change_24h.toString().slice(0,4)}%
+          </S.PricingVolume>
         </S.ContainerPricing>
       </S.Td>
     </S.Tr>
-)
+  )
+}
 
 export default MarketToken

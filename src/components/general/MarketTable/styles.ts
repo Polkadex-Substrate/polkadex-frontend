@@ -8,20 +8,21 @@ export const Table = styled.table`
   text-align:left;
 `
 export const Thead = styled.thead`
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #8BA1BE;
   tr {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr;
     margin-bottom:1rem;
+    padding: 0 0 0 2rem;
   }
 `
 export const Tbody = styled.tbody`
   color: white;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   tr {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr;
     align-items:center;
   }
 `

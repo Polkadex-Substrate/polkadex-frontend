@@ -2,6 +2,9 @@ import styled from 'styled-components'
 
 export const Section = styled.section`
   margin-left: 1rem;
+  min-width: 33rem;
+  grid-area:marketorder;
+
   & .react-tabs__tab--selected {
     color: green;
   }
