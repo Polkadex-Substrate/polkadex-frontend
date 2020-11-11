@@ -109,17 +109,55 @@ export default function Dashboard() {
     });
 
     // Now there are some trades executing in the system so now let's listen for market data updates from Polkadex
-    api.derive.chain.subscribeNewHeads((header) => {
-      api.query.polkadex.marketInfo(tradingPairID, header.number).then(async(market_data) => {
+    api.derive.chain.subscribeNewHeads(async (header) => {
+      let best_bid;
+      let best_ask;
+      await api.query.polkadex.orderbooks(tradingPairID).then((orderbook) => {
+        best_bid = (orderbook.best_bid_price/FixedU128_denominator);
+        best_ask = (orderbook.best_ask_price/FixedU128_denominator);
+        // console.log(`Best Bid ${best_bid}`);
+        // console.log(`Best Ask ${best_ask}`);
+      });
+
+      api.query.polkadex.priceLevels.entries(tradingPairID).then(async (levels) => {
+        // console.log(levels.toString())
+
+        const getColorStaus = (price) => {
+          if ((price/FixedU128_denominator) >= best_ask) return "sell"
+          else if((price/FixedU128_denominator) <= best_bid) return "buy"
+        }
+
+        let currentOrderBook = [];
+        levels.map(([key, level]) => {
+
+          const price = parseFloat(key.toHuman()[1])/FixedU128_denominator;
+          const amount = level.orders.reduce((total, currentValue) => parseFloat(total) + parseFloat(currentValue.quantity), 0);
+
+          currentOrderBook.push({
+            id: currentOrderBook.length + 1,
+            date: new Date(),
+            pair: "DOT",
+            coin: "BTC",
+            side: getColorStaus(parseFloat(key.toHuman()[1])),
+            price: price,
+            amount: amount,
+            total: amount * price,
+          });
+          // console.log('     Price:', parseFloat(key.toHuman()[1])); // TODO: @Rudar there is something we need to do with best_bid and best_ask, I wil explain it on call.
+          // console.log('     level:', level.orders.toHuman()); // TODO: @Rudar loop through the each order and add up the quantity.
+        });
+        await setOrderBook(currentOrderBook.sort((first, second) => second.price - first.price));
+      })
+
+      api.query.polkadex.marketInfo(tradingPairID, header.number).then(async (market_data) => {
         await setVolume(market_data.volume);
       });
     });
 
     api.query.system.events(async (events) => {
-      console.log(`\nReceived ${events.length} events:`);
+      // console.log(`\nReceived ${events.length} events:`);
       let lastPrice = 0;
       let lastPriceType;
-      let currentOrderBook = [];
 
       // Loop through the Vec<EventRecord>
       events.forEach((record) => {
@@ -130,24 +168,13 @@ export default function Dashboard() {
         if((event.section === "polkadex") && (event.method === "FulfilledLimitOrder" || event.method === "PartialFillLimitOrder")) {
           lastPrice = event.data[3]/FixedU128_denominator;
           lastPriceType = event.data[2].toString();
-          currentOrderBook.push({
-            id: orderBook.length + 1,
-            date: new Date(),
-            pair: "DOT",
-            coin: "BTC",
-            side: event.data[2].toString() === "AskLimit" ? "sell" : "buy",
-            price: event.data[3]/FixedU128_denominator,
-            amount: event.data[3]/FixedU128_denominator,
-            total: event.data[3]/FixedU128_denominator
-          });
-          console.log(`\t\t\t${types[2].type}: ${event.data[2].toString()}`) // TODO: @Rudar use this as the code for last transaction
-          console.log(`\t\t\tPrice: ${event.data[3]/FixedU128_denominator}`) // TODO: @Rudar Use this as the last transaction value
+          // console.log(`\t\t\t${types[2].type}: ${event.data[2].toString()}`) // TODO: @Rudar use this as the code for last transaction
+          // console.log(`\t\t\tPrice: ${event.data[3]/FixedU128_denominator}`) // TODO: @Rudar Use this as the last transaction value
           // TODO: @Rudar if event.data[2].toString() === AskLimit then Red Color, if BidLimit then green color
         }
       });
       await setLastTradePrice(lastPrice);
       await setLastTradePriceType(lastPriceType);
-      await setOrderBook(currentOrderBook);
     });
   }
 
@@ -192,12 +219,11 @@ export default function Dashboard() {
       <S.WrapperMain >
         <Navbar currentToken={current} volume={volume} lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType} />
         <S.WrapperGraph marketActive={state}>
-          <Graph orderbook={orderBook} graphData={graphData}/>
+          <Graph orderbook={orderBook} latestTransaction={lastTradePrice} latestTransactionType={lastTradePriceType} graphData={graphData}/>
           <MarketOrder />
           <Transactions data={transactions} remove={transactionActions.removeTransactionsOrder}/>
         </S.WrapperGraph>
       </S.WrapperMain>
-
     </S.Wrapper>
   )
 }

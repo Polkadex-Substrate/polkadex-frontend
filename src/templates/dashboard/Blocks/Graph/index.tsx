@@ -8,9 +8,10 @@ import { useState } from 'react'
 import OrderBook from '../OrderBook'
 import { IGraph } from './IGraph'
 import * as S from './styles'
+import React from 'react'
 const Chart = dynamic(()=> import('components/dashboard/CustomChart'))
 
-const Graph = ({ orderbook, graphData }: IGraph) => {
+const Graph = ({ orderbook, graphData, latestTransaction, latestTransactionType }: IGraph) => {
   const [filters, setFilters] = useState({
     type: "CandlestickSeries"
   })
@@ -60,7 +61,7 @@ const Graph = ({ orderbook, graphData }: IGraph) => {
         </S.Header>
         {graphData.length > 1 ? <Chart data={graphData} type={filters.type}/> : <p>Loading..</p>}
       </S.WrapperGraph>
-      <OrderBook data={orderbook}/>
+      <OrderBook data={orderbook} latestTransaction={latestTransaction} latestTransactionType={latestTransactionType} />
     </S.Wrapper>
   )
 }

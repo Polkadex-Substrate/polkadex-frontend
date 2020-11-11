@@ -36,7 +36,7 @@ export const Tbody = styled.tbody`
 export const Tr = styled.tr``
 export const Th = styled.th``
 
-export const LastTransaction = styled.div<Pick<OrderBookTableProps,'active'>>`
+export const LastTransaction = styled.div<Pick<OrderBookTableProps>>`
   background-color:#1D2127;
   padding: 1.5rem 1rem;
   text-align:center;
@@ -45,13 +45,20 @@ export const LastTransaction = styled.div<Pick<OrderBookTableProps,'active'>>`
   margin-right: 2rem;
   span {
     font-weight: 700;
-  ${({active, theme }) => css`
-    color: ${active ? theme.colors.primary: theme.colors.white};
-  `}
   }
 
 
 `
+
+export const VolumeHigh = styled.span`
+  color: green;
+`;
+
+export const VolumeLow = styled.span`
+  ${({ theme }) => css`
+    color: ${theme.colors.primary};
+  `}
+`;
 
 
 

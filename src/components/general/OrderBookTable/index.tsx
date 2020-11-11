@@ -4,11 +4,13 @@ import OrderBookOrder from '../OrderBookOrder'
 import * as S from './styles'
 
 export type OrderBookTableProps = {
-  active?: number
-  data: IOrderBookData[]
+  data: IOrderBookData[];
+  latestTransaction: number;
+  latestTransactionType: string;
 }
 
-const OrderBookTable = ({ active = 0, data }: OrderBookTableProps) => {
+const OrderBookTable = ({ latestTransaction, latestTransactionType, data }: OrderBookTableProps) => {
+  console.log(latestTransaction)
 
   const filterBy = (side) => data.filter(item => item.side === side)
 
@@ -26,8 +28,30 @@ const OrderBookTable = ({ active = 0, data }: OrderBookTableProps) => {
         </S.Tbody>
       </S.Table>
 
-      <S.LastTransaction active={active}>
-        <p>Latest transaction <span>{active} </span></p>
+
+      <S.LastTransaction>
+        <p>
+          Latest transaction&nbsp;
+          {
+            latestTransactionType ?
+              (
+                latestTransactionType === 'AskLimit'
+                  ? <S.VolumeLow>
+                    <span>
+                      {latestTransaction}
+                    </span>
+                  </S.VolumeLow>
+                  : <S.VolumeHigh>
+                    <span>
+                      {latestTransaction}
+                    </span>
+                  </S.VolumeHigh>
+              )
+              : <span>
+                {latestTransaction}
+              </span>
+          }
+        </p>
       </S.LastTransaction>
 
       <S.Table>

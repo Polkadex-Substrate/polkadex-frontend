@@ -7,9 +7,9 @@ export type NavbarItemPops = {
 }
 const NavbarItem = ({label, info, type}: NavbarItemPops) => (
 <S.Wrapper>
-    <S.Label>
-      {label}
-    </S.Label>
+  <S.Label>
+    {label}
+  </S.Label>
   {
     type ?
       (
