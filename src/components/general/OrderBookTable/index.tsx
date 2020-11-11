@@ -13,8 +13,8 @@ const OrderBookTable = ({ active = 0, data }: OrderBookTableProps) => {
   const filterBy = (side) => data.filter(item => item.side === side)
 
   return (
-  <S.Wrapper>
-    <S.Table>
+    <S.Wrapper>
+      <S.Table>
         <S.Thead>
         <S.Tr>
           <S.Th>Price</S.Th>
@@ -22,14 +22,15 @@ const OrderBookTable = ({ active = 0, data }: OrderBookTableProps) => {
         </S.Tr>
         </S.Thead>
         <S.Tbody>
-          {data && filterBy('buy').map(item => ( <OrderBookOrder key={item.id} data={item}/> ))}
-      </S.Tbody>
+          {data && filterBy('sell').map(item => ( <OrderBookOrder key={item.id} data={item}/> ))}
+        </S.Tbody>
       </S.Table>
 
       <S.LastTransaction active={active}>
         <p>Latest transaction <span>{active} </span></p>
-    </S.LastTransaction>
-    <S.Table>
+      </S.LastTransaction>
+
+      <S.Table>
         <S.Thead>
           <S.Tr>
             <S.Th>Price</S.Th>
@@ -37,11 +38,11 @@ const OrderBookTable = ({ active = 0, data }: OrderBookTableProps) => {
           </S.Tr>
         </S.Thead>
         <S.Tbody>
-          {data && filterBy('sell').map(item => ( <OrderBookOrder key={item.id} data={item}/> ))}
+          {data && filterBy('buy').map(item => ( <OrderBookOrder key={item.id} data={item}/> ))}
         </S.Tbody>
-    </S.Table>
-
-  </S.Wrapper>
-)}
+      </S.Table>
+    </S.Wrapper>
+  )
+}
 
 export default OrderBookTable

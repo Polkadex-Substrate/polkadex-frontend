@@ -18,3 +18,18 @@ export const Info = styled.p<Partial<NavbarItemPops>>`
   ` }
 `
 
+export const VolumeHigh = styled.div`
+  p {
+    color: green;
+  }
+`;
+
+export const VolumeLow = styled.div`
+  p {
+    ${({ theme }) => css`
+      color: ${theme.colors.primary};
+    `}
+  }
+
+`;
+

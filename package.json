@@ -14,6 +14,7 @@
     "generate": "yarn plop --plopfile generators/plopfile.js"
   },
   "dependencies": {
+    "@polkadot/types": "^2.5.1",
     "@types/dinero.js": "^1.6.5",
     "d3-dsv": "^2.0.0",
     "d3-format": "^2.0.0",
@@ -35,6 +36,7 @@
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-typescript": "^7.10.4",
+    "@polkadot/api": "^2.5.1",
     "@storybook/addon-actions": "^6.0.26",
     "@storybook/addon-essentials": "^6.0.26",
     "@storybook/addon-links": "^6.0.26",

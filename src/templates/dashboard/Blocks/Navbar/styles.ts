@@ -63,7 +63,9 @@ export const VolumeHigh = styled.div`
 
 export const VolumeLow = styled.div`
   p {
-    color: red;
+    ${({ theme }) => css`
+      color: ${theme.colors.primary};
+    `}
   }
 
 `;
