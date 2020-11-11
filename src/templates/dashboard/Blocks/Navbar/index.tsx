@@ -1,4 +1,3 @@
-import Link from 'components/general/Link'
 import NavbarDropdown from 'components/general/NavbarDropdown'
 import NavbarItem from 'components/general/NavbarItem'
 import NavbarLanguage from 'components/general/NavbarLanguage'
@@ -49,7 +48,6 @@ const Navbar = ({ currentToken }: Props) => {
       </S.ContainerInfo>
     </S.WrapperInfo>
     <S.WrapperLinks>
-      <Link title="Market" href="#" />
       <NavbarDropdown title="Trade">
         <>
           <S.WrapperDropdownContent href="#">

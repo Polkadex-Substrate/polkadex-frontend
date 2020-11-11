@@ -34,13 +34,13 @@ const Graph = ({ orderbook, graphData }: IGraph) => {
                 24h
               </S.Item>
               <S.Item>
-                7d
+                7D
               </S.Item>
               <S.Item>
-                1m
+                1M
               </S.Item>
               <S.Item>
-                1y
+                1Y
               </S.Item>
               <S.Item>
                 all
