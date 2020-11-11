@@ -22,7 +22,6 @@ const MarketOrder = () => {
             <>
               <DropdownItem title="Market Order" handleAction={handleChange} />
               <DropdownItem title="Limit Order" handleAction={handleChange} />
-              <DropdownItem title="Stop Order" handleAction={handleChange} />
             </>
           </Dropdown>
         </S.Header>

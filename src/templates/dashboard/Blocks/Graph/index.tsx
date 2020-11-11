@@ -8,11 +8,12 @@ import { useState } from 'react'
 import OrderBook from '../OrderBook'
 import { IGraph } from './IGraph'
 import * as S from './styles'
-const Chart = dynamic(()=> import('components/dashboard/CustomChart'))
+
+const Chart = dynamic(() => import('components/dashboard/CustomChart'))
 
 const Graph = ({ orderbook, graphData }: IGraph) => {
   const [filters, setFilters] = useState({
-    type: "CandlestickSeries"
+    type: 'CandlestickSeries',
   })
   return (
     <S.Wrapper>
@@ -20,7 +21,11 @@ const Graph = ({ orderbook, graphData }: IGraph) => {
         <S.Header>
           <S.FlexWrapper>
             <S.List>
-              <Icon source="Edit" />
+              <Icon source="Edit"/>
+
+              <S.Item>
+                1m
+              </S.Item>
 
               <S.Item>
                 1h
@@ -47,14 +52,14 @@ const Graph = ({ orderbook, graphData }: IGraph) => {
             <div>
               <div>Candled</div>
               <div>Area</div>
-          </div>
+            </div>
           </Dropdown>
           <S.FlexWrapper>
             <S.List>
-              <ListItemButton title="Original" size="Small" />
-              <ListItemButton title="Trading View" size="Small" />
-              <ListItemButton title="Deep Market" size="Small" />
-              <Icon source="Expand" />
+              <ListItemButton title="Original" size="Small"/>
+              <ListItemButton title="Trading View" size="Small"/>
+              <ListItemButton title="Deep Market" size="Small"/>
+              <Icon source="Expand"/>
             </S.List>
           </S.FlexWrapper>
         </S.Header>
