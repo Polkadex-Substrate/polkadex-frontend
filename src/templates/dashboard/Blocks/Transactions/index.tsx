@@ -56,16 +56,20 @@ const Transactions = ({ data, remove }: ITransactions, pair = "DOT") => {
           </S.WrapperActions>
         </S.Header>
         <TabPanel>
-          <TransactionTable data={data} remove={remove} filters={filters}/>
+          Coming Soon
+          {/*<TransactionTable data={data} remove={remove} filters={filters}/>*/}
         </TabPanel>
         <TabPanel>
-          <TransactionTable data={data} remove={remove} filters={filters}/>
+          Coming Soon
+          {/*<TransactionTable data={data} remove={remove} filters={filters}/>*/}
         </TabPanel>
         <TabPanel>
-          <TransactionTable data={data} remove={remove} filters={filters} />
+          Coming Soon
+          {/*<TransactionTable data={data} remove={remove} filters={filters}/>*/}
         </TabPanel>
         <TabPanel>
-          <TransactionTable data={data} remove={remove} filters={filters} />
+          Coming Soon
+          {/*<TransactionTable data={data} remove={remove} filters={filters}/>*/}
         </TabPanel>
       </Tabs>
 

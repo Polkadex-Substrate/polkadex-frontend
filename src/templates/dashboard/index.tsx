@@ -3,12 +3,12 @@ import React, { useEffect,useState } from 'react'
 import { fakeGetGraphData, fakeLatestListings,fakeOrderBook, fakeTransactionsOrders} from "utils/fakeData/"
 import { IMarketToken } from 'utils/Interfaces'
 
-import Graph from './blocks/Graph'
-import Market from './blocks/Market'
-import MarketOrder from './blocks/MarketOrder'
-import Menu from './blocks/Menu'
-import Navbar from './blocks/Navbar'
-import Transactions from './blocks/Transactions'
+import Graph from './Blocks/Graph'
+import Market from './Blocks/Market'
+import MarketOrder from './Blocks/MarketOrder'
+import Menu from './Blocks/Menu'
+import Navbar from './Blocks/Navbar'
+import Transactions from './Blocks/Transactions'
 import * as S from './styles'
 
 const initialState = {
@@ -54,7 +54,7 @@ export default function Dashboard() {
 
   // Fake Transactions Orders Actions
   const transactionActions = {
-    getTransactionsOrders: () => setTransactions(fakeTransactionsOrders),
+    getTransactionsOrders: () => setTransactions([]),
     removeTransactionsOrder : (id: string) => {
       const removeItem = transactions.filter(item => item.id !== id)
       setTransactions(removeItem)
