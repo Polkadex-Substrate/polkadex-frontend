@@ -159,8 +159,10 @@ export default function Dashboard() {
           lastPriceType = event.data[2].toString();
         }
       });
-      await setLastTradePrice(lastPrice);
-      await setLastTradePriceType(lastPriceType);
+      if (lastPrice !== 0) {
+        await setLastTradePrice(lastPrice);
+        await setLastTradePriceType(lastPriceType);
+      }
     });
   }
 

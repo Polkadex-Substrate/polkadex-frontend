@@ -16,12 +16,12 @@ type Props = {
 
 const OrderBook = ({ data, latestTransaction, latestTransactionType }: Props) => {
   const [filterState, setFilterState] = useState("Order")
-  const [sizeState, setSizeState] = useState(0.01)
+  const [sizeState, setSizeState] = useState(0.0001)
 
   const handleChange = (select: string) => setFilterState(select)
   const handleAction = (select: number) => setSizeState(select)
 
-  const getDecimalPlaces = () => sizeState.toString().split('.')[1].length+1 || 0
+  const getDecimalPlaces = () => sizeState.toString().split('.')[1].length || 0
 
   const updateDataSize = (orderBookData) => orderBookData.map(order => ({
     ...order,
