@@ -10,7 +10,6 @@ export type OrderBookTableProps = {
 }
 
 const OrderBookTable = ({ latestTransaction, latestTransactionType, data }: OrderBookTableProps) => {
-  console.log(latestTransaction)
 
   const filterBy = (side) => data.filter(item => item.side === side)
 

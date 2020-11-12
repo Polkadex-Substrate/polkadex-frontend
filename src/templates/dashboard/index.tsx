@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from 'react'
 // Fake Data
-import { fakeGetGraphData, fakeLatestListings,fakeOrderBook, fakeTransactionsOrders} from "utils/fakeData/"
+import { fakeGetGraphData, fakeLatestListings, fakeTransactionsOrders} from "utils/fakeData/"
 import { IMarketToken } from 'utils/Interfaces'
 import { ApiPromise, WsProvider } from '@polkadot/api'
 
@@ -54,7 +54,6 @@ export default function Dashboard() {
   const [orderBook, setOrderBook] = useState([])
   const [graphData, setGraphData] = useState([])
   const [coins, setCoins] = useState<any>([])
-  const [current, setCurrent] = useState(initialState)
   const [volume, setVolume] = useState(initialState.quote.USD.volume_24h);
   const [lastTradePrice, setLastTradePrice] = useState(initialState.quote.USD.price);
   const [lastTradePriceType, setLastTradePriceType] = useState();
@@ -123,22 +122,22 @@ export default function Dashboard() {
         // console.log(levels.toString())
 
         const getColorStaus = (price) => {
-          if ((price/FixedU128_denominator) >= best_ask) return "sell"
-          else if((price/FixedU128_denominator) <= best_bid) return "buy"
+          if (price >= best_ask) return "sell"
+          else if(price <= best_bid) return "buy"
         }
 
         let currentOrderBook = [];
         levels.map(([key, level]) => {
 
-          const price = parseFloat(key.toHuman()[1])/FixedU128_denominator;
-          const amount = level.orders.reduce((total, currentValue) => parseFloat(total) + parseFloat(currentValue.quantity), 0);
+          const price = parseFloat(key.toHuman()[1].replace(/,/g, ''))/FixedU128_denominator;
+          const amount = level.orders.reduce((total, currentValue) => parseFloat(total) + parseFloat(currentValue.quantity), 0)/FixedU128_denominator;
 
           currentOrderBook.push({
             id: currentOrderBook.length + 1,
             date: new Date(),
             pair: "DOT",
             coin: "BTC",
-            side: getColorStaus(parseFloat(key.toHuman()[1])),
+            side: getColorStaus(price),
             price: price,
             amount: amount,
             total: amount * price,
@@ -217,7 +216,7 @@ export default function Dashboard() {
       <Menu handleChange={() => setState(!state)} />
       {state && <Market coins={coins}/>}
       <S.WrapperMain >
-        <Navbar currentToken={current} volume={volume} lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType} />
+        <Navbar currentToken={initialState} volume={volume} lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType} />
         <S.WrapperGraph marketActive={state}>
           <Graph orderbook={orderBook} latestTransaction={lastTradePrice} latestTransactionType={lastTradePriceType} graphData={graphData}/>
           <MarketOrder />

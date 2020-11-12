@@ -3,7 +3,7 @@ import DropdownItem from 'components/general/DropdownItem'
 import Heading from 'components/general/Heading'
 import OrderBookIcon from 'components/general/OrderBookIcon'
 import OrderBookTable from 'components/general/OrderBookTable'
-import React, {useMemo,useState} from "react"
+import React, { useState } from "react"
 
 import { IOrderBookData } from '../Graph/IGraph'
 import * as S from './styles'
@@ -20,6 +20,15 @@ const OrderBook = ({ data, latestTransaction, latestTransactionType }: Props) =>
 
   const handleChange = (select: string) => setFilterState(select)
   const handleAction = (select: number) => setSizeState(select)
+
+  const getDecimalPlaces = () => sizeState.toString().split('.')[1].length || 0
+
+  const updateDataSize = (orderBookData) => orderBookData.map(order => ({
+    ...order,
+    price: order.price.toFixed(getDecimalPlaces()),
+    amount: order.amount.toFixed(getDecimalPlaces()),
+    total: order.total.toFixed(getDecimalPlaces())
+  }));
 
   // const lastOrderBook = (data) => data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]
 
@@ -47,7 +56,9 @@ const OrderBook = ({ data, latestTransaction, latestTransactionType }: Props) =>
           </Dropdown>
         </S.ContainerTitle>
       </S.WrapperTitle>
-      <OrderBookTable data={data} latestTransaction={latestTransaction} latestTransactionType={latestTransactionType}/>
+      <OrderBookTable data={updateDataSize(data)}
+                      latestTransaction={latestTransaction}
+                      latestTransactionType={latestTransactionType}/>
     </S.Wrapper>
   )
 }
