@@ -12,19 +12,7 @@ const testPairs = [
   {
     id: 1,
     name: "BTC"
-  },
-  {
-    id: 2,
-    name: "USDT"
-  },
-  {
-    id: 3,
-    name: "DOT"
-  },
-  {
-    id: 4,
-    name: "ETH"
-  },
+  }
 ]
 type Props = {
   currentToken: IMarketToken,
@@ -65,24 +53,12 @@ const Navbar = ({ currentToken, volume, lastTradePrice, lastTradePriceType }: Pr
       </S.ContainerInfo>
     </S.WrapperInfo>
     <S.WrapperLinks>
-      <Link title="Market" href="#" />
       <NavbarDropdown title="Trade">
         <>
           <S.WrapperDropdownContent href="#">
             <S.DropdownTitle>
-              Title here
-          </S.DropdownTitle>
-            <S.DropdownDescription>
-              Neque porro quisquam est qui dolorem ipsum.
-          </S.DropdownDescription>
-          </S.WrapperDropdownContent>
-          <S.WrapperDropdownContent href="#">
-            <S.DropdownTitle>
-              Title here
-          </S.DropdownTitle>
-            <S.DropdownDescription>
-              Neque porro quisquam est qui dolorem ipsum.
-          </S.DropdownDescription>
+              Coming Soon
+            </S.DropdownTitle>
           </S.WrapperDropdownContent>
         </>
       </NavbarDropdown>
@@ -90,19 +66,8 @@ const Navbar = ({ currentToken, volume, lastTradePrice, lastTradePriceType }: Pr
         <>
           <S.WrapperDropdownContent href="#">
             <S.DropdownTitle>
-              Title here
-          </S.DropdownTitle>
-            <S.DropdownDescription>
-              Neque porro quisquam est qui dolorem ipsum.
-          </S.DropdownDescription>
-          </S.WrapperDropdownContent>
-          <S.WrapperDropdownContent href="#">
-            <S.DropdownTitle>
-              Title here
-          </S.DropdownTitle>
-            <S.DropdownDescription>
-              Neque porro quisquam est qui dolorem ipsum.
-          </S.DropdownDescription>
+              Coming Soon
+           </S.DropdownTitle>
           </S.WrapperDropdownContent>
         </>
       </NavbarDropdown>
@@ -110,27 +75,8 @@ const Navbar = ({ currentToken, volume, lastTradePrice, lastTradePriceType }: Pr
         <>
           <S.WrapperDropdownContent href="#">
             <S.DropdownTitle>
-              Title here
-          </S.DropdownTitle>
-            <S.DropdownDescription>
-              Neque porro quisquam est qui dolorem ipsum.
-          </S.DropdownDescription>
-          </S.WrapperDropdownContent>
-          <S.WrapperDropdownContent href="#">
-            <S.DropdownTitle>
-              Title here
-          </S.DropdownTitle>
-            <S.DropdownDescription>
-              Neque porro quisquam est qui dolorem ipsum.
-          </S.DropdownDescription>
-          </S.WrapperDropdownContent>
-          <S.WrapperDropdownContent href="#">
-            <S.DropdownTitle>
-              Title here
-          </S.DropdownTitle>
-            <S.DropdownDescription>
-              Neque porro quisquam est qui dolorem ipsum.
-          </S.DropdownDescription>
+              Coming Soon
+            </S.DropdownTitle>
           </S.WrapperDropdownContent>
         </>
       </NavbarDropdown>

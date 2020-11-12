@@ -179,7 +179,7 @@ export default function Dashboard() {
 
   // Fake Transactions Orders Actions
   const transactionActions = {
-    getTransactionsOrders: () => setTransactions(fakeTransactionsOrders),
+    getTransactionsOrders: () => setTransactions([]),
     removeTransactionsOrder : (id: string) => {
       const removeItem = transactions.filter(item => item.id !== id)
       setTransactions(removeItem)

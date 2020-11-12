@@ -21,7 +21,7 @@ const OrderBook = ({ data, latestTransaction, latestTransactionType }: Props) =>
   const handleChange = (select: string) => setFilterState(select)
   const handleAction = (select: number) => setSizeState(select)
 
-  const getDecimalPlaces = () => sizeState.toString().split('.')[1].length || 0
+  const getDecimalPlaces = () => sizeState.toString().split('.')[1].length+1 || 0
 
   const updateDataSize = (orderBookData) => orderBookData.map(order => ({
     ...order,

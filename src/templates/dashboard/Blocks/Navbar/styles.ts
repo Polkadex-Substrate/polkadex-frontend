@@ -86,13 +86,11 @@ export const WrapperVolume = styled.div`
 export const Span = styled.span``;
 
 // Dropdown
-export const WrapperDropdownContent = styled.a`
+export const WrapperDropdownContent = styled.div`
   padding:0.5rem;
+  
   & :not(:last-child){
     margin-bottom:1rem;
-  }
-  & :hover{
-    opacity: 0.7;
   }
 `;
 

@@ -1,3 +1,4 @@
+import React from 'react'
 import DateRange from 'components/general/DateRange'
 import Dropdown from 'components/general/Dropdown'
 import Icon from 'components/general/Icon'
@@ -8,12 +9,12 @@ import { useState } from 'react'
 import OrderBook from '../OrderBook'
 import { IGraph } from './IGraph'
 import * as S from './styles'
-import React from 'react'
-const Chart = dynamic(()=> import('components/dashboard/CustomChart'))
+
+const Chart = dynamic(() => import('components/dashboard/CustomChart'))
 
 const Graph = ({ orderbook, graphData, latestTransaction, latestTransactionType }: IGraph) => {
   const [filters, setFilters] = useState({
-    type: "CandlestickSeries"
+    type: 'CandlestickSeries',
   })
   return (
     <S.Wrapper>
@@ -21,7 +22,11 @@ const Graph = ({ orderbook, graphData, latestTransaction, latestTransactionType 
         <S.Header>
           <S.FlexWrapper>
             <S.List>
-              <Icon source="Edit" />
+              <Icon source="Edit"/>
+
+              <S.Item>
+                1m
+              </S.Item>
 
               <S.Item>
                 1h
@@ -30,13 +35,13 @@ const Graph = ({ orderbook, graphData, latestTransaction, latestTransactionType 
                 24h
               </S.Item>
               <S.Item>
-                7d
+                7D
               </S.Item>
               <S.Item>
-                1m
+                1M
               </S.Item>
               <S.Item>
-                1y
+                1Y
               </S.Item>
               <S.Item>
                 all
@@ -48,14 +53,14 @@ const Graph = ({ orderbook, graphData, latestTransaction, latestTransactionType 
             <div>
               <div>Candled</div>
               <div>Area</div>
-          </div>
+            </div>
           </Dropdown>
           <S.FlexWrapper>
             <S.List>
-              <ListItemButton title="Original" size="Small" />
-              <ListItemButton title="Trading View" size="Small" />
-              <ListItemButton title="Deep Market" size="Small" />
-              <Icon source="Expand" />
+              <ListItemButton title="Original" size="Small"/>
+              <ListItemButton title="Trading View" size="Small"/>
+              <ListItemButton title="Deep Market" size="Small"/>
+              <Icon source="Expand"/>
             </S.List>
           </S.FlexWrapper>
         </S.Header>

@@ -34,5 +34,5 @@ yarn-error.log*
 # vercel
 .vercel
 
-#IDEA Editor
-.idea
+#Idea Files
+/.idea
