@@ -58,7 +58,7 @@ export default function Dashboard() {
   const [lastTradePrice, setLastTradePrice] = useState(initialState.quote.USD.price);
   const [lastTradePriceType, setLastTradePriceType] = useState();
 
-  const webSocket = async() => {
+  const initialiseWebSocket = async() => {
     const tradingPairID = "0xf28a3c76161b8d5723b6b8b092695f418037c747faa2ad8bc33d8871f720aac9";
 
     const FixedU128_denominator = 1000000000000000000;
@@ -114,13 +114,9 @@ export default function Dashboard() {
       await api.query.polkadex.orderbooks(tradingPairID).then((orderbook) => {
         best_bid = (orderbook.best_bid_price/FixedU128_denominator);
         best_ask = (orderbook.best_ask_price/FixedU128_denominator);
-        // console.log(`Best Bid ${best_bid}`);
-        // console.log(`Best Ask ${best_ask}`);
       });
 
       api.query.polkadex.priceLevels.entries(tradingPairID).then(async (levels) => {
-        // console.log(levels.toString())
-
         const getColorStaus = (price) => {
           if (price >= best_ask) return "sell"
           else if(price <= best_bid) return "buy"
@@ -142,8 +138,6 @@ export default function Dashboard() {
             amount: amount,
             total: amount * price,
           });
-          // console.log('     Price:', parseFloat(key.toHuman()[1])); // TODO: @Rudar there is something we need to do with best_bid and best_ask, I wil explain it on call.
-          // console.log('     level:', level.orders.toHuman()); // TODO: @Rudar loop through the each order and add up the quantity.
         });
         await setOrderBook(currentOrderBook.sort((first, second) => second.price - first.price));
       })
@@ -154,22 +148,15 @@ export default function Dashboard() {
     });
 
     api.query.system.events(async (events) => {
-      // console.log(`\nReceived ${events.length} events:`);
       let lastPrice = 0;
       let lastPriceType;
 
-      // Loop through the Vec<EventRecord>
       events.forEach((record) => {
-        // Extract the phase, event and the event types
         const { event } = record;
-        const types = event.typeDef;
 
         if((event.section === "polkadex") && (event.method === "FulfilledLimitOrder" || event.method === "PartialFillLimitOrder")) {
           lastPrice = event.data[3]/FixedU128_denominator;
           lastPriceType = event.data[2].toString();
-          // console.log(`\t\t\t${types[2].type}: ${event.data[2].toString()}`) // TODO: @Rudar use this as the code for last transaction
-          // console.log(`\t\t\tPrice: ${event.data[3]/FixedU128_denominator}`) // TODO: @Rudar Use this as the last transaction value
-          // TODO: @Rudar if event.data[2].toString() === AskLimit then Red Color, if BidLimit then green color
         }
       });
       await setLastTradePrice(lastPrice);
@@ -195,7 +182,6 @@ export default function Dashboard() {
   const tokenActions = {
     // getDefaultTokenInfo: (coins: IMarketToken[], select: number) => setCurrent(coins.find(item => item.id === select)),
     onChangetoken: () => console.log("Change Token"),
-    // getOrderBookOrders: () => setOrderbook(fakeOrderBook),
     getGraphData: async() => {
       const data = await fakeGetGraphData()
       setGraphData(data.slice(0, 100))
@@ -204,10 +190,9 @@ export default function Dashboard() {
 
   useEffect(() => {
     marketTokenActions.getTokensInfo()
-    // tokenActions.getOrderBookOrders()
     transactionActions.getTransactionsOrders()
     tokenActions.getGraphData()
-    webSocket()
+    initialiseWebSocket()
   }, [])
 
   if (!coins) return <p>Loading</p>
