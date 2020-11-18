@@ -8,4 +8,4 @@ component: Graph
 } as Meta
 
 export const Default: Story = (args) =>
-<Graph {...args} />
+<Graph graphData={args.graphData} {...args} />

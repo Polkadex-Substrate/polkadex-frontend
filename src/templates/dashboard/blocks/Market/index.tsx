@@ -6,7 +6,7 @@ import SearchInput from 'components/general/SearchInput'
 
 import * as S from './styles'
 
-const Market = ({ coins}) => (
+const Market = ({ coins = [] }) => (
   <S.Section >
     <S.Header>
       <Heading title="Market" />

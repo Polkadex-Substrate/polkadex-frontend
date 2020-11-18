@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export -o build",
     "start": "next start",
+    "export": "next export",
     "lint": "eslint src",
     "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook -s ./public",
@@ -14,6 +15,7 @@
     "generate": "yarn plop --plopfile generators/plopfile.js"
   },
   "dependencies": {
+    "@polkadot/api": "^2.6.1",
     "@types/dinero.js": "^1.6.5",
     "d3": "^6.2.0",
     "d3-dsv": "^2.0.0",
@@ -22,7 +24,6 @@
     "d3-time-format": "^3.0.0",
     "dinero": "^1.0.1",
     "dinero.js": "^1.8.1",
-    "lightweight-charts": "^3.2.0",
     "moment": "^2.29.1",
     "next": "^9.5.5",
     "react": "^16.14.0",
@@ -32,6 +33,8 @@
     "react-stockcharts": "^0.7.8",
     "react-tabs": "^3.1.1",
     "shortid": "^2.2.16",
+    "socket.io": "^3.0.1",
+    "socket.io-client": "^3.0.1",
     "styled-components": "^5.2.1",
     "styled-media-query": "^2.1.2"
   },
