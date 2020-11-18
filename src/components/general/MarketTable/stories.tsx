@@ -8,4 +8,4 @@ component: MarketTable
 } as Meta
 
 export const Default: Story = (args) =>
-<MarketTable {...args} />
+<MarketTable coins={args.coins} {...args} />

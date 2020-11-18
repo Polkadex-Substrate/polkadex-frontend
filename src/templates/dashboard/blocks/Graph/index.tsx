@@ -8,7 +8,7 @@ import { useState } from 'react'
 import OrderBook from '../OrderBook'
 import { IGraph } from './IGraph'
 import * as S from './styles'
-const Chart = dynamic(()=> import('components/dashboard/CustomChart'))
+const Chart = dynamic(() => import('components/dashboard/CustomChart'))
 
 const Graph = ({ orderbook, graphData }: IGraph) => {
   const [filters, setFilters] = useState({
@@ -58,7 +58,7 @@ const Graph = ({ orderbook, graphData }: IGraph) => {
             </S.List>
           </S.FlexWrapper>
         </S.Header>
-        {graphData.length > 1 ? <Chart data={graphData} type={filters.type}/> : <p>Loading..</p>}
+        {graphData.length > 1 ? <Chart /> : <p>Loading..</p>}
       </S.WrapperGraph>
       <OrderBook data={orderbook}/>
     </S.Wrapper>

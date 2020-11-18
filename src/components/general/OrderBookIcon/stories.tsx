@@ -8,4 +8,4 @@ component: OrderBookIcon
 } as Meta
 
 export const Default: Story = (args) =>
-<OrderBookIcon {...args} />
+<OrderBookIcon icon={args.icon} handleChange={args.handleChange} {...args} />

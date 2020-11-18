@@ -112,8 +112,7 @@ const CustomChart = fitWidth(fitChart)
 
 
 )*/
- 
-import { createChart} from "lightweight-charts";
+
 import React from 'react';
 
 const CustomChart = () => {
@@ -121,33 +120,6 @@ const CustomChart = () => {
 
   React.useEffect(() => {
     if (chartRef.current) {
-      const chart = createChart(chartRef.current, {
-        width: 700,
-        height: 350,
-        layout: {
-          backgroundColor: 'rgba(0,0,0,0)',
-          textColor: 'rgba(255, 255, 255, 1)',
-        },
-        grid: {
-          vertLines: {
-            color: 'rgba(197, 203, 206, 0.5)',
-          },
-          horzLines: {
-            color: 'rgba(197, 203, 206, 0.5)',
-          },
-        },
-       /* crosshair: {
-          mode:CrosshairMode.Normal,
-        },*/
-        rightPriceScale: {
-          borderColor: 'rgba(197, 203, 206, 0.8)',
-        },
-        timeScale: {
-          borderColor: 'rgba(197, 203, 206, 0.8)',
-        },
-      });
-
-      prepareChart(chart);
     }
   }, [])
 

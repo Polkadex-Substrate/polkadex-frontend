@@ -8,4 +8,4 @@ component: Navbar
 } as Meta
 
 export const Default: Story = (args) =>
-<Navbar {...args} />
+<Navbar currentToken={args.currentToken} {...args} />

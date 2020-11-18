@@ -9,4 +9,4 @@ component: DateRange
 
 
 export const Default: Story = (args) =>
-<DateRange {...args} />
+<DateRange position={args.position} {...args} />
