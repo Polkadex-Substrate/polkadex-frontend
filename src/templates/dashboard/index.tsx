@@ -57,7 +57,7 @@ export default function Dashboard() {
   const [lastTradePrice, setLastTradePrice] = useState(initialState.quote.USD.price);
   const [lastTradePriceType, setLastTradePriceType] = useState();
 
-  let socket = io.connect("https://testnet.polkadex.trade:3000", {secure: true})
+  let socket = io.connect("https://testnet.polkadex.trade:3000", {secure: true, transports: ['websocket']})
   console.log('web socket connected')
 
   // Fake Transactions Orders Actions
