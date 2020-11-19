@@ -26,9 +26,12 @@ const testPairs = [
   },
 ]
 type Props = {
-  currentToken: IMarketToken
+  currentToken: IMarketToken,
+  volume: number,
+  lastTradePrice: number,
+  lastTradePriceType: 'AskLimit' | 'BidLimit'
 }
-const Navbar = ({ currentToken }: Props) => {
+const Navbar = ({ currentToken, volume, lastTradePrice, lastTradePriceType }: Props) => {
   return (
   <S.Wrapper>
     <S.WrapperInfo>
@@ -36,9 +39,9 @@ const Navbar = ({ currentToken }: Props) => {
           <NavbarPair coin={currentToken.symbol} pairs={testPairs} />
       </S.ContainerPair>
       <S.ContainerInfo>
-        <NavbarItem label="Last Trade Price (BTC)" info={Dinero({ amount: Math.round(currentToken.quote.USD.price * 100) }).toFormat('$0,0.00')} />
+        <NavbarItem label="Last Trade Price (BTC)" info={Dinero({ amount: Math.round(lastTradePrice * 100) }).toFormat('$0,0.00')} type={lastTradePriceType} />
         <NavbarItem label="Price 24h" info={Dinero({ amount: Math.round(currentToken.quote.USD.percent_change_24h * 100) }).toFormat('$0,0.00')} />
-        <NavbarItem label="Volume 24h (DOT)" info={Dinero({ amount: Math.round(currentToken.quote.USD.volume_24h * 100) }).toFormat('$0,0').toString().slice(0, 6)} />
+        <NavbarItem label="Volume 24h (DOT)" info={Dinero({ amount: Math.round(volume * 100) }).toFormat('$0,0').toString().slice(0, 6)} />
         <S.WrapperVolume>
           <S.VolumeHigh>
             <S.Span>

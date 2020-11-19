@@ -11,6 +11,8 @@ import Navbar from './blocks/Navbar'
 import Transactions from './blocks/Transactions'
 import * as S from './styles'
 
+import { io } from 'socket.io-client';
+
 const initialState = {
   "id": 1,
   "name": "Bitcoin",
@@ -47,10 +49,16 @@ export default function Dashboard() {
 
   const [state, setState] = useState(false)
   const [transactions, setTransactions] = useState([])
-  const [orderbook, setOrderbook] = useState([])
+  const [orderBook, setOrderBook] = useState([])
   const [graphData, setGraphData] = useState([])
   const [coins, setCoins] = useState<any>([])
   const [current, setCurrent] = useState(initialState)
+  const [volume, setVolume] = useState(initialState.quote.USD.volume_24h);
+  const [lastTradePrice, setLastTradePrice] = useState(initialState.quote.USD.price);
+  const [lastTradePriceType, setLastTradePriceType] = useState();
+
+  let socket = io.connect("https://testnet.polkadex.trade:3000", {secure: true})
+  console.log('web socket connected')
 
   // Fake Transactions Orders Actions
   const transactionActions = {
@@ -70,16 +78,59 @@ export default function Dashboard() {
   const tokenActions = {
     // getDefaultTokenInfo: (coins: IMarketToken[], select: number) => setCurrent(coins.find(item => item.id === select)),
     onChangetoken: () => console.log("Change Token"),
-    getOrderBookOrders: () => setOrderbook(fakeOrderBook),
+    // getOrderBookOrders: () => setOrderbook(fakeOrderBook),
     getGraphData: async() => {
       const data = await fakeGetGraphData()
       setGraphData(data.slice(0, 100))
     }
   }
 
+  const fetchMarketData = () => {
+    socket.on('market-data-stream', ({ volume }) => setVolume(volume));
+  }
+
+  const fetchOrderBookData = () => {
+
+    const getColorStaus = (price, best_bid, best_ask) => {
+      if (price >= best_ask) return "sell"
+      else if(price <= best_bid) return "buy"
+    }
+
+    socket.on('orderbook-updates', async ({ best_bid, best_ask, bid_levels, ask_levels }) => {
+      let currentOrderBook = [];
+      bid_levels.push(ask_levels).map(([key, level]) => {
+
+        const price = parseFloat(key.toHuman()[1].replace(/,/g, '')) / FixedU128_denominator;
+        const amount = level.orders.reduce((total, currentValue) => parseFloat(total) + parseFloat(currentValue.quantity), 0) / FixedU128_denominator;
+
+        currentOrderBook.push({
+          id: currentOrderBook.length + 1,
+          date: new Date(),
+          pair: "DOT",
+          coin: "BTC",
+          side: getColorStaus(price, best_bid, best_ask),
+          price: price,
+          amount: amount,
+          total: amount * price,
+        });
+      });
+      await setOrderBook(currentOrderBook.sort((first, second) => second.price - first.price));
+    });
+  }
+
+  const fetchLastTrade = () => {
+    socket.on('last-trade', lastTradeData => {
+      setLastTradePriceType(lastTradeData.side);
+      setLastTradePrice(lastTradeData.price);
+    });
+  }
+
   useEffect(() => {
+    fetchMarketData()
+    fetchOrderBookData()
+    fetchLastTrade();
     marketTokenActions.getTokensInfo()
-    tokenActions.getOrderBookOrders()
+    // tokenActions.getOrderBookOrders()
     transactionActions.getTransactionsOrders()
     tokenActions.getGraphData()  }, [])
 
@@ -89,9 +140,9 @@ export default function Dashboard() {
       <Menu handleChange={() => setState(!state)} />
       {state && <Market coins={coins}/>}
       <S.WrapperMain >
-        <Navbar currentToken={current} />
+        <Navbar currentToken={current} volume={volume} lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType} />
         <S.WrapperGraph marketActive={state}>
-          <Graph orderbook={orderbook} graphData={graphData}/>
+          <Graph orderbook={orderBook} latestTransaction={lastTradePrice} latestTransactionType={lastTradePriceType} graphData={graphData}/>
           <MarketOrder />
           <Transactions data={transactions} remove={transactionActions.removeTransactionsOrder}/>
         </S.WrapperGraph>
