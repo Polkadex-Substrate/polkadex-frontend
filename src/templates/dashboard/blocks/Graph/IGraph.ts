@@ -9,6 +9,6 @@ export type IOrderBookData = {
   total: number
 }
 export type IGraph = {
-  orderbook?: IOrderBookData[]
+  orderBook?: IOrderBookData[]
   graphData: any
 }

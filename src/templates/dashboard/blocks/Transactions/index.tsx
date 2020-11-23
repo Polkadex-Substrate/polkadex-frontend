@@ -17,7 +17,7 @@ const initialFilters = {
   status: "All Transactions"
 }
 
-const Transactions = ({ data, remove }: ITransactions, pair = "DOT") => {
+const Transactions = ({ data, newTradeData, remove }: ITransactions, pair = "DOT") => {
   const [filters, setFilters] = useState(initialFilters)
 
   // Filters Actions
@@ -65,7 +65,7 @@ const Transactions = ({ data, remove }: ITransactions, pair = "DOT") => {
           <TransactionTable data={data} remove={remove} filters={filters} />
         </TabPanel>
         <TabPanel>
-          <TransactionTable data={data} remove={remove} filters={filters} />
+          <TransactionTable data={newTradeData} remove={remove} filters={filters} />
         </TabPanel>
       </Tabs>
 

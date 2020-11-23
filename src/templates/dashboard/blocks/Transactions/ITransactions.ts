@@ -12,6 +12,7 @@ export type ITransactionData = {
 
 export type ITransactions = {
   data?: ITransactionData[]
+  newTradeData?: ITransactionData[];
   remove?: (id: string) => void
 }
 

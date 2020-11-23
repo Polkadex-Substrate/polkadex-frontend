@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from 'react'
 // Fake Data
-import { fakeGetGraphData, fakeLatestListings,fakeOrderBook, fakeTransactionsOrders} from "utils/fakeData/"
+import { fakeGetGraphData, fakeLatestListings, fakeTransactionsOrders } from 'utils/fakeData/'
 import { IMarketToken } from 'utils/Interfaces'
 
 import Graph from './blocks/Graph'
@@ -53,12 +53,12 @@ export default function Dashboard() {
   const [graphData, setGraphData] = useState([])
   const [coins, setCoins] = useState<any>([])
   const [current, setCurrent] = useState(initialState)
-  const [volume, setVolume] = useState(initialState.quote.USD.volume_24h);
-  const [lastTradePrice, setLastTradePrice] = useState(initialState.quote.USD.price);
+  const [volume, setVolume] = useState(0);
+  const [lastTradePrice, setLastTradePrice] = useState(0);
   const [lastTradePriceType, setLastTradePriceType] = useState();
+  const [newTrade, setNewTrade] = useState();
 
-  let socket = io.connect("https://testnet.polkadex.trade:3000", {secure: true, transports: ['websocket']})
-  console.log('web socket connected')
+  const webSocket = io.connect("https://testnet.polkadex.trade:3000", {secure: true, transports: ['websocket']});
 
   // Fake Transactions Orders Actions
   const transactionActions = {
@@ -86,32 +86,35 @@ export default function Dashboard() {
   }
 
   const fetchMarketData = () => {
-    socket.on('market-data-stream', ({ volume }) => setVolume(volume));
+    webSocket.on('market-data-stream', ({ volume }) => setVolume(volume));
   }
 
   const fetchOrderBookData = () => {
-
-    const getColorStaus = (price, best_bid, best_ask) => {
-      if (price >= best_ask) return "sell"
-      else if(price <= best_bid) return "buy"
-    }
-
-    socket.on('orderbook-updates', async ({ best_bid, best_ask, bid_levels, ask_levels }) => {
+    webSocket.on('orderbook-updates', async ({ bid_levels, ask_levels }) => {
       let currentOrderBook = [];
-      bid_levels.push(ask_levels).map(([key, level]) => {
-
-        const price = parseFloat(key.toHuman()[1].replace(/,/g, '')) / FixedU128_denominator;
-        const amount = level.orders.reduce((total, currentValue) => parseFloat(total) + parseFloat(currentValue.quantity), 0) / FixedU128_denominator;
-
+      console.log(bid_levels, ask_levels)
+      bid_levels.map(({ price, quantity }) => {
         currentOrderBook.push({
           id: currentOrderBook.length + 1,
           date: new Date(),
           pair: "DOT",
           coin: "BTC",
-          side: getColorStaus(price, best_bid, best_ask),
+          side: "buy",
           price: price,
-          amount: amount,
-          total: amount * price,
+          amount: quantity,
+          total: quantity * price,
+        });
+      });
+      ask_levels.map(({ price, quantity }) => {
+        currentOrderBook.push({
+          id: currentOrderBook.length + 1,
+          date: new Date(),
+          pair: "DOT",
+          coin: "BTC",
+          side: "sell",
+          price: price,
+          amount: quantity,
+          total: quantity * price,
         });
       });
       await setOrderBook(currentOrderBook.sort((first, second) => second.price - first.price));
@@ -119,9 +122,15 @@ export default function Dashboard() {
   }
 
   const fetchLastTrade = () => {
-    socket.on('last-trade', lastTradeData => {
+    webSocket.on('last-trade', lastTradeData => {
       setLastTradePriceType(lastTradeData.side);
       setLastTradePrice(lastTradeData.price);
+    });
+  }
+
+  const fetchNewTrade = () => {
+    webSocket.on('new-trade', payload => {
+      setNewTrade(payload);
     });
   }
 
@@ -129,10 +138,14 @@ export default function Dashboard() {
     fetchMarketData()
     fetchOrderBookData()
     fetchLastTrade();
+    fetchNewTrade();
     marketTokenActions.getTokensInfo()
     // tokenActions.getOrderBookOrders()
     transactionActions.getTransactionsOrders()
-    tokenActions.getGraphData()  }, [])
+    tokenActions.getGraphData()
+
+    // return webSocket.close();
+  }, [])
 
   if (!coins) return <p>Loading</p>
   return (
@@ -142,9 +155,12 @@ export default function Dashboard() {
       <S.WrapperMain >
         <Navbar currentToken={current} volume={volume} lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType} />
         <S.WrapperGraph marketActive={state}>
-          <Graph orderbook={orderBook} latestTransaction={lastTradePrice} latestTransactionType={lastTradePriceType} graphData={graphData}/>
+          <Graph orderBook={orderBook} latestTransaction={lastTradePrice} latestTransactionType={lastTradePriceType} graphData={graphData}/>
           <MarketOrder />
-          <Transactions data={transactions} remove={transactionActions.removeTransactionsOrder}/>
+          <Transactions
+            newTradeData={newTrade}
+            data={transactions}
+            remove={transactionActions.removeTransactionsOrder}/>
         </S.WrapperGraph>
       </S.WrapperMain>
 
