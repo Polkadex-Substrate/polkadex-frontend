@@ -33,6 +33,8 @@ export default class MyDocument extends Document {
       <Html >
         <Head>
           <link rel="shortcut icon" href="/favicon.ico" />
+          <script src="/static/datafeeds/udf/dist/polyfills.js" />
+          <script src="/static/datafeeds/udf/dist/bundle.js" />
         </Head>
         <body>
           <Main />
