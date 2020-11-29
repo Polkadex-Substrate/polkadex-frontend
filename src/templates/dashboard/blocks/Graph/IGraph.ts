@@ -8,6 +8,16 @@ export type IOrderBookData = {
   amount: number
   total: number
 }
+
+export type Trade = {
+  date: number;
+  low: number;
+  high: number;
+  volume: number;
+  open: number;
+  close: number;
+}
+
 export type IGraph = {
   orderBook?: IOrderBookData[]
   graphData: any

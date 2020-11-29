@@ -1,11 +1,12 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from 'react';
 
+import DataFeed from './api/'
 import * as S from './styles'
 import {
-  ChartingLibraryWidgetOptions,
-  IChartingLibraryWidget,
-  LanguageCode,
   widget,
+  ChartingLibraryWidgetOptions,
+  LanguageCode,
+  IChartingLibraryWidget,
 } from '../../../../public/static/charting_library'
 
 export interface ChartContainerProps {
@@ -36,10 +37,9 @@ function getLanguageFromURL(): LanguageCode | null {
 
 export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, ChartContainerState> {
   public static defaultProps: ChartContainerProps = {
-    symbol: 'AAPL',
+    symbol: 'BTC',
     interval: '1',
     containerId: 'tv_chart_container',
-    datafeedUrl: 'https://demo_feed.tradingview.com',
     libraryPath: '/static/charting_library/',
     chartsStorageUrl: 'https://saveload.tradingview.com',
     chartsStorageApiVersion: '1.1',
@@ -55,7 +55,7 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
   public componentDidMount(): void {
     const widgetOptions: ChartingLibraryWidgetOptions = {
       symbol: this.props.symbol as string,
-      datafeed: new (window as any).Datafeeds.UDFCompatibleDatafeed(this.props.datafeedUrl),
+      datafeed: DataFeed,
       interval: this.props.interval as ChartingLibraryWidgetOptions['interval'],
       container_id: this.props.containerId as ChartingLibraryWidgetOptions['container_id'],
       library_path: this.props.libraryPath as string,
@@ -85,7 +85,6 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
         "paneProperties.horzGridProperties.color": "#b1b1b1",
         "symbolWatermarkProperties.transparency": 90,
         "scalesProperties.textColor": "#fff",
-        "scalesProperties.bgColor": "#AAA",
         "scalesProperties.fontSize": 11,
         "paneProperties.topMargin": 15,
         "mainSeriesProperties.candleStyle.wickUpColor": '#336854',
@@ -93,7 +92,10 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
       }
     };
 
-    this.tvWidget = new widget(widgetOptions);
+    const tvWidget = new widget(widgetOptions);
+    this.tvWidget = tvWidget;
+
+    tvWidget.onChartReady(() => console.log('Chart has loaded'))
   }
 
   public componentWillUnmount(): void {

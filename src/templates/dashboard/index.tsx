@@ -51,6 +51,7 @@ export default function Dashboard() {
   const [transactions, setTransactions] = useState([])
   const [orderBook, setOrderBook] = useState([])
   const [graphData, setGraphData] = useState([])
+  const [graphInitialData, setGraphInitialData] = useState([])
   const [coins, setCoins] = useState<any>([])
   const [current, setCurrent] = useState(initialState)
   const [volume, setVolume] = useState(0);
@@ -155,7 +156,9 @@ export default function Dashboard() {
       <S.WrapperMain >
         <Navbar currentToken={current} volume={volume} lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType} />
         <S.WrapperGraph marketActive={state}>
-          <Graph orderBook={orderBook} latestTransaction={lastTradePrice} latestTransactionType={lastTradePriceType} graphData={graphData}/>
+          <Graph orderBook={orderBook} latestTransaction={lastTradePrice}
+                 graphInitialData={graphInitialData}
+                 latestTransactionType={lastTradePriceType} graphData={graphData}/>
           <MarketOrder />
           <Transactions
             newTradeData={newTrade}
