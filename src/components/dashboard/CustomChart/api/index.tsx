@@ -6,9 +6,8 @@ const supportedResolutions = ["1", "3", "5", "15", "30", "60", "120", "240", "D"
 const config = {
     supported_resolutions: supportedResolutions
 };
-
+let lastBarsCache = new Map();
 // const webSocket = io.connect("https://testnet.polkadex.trade:3000", {secure: true, transports: ['websocket']});
-const lastBarsCache = new Map();
 
 export default {
     onReady: cb => {
@@ -49,24 +48,24 @@ export default {
 
     getBars: async (symbolInfo, resolution, from, to, onHistoryCallback, onErrorCallback, firstDataRequest) => {
         console.log('=====getBars running')
-        console.log("Requested From Time: ",from," and To Time: ",to)
+        console.log("Requested From Time: ", from, " and To Time: ", to)
         if (firstDataRequest) {
             // Create a promise and wait for that promise to resolve
             const cloudBars = await createNewPromiseforInitialData(); // Assign the array coming from initial-graph-data here.
             const bars = [];
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             cloudBars.forEach(bar => {
-                // eslint-disable-next-line no-constant-condition
-                if (true) { // if (bar.time >= from && bar.time < to) {
-                    bars.push( {
-                        time: bar.time,
-                        low: bar.low,
-                        high: bar.high,
-                        open: bar.open,
-                        close: bar.close,
-                    });
-                }
+                // if (bar.time >= from && bar.time < to) {
+                bars.push({
+                    time: bar.date,
+                    low: bar.low,
+                    high: bar.high,
+                    open: bar.open,
+                    close: bar.close,
+                });
             });
-
+            console.log("Symbol Info: ",symbolInfo.full_name)
             lastBarsCache.set(symbolInfo.full_name, {
                 ...bars[bars.length - 1],
             });
@@ -75,12 +74,16 @@ export default {
             onHistoryCallback(bars, {
                 noData: false,
             });
+        }else{
+            onHistoryCallback(lastBarsCache, {
+                noData: false,
+            });
         }
     },
 
     subscribeBars: async (symbolInfo, resolution, onRealtimeCallback, subscribeUID, onResetCacheNeededCallback) => {
         console.log('=====subscribeBars runnning')
-        stream.subscribeBars(symbolInfo, resolution, onRealtimeCallback, subscribeUID, onResetCacheNeededCallback,);
+        stream.subscribeBars(symbolInfo, resolution, onRealtimeCallback, subscribeUID, onResetCacheNeededCallback,lastBarsCache.get(symbolInfo.full_name));
     },
 
     unsubscribeBars: subscriberUID => {
