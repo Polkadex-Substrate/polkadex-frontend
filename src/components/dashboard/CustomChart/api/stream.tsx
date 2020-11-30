@@ -11,48 +11,46 @@ webSocket.on('market-data-stream', trade => {
         return;
     }
     const lastDailyBar = subscriptionItem.lastDailyBar;
+
     console.log("New Time: ", trade.date * 1000)
     console.log("Last Time: ", lastDailyBar.time)
-    if (trade.date * 1000 - lastDailyBar.time < 60000) {
-        let bar;
-        if (trade.open === 0 && trade.close === 0 && trade.high === 0 && trade.low === 0 && trade.volume === 0) {
-            bar = lastDailyBar
-        } else {
-            bar = {
-                ...lastDailyBar,
-                high: Math.max(lastDailyBar.high, trade.high),
-                low: Math.min(lastDailyBar.low, trade.low),
-                close: trade.close,
-                volume: lastDailyBar.volume + trade.volume
-            };
-        }
-        subscriptionItem.lastDailyBar = bar;
-        // send data to every subscriber of that symbol
-        subscriptionItem.handlers.forEach(handler => handler.callback(bar));
-    } else {
-        let newBar;
-        if (trade.open === 0 && trade.close === 0 && trade.high === 0 && trade.low === 0 && trade.volume === 0) {
-            newBar ={
-                ...lastDailyBar,
-                time: trade.date*1000,
-                volume: 0,
-            }
-        }else {
-            newBar = {
-                time: trade.date * 1000,
-                high: trade.high,
-                low: trade.low,
-                close: trade.close,
-                open: trade.open,
-                volume: trade.volume
-            }
-        }
-        subscriptionItem.lastDailyBar = newBar;
-        // send data to every subscriber of that symbol
-        subscriptionItem.handlers.forEach(handler => handler.callback(newBar));
-    }
 
+    subscriptionItem.lastDailyBar = (trade.date * 1000 - lastDailyBar.time < 60000)
+      ? barValueForSameBlock(trade, lastDailyBar)
+      : barValueForNextBlock(trade, lastDailyBar);
+
+    // send data to every subscriber of that symbol
+    subscriptionItem.handlers.forEach(handler => handler.callback(subscriptionItem.lastDailyBar));
 });
+
+const barValueForSameBlock = (trade, lastDailyBar) => {
+  return (trade.open === 0 && trade.close === 0 && trade.high === 0 && trade.low === 0 && trade.volume === 0)
+    ? lastDailyBar
+    : ({
+        ...lastDailyBar,
+        high: Math.max(lastDailyBar.high, trade.high),
+        low: Math.min(lastDailyBar.low, trade.low),
+        close: trade.close,
+        volume: lastDailyBar.volume + trade.volume
+      })
+}
+
+const barValueForNextBlock = (trade, lastDailyBar) => {
+  return (trade.open === 0 && trade.close === 0 && trade.high === 0 && trade.low === 0 && trade.volume === 0)
+    ? ({
+        ...lastDailyBar,
+        time: trade.date*1000,
+        volume: 0,
+      })
+    : ({
+        time: trade.date * 1000,
+        high: trade.high,
+        low: trade.low,
+        close: trade.close,
+        open: trade.open,
+        volume: trade.volume
+      });
+}
 
 let initialBars;
 webSocket.on('initial-graph-data', bars => {
