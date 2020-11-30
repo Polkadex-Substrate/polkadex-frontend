@@ -55,22 +55,36 @@ export default {
             const bars = [];
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
+            let lastBar;
             cloudBars.forEach(bar => {
-                // if (bar.time >= from && bar.time < to) {
-                bars.push({
-                    time: bar.date*1000,
-                    low: bar.low,
-                    high: bar.high,
-                    open: bar.open,
-                    close: bar.close,
-                    volume: bar.volume,
-                });
+                let newbar;
+                if (typeof (lastBar) === "undefined"){
+                    lastBar = bar
+                    newbar = {
+                        ...bar,
+                        time: bar.date*1000,
+                    }
+                }else{
+                    if (bar.open === 0 && bar.close === 0 && bar.high === 0 && bar.low === 0 && bar.volume === 0) {
+                        newbar = {
+                            ...lastBar,
+                            time: bar.date*1000,
+                            volume: 0
+                        }
+                    }else{
+                        newbar = {
+                            ...bar,
+                            time: bar.date*1000,
+                        }
+                    }
+                }
+                bars.push(newbar);
             });
             console.log("Symbol Info: ",symbolInfo.full_name)
             lastBarsCache.set(symbolInfo.full_name, {
                 ...bars[bars.length - 1],
             });
-
+            console.log("Bars: ",bars)
             console.log(`[getBars]: returned ${bars.length} bar(s)`);
             onHistoryCallback(bars, {
                 noData: false,
