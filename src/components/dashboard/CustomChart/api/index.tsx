@@ -34,7 +34,7 @@ export default {
             ticker: symbolName,
             exchange: split_data[0],
             minmov: 1,
-            pricescale: 100000000,
+            pricescale: 100,
             has_intraday: true,
             intraday_multipliers: ['1', '60'],
             supported_resolution: supportedResolutions,
@@ -58,7 +58,7 @@ export default {
             cloudBars.forEach(bar => {
                 // if (bar.time >= from && bar.time < to) {
                 bars.push({
-                    time: bar.date,
+                    time: bar.date*1000,
                     low: bar.low,
                     high: bar.high,
                     open: bar.open,

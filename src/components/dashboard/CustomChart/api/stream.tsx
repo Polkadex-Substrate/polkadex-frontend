@@ -10,17 +10,34 @@ webSocket.on('market-data-stream', trade => {
   if (subscriptionItem === undefined) {
     return;
   }
-  const bar = {
-    time: trade.date,
-    low: trade.low,
-    high: trade.high,
-    open: trade.open,
-    close: trade.close,
-    volume: trade.volume,
-  };
-  subscriptionItem.lastDailyBar = bar;
-  // send data to every subscriber of that symbol
-  subscriptionItem.handlers.forEach(handler => handler.callback(bar));
+  const lastDailyBar = subscriptionItem.lastDailyBar;
+  console.log("New Time: ",trade.date*1000)
+  console.log("Last Time: ",lastDailyBar.time)
+  if (trade.date*1000 - lastDailyBar.time < 60000){
+    const bar = {
+      ...lastDailyBar,
+      high: Math.max(lastDailyBar.high, trade.high),
+      low: Math.min(lastDailyBar.low, trade.low),
+      close: trade.close,
+      volume: lastDailyBar.volume+trade.volume
+    };
+    subscriptionItem.lastDailyBar = bar;
+    // send data to every subscriber of that symbol
+    subscriptionItem.handlers.forEach(handler => handler.callback(bar));
+  }else{
+    const newBar = {
+      time: trade.date*1000,
+      high: trade.high,
+      low: trade.low,
+      close: trade.close,
+      open:trade.open,
+      volume: trade.volume
+    }
+    subscriptionItem.lastDailyBar = newBar;
+    // send data to every subscriber of that symbol
+    subscriptionItem.handlers.forEach(handler => handler.callback(newBar));
+  }
+
 });
 
 let initialBars;
@@ -42,6 +59,7 @@ export default {
       subscriptionItem.handlers.push(handler);
       return;
     }
+
     subscriptionItem = {
       uid,
       resolution,
