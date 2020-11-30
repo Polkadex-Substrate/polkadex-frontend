@@ -63,6 +63,7 @@ export default {
                     high: bar.high,
                     open: bar.open,
                     close: bar.close,
+                    volume: bar.volume,
                 });
             });
             console.log("Symbol Info: ",symbolInfo.full_name)
