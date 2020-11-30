@@ -59,7 +59,7 @@ export default function Dashboard() {
   const [lastTradePriceType, setLastTradePriceType] = useState();
   const [newTrade, setNewTrade] = useState();
 
-  const webSocket = io.connect("https://testnet.polkadex.trade:3000", {secure: true, transports: ['websocket']});
+  // const webSocket = io.connect("https://testnet.polkadex.trade:3000", {secure: true, transports: ['websocket']});
 
   // Fake Transactions Orders Actions
   const transactionActions = {
@@ -87,52 +87,52 @@ export default function Dashboard() {
   }
 
   const fetchMarketData = () => {
-    webSocket.on('market-data-stream', ({ volume }) => setVolume(volume));
+    // webSocket.on('market-data-stream', ({ volume }) => setVolume(volume));
   }
 
   const fetchOrderBookData = () => {
-    webSocket.on('orderbook-updates', async ({ bid_levels, ask_levels }) => {
-      let currentOrderBook = [];
-      console.log(bid_levels, ask_levels)
-      bid_levels.map(({ price, quantity }) => {
-        currentOrderBook.push({
-          id: currentOrderBook.length + 1,
-          date: new Date(),
-          pair: "DOT",
-          coin: "BTC",
-          side: "buy",
-          price: price,
-          amount: quantity,
-          total: quantity * price,
-        });
-      });
-      ask_levels.map(({ price, quantity }) => {
-        currentOrderBook.push({
-          id: currentOrderBook.length + 1,
-          date: new Date(),
-          pair: "DOT",
-          coin: "BTC",
-          side: "sell",
-          price: price,
-          amount: quantity,
-          total: quantity * price,
-        });
-      });
-      await setOrderBook(currentOrderBook.sort((first, second) => second.price - first.price));
-    });
+    // webSocket.on('orderbook-updates', async ({ bid_levels, ask_levels }) => {
+    //   let currentOrderBook = [];
+    //   console.log(bid_levels, ask_levels)
+    //   bid_levels.map(({ price, quantity }) => {
+    //     currentOrderBook.push({
+    //       id: currentOrderBook.length + 1,
+    //       date: new Date(),
+    //       pair: "DOT",
+    //       coin: "BTC",
+    //       side: "buy",
+    //       price: price,
+    //       amount: quantity,
+    //       total: quantity * price,
+    //     });
+    //   });
+    //   ask_levels.map(({ price, quantity }) => {
+    //     currentOrderBook.push({
+    //       id: currentOrderBook.length + 1,
+    //       date: new Date(),
+    //       pair: "DOT",
+    //       coin: "BTC",
+    //       side: "sell",
+    //       price: price,
+    //       amount: quantity,
+    //       total: quantity * price,
+    //     });
+    //   });
+    //   await setOrderBook(currentOrderBook.sort((first, second) => second.price - first.price));
+    // });
   }
 
   const fetchLastTrade = () => {
-    webSocket.on('last-trade', lastTradeData => {
-      setLastTradePriceType(lastTradeData.side);
-      setLastTradePrice(lastTradeData.price);
-    });
+    // webSocket.on('last-trade', lastTradeData => {
+    //   setLastTradePriceType(lastTradeData.side);
+    //   setLastTradePrice(lastTradeData.price);
+    // });
   }
 
   const fetchNewTrade = () => {
-    webSocket.on('new-trade', payload => {
-      setNewTrade(payload);
-    });
+    // webSocket.on('new-trade', payload => {
+    //   setNewTrade(payload);
+    // });
   }
 
   useEffect(() => {
