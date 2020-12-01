@@ -10,7 +10,7 @@ import Menu from './blocks/Menu'
 import Navbar from './blocks/Navbar'
 import Transactions from './blocks/Transactions'
 import * as S from './styles'
-import webSocket from '../../utils/WebSocketConfig'
+import { webSocket } from '../../components/dashboard/CustomChart/api/stream'
 
 const initialState = {
   "id": 1,
