@@ -19,6 +19,8 @@ export type Trade = {
 }
 
 export type IGraph = {
-  orderBook?: IOrderBookData[]
-  graphData: any
+  orderBookAsks?: IOrderBookData[]
+  orderBookBids?: IOrderBookData[]
+  latestTransaction: any
+  latestTransactionType: any
 }

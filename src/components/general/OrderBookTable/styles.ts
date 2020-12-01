@@ -55,10 +55,14 @@ export const LastTransaction = styled.div<Pick<OrderBookTableProps,'active'>>`
     color: ${active ? theme.colors.primary: theme.colors.white};
   `}
   }
-
-
 `
 
+export const VolumeHigh = styled.span`
+  color: green;
+`;
 
-
-
+export const VolumeLow = styled.span`
+  ${({ theme }) => css`
+    color: ${theme.colors.primary};
+  `}
+`;

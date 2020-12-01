@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from 'react'
 // Fake Data
-import { fakeGetGraphData, fakeLatestListings, fakeTransactionsOrders } from 'utils/fakeData/'
+import { fakeLatestListings, fakeTransactionsOrders } from 'utils/fakeData/'
 import { IMarketToken } from 'utils/Interfaces'
 
 import Graph from './blocks/Graph'
@@ -48,9 +48,8 @@ export default function Dashboard() {
 
   const [state, setState] = useState(false)
   const [transactions, setTransactions] = useState([])
-  const [orderBook, setOrderBook] = useState([])
-  const [graphData, setGraphData] = useState([])
-  const [graphInitialData, setGraphInitialData] = useState([])
+  const [orderBookBids, setOrderBookBids] = useState([])
+  const [orderBookAsks, setOrderBookAsks] = useState([])
   const [coins, setCoins] = useState<any>([])
   const [current, setCurrent] = useState(initialState)
   const [volume, setVolume] = useState(0);
@@ -72,25 +71,16 @@ export default function Dashboard() {
     getTokensInfo : () => setCoins(fakeLatestListings)
   }
 
-  // Token Actions
-  const tokenActions = {
-    // getDefaultTokenInfo: (coins: IMarketToken[], select: number) => setCurrent(coins.find(item => item.id === select)),
-    onChangetoken: () => console.log("Change Token"),
-    // getOrderBookOrders: () => setOrderbook(fakeOrderBook),
-    getGraphData: async() => {
-      const data = await fakeGetGraphData()
-      setGraphData(data.slice(0, 100))
-    }
-  }
-
   const fetchMarketData = () => {
     webSocket.on('market-data-stream', ({ volume }) => setVolume(volume));
   }
 
-  const fetchOrderBookData = () => {
-    webSocket.on('orderbook-updates', async ({ bid_levels, ask_levels }) => {
+  const fetchOrderBookBids = () => {
+
+    webSocket.on('bids_levels', async (bid_levels) => {
       let currentOrderBook = [];
-      console.log(bid_levels, ask_levels)
+
+      // console.log(bid_levels)
       bid_levels.map(({ price, quantity }) => {
         currentOrderBook.push({
           id: currentOrderBook.length + 1,
@@ -103,6 +93,16 @@ export default function Dashboard() {
           total: quantity * price,
         });
       });
+      await setOrderBookBids(currentOrderBook.sort((first, second) => second.price - first.price));
+    });
+  }
+
+  const fetchOrderBookAsks = () => {
+
+    webSocket.on('asks_levels', async (ask_levels) => {
+      let currentOrderBook = [];
+
+      // console.log(ask_levels)
       ask_levels.map(({ price, quantity }) => {
         currentOrderBook.push({
           id: currentOrderBook.length + 1,
@@ -115,7 +115,7 @@ export default function Dashboard() {
           total: quantity * price,
         });
       });
-      await setOrderBook(currentOrderBook.sort((first, second) => second.price - first.price));
+      await setOrderBookAsks(currentOrderBook.sort((first, second) => second.price - first.price));
     });
   }
 
@@ -128,19 +128,20 @@ export default function Dashboard() {
 
   const fetchNewTrade = () => {
     webSocket.on('new-trade', payload => {
+      console.log('New Trade: ' + payload)
       setNewTrade(payload);
     });
   }
 
   useEffect(() => {
     fetchMarketData()
-    fetchOrderBookData()
+    fetchOrderBookBids()
+    fetchOrderBookAsks()
     fetchLastTrade();
     fetchNewTrade();
     marketTokenActions.getTokensInfo()
     // tokenActions.getOrderBookOrders()
     transactionActions.getTransactionsOrders()
-    tokenActions.getGraphData()
 
     // return webSocket.close();
   }, [])
@@ -153,9 +154,10 @@ export default function Dashboard() {
       <S.WrapperMain >
         <Navbar currentToken={current} volume={volume} lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType} />
         <S.WrapperGraph marketActive={state}>
-          <Graph orderBook={orderBook} latestTransaction={lastTradePrice}
-                 graphInitialData={graphInitialData}
-                 latestTransactionType={lastTradePriceType} graphData={graphData}/>
+          <Graph orderBookAsks={orderBookAsks}
+                 orderBookBids={orderBookBids}
+                 latestTransaction={lastTradePrice}
+                 latestTransactionType={lastTradePriceType}/>
           <MarketOrder />
           <Transactions
             newTradeData={newTrade}

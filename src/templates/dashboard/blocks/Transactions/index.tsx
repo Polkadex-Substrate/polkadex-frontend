@@ -28,13 +28,13 @@ const Transactions = ({ data, newTradeData, remove }: ITransactions, pair = "DOT
 
   return (
     <S.Section>
-      <Tabs>
+      <Tabs selectedIndex={3}>
         <S.Header>
           <TabList>
             <Tab>Open Orders</Tab>
             <Tab>Order History</Tab>
             <Tab>Trade History</Tab>
-            <Tab>Funds</Tab>
+            <Tab>New Trade</Tab>
           </TabList>
           <S.WrapperActions>
             <Checkbox title="Hide Other Pairs" checked={filters.hiddenPairs} action={handleChangeHidden} />

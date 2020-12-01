@@ -10,7 +10,7 @@ import { IGraph } from './IGraph'
 import * as S from './styles'
 const ChartContainer = dynamic(() => import('../../../../components/dashboard/CustomChart'), { ssr: false })
 
-const Graph = ({ orderBook, graphData }: IGraph) => {
+const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransactionType }: IGraph) => {
 
   const [filters, setFilters] = useState({
     type: "CandlestickSeries"
@@ -61,9 +61,9 @@ const Graph = ({ orderBook, graphData }: IGraph) => {
             </S.List>
           </S.FlexWrapper>
         </S.Header>
-        {graphData.length > 1 ? <ChartContainer /> : <p>Loading..</p>}
+        <ChartContainer />
       </S.WrapperGraph>
-      <OrderBook data={orderBook}/>
+      <OrderBook orderBookAsks={orderBookAsks} orderBookBids={orderBookBids} latestTransaction={latestTransaction} latestTransactionType={latestTransactionType}/>
     </S.Wrapper>
   )
 }

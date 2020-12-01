@@ -5,7 +5,7 @@ export type ITransactionData = {
   coin: string
   side: 'buy' | 'sell'
   price: number
-  fee: number
+  quantity: number
   total: number
   status: boolean
 }

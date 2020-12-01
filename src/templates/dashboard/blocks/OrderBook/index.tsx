@@ -7,21 +7,34 @@ import {useMemo,useState} from "react"
 
 import { IOrderBookData } from '../Graph/IGraph'
 import * as S from './styles'
+import Dinero from 'dinero.js'
 
 type Props = {
-  data: IOrderBookData[]
+  orderBookAsks: IOrderBookData[],
+  orderBookBids: IOrderBookData[],
+  latestTransaction: number,
+  latestTransactionType: string,
 }
 
-const OrderBook = ({ data }: Props) => {
+const OrderBook = ({ orderBookBids, orderBookAsks, latestTransaction, latestTransactionType }: Props) => {
   const [filterState, setFilterState] = useState("Order")
-  const [sizeState, setSizeState] = useState(0.01)
+  const [sizeState, setSizeState] = useState(0.0001)
 
   const handleChange = (select: string) => setFilterState(select)
   const handleAction = (select: number) => setSizeState(select)
 
-  const lastOrderBook = (data) => data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]
+  const getDecimalPlaces = () => sizeState.toString().split('.')[1].length || 0
 
-  const last = useMemo<IOrderBookData>(() => lastOrderBook(data), [data])
+  const updateDataSize = (orderBookData) => orderBookData.map(order => ({
+    ...order,
+    price: order.price.toFixed(getDecimalPlaces()),
+    amount: order.amount.toFixed(getDecimalPlaces()),
+    total: order.total.toFixed(getDecimalPlaces())
+  }));
+
+  // const lastOrderBook = (data) => data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]
+  //
+  // const last = useMemo<IOrderBookData>(() => lastOrderBook(data), [data])
 
   return (
     <S.Wrapper>
@@ -45,7 +58,10 @@ const OrderBook = ({ data }: Props) => {
           </Dropdown>
         </S.ContainerTitle>
       </S.WrapperTitle>
-      <OrderBookTable data={data} active={last && last.price}/>
+      <OrderBookTable orderBookAsks={updateDataSize(orderBookAsks)}
+                      orderBookBids={updateDataSize(orderBookBids)}
+                      latestTransaction={Dinero({ amount: Math.round(latestTransaction * 100) }).toFormat('$0,0.00')}
+                      latestTransactionType={latestTransactionType}/>
     </S.Wrapper>
   )
 }

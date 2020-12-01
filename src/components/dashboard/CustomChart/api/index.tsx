@@ -46,7 +46,7 @@ export default {
 
     getBars: async (symbolInfo, resolution, from, to, onHistoryCallback, onErrorCallback, firstDataRequest) => {
         console.log('=====getBars running')
-        console.log("Requested From Time: ", from, " and To Time: ", to)
+        // console.log("Requested From Time: ", from, " and To Time: ", to)
         if (firstDataRequest) {
             // Create a promise and wait for that promise to resolve
             const cloudBars = await createNewPromiseforInitialData(); // Assign the array coming from initial-graph-data here.
