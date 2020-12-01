@@ -15,7 +15,7 @@ webSocket.on('market-data-stream', trade => {
     console.log("New Time: ", trade.date * 1000)
     console.log("Last Time: ", lastDailyBar.time)
 
-    subscriptionItem.lastDailyBar = (trade.date * 1000 - lastDailyBar.time < 60000)
+    subscriptionItem.lastDailyBar = (trade.date * 1000 - lastDailyBar.time < 3*60000)
       ? barValueForSameBlock(trade, lastDailyBar)
       : barValueForNextBlock(trade, lastDailyBar);
 
