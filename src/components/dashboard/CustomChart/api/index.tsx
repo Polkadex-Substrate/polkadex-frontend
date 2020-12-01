@@ -1,5 +1,4 @@
-import {io} from 'socket.io-client';
-import stream, {createNewPromiseforInitialData} from './stream';
+import stream, { createNewPromiseforInitialData } from './stream';
 
 const supportedResolutions = ["1", "3", "5", "15", "30", "60", "120", "240", "D"]
 
@@ -7,7 +6,6 @@ const config = {
     supported_resolutions: supportedResolutions
 };
 let lastBarsCache = new Map();
-// const webSocket = io.connect("https://testnet.polkadex.trade:3000", {secure: true, transports: ['websocket']});
 
 export default {
     onReady: cb => {

@@ -1,6 +1,5 @@
-import {io} from 'socket.io-client';
+import webSocket from '../../../../utils/WebSocketConfig'
 
-const webSocket = io.connect("https://testnet.polkadex.trade:3000", {secure: true, transports: ['websocket']});
 // keep track of subscriptions
 const channelToSubscription = new Map();
 const channelString = "market-data-stream"
