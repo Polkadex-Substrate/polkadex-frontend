@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import media,{generateMedia} from "styled-media-query";
 
 const customMedia = generateMedia({
@@ -52,13 +52,25 @@ export const Graph = styled.div``
 
 export const Item = styled.div`
   cursor:pointer;
-:first-child {
-  margin-left: 1rem;
-}
-:not(:first-child){
-    margin-right: 1rem;
-  }
-:not(:last-child){
+  
+  :first-child {
     margin-left: 1rem;
   }
+  
+  :not(:first-child){
+    margin-right: 1rem;
+  }
+    
+  :not(:last-child){
+    margin-left: 1rem;
+  }
+  
+  ${({ selected }) => selected && css`
+    background-color: #FF0087;
+    height: 3.6rem;
+    width: 3.6rem;
+    padding: 0.8rem;
+    border-radius: 0.7rem;
+  `}
 `
+

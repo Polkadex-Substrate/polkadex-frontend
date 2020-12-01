@@ -81,14 +81,18 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
       loading_screen:  { backgroundColor: "#2E303C" },
       overrides: {
         "paneProperties.background": "#2E303C",
-        "paneProperties.vertGridProperties.color": "#b1b1b1",
-        "paneProperties.horzGridProperties.color": "#b1b1b1",
+        "paneProperties.vertGridProperties.color": "#b1b1b130",
+        "paneProperties.horzGridProperties.color": "#b1b1b130",
         "symbolWatermarkProperties.transparency": 90,
         "scalesProperties.textColor": "#fff",
         "scalesProperties.fontSize": 11,
         "paneProperties.topMargin": 15,
-        "mainSeriesProperties.candleStyle.wickUpColor": '#336854',
-        "mainSeriesProperties.candleStyle.wickDownColor": '#7f323f',
+        "mainSeriesProperties.candleStyle.upColor": '#0CA564',
+        "mainSeriesProperties.candleStyle.downColor": '#FF0087',
+        "mainSeriesProperties.candleStyle.borderUpColor": "#0CA564",
+        "mainSeriesProperties.candleStyle.borderDownColor": "#FF0087",
+        "mainSeriesProperties.candleStyle.wickUpColor": "#0CA564",
+        "mainSeriesProperties.candleStyle.wickDownColor": "#FF0087"
       }
     };
 

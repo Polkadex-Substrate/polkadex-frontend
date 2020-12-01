@@ -20,9 +20,11 @@ const Graph = ({ orderBook, graphData }: IGraph) => {
       <S.WrapperGraph>
         <S.Header>
           <S.FlexWrapper>
+            <Icon source="Edit" />
             <S.List>
-              <Icon source="Edit" />
-
+              <S.Item selected>
+                1m
+              </S.Item>
               <S.Item>
                 1h
               </S.Item>
@@ -52,7 +54,7 @@ const Graph = ({ orderBook, graphData }: IGraph) => {
           </Dropdown>
           <S.FlexWrapper>
             <S.List>
-              <ListItemButton title="Original" size="Default" />
+              <ListItemButton title="Original" size="Default" selected />
               <ListItemButton title="Trading View" size="Default" />
               <ListItemButton title="Deep Market" size="Default" />
               <Icon source="Expand"/>

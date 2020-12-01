@@ -32,11 +32,14 @@ const wrapperModifier = {
   `,
   FullWidth: () => css`
     width: 100%;
+  `,
+  Selected: () => css`
+    background-color: #FF0877;
   `
 }
 
 export const Wrapper = styled.div<Partial<ListItemProps>>`
-${({ theme, size, darkMode, fullWidth }) => css`
+${({ theme, size, darkMode, fullWidth, selected }) => css`
   border: 0;
   border-radius: ${theme.border.radius};
   padding: ${theme.spacings.xxsmall};
@@ -46,8 +49,9 @@ ${({ theme, size, darkMode, fullWidth }) => css`
   cursor: pointer;
 
   ${wrapperModifier[size](theme)}
-  ${darkMode ? wrapperModifier.Dark(theme) : wrapperModifier.Light(theme) }
-  ${fullWidth && wrapperModifier.FullWidth() }
+  ${darkMode ? wrapperModifier.Dark(theme) : wrapperModifier.Light(theme)}
+  ${fullWidth && wrapperModifier.FullWidth()}
+  ${selected && wrapperModifier.Selected()}
 
   :hover {
     opacity: ${theme.colors.black};
