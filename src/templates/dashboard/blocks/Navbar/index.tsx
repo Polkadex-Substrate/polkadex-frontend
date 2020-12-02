@@ -35,7 +35,7 @@ const Navbar = ({ currentToken, blockValues, lastTradePrice, lastTradePriceType 
           <NavbarPair coin={currentToken.symbol} pairs={testPairs} />
       </S.ContainerPair>
       <S.ContainerInfo>
-        <NavbarItem label="Last Trade Price (BTC)" info={Dinero({ amount: Math.round(lastTradePrice * 100) }).toFormat('$0,0.00')} type={lastTradePriceType} />
+        <NavbarItem label="Last Trade Price (USDT)" info={Dinero({ amount: Math.round(lastTradePrice * 100) }).toFormat('$0,0.00')} type={lastTradePriceType} />
         <NavbarItem label="Block Price %" info={blockValues.blockPrice} />
         <NavbarItem label="Block Volume (USDT)" info={Dinero({ amount: Math.round(blockValues.volume * 100) }).toFormat('$0').toString().slice(0, 6)} />
         <S.WrapperVolume>

@@ -3,6 +3,7 @@ import React, { useEffect,useState } from 'react'
 import { fakeLatestListings, fakeTransactionsOrders } from 'utils/fakeData/'
 import { IMarketToken } from 'utils/Interfaces'
 
+
 import { webSocket } from '../../components/dashboard/CustomChart/api/stream'
 import Graph from './blocks/Graph'
 import Market from './blocks/Market'
@@ -180,7 +181,6 @@ export default function Dashboard() {
             remove={transactionActions.removeTransactionsOrder}/>
         </S.WrapperGraph>
       </S.WrapperMain>
-
     </S.Wrapper>
   )
 }

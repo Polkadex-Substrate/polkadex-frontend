@@ -15,8 +15,8 @@ const MarketOrder = () => {
       <Tabs>
         <S.Header>
           <TabList>
-            <Tab style={{ color: "#0CA564"}}>Buy DOT</Tab>
-            <Tab>Sell DOT</Tab>
+            <Tab style={{ color: "#0CA564"}}>Buy USDT</Tab>
+            <Tab>Sell USDT</Tab>
           </TabList>
           <Dropdown title={state} >
             <>

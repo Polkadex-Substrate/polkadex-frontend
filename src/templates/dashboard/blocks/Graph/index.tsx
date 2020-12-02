@@ -23,7 +23,7 @@ const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransact
             <Icon source="Edit" />
             <S.List>
               <S.Item selected>
-                1m
+                3m
               </S.Item>
               <S.Item>
                 1h

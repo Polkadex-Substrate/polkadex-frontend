@@ -20,18 +20,18 @@ const MarketOrderAction = ({ type = 'Buy' }: MarketOrderActionProps) => {
         <Icon source="Wallet" background="DarkGray" size="Medium" />
         <S.WrapperBalance>
           <span>Available</span>
-          <S.Span>0 DOT</S.Span>
+          <S.Span>0 BTC</S.Span>
         </S.WrapperBalance>
       </S.ContainerWallet>
       <S.ContainerForm>
         <form onSubmit={() => console.log("Submiting..")}>
           <Input label="Price" icon="ArrowVerticalTop" placeholder="0.0000000" type="text" inputInfo="BTC" fullWidth={true} />
-          <Input label="Amount" icon="ArrowVerticalBottom" placeholder="0.0000000" type="text" inputInfo="DOT" fullWidth={true} />
+          <Input label="Amount" icon="ArrowVerticalBottom" placeholder="0.0000000" type="text" inputInfo="USDT" fullWidth={true} />
           <S.WrapperActions>
             <p>Equivalent ~
             <span> $0</span>
             </p>
-            <Dropdown title="Fee 0 BTC">
+            <Dropdown title="Fee 0 PKDX">
               <Link title="Custom Fee" />
             </Dropdown>
           </S.WrapperActions>
