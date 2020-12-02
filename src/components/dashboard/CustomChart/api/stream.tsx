@@ -6,15 +6,12 @@ export const webSocket = io.connect("https://testnet.polkadex.trade:3000", {secu
 const channelToSubscription = new Map();
 const channelString = "market-data-stream"
 webSocket.on('market-data-stream', trade => {
-    // console.log('[market-data-stream] Message:', trade);
     const subscriptionItem = channelToSubscription.get(channelString);
     if (subscriptionItem === undefined) {
         return;
     }
     const lastDailyBar = subscriptionItem.lastDailyBar;
 
-    // console.log("New Time: ", trade.date * 1000)
-    // console.log("Last Time: ", lastDailyBar.time)
 
     subscriptionItem.lastDailyBar = (trade.date * 1000 - lastDailyBar.time < 3*60000)
       ? barValueForSameBlock(trade, lastDailyBar)
@@ -55,7 +52,6 @@ const barValueForNextBlock = (trade, lastDailyBar) => {
 
 let initialBars;
 webSocket.on('initial-graph-data', bars => {
-    console.log("Got Historical Data: ", bars)
     initialBars = bars
 });
 
@@ -80,7 +76,6 @@ export default {
             handlers: [handler],
         };
         channelToSubscription.set(channelString, subscriptionItem);
-        // console.log('[subscribeBars]: Subscribe to streaming. Channel:', channelString);
     },
 
     unsubscribeBars: (uid) => {

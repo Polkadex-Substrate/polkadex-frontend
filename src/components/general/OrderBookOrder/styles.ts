@@ -5,7 +5,9 @@ export const Tr = styled.tr`
   margin-bottom:1.2rem;
   border-radius: 0 1rem 1rem 1rem;
 `
-export const Td = styled.td``
+export const Td = styled.td`
+  font-weight: bold;
+`
 export const ContainerFlex = styled.div`
   display: flex;
   align-items:center;
