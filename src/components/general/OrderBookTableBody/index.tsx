@@ -1,17 +1,22 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 
 import * as S from '../OrderBookTable/styles'
 import OrderBookOrder from '../OrderBookOrder'
 
-const OrderBookTableBody = ({ data, scrollBottom, exchangeImg }) => {
-  let elementRef = useRef(null);
+const OrderBookTableBody = ({ data, isScrollBottom, exchangeImg }) => {
+  let tableEndRef = useRef();
 
-  useEffect(() => scrollBottom && elementRef.current.scrollIntoView({ behavior: 'smooth' }), []);
+  const scrollToBottom = () => {
+    if (tableEndRef && tableEndRef.current) {
+      const scroll = tableEndRef.current.scrollHeight - tableEndRef.current.clientHeight;
+      tableEndRef.current.scrollTo(0, scroll);
+    }
+  }
 
   return (
-    <S.Tbody>
-      { data.map(item => <OrderBookOrder key={item.id} data={item} exchangeImg={exchangeImg} /> ) }
-      {scrollBottom && <div ref={elementRef} />}
+    <S.Tbody ref={tableEndRef}>
+      {data.map(item => <OrderBookOrder key={item.id} data={item} exchangeImg={exchangeImg}/>)}
+      {isScrollBottom && scrollToBottom()}
     </S.Tbody>
   )
 }

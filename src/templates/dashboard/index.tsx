@@ -128,7 +128,6 @@ export default function Dashboard() {
 
   const fetchNewTrade = () => {
     webSocket.on('new-trade', payload => {
-      console.log('New Trade: ' + payload)
       setNewTrade(payload);
     });
   }

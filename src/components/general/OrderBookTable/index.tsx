@@ -22,7 +22,7 @@ const OrderBookTable = ({ latestTransaction, latestTransactionType, orderBookAsk
           <S.Th>Amount</S.Th>
         </S.Tr>
         </S.Thead>
-        <OrderBookTableBody data={orderBookAsks} scrollBottom={true} exchangeImg={"/img/icons/Exchange_B.svg"} />
+        <OrderBookTableBody data={orderBookAsks} isScrollBottom={true} exchangeImg={"/img/icons/Exchange_B.svg"} />
     </S.Table>
 
     <S.LastTransaction>
@@ -53,7 +53,7 @@ const OrderBookTable = ({ latestTransaction, latestTransactionType, orderBookAsk
             <S.Th>Amount</S.Th>
           </S.Tr>
         </S.Thead>
-        <OrderBookTableBody data={orderBookBids} scrollBottom={false} exchangeImg={"/img/icons/Exchange_A.svg"}/>
+        <OrderBookTableBody data={orderBookBids} isScrollBottom={false} exchangeImg={"/img/icons/Exchange_A.svg"}/>
     </S.Table>
 
   </S.Wrapper>
