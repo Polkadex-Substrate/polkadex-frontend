@@ -90,7 +90,9 @@ export const WrapperVolume = styled.div`
 
 `;
 
-export const Span = styled.span``;
+export const Span = styled.span`
+  font-weight:300;
+`;
 
 // Dropdown
 export const WrapperDropdownContent = styled.a`
