@@ -22,17 +22,16 @@ type BlockProps = {
 }
 
 type Props = {
-  currentToken: IMarketToken,
   blockValues: BlockProps,
   lastTradePrice: number,
   lastTradePriceType: 'AskLimit' | 'BidLimit'
 }
-const Navbar = ({ currentToken, blockValues, lastTradePrice, lastTradePriceType }: Props) => {
+const Navbar = ({ blockValues, lastTradePrice, lastTradePriceType }: Props) => {
   return (
   <S.Wrapper>
     <S.WrapperInfo>
       <S.ContainerPair>
-          <NavbarPair coin={currentToken.symbol} pairs={testPairs} />
+          <NavbarPair coin={'BTC'} pairs={testPairs} />
       </S.ContainerPair>
       <S.ContainerInfo>
         <NavbarItem label="Last Trade Price (USDT)" info={Dinero({ amount: Math.round(lastTradePrice * 100) }).toFormat('$0,0.00')} type={lastTradePriceType} />

@@ -1,9 +1,9 @@
+import React, { useState } from 'react';
+import { Tab, TabList, TabPanel,Tabs } from 'react-tabs';
+
 import Dropdown from 'components/general/Dropdown'
 import DropdownItem from 'components/general/DropdownItem';
 import MarketOrderAction from 'components/general/MarketOrderAction'
-import { useState } from 'react';
-import { Tab, TabList, TabPanel,Tabs } from 'react-tabs';
-
 import * as S from './styles'
 
 const MarketOrder = () => {

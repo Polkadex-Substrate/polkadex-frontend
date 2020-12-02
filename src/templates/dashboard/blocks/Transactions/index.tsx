@@ -1,10 +1,8 @@
+import React, { useState } from 'react';
 import Checkbox from 'components/general/Checkbox'
-import DateRange from 'components/general/DateRange';
 import Dropdown from 'components/general/Dropdown'
 import DropdownItem from 'components/general/DropdownItem';
-import Icon from 'components/general/Icon'
 import TransactionTable from 'components/general/TransactionTable'
-import { useState } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 import { ITransactions } from './ITransactions';
@@ -28,7 +26,7 @@ const Transactions = ({ data, newTradeData, remove }: ITransactions, pair = "DOT
 
   return (
     <S.Section>
-      <Tabs selectedIndex={3}>
+      <Tabs selectedIndex={3} onSelect={() => {}}>
         <S.Header>
           <TabList>
             <Tab>Open Orders</Tab>

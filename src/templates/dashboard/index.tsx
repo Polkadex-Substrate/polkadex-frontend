@@ -1,8 +1,4 @@
 import React, { useEffect,useState } from 'react'
-// Fake Data
-import { fakeLatestListings, fakeTransactionsOrders } from 'utils/fakeData/'
-import { IMarketToken } from 'utils/Interfaces'
-
 
 import { webSocket } from '../../components/dashboard/CustomChart/api/stream'
 import Graph from './blocks/Graph'
@@ -13,46 +9,11 @@ import Navbar from './blocks/Navbar'
 import Transactions from './blocks/Transactions'
 import * as S from './styles'
 
-const initialState = {
-  "id": 1,
-  "name": "Bitcoin",
-  "symbol": "BTC",
-  "slug": "bitcoin",
-  "num_market_pairs": 9191,
-  "date_added": "2013-04-28T00:00:00.000Z",
-  "tags": [
-    "mineable",
-    "pow",
-    "sha-256",
-    "store-of-value",
-    "state-channels"
-  ],
-  "max_supply": 21000000,
-  "circulating_supply": 18530387,
-  "total_supply": 18530387,
-  "platform": null,
-  "cmc_rank": 1,
-  "last_updated": "2020-10-31T11:50:02.000Z",
-  "quote": {
-    "USD": {
-      "price": 13882.426203037483,
-      "volume_24h": 32714795587.32121,
-      "percent_change_1h": 0.83355575,
-      "percent_change_24h": 4.71387887,
-      "percent_change_7d": 6.98381798,
-      "market_cap": 257246730041.22513,
-      "last_updated": "2020-10-31T11:50:02.000Z"
-    }
-  }
-}
 export default function Dashboard() {
 
   const [state, setState] = useState(false)
-  const [transactions, setTransactions] = useState([])
   const [orderBookBids, setOrderBookBids] = useState([])
   const [orderBookAsks, setOrderBookAsks] = useState([])
-  const [coins, setCoins] = useState<any>([])
-  const [current, setCurrent] = useState(initialState)
   const [volume, setVolume] = useState(0);
   const [blockPrice, setBlockPrice] = useState(0.00);
   const [high, setHigh] = useState(0);
@@ -61,22 +22,9 @@ export default function Dashboard() {
   const [lastTradePriceType, setLastTradePriceType] = useState();
   const [newTrade, setNewTrade] = useState();
 
-  // Fake Transactions Orders Actions
-  const transactionActions = {
-    getTransactionsOrders: () => setTransactions(fakeTransactionsOrders),
-    removeTransactionsOrder : (id: string) => {
-      const removeItem = transactions.filter(item => item.id !== id)
-      setTransactions(removeItem)
-    }
-  }
-
-  // Market Tokens Actions
-  const marketTokenActions = {
-    getTokensInfo : () => setCoins(fakeLatestListings)
-  }
+  const removeTransactionsOrder = (id: string) => console.log('remove transaction' + id);
 
   const fetchOrderBookBids = () => {
-
     webSocket.on('bids_levels', async (bid_levels) => {
       let currentOrderBook = [];
 
@@ -98,7 +46,6 @@ export default function Dashboard() {
   }
 
   const fetchOrderBookAsks = () => {
-
     webSocket.on('asks_levels', async (ask_levels) => {
       let currentOrderBook = [];
 
@@ -154,20 +101,14 @@ export default function Dashboard() {
     fetchOrderBookAsks()
     fetchLastTrade();
     fetchNewTrade();
-    marketTokenActions.getTokensInfo()
-    // tokenActions.getOrderBookOrders()
-    transactionActions.getTransactionsOrders()
-
-    // return webSocket.close();
   }, [])
 
-  if (!coins) return <p>Loading</p>
   return (
-    <S.Wrapper >
+    <S.Wrapper>
       <Menu handleChange={() => setState(!state)} />
-      {state && <Market coins={coins}/>}
+      {state && <Market/>}
       <S.WrapperMain >
-        <Navbar currentToken={current} lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType}
+        <Navbar lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType}
         blockValues={{volume, high, low, blockPrice}}/>
         <S.WrapperGraph marketActive={state}>
           <Graph orderBookAsks={orderBookAsks}
@@ -177,8 +118,8 @@ export default function Dashboard() {
           <MarketOrder />
           <Transactions
             newTradeData={newTrade}
-            data={transactions}
-            remove={transactionActions.removeTransactionsOrder}/>
+            data={[]}
+            remove={removeTransactionsOrder}/>
         </S.WrapperGraph>
       </S.WrapperMain>
     </S.Wrapper>
