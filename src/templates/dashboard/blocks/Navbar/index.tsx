@@ -13,14 +13,21 @@ const testPairs = [
     name: "USDT"
   },
 ]
+
+type BlockProps = {
+  volume: number;
+  high: string;
+  low: string;
+  blockPrice: string;
+}
+
 type Props = {
   currentToken: IMarketToken,
-  volume: number,
-  blockPrice: number,
+  blockValues: BlockProps,
   lastTradePrice: number,
   lastTradePriceType: 'AskLimit' | 'BidLimit'
 }
-const Navbar = ({ currentToken, volume, blockPrice, lastTradePrice, lastTradePriceType }: Props) => {
+const Navbar = ({ currentToken, blockValues, lastTradePrice, lastTradePriceType }: Props) => {
   return (
   <S.Wrapper>
     <S.WrapperInfo>
@@ -29,15 +36,15 @@ const Navbar = ({ currentToken, volume, blockPrice, lastTradePrice, lastTradePri
       </S.ContainerPair>
       <S.ContainerInfo>
         <NavbarItem label="Last Trade Price (BTC)" info={Dinero({ amount: Math.round(lastTradePrice * 100) }).toFormat('$0,0.00')} type={lastTradePriceType} />
-        <NavbarItem label="Block Price %" info={blockPrice} />
-        <NavbarItem label="Block Volume (USDT)" info={Dinero({ amount: Math.round(volume * 100) }).toFormat('$0').toString().slice(0, 6)} />
+        <NavbarItem label="Block Price %" info={blockValues.blockPrice} />
+        <NavbarItem label="Block Volume (USDT)" info={Dinero({ amount: Math.round(blockValues.volume * 100) }).toFormat('$0').toString().slice(0, 6)} />
         <S.WrapperVolume>
           <S.VolumeHigh>
             <S.Span>
               Block High
             </S.Span>
             <p>
-              0.5020201
+              {blockValues.high}
             </p>
           </S.VolumeHigh>
           <S.VolumeLow>
@@ -45,7 +52,7 @@ const Navbar = ({ currentToken, volume, blockPrice, lastTradePrice, lastTradePri
               Block Low
             </S.Span>
             <p>
-              0.5020201
+              {blockValues.low}
             </p>
           </S.VolumeLow>
 

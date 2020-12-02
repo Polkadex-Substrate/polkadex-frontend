@@ -54,6 +54,8 @@ export default function Dashboard() {
   const [current, setCurrent] = useState(initialState)
   const [volume, setVolume] = useState(0);
   const [blockPrice, setBlockPrice] = useState(0.00);
+  const [high, setHigh] = useState(0);
+  const [low, setLow] = useState(0);
   const [lastTradePrice, setLastTradePrice] = useState(0);
   const [lastTradePriceType, setLastTradePriceType] = useState();
   const [newTrade, setNewTrade] = useState();
@@ -70,10 +72,6 @@ export default function Dashboard() {
   // Market Tokens Actions
   const marketTokenActions = {
     getTokensInfo : () => setCoins(fakeLatestListings)
-  }
-
-  const fetchMarketData = () => {
-    webSocket.on('market-data-stream', ({ volume }) => setVolume(volume));
   }
 
   const fetchOrderBookBids = () => {
@@ -133,13 +131,19 @@ export default function Dashboard() {
     });
   }
 
-  const fetchBlockPrice = () => {
-    webSocket.on('market-data-stream', ({ open, close }) => {
-      const blockPriceValue = (open - close) * 100 / open;
-      console.log(blockPriceValue);
+  const fetchMarketData = () => {
+    webSocket.on('market-data-stream', ({ volume, open, close, low, high }) => {
+      const blockPriceValue = open === 0 ? 0 : (open - close) * 100 / open;
       if (+blockPriceValue.toFixed(2) !== 0) {
         setBlockPrice(blockPriceValue.toFixed(2));
       }
+      if (+high.toFixed(2) !== 0) {
+        setHigh(high.toFixed(2))
+      }
+      if (+low.toFixed(2) !== 0) {
+        setLow(low.toFixed(2))
+      }
+      setVolume(volume);
     });
   }
 
@@ -149,7 +153,6 @@ export default function Dashboard() {
     fetchOrderBookAsks()
     fetchLastTrade();
     fetchNewTrade();
-    fetchBlockPrice();
     marketTokenActions.getTokensInfo()
     // tokenActions.getOrderBookOrders()
     transactionActions.getTransactionsOrders()
@@ -163,7 +166,8 @@ export default function Dashboard() {
       <Menu handleChange={() => setState(!state)} />
       {state && <Market coins={coins}/>}
       <S.WrapperMain >
-        <Navbar currentToken={current} volume={volume} lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType} blockPrice={blockPrice} />
+        <Navbar currentToken={current} lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType}
+        blockValues={{volume, high, low, blockPrice}}/>
         <S.WrapperGraph marketActive={state}>
           <Graph orderBookAsks={orderBookAsks}
                  orderBookBids={orderBookBids}
