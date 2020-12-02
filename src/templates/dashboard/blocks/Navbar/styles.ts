@@ -77,21 +77,16 @@ export const VolumeLow = styled.div`
 
 `;
 export const WrapperVolume = styled.div`
-  span {
-    margin-right:1rem;
-    color: #8BA1BE;
-    font-size: 1.3rem;
-    font-weight:400;
-  }
   div {
     display: flex;
     flex-direction: row;
   }
-
 `;
 
 export const Span = styled.span`
-  font-weight:300;
+  font-size: 1.2rem;
+  color: #d8d8d8;
+  margin-right:1rem;
 `;
 
 // Dropdown

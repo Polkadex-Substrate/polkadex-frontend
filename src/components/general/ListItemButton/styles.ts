@@ -5,7 +5,10 @@ import { ListItemProps } from '.'
 const wrapperModifier = {
   Default: (theme: DefaultTheme) => css`
     height: 3.6rem;
-    padding:1.1rem 0.9rem 0 0.9rem;
+    padding: 0.7rem 1rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
     font-size: ${theme.font.sizes.xsmall};
   `,
   Small: (theme:DefaultTheme) => css`

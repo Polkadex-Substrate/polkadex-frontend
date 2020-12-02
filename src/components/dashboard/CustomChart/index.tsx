@@ -46,8 +46,7 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
     clientId: 'tradingview.com',
     userId: 'public_user_id',
     fullscreen: false,
-    autosize: true,
-    studiesOverrides: {},
+    autosize: true
   };
 
   private tvWidget: IChartingLibraryWidget | null = null;
@@ -77,8 +76,11 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
       user_id: this.props.userId,
       fullscreen: this.props.fullscreen,
       autosize: this.props.autosize,
-      studies_overrides: this.props.studiesOverrides,
       loading_screen:  { backgroundColor: "#2E303C" },
+      studies_overrides: {
+        "volume.volume.color.0": "#0CA564",
+        "volume.volume.color.1": "#E6007A",
+      },
       overrides: {
         "paneProperties.background": "#2E303C",
         "paneProperties.vertGridProperties.color": "#b1b1b100",
@@ -86,15 +88,14 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
         "symbolWatermarkProperties.transparency": 90,
         "scalesProperties.textColor": "#fff",
         "scalesProperties.fontSize": 11,
+        "scalesProperties.backgroundColor": "#2E303C",
         "paneProperties.topMargin": 15,
         "mainSeriesProperties.candleStyle.upColor": '#0CA564',
         "mainSeriesProperties.candleStyle.downColor": '#E6007A',
         "mainSeriesProperties.candleStyle.borderUpColor": "#0CA564",
         "mainSeriesProperties.candleStyle.borderDownColor": "#E6007A",
         "mainSeriesProperties.candleStyle.wickUpColor": "#0CA564",
-        "mainSeriesProperties.candleStyle.wickDownColor": "#E6007A",
-        "volume.color.0": "#0CA564",
-        "volume.color.1": "#E6007A"
+        "mainSeriesProperties.candleStyle.wickDownColor": "#E6007A"
       }
     };
 

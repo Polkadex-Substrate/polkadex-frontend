@@ -4,12 +4,8 @@ import { NavbarItemPops } from '.'
 
 export const Wrapper = styled.div``
 export const Label = styled.span`
-  ${({ theme }) => css`
-    font-size: 1.1rem;
-    color: #8BA1BE;
-    opacity: 0.7;
-    font-weight:300;
-  ` }
+  font-size: 1.2rem;
+  color: #d8d8d8;
 `
 export const Info = styled.p<Partial<NavbarItemPops>>`
   ${({ theme }) => css`

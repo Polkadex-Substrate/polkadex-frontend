@@ -14,6 +14,7 @@ function App({ Component, pageProps }: AppProps) {
       title: 'Disclaimer',
       type: 'success',
       text: 'This is a testnet application.',
+      confirmButtonColor: theme.colors.primary
     });
   })
 
