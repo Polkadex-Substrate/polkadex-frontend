@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import * as S from '../OrderBookTable/styles'
 import OrderBookOrder from '../OrderBookOrder'
@@ -13,10 +13,17 @@ const OrderBookTableBody = ({ data, isScrollBottom, exchangeImg }) => {
     }
   }
 
+  useEffect(() => {
+    if (isScrollBottom) {
+      scrollToBottom();
+    }
+
+    return;
+  }, [data]);
+
   return (
     <S.Tbody ref={tableEndRef}>
       {data.map(item => <OrderBookOrder key={item.id} data={item} exchangeImg={exchangeImg}/>)}
-      {isScrollBottom && scrollToBottom()}
     </S.Tbody>
   )
 }

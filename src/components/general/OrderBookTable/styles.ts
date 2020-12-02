@@ -24,7 +24,7 @@ export const Thead = styled.thead`
 export const Tbody = styled.tbody`
   color: white;
   font-size: 1.2rem;
-  height: 13rem;
+  height: 17rem;
   display: block;
   overflow-y: auto;
   tr {
@@ -58,7 +58,9 @@ export const LastTransaction = styled.div<Pick<OrderBookTableProps,'active'>>`
 `
 
 export const VolumeHigh = styled.span`
-  color: #0CA564;
+  ${({ theme }) => css`
+    color: ${theme.colors.green};
+  `}
 `;
 
 export const VolumeLow = styled.span`

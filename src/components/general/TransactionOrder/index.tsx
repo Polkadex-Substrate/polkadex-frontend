@@ -28,7 +28,7 @@ const TransactionOrder = ({ data, remove }: Props) => (
     <S.Td>
       <S.Tag>Pair</S.Tag>
       <S.ContainerFlex>
-        <S.Image src={`img/cryptocurrencies/${data.coin}.png`}  />
+        <S.Image src={`img/cryptocurrencies/BTC.png`}  />
         <span>BTC / USDT</span>
       </S.ContainerFlex>
     </S.Td>
@@ -36,7 +36,7 @@ const TransactionOrder = ({ data, remove }: Props) => (
     <S.Td>
       <S.Tag>Side</S.Tag>
       <S.ContainerFlex>
-        <S.Image src={`img/icons/${data.side}.svg`} />
+        <S.Image src={`img/icons/${data.side === 'AskLimit' ? 'Sell' : 'Buy'}.svg`} />
         <span>{data.side === 'AskLimit' ? 'Sell' : 'Buy'}</span>
       </S.ContainerFlex>
     </S.Td>

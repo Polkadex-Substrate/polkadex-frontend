@@ -53,6 +53,7 @@ export default function Dashboard() {
   const [coins, setCoins] = useState<any>([])
   const [current, setCurrent] = useState(initialState)
   const [volume, setVolume] = useState(0);
+  const [blockPrice, setBlockPrice] = useState(0.00);
   const [lastTradePrice, setLastTradePrice] = useState(0);
   const [lastTradePriceType, setLastTradePriceType] = useState();
   const [newTrade, setNewTrade] = useState();
@@ -132,12 +133,23 @@ export default function Dashboard() {
     });
   }
 
+  const fetchBlockPrice = () => {
+    webSocket.on('market-data-stream', ({ open, close }) => {
+      const blockPriceValue = (open - close) * 100 / open;
+      console.log(blockPriceValue);
+      if (+blockPriceValue.toFixed(2) !== 0) {
+        setBlockPrice(blockPriceValue.toFixed(2));
+      }
+    });
+  }
+
   useEffect(() => {
     fetchMarketData()
     fetchOrderBookBids()
     fetchOrderBookAsks()
     fetchLastTrade();
     fetchNewTrade();
+    fetchBlockPrice();
     marketTokenActions.getTokensInfo()
     // tokenActions.getOrderBookOrders()
     transactionActions.getTransactionsOrders()
@@ -151,7 +163,7 @@ export default function Dashboard() {
       <Menu handleChange={() => setState(!state)} />
       {state && <Market coins={coins}/>}
       <S.WrapperMain >
-        <Navbar currentToken={current} volume={volume} lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType} />
+        <Navbar currentToken={current} volume={volume} lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType} blockPrice={blockPrice} />
         <S.WrapperGraph marketActive={state}>
           <Graph orderBookAsks={orderBookAsks}
                  orderBookBids={orderBookBids}

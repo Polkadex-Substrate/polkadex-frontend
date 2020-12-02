@@ -16,11 +16,13 @@ const NavbarDropdown = ({ title = "NavbarDropdown", children }: NavbarDropdownPr
           <S.Image src="/img/icons/ArrowTop.svg" />
         </S.WrapperImage>
       </S.Header>
-        <S.WrapperContent className="animation">
+      {
+        children && <S.WrapperContent className="animation">
           <S.ContainerContent>
             {children}
           </S.ContainerContent>
         </S.WrapperContent>
+      }
     </S.Wrapper>
   )
 }

@@ -10,28 +10,17 @@ import * as S from './styles'
 const testPairs = [
   {
     id: 1,
-    name: "BTC"
-  },
-  {
-    id: 2,
     name: "USDT"
-  },
-  {
-    id: 3,
-    name: "DOT"
-  },
-  {
-    id: 4,
-    name: "ETH"
   },
 ]
 type Props = {
   currentToken: IMarketToken,
   volume: number,
+  blockPrice: number,
   lastTradePrice: number,
   lastTradePriceType: 'AskLimit' | 'BidLimit'
 }
-const Navbar = ({ currentToken, volume, lastTradePrice, lastTradePriceType }: Props) => {
+const Navbar = ({ currentToken, volume, blockPrice, lastTradePrice, lastTradePriceType }: Props) => {
   return (
   <S.Wrapper>
     <S.WrapperInfo>
@@ -40,12 +29,12 @@ const Navbar = ({ currentToken, volume, lastTradePrice, lastTradePriceType }: Pr
       </S.ContainerPair>
       <S.ContainerInfo>
         <NavbarItem label="Last Trade Price (BTC)" info={Dinero({ amount: Math.round(lastTradePrice * 100) }).toFormat('$0,0.00')} type={lastTradePriceType} />
-        <NavbarItem label="Price 24h" info={Dinero({ amount: Math.round(currentToken.quote.USD.percent_change_24h * 100) }).toFormat('$0,0.00')} />
-        <NavbarItem label="Volume 24h (DOT)" info={Dinero({ amount: Math.round(volume * 100) }).toFormat('$0').toString().slice(0, 6)} />
+        <NavbarItem label="Block Price %" info={blockPrice} />
+        <NavbarItem label="Block Volume (USDT)" info={Dinero({ amount: Math.round(volume * 100) }).toFormat('$0').toString().slice(0, 6)} />
         <S.WrapperVolume>
           <S.VolumeHigh>
             <S.Span>
-              24h High
+              Block High
             </S.Span>
             <p>
               0.5020201
@@ -53,7 +42,7 @@ const Navbar = ({ currentToken, volume, lastTradePrice, lastTradePriceType }: Pr
           </S.VolumeHigh>
           <S.VolumeLow>
             <S.Span>
-              24h High
+              Block Low
             </S.Span>
             <p>
               0.5020201
@@ -66,72 +55,10 @@ const Navbar = ({ currentToken, volume, lastTradePrice, lastTradePriceType }: Pr
     <S.WrapperLinks>
       <Link title="Market" href="#" />
       <NavbarDropdown title="Trade">
-        <>
-          <S.WrapperDropdownContent href="#">
-            <S.DropdownTitle>
-              Title here
-          </S.DropdownTitle>
-            <S.DropdownDescription>
-              Neque porro quisquam est qui dolorem ipsum.
-          </S.DropdownDescription>
-          </S.WrapperDropdownContent>
-          <S.WrapperDropdownContent href="#">
-            <S.DropdownTitle>
-              Title here
-          </S.DropdownTitle>
-            <S.DropdownDescription>
-              Neque porro quisquam est qui dolorem ipsum.
-          </S.DropdownDescription>
-          </S.WrapperDropdownContent>
-        </>
       </NavbarDropdown>
       <NavbarDropdown title="Derivatives">
-        <>
-          <S.WrapperDropdownContent href="#">
-            <S.DropdownTitle>
-              Title here
-          </S.DropdownTitle>
-            <S.DropdownDescription>
-              Neque porro quisquam est qui dolorem ipsum.
-          </S.DropdownDescription>
-          </S.WrapperDropdownContent>
-          <S.WrapperDropdownContent href="#">
-            <S.DropdownTitle>
-              Title here
-          </S.DropdownTitle>
-            <S.DropdownDescription>
-              Neque porro quisquam est qui dolorem ipsum.
-          </S.DropdownDescription>
-          </S.WrapperDropdownContent>
-        </>
       </NavbarDropdown>
       <NavbarDropdown title="Finance">
-        <>
-          <S.WrapperDropdownContent href="#">
-            <S.DropdownTitle>
-              Title here
-          </S.DropdownTitle>
-            <S.DropdownDescription>
-              Neque porro quisquam est qui dolorem ipsum.
-          </S.DropdownDescription>
-          </S.WrapperDropdownContent>
-          <S.WrapperDropdownContent href="#">
-            <S.DropdownTitle>
-              Title here
-          </S.DropdownTitle>
-            <S.DropdownDescription>
-              Neque porro quisquam est qui dolorem ipsum.
-          </S.DropdownDescription>
-          </S.WrapperDropdownContent>
-          <S.WrapperDropdownContent href="#">
-            <S.DropdownTitle>
-              Title here
-          </S.DropdownTitle>
-            <S.DropdownDescription>
-              Neque porro quisquam est qui dolorem ipsum.
-          </S.DropdownDescription>
-          </S.WrapperDropdownContent>
-        </>
       </NavbarDropdown>
       <NavbarLanguage />
 

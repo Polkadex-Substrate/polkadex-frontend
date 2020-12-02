@@ -88,11 +88,13 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
         "scalesProperties.fontSize": 11,
         "paneProperties.topMargin": 15,
         "mainSeriesProperties.candleStyle.upColor": '#0CA564',
-        "mainSeriesProperties.candleStyle.downColor": '#FF0087',
+        "mainSeriesProperties.candleStyle.downColor": '#E6007A',
         "mainSeriesProperties.candleStyle.borderUpColor": "#0CA564",
-        "mainSeriesProperties.candleStyle.borderDownColor": "#FF0087",
+        "mainSeriesProperties.candleStyle.borderDownColor": "#E6007A",
         "mainSeriesProperties.candleStyle.wickUpColor": "#0CA564",
-        "mainSeriesProperties.candleStyle.wickDownColor": "#FF0087"
+        "mainSeriesProperties.candleStyle.wickDownColor": "#E6007A",
+        "volume.color.0": "#0CA564",
+        "volume.color.1": "#E6007A"
       }
     };
 

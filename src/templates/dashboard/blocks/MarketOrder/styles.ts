@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Section = styled.section`
   margin-left: 1rem;
@@ -6,7 +6,9 @@ export const Section = styled.section`
   grid-area:marketorder;
   z-index: 0;
   & .react-tabs__tab--selected {
-    color: green;
+    ${({ theme }) => css`
+      color: ${theme.colors.green}
+    `}
   }
 `
 // Header

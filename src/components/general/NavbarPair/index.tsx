@@ -16,7 +16,7 @@ export type NavbarPairProps = {
 }
 
 const NavbarPair = ({ coin, pairs }: NavbarPairProps) => {
-  const [state, setState] = useState("BTC")
+  const [state, setState] = useState("USDT")
   const handleChange = (select: string) => setState(select)
 
   return (

@@ -43,7 +43,7 @@ export default {
     getBars: async (symbolInfo, resolution, from, to, onHistoryCallback, onErrorCallback, firstDataRequest) => {
         if (firstDataRequest) {
             // Create a promise and wait for that promise to resolve
-            const cloudBars = await createNewPromiseforInitialData(); // Assign the array coming from initial-graph-data here.
+            const cloudBars: any[] = await createNewPromiseforInitialData(); // Assign the array coming from initial-graph-data here.
             const bars = [];
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
