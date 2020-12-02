@@ -58,11 +58,11 @@ export const LastTransaction = styled.div<Pick<OrderBookTableProps,'active'>>`
 `
 
 export const VolumeHigh = styled.span`
-  color: green;
+  color: #0CA564;
 `;
 
 export const VolumeLow = styled.span`
   ${({ theme }) => css`
-    color: ${theme.colors.primary};
+    color: ${theme.colors.primary} !important;
   `}
 `;
