@@ -1,4 +1,4 @@
 module.exports = {
-    basePath: '/polkadex-frontend',
+    basePath: '/polkadex-frontend/',
     assetPrefix: '/polkadex-frontend/',
 }
