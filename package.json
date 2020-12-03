@@ -12,9 +12,7 @@
     "build-storybook": "build-storybook -s ./public",
     "test": "jest",
     "test:watch": "yarn test --watch",
-    "generate": "yarn plop --plopfile generators/plopfile.js",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "generate": "yarn plop --plopfile generators/plopfile.js"
   },
   "dependencies": {
     "@polkadot/api": "^2.6.1",
