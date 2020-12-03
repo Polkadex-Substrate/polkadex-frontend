@@ -82,7 +82,7 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
         "volume.volume.color.1": "#0CA564",
       },
       overrides: {
-        "paneProperties.background": "#2E303C",
+        "paneProperties.background": "#22232d",
         "paneProperties.vertGridProperties.color": "#b1b1b100",
         "paneProperties.horzGridProperties.color": "#b1b1b100",
         "symbolWatermarkProperties.transparency": 90,
