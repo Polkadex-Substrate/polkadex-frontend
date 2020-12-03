@@ -31,7 +31,7 @@ const MarketOrderAction = ({ type = 'Buy' }: MarketOrderActionProps) => {
             <p>Equivalent ~
             <span> $0</span>
             </p>
-            <Dropdown title="Fee 0 PKDX">
+            <Dropdown title="Fee 0 PDX">
               <Link title="Custom Fee" />
             </Dropdown>
           </S.WrapperActions>

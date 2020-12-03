@@ -26,19 +26,19 @@ const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransact
                 3m
               </S.Item>
               <S.Item>
-                1h
+                1H
               </S.Item>
               <S.Item>
-                24h
+                24H
               </S.Item>
               <S.Item>
-                7d
+                7D
               </S.Item>
               <S.Item>
-                1m
+                1M
               </S.Item>
               <S.Item>
-                1y
+                1Y
               </S.Item>
               <S.Item>
                 all
@@ -46,17 +46,17 @@ const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransact
               <DateRange position='left'/>
             </S.List>
           </S.FlexWrapper>
-          <Dropdown title="Candles">
-            <div>
-              <div>Candled</div>
-              <div>Area</div>
-          </div>
-          </Dropdown>
+          {/*<Dropdown title="Candles">*/}
+          {/*  <div>*/}
+          {/*    /!* <div>Candled</div> *!/*/}
+          {/*    /!* <div>Area</div> *!/*/}
+          {/*</div>*/}
+          {/*</Dropdown>*/}
           <S.FlexWrapper>
             <S.List>
               <ListItemButton title="Original" size="Default" selected />
               <ListItemButton title="Trading View" size="Default" />
-              <ListItemButton title="Deep Market" size="Default" />
+              <ListItemButton title="Market Depth" size="Default" />
               <Icon source="Expand"/>
             </S.List>
           </S.FlexWrapper>
