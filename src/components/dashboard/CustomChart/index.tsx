@@ -78,8 +78,8 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
       autosize: this.props.autosize,
       loading_screen:  { backgroundColor: "#2E303C" },
       studies_overrides: {
-        "volume.volume.color.0": "#0CA564",
-        "volume.volume.color.1": "#E6007A",
+        "volume.volume.color.0": "#E6007A",
+        "volume.volume.color.1": "#0CA564",
       },
       overrides: {
         "paneProperties.background": "#2E303C",
