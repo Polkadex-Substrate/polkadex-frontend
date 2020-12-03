@@ -56,7 +56,7 @@ const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransact
             <S.List>
               <ListItemButton title="Original" size="Default" selected />
               <ListItemButton title="Trading View" size="Default" />
-              <ListItemButton title="Deep Market" size="Default" />
+              <ListItemButton title="Market Depth" size="Default" />
               <Icon source="Expand"/>
             </S.List>
           </S.FlexWrapper>
