@@ -34,7 +34,7 @@ function App({ Component, pageProps }: AppProps) {
           '<div style="margin: 0.5rem 0;"><strong>Twitter:</strong> <a href="https://twitter.com/Polkadex" target="_blank">@Polkadex</a></div>' +
           '<div style="margin: 0.5rem 0;"><strong>Medium:</strong> <a href="https://polkadex.medium.com" target="_blank">Polkadex</a></div>' +
           '<div style="margin: 0.5rem 0;"><strong>Investors:</strong> business@polkadex.trade</div>' +
-          '<p style=\"text-align: end;\"><img src="/img/logo_black.png" alt="Polkadex" style="width: 80px;" /> </p>' +
+          '<p style=\"text-align: end;\"><img src="/img/logo_black.png" alt="Polkadex" style="width: 200px;" /> </p>' +
         '</div>',
       width: '800px',
       confirmButtonColor: theme.colors.primary
