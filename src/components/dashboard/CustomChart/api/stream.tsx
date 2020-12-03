@@ -1,6 +1,6 @@
 import { io } from 'socket.io-client';
 
-export const webSocket = io.connect("https://testnet.polkadex.trade:3000", {secure: true, transports: ['websocket']});
+export const webSocket = io.connect("https://cloud.polkadex.trade:3000", {secure: true, transports: ['websocket']});
 
 // keep track of subscriptions
 const channelToSubscription = new Map();

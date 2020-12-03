@@ -7,7 +7,7 @@ import MarketOrderAction from 'components/general/MarketOrderAction'
 import * as S from './styles'
 
 const MarketOrder = () => {
-  const [state, setState] = useState("Market Order")
+  const [state, setState] = useState("Limit Order")
   const handleChange = (select: string) => setState(select)
 
   return (
@@ -15,8 +15,8 @@ const MarketOrder = () => {
       <Tabs>
         <S.Header>
           <TabList>
-            <Tab style={{ color: "#0CA564"}}>Buy USDT</Tab>
-            <Tab>Sell USDT</Tab>
+            <Tab style={{ color: "#0CA564"}}>Buy BTC</Tab>
+            <Tab>Sell BTC</Tab>
           </TabList>
           <Dropdown title={state} >
             <>
