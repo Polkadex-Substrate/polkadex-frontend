@@ -25,6 +25,7 @@ export const WrapperGraph = styled.section`
   width: 100%;
   padding: 2rem;
   box-shadow: 0px 30px 45px rgba(0, 0, 0, 0.17);
+  background-color: #22232d;
   min-width:65rem;
 `
 // Header
@@ -50,7 +51,11 @@ export const WrapperFilters = styled.div``
 // Graph
 export const Graph = styled.div``
 
-export const Item = styled.div`
+type ItemProps = {
+  selected?: boolean
+}
+
+export const Item = styled.div<ItemProps>`
   cursor:pointer;
   
   :first-child {

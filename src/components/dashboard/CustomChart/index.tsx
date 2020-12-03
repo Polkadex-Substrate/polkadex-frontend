@@ -36,7 +36,7 @@ function getLanguageFromURL(): LanguageCode | null {
 }
 
 export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, ChartContainerState> {
-  public static defaultProps: ChartContainerProps = {
+  public static defaultProps = {
     symbol: 'BTC',
     interval: '1',
     containerId: 'tv_chart_container',

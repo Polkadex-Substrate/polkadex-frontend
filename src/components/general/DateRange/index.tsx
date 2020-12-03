@@ -9,7 +9,7 @@ import * as S from './styles'
 type Props = {
   position: 'right' | 'left'
 }
-const DateRange = ( {position='right'}:Props ) => {
+const DateRange = ( {position='right'}: Props ) => {
   const [state, setState] = useState(false)
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);

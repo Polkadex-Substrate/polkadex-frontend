@@ -43,7 +43,7 @@ export default {
     getBars: async (symbolInfo, resolution, from, to, onHistoryCallback, onErrorCallback, firstDataRequest) => {
         if (firstDataRequest) {
             // Create a promise and wait for that promise to resolve
-            const cloudBars: any[] = await createNewPromiseforInitialData(); // Assign the array coming from initial-graph-data here.
+            const cloudBars: any = await createNewPromiseforInitialData(); // Assign the array coming from initial-graph-data here.
             const bars = [];
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
@@ -95,9 +95,9 @@ export default {
         stream.unsubscribeBars(subscriberUID);
     },
 
-    calculateHistoryDepth: (resolution, resolutionBack, intervalBack) => {
-        // while optional, this makes sure we request 24 hours of minute data at a time
-        // CryptoCompare's minute data endpoint will throw an error if we request data beyond 7 days in the past, and return no data
-        return resolution < 60 ? {resolutionBack: 'D', intervalBack: '1'} : undefined
-    },
+    // calculateHistoryDepth: (resolution, resolutionBack, intervalBack) => {
+    //     // while optional, this makes sure we request 24 hours of minute data at a time
+    //     // CryptoCompare's minute data endpoint will throw an error if we request data beyond 7 days in the past, and return no data
+    //     return resolution < 60 ? {resolutionBack: 'D', intervalBack: '1'} : undefined
+    // },
 }

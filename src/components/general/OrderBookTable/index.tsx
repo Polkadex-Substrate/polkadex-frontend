@@ -7,7 +7,7 @@ import OrderBookTableBody from '../OrderBookTableBody'
 export type OrderBookTableProps = {
   orderBookAsks: IOrderBookData[];
   orderBookBids: IOrderBookData[];
-  latestTransaction: number;
+  latestTransaction: string;
   latestTransactionType: string;
 }
 

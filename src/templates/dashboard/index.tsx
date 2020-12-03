@@ -15,7 +15,7 @@ export default function Dashboard() {
   const [orderBookBids, setOrderBookBids] = useState([])
   const [orderBookAsks, setOrderBookAsks] = useState([])
   const [volume, setVolume] = useState(0);
-  const [blockPrice, setBlockPrice] = useState(0.00);
+  const [blockPrice, setBlockPrice] = useState("0.00");
   const [high, setHigh] = useState(0);
   const [low, setLow] = useState(0);
   const [lastTradePrice, setLastTradePrice] = useState(0);
@@ -24,8 +24,8 @@ export default function Dashboard() {
 
   const removeTransactionsOrder = (id: string) => console.log('remove transaction' + id);
 
-  const fetchOrderBookBids = () => {
-    webSocket.on('bids_levels', async (bid_levels) => {
+  const fetchOrderBookBids = (socket) => {
+    socket.on('bids_levels', async (bid_levels) => {
       let currentOrderBook = [];
 
       // console.log(bid_levels)
@@ -45,8 +45,8 @@ export default function Dashboard() {
     });
   }
 
-  const fetchOrderBookAsks = () => {
-    webSocket.on('asks_levels', async (ask_levels) => {
+  const fetchOrderBookAsks = (socket) => {
+    socket.on('asks_levels', async (ask_levels) => {
       let currentOrderBook = [];
 
       // console.log(ask_levels)
@@ -66,21 +66,23 @@ export default function Dashboard() {
     });
   }
 
-  const fetchLastTrade = () => {
-    webSocket.on('last-trade', lastTradeData => {
+  const fetchLastTrade = (socket) => {
+    socket.on('last-trade', lastTradeData => {
       setLastTradePriceType(lastTradeData.side);
       setLastTradePrice(lastTradeData.price);
     });
   }
 
-  const fetchNewTrade = () => {
-    webSocket.on('new-trade', payload => {
-      setNewTrade(payload);
+  const fetchNewTrade = (socket) => {
+    socket.on('new-trade', payload => {
+      if (payload.length !== 0) {
+        setNewTrade(payload);
+      }
     });
   }
 
-  const fetchMarketData = () => {
-    webSocket.on('market-data-stream', ({ volume, open, close, low, high }) => {
+  const fetchMarketData = (socket) => {
+    socket.on('market-data-stream', ({ volume, open, close, low, high }) => {
       const blockPriceValue = open === 0 ? 0 : (open - close) * 100 / open;
       if (+blockPriceValue.toFixed(2) !== 0) {
         setBlockPrice(blockPriceValue.toFixed(2));
@@ -96,11 +98,12 @@ export default function Dashboard() {
   }
 
   useEffect(() => {
-    fetchMarketData()
-    fetchOrderBookBids()
-    fetchOrderBookAsks()
-    fetchLastTrade();
-    fetchNewTrade();
+    const webSocketInstance = webSocket;
+    fetchMarketData(webSocketInstance)
+    fetchOrderBookBids(webSocketInstance)
+    fetchOrderBookAsks(webSocketInstance)
+    fetchLastTrade(webSocketInstance);
+    fetchNewTrade(webSocketInstance);
   }, [])
 
   return (

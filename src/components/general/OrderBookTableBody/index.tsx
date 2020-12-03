@@ -4,11 +4,11 @@ import * as S from '../OrderBookTable/styles'
 import OrderBookOrder from '../OrderBookOrder'
 
 const OrderBookTableBody = ({ data, isScrollBottom, exchangeImg }) => {
-  let tableEndRef = useRef();
+  let tableEndRef = useRef(null);
 
   const scrollToBottom = () => {
-    if (tableEndRef && tableEndRef.current) {
-      const scroll = tableEndRef.current.scrollHeight - tableEndRef.current.clientHeight;
+    if (tableEndRef?.current) {
+      const scroll = tableEndRef?.current?.scrollHeight - tableEndRef?.current?.clientHeight;
       tableEndRef.current.scrollTo(0, scroll);
     }
   }

@@ -12,10 +12,8 @@ function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     Swal.fire({
       title: 'Disclaimer',
-      type: 'success',
-      text: 'This is a testnet application.',
       html:
-        '<div style=\"text-align: left\">' +
+        '<div style=\"text-align: left; margin-top: 1rem;\">' +
           '<p style=\"margin-bottom: 1rem; text-align: center;\">The following interface shows simulated trades from one of the largest centralized exchanges, processing about 20-30 trades per second on average for BTC-USDT. In this release, the public cannot submit trades as it is a test release to find the stability of Polkadex nodes. There will be frequent restarts of the testnet by our development team. Most of the features are disabled for now and will be enabled as per the following schedule.</p>' +
           '<div style="margin-bottom: 1rem; display: flex; flex-direction: column; align-items: center;">' +
             '<h4>Upcoming Testnet Release Schedules</h4>' +
@@ -29,16 +27,20 @@ function App({ Component, pageProps }: AppProps) {
               '<li>Polkadex Themed Block explorer</li>' +
             '</ol>' +
           '</div>' +
-          '<p>For further information,</p>' +
-          '<div style=\"margin: 0.5rem 0;\"><strong>Telegram:</strong> <a href=\"https://telegram.me/Polkadex\" target="_blank">@Polkadex</a></div>' +
-          '<div style="margin: 0.5rem 0;"><strong>Twitter:</strong> <a href="https://twitter.com/Polkadex" target="_blank">@Polkadex</a></div>' +
-          '<div style="margin: 0.5rem 0;"><strong>Medium:</strong> <a href="https://polkadex.medium.com" target="_blank">Polkadex</a></div>' +
-          '<div style="margin: 0.5rem 0;"><strong>Investors:</strong> business@polkadex.trade</div>' +
-          '<p style=\"text-align: end;\"><img src="/img/logo_black.png" alt="Polkadex" style="width: 200px;" /> </p>' +
+          '<div style="display: flex; justify-content: space-between; align-items: center;">' +
+            '<div>' +
+              '<div>For further information,</div>' +
+              '<div style=\"margin: 0.5rem 0;\"><strong>Telegram:</strong> <a href=\"https://telegram.me/Polkadex\" target="_blank">@Polkadex</a></div>' +
+              '<div style="margin: 0.5rem 0;"><strong>Twitter:</strong> <a href="https://twitter.com/Polkadex" target="_blank">@Polkadex</a></div>' +
+              '<div style="margin: 0.5rem 0;"><strong>Medium:</strong> <a href="https://polkadex.medium.com" target="_blank">Polkadex</a></div>' +
+              '<div style="margin: 0.5rem 0;"><strong>Investors:</strong> business@polkadex.trade</div>' +
+            '</div>' +
+            '<p style=\"text-align: end;\"><img src="/img/logo_black.png" alt="Polkadex" style="width: 200px;" /> </p>' +
+        '</div>' +
         '</div>',
-      width: '800px',
+      width: '60%',
       confirmButtonColor: theme.colors.primary
-    });
+    }).then();
   })
 
   return (

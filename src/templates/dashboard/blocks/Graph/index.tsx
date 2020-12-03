@@ -1,5 +1,4 @@
 import DateRange from 'components/general/DateRange'
-import Dropdown from 'components/general/Dropdown'
 import Icon from 'components/general/Icon'
 import ListItemButton from 'components/general/ListItemButton'
 import dynamic from 'next/dynamic'
@@ -8,7 +7,7 @@ import { useState } from 'react'
 import OrderBook from '../OrderBook'
 import { IGraph } from './IGraph'
 import * as S from './styles'
-const ChartContainer = dynamic(() => import('../../../../components/dashboard/CustomChart'), { ssr: false })
+const ChartContainer = dynamic(() => import('../../../../components/dashboard/CustomChart').then(), { ssr: false })
 
 const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransactionType }: IGraph) => {
 

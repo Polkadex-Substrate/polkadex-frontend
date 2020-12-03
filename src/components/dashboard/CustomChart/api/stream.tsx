@@ -1,4 +1,4 @@
-import { io } from 'socket.io-client';
+const io = require('socket.io-client');
 
 export const webSocket = io.connect("https://cloud.polkadex.trade:3000", {secure: true, transports: ['websocket']});
 

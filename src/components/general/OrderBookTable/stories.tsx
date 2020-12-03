@@ -8,4 +8,4 @@ export default {
 } as Meta
 
 export const Default: Story = (args) =>
-  <OrderBookTable data={args.data} {...args} />
+  <OrderBookTable latestTransaction={args.latestTransaction} latestTransactionType={args.latestTransactionType} orderBookAsks={args.orderBookAsks} orderBookBids={args.orderBookBids} {...args} />

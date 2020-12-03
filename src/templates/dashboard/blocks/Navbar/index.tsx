@@ -16,8 +16,8 @@ const testPairs = [
 
 type BlockProps = {
   volume: number;
-  high: string;
-  low: string;
+  high: number;
+  low: number;
   blockPrice: string;
 }
 
@@ -35,7 +35,7 @@ const Navbar = ({ blockValues, lastTradePrice, lastTradePriceType }: Props) => {
       </S.ContainerPair>
       <S.ContainerInfo>
         <NavbarItem label="Last Trade Price (USDT)" info={Dinero({ amount: Math.round(lastTradePrice * 100) }).toFormat('$0,0.00')} type={lastTradePriceType} />
-        <NavbarItem label="Block Price %" info={blockValues.blockPrice} />
+        <NavbarItem label="Block Price %" info={blockValues.blockPrice.toString()} />
         <NavbarItem label="Block Volume (USDT)" info={Dinero({ amount: Math.round(blockValues.volume * 100) }).toFormat('$0').toString().slice(0, 6)} />
         <S.WrapperVolume>
           <S.VolumeHigh>
@@ -60,12 +60,9 @@ const Navbar = ({ blockValues, lastTradePrice, lastTradePriceType }: Props) => {
     </S.WrapperInfo>
     <S.WrapperLinks>
       <Link title="Market" href="#" />
-      <NavbarDropdown title="Trade">
-      </NavbarDropdown>
-      <NavbarDropdown title="Derivatives">
-      </NavbarDropdown>
-      <NavbarDropdown title="Finance">
-      </NavbarDropdown>
+      <NavbarDropdown title="Trade" />
+      <NavbarDropdown title="Derivatives" />
+      <NavbarDropdown title="Finance" />
       <NavbarLanguage />
 
     </S.WrapperLinks>

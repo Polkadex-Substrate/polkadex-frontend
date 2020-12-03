@@ -38,22 +38,18 @@ export const Th = styled.th`
     font-weight: 200;
 `;
 
-export const LastTransaction = styled.div<Pick<OrderBookTableProps,'active'>>`
+export const LastTransaction = styled.div`
   background-color:#1D2127;
   padding: 1.5rem 1rem;
   text-align:center;
   margin: 1rem 0;
   border-radius: 0.5rem;
   margin-right: 2rem;
-  p{
-    color: #ffffff;  }
+  color: #ffffff; 
+  
   span {
     font-weight: 700;
     color:#0CA564;
-  }
-  ${({active, theme }) => css`
-    color: ${active ? theme.colors.primary: theme.colors.white};
-  `}
   }
 `
 

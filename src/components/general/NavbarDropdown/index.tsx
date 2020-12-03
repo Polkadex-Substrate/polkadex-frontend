@@ -1,11 +1,10 @@
 import * as S from './styles'
 
 export type NavbarDropdownProps = {
-  title: string,
-  children?: JSX.Element
+  title: string
 }
 
-const NavbarDropdown = ({ title = "NavbarDropdown", children }: NavbarDropdownProps) => {
+const NavbarDropdown = ({ title = "NavbarDropdown" }: NavbarDropdownProps) => {
   return (
     <S.Wrapper>
       <S.Header>
@@ -16,13 +15,13 @@ const NavbarDropdown = ({ title = "NavbarDropdown", children }: NavbarDropdownPr
           <S.Image src="/img/icons/ArrowTop.svg" />
         </S.WrapperImage>
       </S.Header>
-      {
-        children && <S.WrapperContent className="animation">
-          <S.ContainerContent>
-            {children}
-          </S.ContainerContent>
-        </S.WrapperContent>
-      }
+      {/*{*/}
+        {/*children && <S.WrapperContent className="animation">*/}
+          {/*<S.ContainerContent>*/}
+            {/*{children}*/}
+          {/*</S.ContainerContent>*/}
+        {/*</S.WrapperContent>*/}
+      {/*}*/}
     </S.Wrapper>
   )
 }
