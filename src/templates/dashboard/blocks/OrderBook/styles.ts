@@ -8,7 +8,7 @@ const customMedia = generateMedia({
 export const Wrapper = styled.div`
   background-color:#242633;
   border-radius: 0 3rem 3rem 3rem;
-  width: 100%;
+  width: 35%;
   padding: 2rem 0 2rem 2rem;
   box-shadow: 0px 0px 99px rgba(0, 0, 0, 0.65);
   ${media.greaterThan('huge')`

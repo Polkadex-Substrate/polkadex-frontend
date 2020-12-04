@@ -119,11 +119,11 @@ export default function Dashboard() {
                  latestTransaction={lastTradePrice}
                  latestTransactionType={lastTradePriceType}/>
           <MarketOrder />
-          <Transactions
-            newTradeData={newTrade}
-            data={[]}
-            remove={removeTransactionsOrder}/>
         </S.WrapperGraph>
+        <Transactions
+          newTradeData={newTrade}
+          data={[]}
+          remove={removeTransactionsOrder}/>
       </S.WrapperMain>
     </S.Wrapper>
   )

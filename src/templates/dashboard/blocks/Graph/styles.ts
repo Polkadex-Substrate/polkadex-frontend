@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import media,{generateMedia} from "styled-media-query";
+import media, { generateMedia } from "styled-media-query";
 
 const customMedia = generateMedia({
   custom: '1425px'
@@ -13,20 +13,21 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction:row;
   justify-content:space-between;
+  width: 75%;
   ${media.lessThan('large')`
     flex-direction: column;
   `}
 
-  ${customMedia.lessThan('custom')`
-    flex-direction:column;
-  `}
+  // ${customMedia.lessThan('custom')`
+  //   flex-direction:column;
+  // `}
 `
 export const WrapperGraph = styled.section`
-  width: 100%;
+  width: 65%;
   padding: 2rem;
   box-shadow: 0px 30px 45px rgba(0, 0, 0, 0.17);
   background-color: #22232d;
-  min-width:65rem;
+  // min-width:65rem;
 `
 // Header
 export const Header = styled.div`
