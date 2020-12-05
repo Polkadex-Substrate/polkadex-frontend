@@ -1,9 +1,4 @@
 import styled from 'styled-components'
-import media, { generateMedia } from "styled-media-query";
-
-const customMedia = generateMedia({
-  custom: '1425px'
-})
 
 export const Wrapper = styled.div`
   background-color:#242633;
@@ -11,12 +6,6 @@ export const Wrapper = styled.div`
   width: 35%;
   padding: 2rem 0 2rem 2rem;
   box-shadow: 0px 0px 99px rgba(0, 0, 0, 0.65);
-  ${media.greaterThan('huge')`
-    max-width: 35rem;
-  `}
-  ${customMedia.greaterThan('custom')`
-    min-width: 35rem;
-  `}
 `
 
 export const WrapperTitle = styled.div`
