@@ -109,7 +109,7 @@ export default function Dashboard() {
   return (
     <S.Wrapper>
       <Menu handleChange={() => setState(!state)} />
-      {state && <Market/>}
+      {/*{state && <Market/>}*/}
       <S.WrapperMain >
         <Navbar lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType}
         blockValues={{volume, high, low, blockPrice}}/>
@@ -119,11 +119,11 @@ export default function Dashboard() {
                  latestTransaction={lastTradePrice}
                  latestTransactionType={lastTradePriceType}/>
           <MarketOrder />
-          <Transactions
-            newTradeData={newTrade}
-            data={[]}
-            remove={removeTransactionsOrder}/>
         </S.WrapperGraph>
+        <Transactions
+          newTradeData={newTrade}
+          data={[]}
+          remove={removeTransactionsOrder}/>
       </S.WrapperMain>
     </S.Wrapper>
   )
