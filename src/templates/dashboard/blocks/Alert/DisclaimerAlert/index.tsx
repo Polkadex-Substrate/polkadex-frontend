@@ -8,7 +8,7 @@ function DisclaimerAlert() {
       title: 'Disclaimer',
       html:
         '<div style=\"text-align: left; margin-top: 1rem;\">' +
-          '<p style=\"margin-bottom: 1rem; text-align: center; font-size: 1.5rem;\">The following interface shows simulated trades from one of the largest centralized exchanges, processing about 20-30 trades per second on average for BTC-USDT. In this release, the public cannot submit trades as it is a test release to find the stability of Polkadex nodes. There will be frequent restarts of the testnet by our development team. Most of the features are disabled for now and will be enabled as per the following schedule.</p>' +
+          '<p style=\"margin-bottom: 1rem; text-align: center; font-size: 1.5rem;\">The following interface shows simulated trades from one of the largest centralized exchanges, processing about 20-30 trades per second on average for BTC-USDT. In this release, the public cannot submit trades as it is a private testnet release to find the stability of Polkadex nodes. There will be frequent restarts of the testnet by our development team. The next release of our testnet will enable public to run a node, check the blocks and submit trades. Most of the features are disabled for now and will be enabled as per the following schedule.</p>' +
           '<div style="margin-bottom: 1rem; display: flex; flex-direction: column; align-items: center; font-size: 1.5rem;">' +
             '<h4>Upcoming Testnet Release Schedules</h4>' +
             '<ol style=\"margin-left: 1rem; margin-top: 0.5rem;\">' +
