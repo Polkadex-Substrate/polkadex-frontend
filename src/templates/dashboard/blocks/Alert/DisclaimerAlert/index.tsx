@@ -1,8 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Swal from "sweetalert2"
 import theme from '../../../../../styles/theme'
+import TwitterAlert from '../TwitterAlert'
 
 function DisclaimerAlert() {
+
+  const [twitterModalOpen, setTwitterModalOpen] = useState(false);
+  const [polkadotId, setPolkadotId] = useState('');
+
   useEffect(() => {
     Swal.fire({
       title: 'Disclaimer',
@@ -33,12 +38,28 @@ function DisclaimerAlert() {
           '</div>' +
         '</div>',
       width: '60%',
-      confirmButtonColor: theme.colors.primary
-    }).then();
-  })
+      confirmButtonColor: theme.colors.primary,
+      confirmButtonText: 'Get tokens from Twitter',
+      showCancelButton: true,
+      cancelButtonText: 'OK',
+    }).then(async (result) => {
+      const polkadotExtensionDapp = await import('@polkadot/extension-dapp');
+      const extensions = await polkadotExtensionDapp.web3Enable('Polkadex');
+
+      if (result.isConfirmed && extensions.length > 0) {
+        const allAccounts = await polkadotExtensionDapp.web3Accounts();
+        if (allAccounts.length > 0) {
+          setTwitterModalOpen(true);
+          setPolkadotId(allAccounts[0].address);
+        }
+      }
+    });
+  }, [])
 
   return (
-    <></>
+    <>
+      { twitterModalOpen && <TwitterAlert polkadotId={polkadotId} closeModal={() => setTwitterModalOpen(false)} /> }
+    </>
   )
 }
 

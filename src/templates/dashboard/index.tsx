@@ -2,12 +2,12 @@ import React, { useEffect,useState } from 'react'
 
 import { webSocket } from '../../components/dashboard/CustomChart/api/stream'
 import Graph from './blocks/Graph'
-import Market from './blocks/Market'
 import MarketOrder from './blocks/MarketOrder'
 import Menu from './blocks/Menu'
 import Navbar from './blocks/Navbar'
 import Transactions from './blocks/Transactions'
 import * as S from './styles'
+import Alert from './blocks/Alert'
 
 export default function Dashboard() {
 
@@ -108,6 +108,7 @@ export default function Dashboard() {
 
   return (
     <S.Wrapper>
+      <Alert />
       <Menu handleChange={() => setState(!state)} />
       {/*{state && <Market/>}*/}
       <S.WrapperMain >
