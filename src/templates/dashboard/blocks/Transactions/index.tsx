@@ -7,6 +7,7 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 import { ITransactions } from './ITransactions';
 import * as S from './styles'
+import OpenOrderTable from '../../../../components/general/OpenOrderTable'
 
 const initialFilters = {
   hiddenPairs: false,
@@ -15,8 +16,9 @@ const initialFilters = {
   status: "All Transactions"
 }
 
-const Transactions = ({ data, newTradeData, remove }: ITransactions, pair = "DOT") => {
+const Transactions = ({ data, openOrderData, newTradeData, remove }: ITransactions, pair = "DOT") => {
   const [filters, setFilters] = useState(initialFilters)
+  const [activeIndex, setActiveIndex] = useState(3);
 
   // Filters Actions
   const handleChangeHidden = () =>  setFilters({ ...filters, hiddenPairs: !filters.hiddenPairs })
@@ -26,7 +28,7 @@ const Transactions = ({ data, newTradeData, remove }: ITransactions, pair = "DOT
 
   return (
     <S.Section>
-      <Tabs selectedIndex={3} onSelect={() => {}}>
+      <Tabs selectedIndex={activeIndex} onSelect={(index) => setActiveIndex(index)}>
         <S.Header>
           <TabList>
             <Tab>Open Orders</Tab>
@@ -54,7 +56,7 @@ const Transactions = ({ data, newTradeData, remove }: ITransactions, pair = "DOT
           </S.WrapperActions>
         </S.Header>
         <TabPanel>
-          <TransactionTable data={data} remove={remove} filters={filters}/>
+          <OpenOrderTable data={openOrderData} remove={remove} filters={filters}/>
         </TabPanel>
         <TabPanel>
           <TransactionTable data={data} remove={remove} filters={filters}/>

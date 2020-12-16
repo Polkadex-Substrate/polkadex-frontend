@@ -5,6 +5,7 @@ export const Close = styled.div`
   top: 1.5rem;
   left: 2rem;
   font-size: 3rem;
+  cursor: pointer;
 `
 
 export const ModalWrapper = styled.div`

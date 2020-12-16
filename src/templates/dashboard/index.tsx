@@ -21,6 +21,9 @@ export default function Dashboard() {
   const [lastTradePrice, setLastTradePrice] = useState(0);
   const [lastTradePriceType, setLastTradePriceType] = useState();
   const [newTrade, setNewTrade] = useState();
+  const [openOrders, setOpenOrders] = useState([]);
+  const [price, setPrice] = useState<string>()
+  const [amount, setAmount] = useState<string>()
 
   const removeTransactionsOrder = (id: string) => console.log('remove transaction' + id);
 
@@ -97,6 +100,12 @@ export default function Dashboard() {
     });
   }
 
+  const updateOpenOrders = order => {
+    const finalOrders = [...openOrders, order];
+    console.log(finalOrders)
+    setOpenOrders(finalOrders);
+  }
+
   useEffect(() => {
     const webSocketInstance = webSocket;
     fetchMarketData(webSocketInstance)
@@ -119,11 +128,14 @@ export default function Dashboard() {
                  orderBookBids={orderBookBids}
                  latestTransaction={lastTradePrice}
                  latestTransactionType={lastTradePriceType}/>
-          <MarketOrder />
+          <MarketOrder setOpenOrder={(order) => updateOpenOrders(order)}
+                       price={price} setPrice={inputPrice => setPrice(inputPrice)}
+                       amount={amount} setAmount={inputAmount => setAmount(inputAmount)} />
         </S.WrapperGraph>
         <Transactions
           newTradeData={newTrade}
           data={[]}
+          openOrderData={openOrders}
           remove={removeTransactionsOrder}/>
       </S.WrapperMain>
     </S.Wrapper>
