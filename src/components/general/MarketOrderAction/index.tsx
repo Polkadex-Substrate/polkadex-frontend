@@ -1,4 +1,5 @@
 const {ApiPromise, WsProvider} = require('@polkadot/api');
+import { toast } from 'react-toastify';
 
 import Button from '../Button'
 import Dropdown from '../Dropdown'
@@ -64,13 +65,14 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
     const polkadotExtensionDapp = await import('@polkadot/extension-dapp');
     const extensions = await polkadotExtensionDapp.web3Enable('Polkadex');
 
-    if (extensions.length > 0) {
+    if (extensions && extensions.length > 0) {
       const allAccounts = await polkadotExtensionDapp.web3Accounts();
       let transferExtrinsic;
       if (allAccounts.length > 0) {
         const account = allAccounts[0];
         const injector = await polkadotExtensionDapp.web3FromSource(account.meta.source);
         if (type === 'Buy') {
+          toast.success('Buy initiated');
           transferExtrinsic = api.tx.polkadex.submitOrder(
             "BidLimit",
             tradingPairID,
@@ -78,6 +80,7 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
             (parseFloat(amount + '') * UNIT)
           );
         } else if (type === 'Sell') {
+          toast.success('Sold initiated');
           transferExtrinsic = api.tx.polkadex.submitOrder(
             "AskLimit",
             tradingPairID,
@@ -87,10 +90,11 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
         }
 
         transferExtrinsic.signAndSend(account.address, { signer: injector.signer }, ({ status }) => {
-          setOpenOrder({price, amount, tradeAmount: price * amount,status: status.type, fee: (0.2*price*amount)});
+          setOpenOrder({price, amount, tradeAmount: price * amount,status: status.type, fee: (0.2*price*amount), side: type === 'Sell' ? 'AskLimit' : 'BidLimit'});
           setPrice('');
           setAmount('');
           if (status.isInBlock) {
+            toast.success('Transaction successful');
             console.log(`Completed at block hash #${status.asInBlock.toString()}`);
           } else {
             console.log(`Current status: ${status.type}`);
@@ -99,8 +103,11 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
           console.log(':( transaction failed', error);
         });
       }
+    } else if (extensions && extensions.length === 0) {
+      toast.info('Please create account in Polka Extension');
+    } else {
+      toast.warn('Please install the Polka Extension');
     }
-
   }
 
   return (

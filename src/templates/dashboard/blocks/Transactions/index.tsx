@@ -8,6 +8,7 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import { ITransactions } from './ITransactions';
 import * as S from './styles'
 import OpenOrderTable from '../../../../components/general/OpenOrderTable'
+import Toast from '../../../../components/general/Toast'
 
 const initialFilters = {
   hiddenPairs: false,
@@ -68,7 +69,7 @@ const Transactions = ({ data, openOrderData, newTradeData, remove }: ITransactio
           <TransactionTable data={newTradeData} remove={remove} filters={filters} />
         </TabPanel>
       </Tabs>
-
+      <Toast />
     </S.Section>
   )
 }

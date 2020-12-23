@@ -8,6 +8,7 @@ import Navbar from './blocks/Navbar'
 import Transactions from './blocks/Transactions'
 import * as S from './styles'
 import Alert from './blocks/Alert'
+import Toast from '../../components/general/Toast'
 
 export default function Dashboard() {
 
@@ -138,6 +139,7 @@ export default function Dashboard() {
           openOrderData={openOrders}
           remove={removeTransactionsOrder}/>
       </S.WrapperMain>
+      <Toast />
     </S.Wrapper>
   )
 }

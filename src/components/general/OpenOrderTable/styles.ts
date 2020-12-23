@@ -13,7 +13,7 @@ export const Thead = styled.thead`
   color: #8BA1BE;
   tr {
     display: grid;
-    grid-template-columns: 1fr repeat(3,1fr) 1fr;
+    grid-template-columns: 1fr repeat(5,1fr) 1fr;
     margin-bottom:1rem;
     padding: 0 1rem;
   }
@@ -29,7 +29,7 @@ export const Tbody = styled.tbody`
   `}
   tr {
     display: grid;
-    grid-template-columns: 1fr repeat(3,1fr) 1fr;
+    grid-template-columns: 1fr repeat(5,1fr) 1fr;
     align-items:center;
     background-color: #2E303C;
     ${media.lessThan('large')`
@@ -58,6 +58,10 @@ export const Tr = styled.tr`
   }
 `
 export const Td = styled.td``
+export const ContainerFlex = styled.div`
+  display: flex;
+  align-items:center;
+`
 
 export const Image = styled.img`
   margin-right: 0.4rem;
