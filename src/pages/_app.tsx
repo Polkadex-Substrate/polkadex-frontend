@@ -1,10 +1,12 @@
 import React  from 'react';
 import 'react-tabs/style/react-tabs.css';
+import * as S from './styles'
 
 import { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from 'styles/global'
 import theme from 'styles/theme'
+import WarningAlert from '../components/general/WarningAlert'
 
 function App({ Component, pageProps }: AppProps) {
 
@@ -12,7 +14,12 @@ function App({ Component, pageProps }: AppProps) {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <Component {...pageProps} />
+        <S.Warning>
+          <WarningAlert/>
+        </S.Warning>
+        <S.Page>
+          <Component {...pageProps} />
+        </S.Page>
       </ThemeProvider>
     </>
   )

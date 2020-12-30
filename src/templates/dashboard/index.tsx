@@ -109,16 +109,15 @@ export default function Dashboard() {
 
   useEffect(() => {
     const webSocketInstance = webSocket;
-    fetchMarketData(webSocketInstance)
-    fetchOrderBookBids(webSocketInstance)
-    fetchOrderBookAsks(webSocketInstance)
-    fetchLastTrade(webSocketInstance);
+    // fetchMarketData(webSocketInstance)
+    // fetchOrderBookBids(webSocketInstance)
+    // fetchOrderBookAsks(webSocketInstance)
+    // fetchLastTrade(webSocketInstance);
     fetchNewTrade(webSocketInstance);
   }, [])
 
   return (
     <S.Wrapper>
-      <Alert />
       <Menu handleChange={() => setState(!state)} />
       {/*{state && <Market/>}*/}
       <S.WrapperMain >
