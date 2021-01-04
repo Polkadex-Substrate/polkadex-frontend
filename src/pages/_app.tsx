@@ -1,6 +1,6 @@
 import React  from 'react';
 import 'react-tabs/style/react-tabs.css';
-import * as S from './styles'
+import * as S from '../templates/landing/styles'
 
 import { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'

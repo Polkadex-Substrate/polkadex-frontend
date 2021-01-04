@@ -7,7 +7,6 @@ import Menu from './blocks/Menu'
 import Navbar from './blocks/Navbar'
 import Transactions from './blocks/Transactions'
 import * as S from './styles'
-import Alert from './blocks/Alert'
 import Toast from '../../components/general/Toast'
 
 export default function Dashboard() {
@@ -53,7 +52,6 @@ export default function Dashboard() {
     socket.on('asks_levels', async (ask_levels) => {
       let currentOrderBook = [];
 
-      // console.log(ask_levels)
       ask_levels.map(({ price, quantity }) => {
         currentOrderBook.push({
           id: currentOrderBook.length + 1,
@@ -113,7 +111,7 @@ export default function Dashboard() {
     // fetchOrderBookBids(webSocketInstance)
     // fetchOrderBookAsks(webSocketInstance)
     // fetchLastTrade(webSocketInstance);
-    fetchNewTrade(webSocketInstance);
+    // fetchNewTrade(webSocketInstance);
   }, [])
 
   return (

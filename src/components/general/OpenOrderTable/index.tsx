@@ -6,6 +6,7 @@ type OpenOrderProps = {
   tradeAmount: number;
   status: string;
   fee: number;
+  side: string;
 }
 
 type Props = {
@@ -53,8 +54,8 @@ const OpenOrderTable = ({ data }: Props) => (
               <S.Td>
                 <S.Tag>Side</S.Tag>
                 <S.ContainerFlex>
-                  <S.Image src={`img/icons/${data.side === 'AskLimit' ? 'Sell' : 'Buy'}.svg`} />
-                  <span>{data.side === 'AskLimit' ? 'Sell' : 'Buy'}</span>
+                  <S.Image src={`img/icons/${order.side === 'AskLimit' ? 'Sell' : 'Buy'}.svg`} />
+                  <span>{order.side === 'AskLimit' ? 'Sell' : 'Buy'}</span>
                 </S.ContainerFlex>
               </S.Td>
 

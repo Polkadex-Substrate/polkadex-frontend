@@ -1,16 +1,31 @@
 import { LogoText } from 'components/general/Logo/styles';
-import styled from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
 import { WrapperMain } from 'templates/dashboard/styles';
 
+const wrapperModifier = {
+  Selected: () => css`
+    background-color: #FF0877;
+  `
+}
+
 export const WrapperIcon = styled.a`
-  display: flex;
-  flex-direction:row;
-  align-items:center;
-  width: 100%;
-  cursor:pointer;
-  :hover {
-    opacity: 0.8;
-  }
+  ${({ selected }) => css ` 
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+    width: 100%;
+    cursor:pointer;
+    border-radius: 4px;
+    
+    ${selected && wrapperModifier.Selected()}
+    
+    :hover {
+      opacity: 0.8;
+    }
+    :active {
+      background-color: rgb(255, 8, 119);
+    }
+  `}
 `
 export const Span = styled.span`
   margin-left:0.5rem;

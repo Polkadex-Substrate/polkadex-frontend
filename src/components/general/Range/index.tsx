@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { getTrackBackground,Range as CustomRange } from 'react-range';
 
 import * as S from './styles'
@@ -7,17 +6,16 @@ const STEP = 0.1;
 const MIN = 0;
 const MAX = 100;
 
-const Range = () => {
-  const [state, setState] = useState({ values: [50] })
+const Range = ({ values, setValues }) => {
 
   return (
     <S.Wrapper>
       <CustomRange
-        values={state.values}
+        values={values}
         step={STEP}
         min={MIN}
         max={MAX}
-        onChange={(values) => setState({ values })}
+        onChange={(values) => setValues({ values })}
         renderTrack={({ props, children }) => (
           <div
             onMouseDown={props.onMouseDown}
@@ -36,7 +34,7 @@ const Range = () => {
                 width: "100%",
                 borderRadius: "4px",
                 background: getTrackBackground({
-                  values: state.values,
+                  values: values,
                   colors: ["#E6007A", "#1C2023"],
                   min: MIN,
                   max: MAX
@@ -69,7 +67,7 @@ const Range = () => {
               }}
             />
             <output style={{ fontSize:"1.1rem", color:"white", fontWeight:500 }}>
-              {state.values[0].toFixed(0)}%
+              {values[0].toFixed(0)}%
             </output>
           </div>
         )}

@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 const {ApiPromise, WsProvider} = require('@polkadot/api');
 import { toast } from 'react-toastify';
 
@@ -11,9 +13,16 @@ import * as S from './styles'
 
 export type MarketOrderActionProps = {
   type?: 'Sell' | 'Buy'
+  setOpenOrder: any
+  price: number
+  amount: number
+  setPrice: any
+  setAmount: any
 }
 const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice, setAmount }: MarketOrderActionProps) => {
   const wsProvider = new WsProvider('ws://0.0.0.0:9944');
+  const [slider, setSlider] = useState({ values: [50] })
+  const [available, setAvailable] = useState(2)
 
   const tradingPairID = "0xf28a3c76161b8d5723b6b8b092695f418037c747faa2ad8bc33d8871f720aac9";
   const UNIT = 1000000000000;
@@ -116,24 +125,24 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
         <Icon source="Wallet" background="DarkGray" size="Medium" />
         <S.WrapperBalance>
           <span>Available</span>
-          <S.Span>0 { type === 'Buy' ? 'USDT' : 'BTC' }</S.Span>
+          <S.Span>{available} { type === 'Buy' ? 'USDT' : 'BTC' }</S.Span>
         </S.WrapperBalance>
       </S.ContainerWallet>
       <S.ContainerForm>
         <form onSubmit={() => console.log("Submiting..")}>
           <Input label="Price" icon="ArrowVerticalTop" placeholder="0.0000000" value={price}
                  type="text" inputInfo="BTC" fullWidth={true} setValue={(inputPrice) => setPrice(inputPrice)} />
-          <Input label="Amount" icon="ArrowVerticalBottom" placeholder="0.0000000" value={amount}
+          <Input label="Amount" icon="ArrowVerticalBottom" placeholder={available*slider.values[0].toFixed(0)} value={amount}
                  type="text" inputInfo="USDT" fullWidth={true} setValue={(inputAmount) => setAmount(inputAmount)} />
           <S.WrapperActions>
             <p>Equivalent ~
             <span> $0</span>
             </p>
             <Dropdown title="Fee 0 PDX">
-              <Link title="Custom Fee" />startTransaction
+              <Link title="Custom Fee" />
             </Dropdown>
           </S.WrapperActions>
-          <Range />
+          <Range values={slider.values} setValues={(value) => setSlider(value)} />
           <Button type="button" title={type} fullWidth={true} click={startTransaction} />
         </form>
       </S.ContainerForm>
