@@ -31,13 +31,13 @@ const MarketOrder = ({ setOpenOrder, price, amount, setPrice, setAmount, validAc
 
         <TabPanel>
           <MarketOrderAction type="Buy" setOpenOrder={setOpenOrder}
-                             enableTransaction={validAccount}
+                             account={validAccount}
                              price={price} setPrice={setPrice}
                              amount={amount} setAmount={setAmount} />
         </TabPanel>
         <TabPanel>
           <MarketOrderAction type="Sell" setOpenOrder={setOpenOrder}
-                             enableTransaction={validAccount}
+                             account={validAccount}
                              price={price} setPrice={setPrice}
                              amount={amount} setAmount={setAmount} />
         </TabPanel>

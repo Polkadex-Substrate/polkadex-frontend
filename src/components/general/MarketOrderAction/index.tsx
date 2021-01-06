@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const {ApiPromise, WsProvider} = require('@polkadot/api');
+import { ApiPromise, WsProvider } from '@polkadot/api';
 import { toast } from 'react-toastify';
 
 import Button from '../Button'
@@ -10,6 +10,7 @@ import Input from '../Input'
 import Link from '../Link'
 import Range from '../Range'
 import * as S from './styles'
+import { webSocket } from '../../dashboard/CustomChart/api/stream'
 
 export type MarketOrderActionProps = {
   type?: 'Sell' | 'Buy'
@@ -18,63 +19,40 @@ export type MarketOrderActionProps = {
   amount: number
   setPrice: any
   setAmount: any
-  enableTransaction: any
+  account: any
 }
-const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice, setAmount, enableTransaction }: MarketOrderActionProps) => {
-  const wsProvider = new WsProvider('ws://0.0.0.0:9944');
+const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice, setAmount, account }: MarketOrderActionProps) => {
+  const wsProvider = new WsProvider('wss://blockchain.polkadex.trade:9955');
+  const wsProviderInstance = webSocket;
+
+
   const [slider, setSlider] = useState({ values: [50] })
   const [available, setAvailable] = useState(2)
 
   const tradingPairID = "0xf28a3c76161b8d5723b6b8b092695f418037c747faa2ad8bc33d8871f720aac9";
   const UNIT = 1000000000000;
 
-  const startTransaction = async () => {
-    if (enableTransaction.address) {
-      const api = await ApiPromise.create({
-        provider: wsProvider,
-        types: {
-          "OrderType": {
-            "_enum": [
-              "BidLimit",
-              "BidMarket",
-              "AskLimit",
-              "AskMarket"
-            ]
-          },
-          "Order": {
-            "id": "Hash",
-            "trading_pair": "Hash",
-            "trader": "AccountId",
-            "price": "FixedU128",
-            "quantity": "FixedU128",
-            "order_type": "OrderType"
-          },
-          "MarketData": {
-            "low": "FixedU128",
-            "high": "FixedU128",
-            "volume": "FixedU128",
-            "open": "FixedU128",
-            "close": "FixedU128"
+  useEffect(() => {
+    const fetchAvailableBalance = async () => {
+      const api = await ApiPromise.create({ provider: wsProvider });
+      // Wait until we are ready and connected
+      await api.isReady;
 
-          },
-          "LinkedPriceLevel": {
-            "next": "Option<FixedU128>",
-            "prev": "Option<FixedU128>",
-            "orders": "Vec<Order>"
-          },
-          "Orderbook": {
-            "trading_pair": "Hash",
-            "base_asset_id": "u32",
-            "quote_asset_id": "u32",
-            "best_bid_price": "FixedU128",
-            "best_ask_price": "FixedU128"
-          },
-          "LookupSource": "AccountId",
-          "Address": "AccountId"
-        },
+      // Do something
+      console.log(api.genesisHash.toHex());
+      api.query.genericAsset.FreeBalance(type === 'Buy' ? 1 : 2, account.address, (data) => {
+        console.log('Market Order');
+        console.log(data);
       });
+    }
+    fetchAvailableBalance()
+  }, [])
+
+  const startTransaction = async () => {
+    if (account.address) {
+      const api = await ApiPromise.create({ provider: wsProviderInstance });
       const polkadotExtensionDapp = await import('@polkadot/extension-dapp');
-      const injector = await polkadotExtensionDapp.web3FromSource(enableTransaction.meta.source);
+      const injector = await polkadotExtensionDapp.web3FromSource(account.meta.source);
       let transferExtrinsic;
       if (type === 'Buy') {
         toast.success('Buy initiated');
@@ -94,7 +72,7 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
         );
       }
 
-      transferExtrinsic.signAndSend(enableTransaction.address, { signer: injector.signer }, ({ status }) => {
+      transferExtrinsic.signAndSend(account.address, { signer: injector.signer }, ({ status }) => {
         setOpenOrder({
           price,
           amount,
@@ -150,7 +128,7 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
             </Dropdown>
           </S.WrapperActions>
           <Range values={slider.values} setValues={(value) => setSliderValue(value)} />
-          <Button type="button" title={type} fullWidth={true} click={startTransaction} disabled={!enableTransaction.address} />
+          <Button type="button" title={type} fullWidth={true} click={startTransaction} disabled={!account.address} />
         </form>
       </S.ContainerForm>
     </S.WrapperOrder>

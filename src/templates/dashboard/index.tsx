@@ -108,15 +108,11 @@ export default function Dashboard({ account }) {
 
   useEffect(() => {
     const webSocketInstance = webSocket;
-    // fetchMarketData(webSocketInstance)
-    // fetchOrderBookBids(webSocketInstance)
-    // fetchOrderBookAsks(webSocketInstance)
+    fetchMarketData(webSocketInstance)
+    fetchOrderBookBids(webSocketInstance)
+    fetchOrderBookAsks(webSocketInstance)
     fetchLastTrade(webSocketInstance);
-    // fetchNewTrade(webSocketInstance);
-    // fetchAvailableBalance(webSocketInstance)
-    if (!account) {
-      toast.warn('Please setup Polka extension for transactions.')
-    }
+    fetchNewTrade(webSocketInstance);
   }, [])
 
   return (
