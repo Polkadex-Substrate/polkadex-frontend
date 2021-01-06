@@ -25,8 +25,6 @@ function App({ Component, pageProps }: AppProps) {
           toast.warn('Please create account in Polka extension first.')
         }
       } else {
-        console.log('toaster')
-        // Toast.warn('Please install Polka Chrome extension first.');
         toast.warn('Please install Polka Chrome extension first.')
       }
     }

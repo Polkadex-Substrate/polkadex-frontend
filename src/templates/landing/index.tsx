@@ -5,7 +5,7 @@ import * as S from './styles'
 import SocialIcons from '../../components/general/SocialIcons'
 import BackgroundPattern from '../../components/general/BackgroundPattern'
 
-export default function Landing({ accountId }) {
+export default function Landing({ account }) {
 
   return (
     <div style={{display: 'flex', height: '100vh', width: '100vw', backgroundColor: '#101213', padding: '1rem 2rem', position: 'fixed'}}>
@@ -40,7 +40,7 @@ export default function Landing({ accountId }) {
               <S.LoginButton>Login with PolkadotJS</S.LoginButton>
             </Link>
             <Link href="/twitter">
-              <S.TweetButton disabled={!accountId}>Get Testnet Tokens from Twitter</S.TweetButton>
+              <S.TweetButton disabled={!account}>Get Testnet Tokens from Twitter</S.TweetButton>
             </Link>
           </S.ButtonWrapper>
         </S.DisclaimerWrapper>
