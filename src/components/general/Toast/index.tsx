@@ -1,9 +1,11 @@
 import React from 'react'
 
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Toast = () => {
+  const warn = message => toast.warn(message);
+
   return <ToastContainer
     position="top-right"
     autoClose={5000}

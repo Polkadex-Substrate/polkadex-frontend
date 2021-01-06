@@ -100,6 +100,10 @@ export const TweetButton = styled.button`
   &:focus {
     outline: 0;
   }
+  
+  &:disabled {
+    cursor: not-allowed;
+  }
 `
 
 export const SocialLinks = styled.div` 

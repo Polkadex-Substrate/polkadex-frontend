@@ -8,8 +8,9 @@ import Navbar from './blocks/Navbar'
 import Transactions from './blocks/Transactions'
 import * as S from './styles'
 import Toast from '../../components/general/Toast'
+import { toast } from 'react-toastify'
 
-export default function Dashboard() {
+export default function Dashboard({ account }) {
 
   const [state, setState] = useState(false)
   const [orderBookBids, setOrderBookBids] = useState([])
@@ -110,8 +111,12 @@ export default function Dashboard() {
     // fetchMarketData(webSocketInstance)
     // fetchOrderBookBids(webSocketInstance)
     // fetchOrderBookAsks(webSocketInstance)
-    // fetchLastTrade(webSocketInstance);
+    fetchLastTrade(webSocketInstance);
     // fetchNewTrade(webSocketInstance);
+    // fetchAvailableBalance(webSocketInstance)
+    if (!account) {
+      toast.warn('Please setup Polka extension for transactions.')
+    }
   }, [])
 
   return (
@@ -127,6 +132,8 @@ export default function Dashboard() {
                  latestTransaction={lastTradePrice}
                  latestTransactionType={lastTradePriceType}/>
           <MarketOrder setOpenOrder={(order) => updateOpenOrders(order)}
+                       validAccount={account}
+                       latestTransaction={lastTradePrice}
                        price={price} setPrice={inputPrice => setPrice(inputPrice)}
                        amount={amount} setAmount={inputAmount => setAmount(inputAmount)} />
         </S.WrapperGraph>

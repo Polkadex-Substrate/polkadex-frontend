@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 import Dropdown from 'components/general/Dropdown'
@@ -6,9 +6,13 @@ import DropdownItem from 'components/general/DropdownItem';
 import MarketOrderAction from 'components/general/MarketOrderAction'
 import * as S from './styles'
 
-const MarketOrder = ({ setOpenOrder, price, amount, setPrice, setAmount }) => {
+const MarketOrder = ({ setOpenOrder, price, amount, setPrice, setAmount, validAccount, latestTransaction }) => {
   const [state, setState] = useState("Limit Order")
   const handleChange = (select: string) => setState(select)
+
+  useEffect(() => {
+    setPrice(latestTransaction)
+  }, [latestTransaction !== 0])
 
   return (
     <S.Section>
@@ -27,11 +31,13 @@ const MarketOrder = ({ setOpenOrder, price, amount, setPrice, setAmount }) => {
 
         <TabPanel>
           <MarketOrderAction type="Buy" setOpenOrder={setOpenOrder}
+                             enableTransaction={validAccount}
                              price={price} setPrice={setPrice}
                              amount={amount} setAmount={setAmount} />
         </TabPanel>
         <TabPanel>
           <MarketOrderAction type="Sell" setOpenOrder={setOpenOrder}
+                             enableTransaction={validAccount}
                              price={price} setPrice={setPrice}
                              amount={amount} setAmount={setAmount} />
         </TabPanel>

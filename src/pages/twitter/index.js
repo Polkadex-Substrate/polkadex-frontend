@@ -1,5 +1,5 @@
 import Twitter from 'templates/twitter'
 
-export default function TwitterPage() {
-  return <Twitter />
+export default function TwitterPage(props) {
+  return <Twitter {...props} />
 }

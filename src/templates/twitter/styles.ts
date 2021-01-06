@@ -90,6 +90,24 @@ export const ButtonWrapper = styled.div`
   display: flex;
 `
 
+export const Loader = styled.div`
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  p {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  img {
+    width: 100px;
+    position: relative;
+    top: -20px;
+  }
+`
+
 export const TwitterButton = styled.a`
   display: inline-flex;
   align-items: center; 
