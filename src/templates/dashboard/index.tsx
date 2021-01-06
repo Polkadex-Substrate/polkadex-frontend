@@ -2,14 +2,15 @@ import React, { useEffect,useState } from 'react'
 
 import { webSocket } from '../../components/dashboard/CustomChart/api/stream'
 import Graph from './blocks/Graph'
-import Market from './blocks/Market'
 import MarketOrder from './blocks/MarketOrder'
 import Menu from './blocks/Menu'
 import Navbar from './blocks/Navbar'
 import Transactions from './blocks/Transactions'
 import * as S from './styles'
+import Toast from '../../components/general/Toast'
+import { toast } from 'react-toastify'
 
-export default function Dashboard() {
+export default function Dashboard({ account }) {
 
   const [state, setState] = useState(false)
   const [orderBookBids, setOrderBookBids] = useState([])
@@ -21,6 +22,9 @@ export default function Dashboard() {
   const [lastTradePrice, setLastTradePrice] = useState(0);
   const [lastTradePriceType, setLastTradePriceType] = useState();
   const [newTrade, setNewTrade] = useState();
+  const [openOrders, setOpenOrders] = useState([]);
+  const [price, setPrice] = useState<string>()
+  const [amount, setAmount] = useState<string>()
 
   const removeTransactionsOrder = (id: string) => console.log('remove transaction' + id);
 
@@ -49,7 +53,6 @@ export default function Dashboard() {
     socket.on('asks_levels', async (ask_levels) => {
       let currentOrderBook = [];
 
-      // console.log(ask_levels)
       ask_levels.map(({ price, quantity }) => {
         currentOrderBook.push({
           id: currentOrderBook.length + 1,
@@ -97,13 +100,23 @@ export default function Dashboard() {
     });
   }
 
+  const updateOpenOrders = order => {
+    const finalOrders = [...openOrders, order];
+    console.log(finalOrders)
+    setOpenOrders(finalOrders);
+  }
+
   useEffect(() => {
     const webSocketInstance = webSocket;
-    fetchMarketData(webSocketInstance)
-    fetchOrderBookBids(webSocketInstance)
-    fetchOrderBookAsks(webSocketInstance)
+    // fetchMarketData(webSocketInstance)
+    // fetchOrderBookBids(webSocketInstance)
+    // fetchOrderBookAsks(webSocketInstance)
     fetchLastTrade(webSocketInstance);
-    fetchNewTrade(webSocketInstance);
+    // fetchNewTrade(webSocketInstance);
+    // fetchAvailableBalance(webSocketInstance)
+    if (!account) {
+      toast.warn('Please setup Polka extension for transactions.')
+    }
   }, [])
 
   return (
@@ -118,13 +131,19 @@ export default function Dashboard() {
                  orderBookBids={orderBookBids}
                  latestTransaction={lastTradePrice}
                  latestTransactionType={lastTradePriceType}/>
-          <MarketOrder />
+          <MarketOrder setOpenOrder={(order) => updateOpenOrders(order)}
+                       validAccount={account}
+                       latestTransaction={lastTradePrice}
+                       price={price} setPrice={inputPrice => setPrice(inputPrice)}
+                       amount={amount} setAmount={inputAmount => setAmount(inputAmount)} />
         </S.WrapperGraph>
         <Transactions
           newTradeData={newTrade}
           data={[]}
+          openOrderData={openOrders}
           remove={removeTransactionsOrder}/>
       </S.WrapperMain>
+      <Toast />
     </S.Wrapper>
   )
 }
