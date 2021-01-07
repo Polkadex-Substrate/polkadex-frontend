@@ -22,7 +22,7 @@ export type MarketOrderActionProps = {
   account: any
 }
 const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice, setAmount, account }: MarketOrderActionProps) => {
-  const wsProvider = new WsProvider('wss://blockchain.polkadex.trade:9955');
+  // const wsProvider = new WsProvider('wss://blockchain.polkadex.trade:9955');
   const wsProviderInstance = webSocket;
 
 
@@ -34,16 +34,16 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
 
   useEffect(() => {
     const fetchAvailableBalance = async () => {
-      const api = await ApiPromise.create({ provider: wsProvider });
+      // const api = await ApiPromise.create({ provider: wsProvider });
       // Wait until we are ready and connected
-      await api.isReady;
+      // await api.isReady;
 
       // Do something
-      console.log(api.genesisHash.toHex());
-      api.query.genericAsset.FreeBalance(type === 'Buy' ? 1 : 2, account.address, (data) => {
-        console.log('Market Order');
-        console.log(data);
-      });
+      // console.log(api.genesisHash.toHex());
+      // api.query.genericAsset.FreeBalance(type === 'Buy' ? 1 : 2, account.address, (data) => {
+      //   console.log('Market Order');
+      //   console.log(data);
+      // });
     }
     fetchAvailableBalance()
   }, [])
@@ -95,13 +95,13 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
     }
   }
 
-  const setSliderValue = (sliderValue) => {
-    setAmount(available*(sliderValue.values[0].toFixed(0)));
+  const setSliderValue = (sliderValue: {values: number[]}) => {
+    setAmount(available * (+sliderValue.values[0].toFixed(0)));
     setSlider(sliderValue);
   }
 
   useEffect(() => {
-    setAmount(available * (slider.values[0].toFixed(0)))
+    setAmount(available * (+slider.values[0].toFixed(0)))
   }, [])
 
   return (
@@ -128,7 +128,7 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
             </Dropdown>
           </S.WrapperActions>
           <Range values={slider.values} setValues={(value) => setSliderValue(value)} />
-          <Button type="button" title={type} fullWidth={true} click={startTransaction} disabled={!account.address} />
+          <Button type="button" title={type} fullWidth={true} click={startTransaction} disabled={!account?.address} />
         </form>
       </S.ContainerForm>
     </S.WrapperOrder>

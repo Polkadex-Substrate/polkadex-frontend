@@ -8,7 +8,6 @@ import Navbar from './blocks/Navbar'
 import Transactions from './blocks/Transactions'
 import * as S from './styles'
 import Toast from '../../components/general/Toast'
-import { toast } from 'react-toastify'
 
 export default function Dashboard({ account }) {
 
@@ -32,7 +31,6 @@ export default function Dashboard({ account }) {
     socket.on('bids_levels', async (bid_levels) => {
       let currentOrderBook = [];
 
-      // console.log(bid_levels)
       bid_levels.map(({ price, quantity }) => {
         currentOrderBook.push({
           id: currentOrderBook.length + 1,

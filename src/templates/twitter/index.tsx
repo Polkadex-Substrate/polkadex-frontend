@@ -7,7 +7,7 @@ import BackgroundPattern from '../../components/general/BackgroundPattern'
 
 export default function Twitter({ account }) {
   const [buttonClick, setButtonClick] = useState(false);
-  const tweet = 'Hey @polkadex it\'s ' + account.address + ', give me some @polkadex testnet tokens for https://testnet.polkadex.trade';
+  const tweet = 'Hey @polkadex it\'s ' + account?.address + ', give me some @polkadex testnet tokens for https://testnet.polkadex.trade';
 
   return (
     <S.ModalWrapper>

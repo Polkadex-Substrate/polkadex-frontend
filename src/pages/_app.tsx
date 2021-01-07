@@ -11,7 +11,7 @@ import { toast } from 'react-toastify'
 import Toast from '../components/general/Toast'
 
 function App({ Component, pageProps }: AppProps) {
-  const [account, setAccount] = useState('');
+  const [account, setAccount] = useState<any>();
 
   useEffect(() => {
     const getExtensionAddress = async () => {

@@ -8,4 +8,4 @@ component: Range
 } as Meta
 
 export const Default: Story = (args) =>
-<Range {...args} />
+<Range {...args} values={args.values} setValues={args.setValues} />
