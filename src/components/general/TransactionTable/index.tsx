@@ -30,12 +30,24 @@ const TransactionTable = ({ data, remove, filters }: Props) => (
           </S.Tr>
         </S.Thead>
         <S.Tbody>
-          {data && data.map(item => (
-            <TransactionOrder
-              key={item.id}
-              data={item}
-              remove={() => remove(item.id)}
-            />))}
+          {
+            data && data.filter(item => {
+              if(filters.onlyBuy && !filters.onlySell) {
+                return item.side === 'BidLimit'
+              } else if(filters.onlySell && !filters.onlyBuy) {
+                return item.side === 'AskLimit'
+              } else {
+                return true;
+              }
+            })
+            .map(item => (
+              <TransactionOrder
+                key={item.id}
+                data={item}
+                remove={() => remove(item.id)}
+              />
+            ))
+          }
         </S.Tbody>
       </S.Table>
 

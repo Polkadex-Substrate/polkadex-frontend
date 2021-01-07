@@ -1,11 +1,11 @@
 import { Meta,Story } from '@storybook/react/types-6-0'
 
-import Range from '.'
+import OpenOrderTable from '.'
 
 export default {
-title: 'Range',
-component: Range
+  title: 'OpenOrderTable',
+  component: OpenOrderTable
 } as Meta
 
 export const Default: Story = (args) =>
-<Range {...args} values={args.values} setValues={args.setValues} />
+  <OpenOrderTable {...args} />

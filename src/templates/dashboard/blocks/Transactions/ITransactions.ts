@@ -12,6 +12,7 @@ export type ITransactionData = {
 
 export type ITransactions = {
   data?: ITransactionData[]
+  openOrderData: any
   newTradeData?: ITransactionData[];
   remove?: (id: string) => void
 }
