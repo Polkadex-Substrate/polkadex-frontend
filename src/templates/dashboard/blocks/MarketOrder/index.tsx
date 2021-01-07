@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import { Tab, TabList, TabPanel, Tabs, resetIdCounter } from 'react-tabs';
 
 import Dropdown from 'components/general/Dropdown'
 import DropdownItem from 'components/general/DropdownItem';
@@ -13,6 +13,8 @@ const MarketOrder = ({ setOpenOrder, price, amount, setPrice, setAmount, validAc
   useEffect(() => {
     setPrice(latestTransaction)
   }, [latestTransaction !== 0])
+
+  resetIdCounter();
 
   return (
     <S.Section>

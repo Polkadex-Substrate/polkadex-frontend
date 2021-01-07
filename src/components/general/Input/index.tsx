@@ -11,7 +11,7 @@ export type InputProps = {
   setValue?: any
 }
 
-const Input = ({ label = 'Label', placeholder = 'Text..', type = "text", value, icon = "None", inputInfo, fullWidth = false, setValue }: InputProps) => {
+const Input = ({ label = 'Label', placeholder = 'Text..', type = "text", value ="", icon = "None", inputInfo, fullWidth = false, setValue }: InputProps) => {
 
   return (
     <S.Wrapper>
