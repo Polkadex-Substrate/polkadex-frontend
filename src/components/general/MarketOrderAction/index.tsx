@@ -34,12 +34,10 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
   const UNIT = 1000000000000;
 
   useEffect(() => {
-    if (blockchainApi) {
-      blockchainApi.query.genericAsset.freeBalance(type === 'Buy' ? 1 : 2, account.address, (data) => {
-        console.log(data);
-      });
-    }
-  })
+    blockchainApi?.query.genericAsset.freeBalance(type === 'Buy' ? 1 : 2, account.address, (data) => {
+      console.log(data.toString());
+    });
+  }, [blockchainApi])
 
   const startTransaction = async () => {
     if (account.address) {

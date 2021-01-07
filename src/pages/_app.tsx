@@ -180,7 +180,7 @@ function App({ Component, pageProps }: AppProps) {
         },
         provider: wsProvider
       });
-      setBlockchainApi(api);
+      await setBlockchainApi(api);
     }
     getExtensionAddress();
     connectBlockchain();
