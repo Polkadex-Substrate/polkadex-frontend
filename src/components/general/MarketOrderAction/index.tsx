@@ -44,6 +44,22 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
     }
   }
 
+  const getCurrentStatus = () => {
+    if (orderType === 'Limit Order') {
+      if (type === 'Buy') {
+        return "BidLimit"
+      } else {
+        return "AskLimit"
+      }
+    } else if (orderType === 'Market Order') {
+      if (type === 'Buy') {
+        return "BidMarket"
+      } else {
+        return "AskMarket"
+      }
+    }
+  }
+
   const startTransaction = async () => {
     if (account.address) {
       const polkadotExtensionDapp = await import('@polkadot/extension-dapp');
@@ -51,7 +67,7 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
 
       toast.success(type + ' initiated');
       let transferExtrinsic = blockchainApi.tx.polkadex.submitOrder(
-        type === 'Buy' ? "BidLimit" : "AskLimit",
+        getCurrentStatus(),
         tradingPairID,
         new BN(cleanString((parseFloat(price + '') * UNIT).toString()),10),
         new BN(cleanString((parseFloat(amount + '') * UNIT).toString()),10)
