@@ -86,3 +86,12 @@ export const Tag = styled.span`
     display: block;
   `}
 `
+
+export const Status = styled.div`
+  display: flex;
+  align-items: center;
+  
+  img {
+    margin-right: 0.5rem;
+  }
+`
