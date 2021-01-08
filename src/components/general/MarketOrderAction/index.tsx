@@ -19,8 +19,9 @@ export type MarketOrderActionProps = {
   setAmount: any
   account: any
   blockchainApi: any
+  orderType: string
 }
-const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice, setAmount, account, blockchainApi }: MarketOrderActionProps) => {
+const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice, setAmount, account, blockchainApi, orderType }: MarketOrderActionProps) => {
 
   const [slider, setSlider] = useState({ values: [50] })
   const [available, setAvailable] = useState(0)
@@ -94,8 +95,13 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
       </S.ContainerWallet>
       <S.ContainerForm>
         <form onSubmit={() => console.log("Submiting..")}>
-          <Input label="Price" icon="ArrowVerticalTop" placeholder="0.0000000" value={price}
-                 type="text" inputInfo="USDT" fullWidth={true} setValue={(inputPrice) => setPrice(inputPrice)} />
+          {
+            orderType === 'Limit Order'
+              ? <Input label="Price" icon="ArrowVerticalTop" placeholder="0.0000000" value={price}
+                     type="text" inputInfo="USDT" fullWidth={true} setValue={(inputPrice) => setPrice(inputPrice)}/>
+              : <Input label="Price" icon="ArrowVerticalTop" placeholder="0.0000000" value={'Market'}
+                       type="text" inputInfo="USDT" fullWidth={true}/>
+          }
           <Input label="Amount" icon="ArrowVerticalBottom" placeholder="0.0000000" value={amount}
                  type="text" inputInfo="BTC" fullWidth={true} setValue={(inputAmount) => setAmount(inputAmount)} />
           <S.WrapperActions>

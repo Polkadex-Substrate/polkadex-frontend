@@ -73,7 +73,7 @@ export default function Twitter({ account }) {
               </Link>
             </S.BackButton>
             <S.TwitterButton target="_blank"
-              // disabled={accountId === ''}
+               // disabled={!(account && account.address)}
                onClick={() => listeningTweet()}
                href={'https://twitter.com/intent/tweet?text=' + tweet.toString() + '&&hashtags=Polkadex'}
                data-size="large">
