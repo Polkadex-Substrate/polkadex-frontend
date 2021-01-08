@@ -24,14 +24,14 @@ export type MarketOrderActionProps = {
 const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice, setAmount, account, blockchainApi, orderType }: MarketOrderActionProps) => {
 
   const [slider, setSlider] = useState({ values: [50] })
-  const [available, setAvailable] = useState(0)
+  const [available, setAvailable] = useState(10)
 
   const tradingPairID = "0xf28a3c76161b8d5723b6b8b092695f418037c747faa2ad8bc33d8871f720aac9";
   const UNIT = 1000000000000;
 
   useEffect(() => {
     blockchainApi?.query.genericAsset.freeBalance(type === 'Buy' ? 1 : 2, account.address, (data) => {
-      setAvailable(+data.toString() / UNIT);
+      // setAvailable(+data.toString() / UNIT);
     });
   }, [blockchainApi])
 
@@ -91,14 +91,27 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
     }
   }
 
+  const validatePrice = (inputPrice) => {
+    if (!isNaN(inputPrice)) {
+      setPrice(inputPrice);
+    }
+  }
+
+  const validateAmount = (inputAmount) => {
+    if (!isNaN(inputAmount) && inputAmount >= 0 && inputAmount <= available) {
+      setAmount(inputAmount);
+      setSlider({values: [+((inputAmount / available) * 100).toFixed(2)]});
+    }
+  }
+
   const setSliderValue = (sliderValue: {values: number[]}) => {
-    setAmount(available * (+sliderValue.values[0].toFixed(0)));
+    setAmount(available * (+sliderValue.values[0].toFixed(2)) /100);
     setSlider(sliderValue);
   }
 
   useEffect(() => {
-    setAmount((available * (+slider.values[0].toFixed(0))) / 100)
-  })
+    setAmount((available * (+slider.values[0].toFixed(2))) / 100)
+  }, [])
 
   return (
     <S.WrapperOrder>
@@ -114,12 +127,12 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
           {
             orderType === 'Limit Order'
               ? <Input label="Price" icon="ArrowVerticalTop" placeholder="0.0000000" value={price}
-                     type="text" inputInfo="USDT" fullWidth={true} setValue={(inputPrice) => setPrice(inputPrice)}/>
+                     type="text" inputInfo="USDT" fullWidth={true} setValue={(inputPrice) => validatePrice(inputPrice)}/>
               : <Input label="Price" icon="ArrowVerticalTop" placeholder="0.0000000" value={'Market'}
                        type="text" inputInfo="USDT" fullWidth={true}/>
           }
           <Input label="Amount" icon="ArrowVerticalBottom" placeholder="0.0000000" value={amount}
-                 type="text" inputInfo="BTC" fullWidth={true} setValue={(inputAmount) => setAmount(inputAmount)} />
+                 type="text" inputInfo="BTC" fullWidth={true} setValue={(inputAmount) => validateAmount(inputAmount)} />
           <S.WrapperActions>
             <p>Equivalent ~
             <span> $0</span>
