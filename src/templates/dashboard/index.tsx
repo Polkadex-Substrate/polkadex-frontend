@@ -118,7 +118,7 @@ export default function Dashboard({ account, blockchainApi }) {
       <Menu handleChange={() => setState(!state)} />
       {/*{state && <Market/>}*/}
       <S.WrapperMain >
-        <Navbar lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType}
+        <Navbar account={account} lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType}
         blockValues={{volume, high, low, blockPrice}}/>
         <S.WrapperGraph marketActive={state}>
           <Graph orderBookAsks={orderBookAsks}

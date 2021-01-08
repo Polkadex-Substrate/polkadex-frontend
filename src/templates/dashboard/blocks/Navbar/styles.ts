@@ -60,6 +60,12 @@ export const WrapperLinks = styled.div`
 
 `
 
+export const AccountAddress = styled.div`
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0 1rem;
+`
+
 export const VolumeHigh = styled.div`
   p {
     font-size: 1.5rem;
