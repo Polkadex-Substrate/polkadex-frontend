@@ -13,6 +13,7 @@ import Toast from '../components/general/Toast'
 
 function App({ Component, pageProps }: AppProps) {
   const [account, setAccount] = useState<any>();
+  const [allAccounts, setAllAccounts] = useState<any>();
   const [blockchainApi, setBlockchainApi] = useState<any>();
 
   useEffect(() => {
@@ -22,6 +23,7 @@ function App({ Component, pageProps }: AppProps) {
       if (extensions.length > 0) {
         const allAccounts = await polkadotExtensionDapp.web3Accounts();
         if (allAccounts.length > 0) {
+          setAllAccounts(allAccounts)
           setAccount(allAccounts[0])
         } else {
           toast.warn('Please create account in Polka extension first.')
@@ -195,7 +197,7 @@ function App({ Component, pageProps }: AppProps) {
         </S.Warning>
         <Toast/>
         <S.Page>
-          <Component {...pageProps} account={account} blockchainApi={blockchainApi} />
+          <Component {...pageProps} account={account} setAccount={address => setAccount(address)} allAccounts={allAccounts} blockchainApi={blockchainApi} />
         </S.Page>
       </ThemeProvider>
     </>

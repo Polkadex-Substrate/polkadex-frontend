@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import BN from 'bn.js';
 import { toast } from 'react-toastify';
 

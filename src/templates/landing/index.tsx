@@ -4,8 +4,14 @@ import Link from 'next/link'
 import * as S from './styles'
 import SocialIcons from '../../components/general/SocialIcons'
 import BackgroundPattern from '../../components/general/BackgroundPattern'
+import DropdownItem from '../../components/general/DropdownItem'
+import Dropdown from '../../components/general/Dropdown'
 
-export default function Landing({ account }) {
+export default function Landing({ account, allAccounts, setAccount }) {
+
+  const setExtensionAccount = (address) => {
+
+  }
 
   return (
     <div style={{display: 'flex', height: '100vh', width: '100vw', backgroundColor: '#101213', padding: '1rem 2rem', position: 'fixed'}}>
@@ -35,14 +41,28 @@ export default function Landing({ account }) {
         <S.DisclaimerWrapper>
           <S.ContentHeading>Disclaimer</S.ContentHeading>
           <S.Content>The following interface shows simulated trades from one of the largest centralized exchanges, processing about 20-30 trades per second on average for BTC-USDT. In this release, the public cannot submit trades as it is a private testnet release to find the stability of Polkadex nodes. There will be frequent restarts of the testnet by our development team. The next release of our testnet will enable public to run a node, check the blocks and submit trades. Most of the features are disabled for now and will be enabled as per the following schedule.</S.Content>
-          <S.ButtonWrapper>
-            <Link href="/dashboard">
-              <S.LoginButton>Login with PolkadotJS</S.LoginButton>
-            </Link>
-            <Link href="/twitter">
-              <S.TweetButton disabled={!account}>Get Testnet Tokens from Twitter</S.TweetButton>
-            </Link>
-          </S.ButtonWrapper>
+          <S.Account>
+            <S.DropdownWrapper>
+              <S.AccountHeading>Select Account:</S.AccountHeading>
+
+              <Dropdown title={account?.meta?.name}>
+                {
+                  allAccounts?.map((account, index)  => {
+                    return <DropdownItem title = { account.meta.name } handleAction={() => setAccount(account)} key={index}/>
+                  })
+                }
+              </Dropdown>
+            </S.DropdownWrapper>
+
+            <S.ButtonWrapper>
+              <Link href="/dashboard">
+                <S.LoginButton>Login with PolkadotJS</S.LoginButton>
+              </Link>
+              <Link href="/twitter">
+                <S.TweetButton disabled={!account}>Get Testnet Tokens from Twitter</S.TweetButton>
+              </Link>
+            </S.ButtonWrapper>
+          </S.Account>
         </S.DisclaimerWrapper>
         <S.SocialLinks>
           For further information:
