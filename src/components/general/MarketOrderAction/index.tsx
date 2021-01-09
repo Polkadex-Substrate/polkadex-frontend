@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
-
-import { ApiPromise, WsProvider } from '@polkadot/api';
+import React, { useEffect, useState } from 'react'
+import BN from 'bn.js';
 import { toast } from 'react-toastify';
 
 import Button from '../Button'
@@ -10,7 +9,6 @@ import Input from '../Input'
 import Link from '../Link'
 import Range from '../Range'
 import * as S from './styles'
-import { webSocket } from '../../dashboard/CustomChart/api/stream'
 
 export type MarketOrderActionProps = {
   type?: 'Sell' | 'Buy'
@@ -20,57 +18,44 @@ export type MarketOrderActionProps = {
   setPrice: any
   setAmount: any
   account: any
+  blockchainApi: any
+  orderType: string
 }
-const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice, setAmount, account }: MarketOrderActionProps) => {
-  // const wsProvider = new WsProvider('wss://blockchain.polkadex.trade:9955');
-  const wsProviderInstance = webSocket;
-
+const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice, setAmount, account, blockchainApi, orderType }: MarketOrderActionProps) => {
 
   const [slider, setSlider] = useState({ values: [50] })
-  const [available, setAvailable] = useState(2)
+  const [available, setAvailable] = useState(0)
 
   const tradingPairID = "0xf28a3c76161b8d5723b6b8b092695f418037c747faa2ad8bc33d8871f720aac9";
   const UNIT = 1000000000000;
 
   useEffect(() => {
-    const fetchAvailableBalance = async () => {
-      // const api = await ApiPromise.create({ provider: wsProvider });
-      // Wait until we are ready and connected
-      // await api.isReady;
+    blockchainApi?.query.genericAsset.freeBalance(type === 'Buy' ? 1 : 2, account.address, (data) => {
+      setAvailable(+data.toString() / UNIT);
+    });
+  }, [blockchainApi])
 
-      // Do something
-      // console.log(api.genesisHash.toHex());
-      // api.query.genericAsset.FreeBalance(type === 'Buy' ? 1 : 2, account.address, (data) => {
-      //   console.log('Market Order');
-      //   console.log(data);
-      // });
+  const cleanString = (value) => {
+    let pos = value.indexOf(".");
+    if (pos === -1 ){
+      return value;
+    } else {
+      return value.substring(0, pos);
     }
-    fetchAvailableBalance()
-  }, [])
+  }
 
   const startTransaction = async () => {
     if (account.address) {
-      const api = await ApiPromise.create({ provider: wsProviderInstance });
       const polkadotExtensionDapp = await import('@polkadot/extension-dapp');
       const injector = await polkadotExtensionDapp.web3FromSource(account.meta.source);
-      let transferExtrinsic;
-      if (type === 'Buy') {
-        toast.success('Buy initiated');
-        transferExtrinsic = api.tx.polkadex.submitOrder(
-          "BidLimit",
-          tradingPairID,
-          (parseFloat(price + '') * UNIT),
-          (parseFloat(amount + '') * UNIT)
-        );
-      } else if (type === 'Sell') {
-        toast.success('Sold initiated');
-        transferExtrinsic = api.tx.polkadex.submitOrder(
-          "AskLimit",
-          tradingPairID,
-          (parseFloat(price + '') * UNIT),
-          (parseFloat(amount + '') * UNIT)
-        );
-      }
+
+      toast.success(type + ' initiated');
+      let transferExtrinsic = blockchainApi.tx.polkadex.submitOrder(
+        type === 'Buy' ? "BidLimit" : "AskLimit",
+        tradingPairID,
+        new BN(cleanString((parseFloat(price + '') * UNIT).toString()),10),
+        new BN(cleanString((parseFloat(amount + '') * UNIT).toString()),10)
+      );
 
       transferExtrinsic.signAndSend(account.address, { signer: injector.signer }, ({ status }) => {
         setOpenOrder({
@@ -83,14 +68,9 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
         });
         setPrice('');
         setAmount('');
-        if (status.isInBlock) {
-          toast.success('Transaction successful');
-          console.log(`Completed at block hash #${status.asInBlock.toString()}`);
-        } else {
-          console.log(`Current status: ${status.type}`);
-        }
+        toast.success(`Transaction status: ${status.type}`);
       }).catch((error: any) => {
-        console.log(':( transaction failed', error);
+        toast.success('Transaction failed: ' + error);
       });
     }
   }
@@ -101,8 +81,8 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
   }
 
   useEffect(() => {
-    setAmount(available * (+slider.values[0].toFixed(0)))
-  }, [])
+    setAmount((available * (+slider.values[0].toFixed(0))) / 100)
+  })
 
   return (
     <S.WrapperOrder>
@@ -115,8 +95,13 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
       </S.ContainerWallet>
       <S.ContainerForm>
         <form onSubmit={() => console.log("Submiting..")}>
-          <Input label="Price" icon="ArrowVerticalTop" placeholder="0.0000000" value={price}
-                 type="text" inputInfo="USDT" fullWidth={true} setValue={(inputPrice) => setPrice(inputPrice)} />
+          {
+            orderType === 'Limit Order'
+              ? <Input label="Price" icon="ArrowVerticalTop" placeholder="0.0000000" value={price}
+                     type="text" inputInfo="USDT" fullWidth={true} setValue={(inputPrice) => setPrice(inputPrice)}/>
+              : <Input label="Price" icon="ArrowVerticalTop" placeholder="0.0000000" value={'Market'}
+                       type="text" inputInfo="USDT" fullWidth={true}/>
+          }
           <Input label="Amount" icon="ArrowVerticalBottom" placeholder="0.0000000" value={amount}
                  type="text" inputInfo="BTC" fullWidth={true} setValue={(inputAmount) => setAmount(inputAmount)} />
           <S.WrapperActions>

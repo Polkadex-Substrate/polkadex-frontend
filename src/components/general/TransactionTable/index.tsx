@@ -40,9 +40,9 @@ const TransactionTable = ({ data, remove, filters }: Props) => (
                 return true;
               }
             })
-            .map(item => (
+            .map((item, key) => (
               <TransactionOrder
-                key={item.id}
+                key={key}
                 data={item}
                 remove={() => remove(item.id)}
               />
@@ -50,7 +50,6 @@ const TransactionTable = ({ data, remove, filters }: Props) => (
           }
         </S.Tbody>
       </S.Table>
-
     </S.Wrapper> }
   </>
 
