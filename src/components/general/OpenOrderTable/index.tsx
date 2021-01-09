@@ -1,4 +1,5 @@
 import * as S from './styles'
+import Icon from '../Icon'
 
 type OpenOrderProps = {
   price: string;
@@ -40,7 +41,14 @@ const OpenOrderTable = ({ data }: Props) => (
             <S.Tr key={index}>
               <S.Td>
                 <S.Tag>Status</S.Tag>
-                <span>{order.status}</span>
+                <S.Status>
+                  {
+                    order.status === 'isFinalized'
+                    ? <Icon source='Clock-green' size={'Small'} background={'None'} />
+                    : <Icon source='Clock' size={'Small'} background={'None'} />
+                  }
+                  {order.status}
+                </S.Status>
               </S.Td>
 
               <S.Td>

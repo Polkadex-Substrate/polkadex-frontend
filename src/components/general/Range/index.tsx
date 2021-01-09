@@ -66,8 +66,8 @@ const Range = ({ values, setValues }) => {
                 backgroundColor: isDragged ? "#E6007A" : "#1C2023"
               }}
             />
-            <output style={{ fontSize:"1.1rem", color:"white", fontWeight:500 }}>
-              {values[0].toFixed(0)}%
+            <output style={{ fontSize:"1rem", color:"white", fontWeight:500 }}>
+              {values[0].toFixed(2)}%
             </output>
           </div>
         )}
