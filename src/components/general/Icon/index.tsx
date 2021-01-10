@@ -1,7 +1,7 @@
 import * as S from './styles'
 
 export type IconProps = {
-  source: "Settings" | "Candles" | "Sun" | "Close" | "Graph" | "Options" | "Edit" | "Exchange" | "Expand" | "Help" | "History" | "News" | "Notifications" | "Order" | "OrderAsc" | "OrderDesc" | "Search" | "Star" | "Transactions" | "Wallet"
+  source: "Settings" | "Candles" | "Sun" | "Close" | "Graph" | "Options" | "Edit" | "Exchange" | "Expand" | "Help" | "History" | "News" | "Notifications" | "Order" | "OrderAsc" | "OrderDesc" | "Search" | "Star" | "Transactions" | "Wallet" | "Clock-green" | "Clock"
   size?: "XSmall" | "Small" | "Medium" | "Large",
   background?: "DarkGray" | "LightGray" | "None" | "Primary" | "Gray"
   action?: () => void

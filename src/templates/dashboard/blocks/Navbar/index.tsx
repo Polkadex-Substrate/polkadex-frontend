@@ -24,7 +24,8 @@ type BlockProps = {
 type Props = {
   blockValues: BlockProps,
   lastTradePrice: number,
-  lastTradePriceType: 'AskLimit' | 'BidLimit'
+  lastTradePriceType: 'AskLimit' | 'BidLimit',
+  account: any
 }
 const Navbar = ({ blockValues, lastTradePrice, lastTradePriceType, account }: Props) => {
   return (

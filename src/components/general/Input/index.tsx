@@ -5,13 +5,13 @@ export type InputProps = {
   icon?: 'None' | 'ArrowVerticalBottom' | 'ArrowVerticalTop'
   placeholder?: string
   type?: 'text' | 'email' | 'password' | 'url' | 'number'
-  value?: number
+  value?: any
   inputInfo?: string
   fullWidth?: boolean
   setValue?: any
 }
 
-const Input = ({ label = 'Label', placeholder = 'Text..', type = "text", value ="", icon = "None", inputInfo, fullWidth = false, setValue }: InputProps) => {
+const Input = ({ label = 'Label', placeholder = 'Text..', type = "text", value="", icon = "None", inputInfo, fullWidth = false, setValue }: InputProps) => {
 
   return (
     <S.Wrapper>
