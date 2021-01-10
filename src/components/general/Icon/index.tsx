@@ -1,9 +1,9 @@
 import * as S from './styles'
 
 export type IconProps = {
-  source: "Settings" | "Candles" | "Sun" | "Close" | "Graph" | "Options" | "Edit" | "Exchange" | "Expand" | "Help" | "History" | "News" | "Notifications" | "Order" | "OrderAsc" | "OrderDesc" | "Search" | "Star" | "Transactions" | "Wallet"
-  size?: "XSmall" | "Small" | "Medium" | "Large",
-  background?: "DarkGray" | "LightGray" | "None" | "Primary" | "Gray"
+  source: "Settings" | "Candles" | "Sun" | "Close" | "Graph" | "Options" | "Edit" | "Exchange" | "Expand" | "Help" | "History" | "News" | "Notifications" | "Order" | "OrderAsc" | "OrderDesc" | "Search" | "Star" | "Transactions" | "Wallet" | "Swap" | "Swap2"
+  size?: "XSmall" | "Small" | "Medium" | "Large" | "XtraLarge",
+  background?: "DarkGray" | "LightGray" | "None" | "Primary" | "Gray" | "Black",
   action?: () => void
 }
 const Icon = ({ source = "Settings", background = "DarkGray", size = "Medium", action}:IconProps) => (

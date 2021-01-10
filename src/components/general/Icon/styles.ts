@@ -47,6 +47,12 @@ const WrapperModifier = {
     padding: ${theme.spacings.xxsmall};
     border-radius: ${theme.border.radius};
   `,
+  XtraLarge: (theme: DefaultTheme) => css`
+    height: 4rem;
+    width: 4rem;
+    padding: ${theme.spacings.xxsmall};
+    border-radius: ${theme.border.radius};
+  `,
   DarkGray: (theme: DefaultTheme) => css`
     background-color:${theme.colors.darkGray};
     color: ${theme.colors.white};
@@ -66,7 +72,11 @@ const WrapperModifier = {
   Gray: (theme: DefaultTheme) => css`
     background-color:${theme.colors.gray};
     color: ${theme.colors.white};
-  `
+  `,
+  Black: (theme: DefaultTheme) => css`
+  background-color:#1C2023;
+  color: ${theme.colors.white};
+`
 }
 
 export const Wrapper = styled.div<Partial<IconProps>>`

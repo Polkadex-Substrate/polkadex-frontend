@@ -32,7 +32,7 @@
     "react-dom": "^16.13.1",
     "react-range": "^1.8.2",
     "react-stockcharts": "^0.7.8",
-    "react-tabs": "^3.1.1",
+    "react-tabs": "^3.1.2",
     "react-toastify": "^6.2.0",
     "shortid": "^2.2.16",
     "socket.io": "^3.0.1",

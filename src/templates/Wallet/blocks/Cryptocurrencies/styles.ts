@@ -1,13 +1,16 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
-margin-left: 30px;
-background-color: #393b47;
+export const CryptocurrenciesWrapper = styled.div`
+margin-left: 25px;
+background-color: #242633;
 border-radius: 0 3rem 3rem 3rem;
-width: 28%;
-padding: 2rem 0 2rem 2rem;
+width: 100%;
+padding: 2rem 0 2rem 0rem;
 box-shadow: 0px 0px 99px rgba(0,0,0,0.65);
 margin-top: 48px;
+
+
+
 `
 
 export const WrapperTitle = styled.div`
@@ -17,6 +20,7 @@ export const WrapperTitle = styled.div`
   align-items:center;
   margin-bottom:1rem;
   padding-right: 2rem;
+  padding-left: 2rem;
   
 `
 export const ContainerActions = styled.div`
@@ -30,4 +34,49 @@ export const ContainerTitle = styled.div`
   flex-direction:row;
   align-items:center;
 `
+
+export const SearchWrapper = styled.div`
+display:flex;
+flex-direction:row;
+padding-left:2rem;
+
+`
+
+export const Image = styled.img`
+  width:80%;
+  height:40%;
+  
+`
+
+export const ImageWrapper = styled.div`
+    background: #030517 0% 0% no-repeat ;
+    border-radius: 7px;
+    opacity: 1;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    cursor: pointer;
+    
+    padding-left:0.6rem;
+    padding-right:0.6rem;
+    
+    :hover {
+      opacity: 0.8;
+    }
+  
+`
+export const Iconwrapper = styled.div`
+padding-top: 1.7rem;
+padding-left: 0rem;
+
+}
+  `
+
+export const LeftCurrencyColumn = styled.div`
+display: flex;
+flex-direction: column;
+flex-basis: 100%;
+flex:1;
+`;
+
 
