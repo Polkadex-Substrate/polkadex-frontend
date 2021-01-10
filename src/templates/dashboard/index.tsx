@@ -106,10 +106,10 @@ export default function Dashboard({ account, blockchainApi }) {
 
   useEffect(() => {
     const webSocketInstance = webSocket;
-    // fetchMarketData(webSocketInstance)
-    // fetchOrderBookBids(webSocketInstance)
-    // fetchOrderBookAsks(webSocketInstance)
-    // fetchLastTrade(webSocketInstance);
+    fetchMarketData(webSocketInstance)
+    fetchOrderBookBids(webSocketInstance)
+    fetchOrderBookAsks(webSocketInstance)
+    fetchLastTrade(webSocketInstance);
     fetchNewTrade(webSocketInstance);
   }, [])
 
