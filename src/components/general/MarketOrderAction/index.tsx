@@ -25,6 +25,7 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
 
   const [slider, setSlider] = useState({ values: [50] })
   const [available, setAvailable] = useState(10)
+  const [dropdownState, setDropdownState] = useState(false)
 
   const tradingPairID = "0xf28a3c76161b8d5723b6b8b092695f418037c747faa2ad8bc33d8871f720aac9";
   const UNIT = 1000000000000;
@@ -137,7 +138,7 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
             <p>Equivalent ~
             <span> $0</span>
             </p>
-            <Dropdown title="Fee 0 PDX">
+            <Dropdown title="Fee 0 PDX" active={dropdownState} setDropdownState={setDropdownState}>
               <Link title="Custom Fee" />
             </Dropdown>
           </S.WrapperActions>

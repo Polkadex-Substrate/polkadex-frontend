@@ -8,7 +8,12 @@ import * as S from './styles'
 
 const MarketOrder = ({ setOpenOrder, price, amount, setPrice, setAmount, validAccount, latestTransaction, blockchainApi }) => {
   const [orderType, setOrderType] = useState("Limit Order")
-  const handleChange = (select: string) => setOrderType(select)
+  const [dropdownState, setDropdownState] = useState(false)
+
+  const handleChange = (select: string) => {
+    setDropdownState(false);
+    setOrderType(select)
+  }
 
   useEffect(() => {
     setPrice(latestTransaction)
@@ -24,7 +29,7 @@ const MarketOrder = ({ setOpenOrder, price, amount, setPrice, setAmount, validAc
             <Tab>Buy BTC</Tab>
             <Tab>Sell BTC</Tab>
           </TabList>
-          <Dropdown title={orderType} >
+          <Dropdown title={orderType} active={dropdownState} setDropdownState={setDropdownState}>
             <>
               <DropdownItem title="Limit Order" handleAction={handleChange} />
               <DropdownItem title="Market Order" handleAction={handleChange} />

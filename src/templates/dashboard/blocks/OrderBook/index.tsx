@@ -19,9 +19,13 @@ type Props = {
 const OrderBook = ({ orderBookBids, orderBookAsks, latestTransaction, latestTransactionType }: Props) => {
   const [filterState, setFilterState] = useState("Order")
   const [sizeState, setSizeState] = useState(0.001)
+  const [dropdownState, setDropdownState] = useState(false)
 
   const handleChange = (select: string) => setFilterState(select)
-  const handleAction = (select: number) => setSizeState(select)
+  const handleAction = (select: number) => {
+    setDropdownState(false)
+    setSizeState(select)
+  }
 
   const getDecimalPlaces = () => sizeState.toString().split('.')[1].length || 0
 
@@ -46,7 +50,7 @@ const OrderBook = ({ orderBookBids, orderBookAsks, latestTransaction, latestTran
             <OrderBookIcon icon="Order" filterState={filterState} handleChange={handleChange} />
             <OrderBookIcon icon="OrderDesc" filterState={filterState} handleChange={handleChange} />
           </S.ContainerActions>
-          <Dropdown title={sizeState}>
+          <Dropdown title={sizeState} active={dropdownState} setDropdownState={setDropdownState}>
             <>
               <DropdownItem title={0.1} handleAction={handleAction} />
               <DropdownItem title={0.01} handleAction={handleAction} />

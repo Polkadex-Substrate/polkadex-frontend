@@ -1,4 +1,4 @@
-import Dropdown from 'components/general/Dropdown'
+// import Dropdown from 'components/general/Dropdown'
 import Heading from 'components/general/Heading'
 import Icon from 'components/general/Icon'
 import MarketTable from 'components/general/MarketTable'
@@ -10,9 +10,9 @@ const Market = ({ coins = [] }) => (
   <S.Section >
     <S.Header>
       <Heading title="Market" />
-      <Dropdown title="Pair | USD">
-        <p>...</p>
-      </Dropdown>
+      {/*<Dropdown title="Pair | USD">*/}
+        {/*<p>...</p>*/}
+      {/*</Dropdown>*/}
     </S.Header>
     <S.WrapperActions>
       <SearchInput placeholder="Search.." type="search"/>
