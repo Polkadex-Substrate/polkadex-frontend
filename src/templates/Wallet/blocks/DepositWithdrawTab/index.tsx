@@ -10,17 +10,30 @@ export type InputProps = {
     coloricon?: any       
   }  
 
-const DepositWithdrawTAb =()=>{         
+const DepositWithdrawTAb =()=>{    
+  
+  const [activeIndex, setActiveIndex] = useState(1);
+
     return(
           <S.MiddleCurrencyColumn>
               <S.TAbSection>               
-                  <Tabs >               
-                    <S.TABHeader>               
-                      <TabList>
-                        <Tab >Withdraw BTC</Tab>
-                        <Tab >Deposit BTC</Tab>
-                      </TabList>               
-                      </S.TABHeader>  
+                  <Tabs selectedIndex={activeIndex} onSelect={(index) => setActiveIndex(index)} >
+                    {  (activeIndex==0)             
+                      ?  <S.TABHeader>               
+                          <TabList>
+                            <Tab >Withdraw BTC</Tab>
+                            <Tab >Deposit BTC</Tab>
+                          </TabList>               
+                          </S.TABHeader>  
+                      :    
+                          <S.TABHeaderGreen>               
+                          <TabList>
+                            <Tab >Withdraw BTC</Tab>
+                            <Tab >Deposit BTC</Tab>
+                          </TabList>               
+                          </S.TABHeaderGreen>  
+
+                    }
                       <TabPanel>
                         <WithdrawBTC walletAddress ="asdwqe12312434131232sad"/>
                       </TabPanel>

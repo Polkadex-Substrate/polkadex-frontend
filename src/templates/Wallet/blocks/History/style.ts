@@ -10,7 +10,7 @@ flex: 1;
 export const HistoryWrapper = styled.div`
 display: flex;
 flex-direction:column;
-margin-top:30rem;
+margin-top:40rem;
 `
 export const HistoryHeader = styled.div`
 display:flex;

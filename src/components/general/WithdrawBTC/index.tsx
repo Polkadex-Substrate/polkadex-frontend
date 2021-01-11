@@ -7,6 +7,7 @@ import Input from 'components/general/Input'
 import Range from '../Range'
 import { useState } from 'react'
 import Button from '../Button'
+import 'react-tabs/style/react-tabs.css';
 
 export type WalletProps = {
    walletAddress:any

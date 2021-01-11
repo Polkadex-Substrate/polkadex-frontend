@@ -7,8 +7,10 @@ export const Wrapper = styled.div`
   border-radius: 0 3rem 3rem 3rem;
   width: 96%;
   padding: 2rem 0 3rem 2rem;
-  box-shadow: 0px 0px 99px rgba(0, 0, 0, 0.65);
-  height:100%;
+  box-shadow: 0px 0px 99px rgba(0, 0, 0, 0.65);  
+  height:70.25rem;
+
+ 
   
   `
 
@@ -170,7 +172,6 @@ align-item:center;
 color:white;
 margin-top:8rem;
 margin-bottom:2rem;
-
 font-weight:500;
 font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 `

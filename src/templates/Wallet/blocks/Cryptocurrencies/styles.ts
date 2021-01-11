@@ -10,7 +10,7 @@ width: 100%;
 padding: 2rem 0 3rem 0rem;
 box-shadow: 0px 0px 99px rgba(0,0,0,0.65);
 margin-top: 5rem;
-height:100%;
+height: 78.25rem;
 
 
 `

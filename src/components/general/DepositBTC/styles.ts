@@ -6,11 +6,12 @@ export const Wrapper = styled.div`
   width: 95%;
   padding: 2rem 0 2rem 2rem;
   box-shadow: 0px 0px 99px rgba(0, 0, 0, 0.65);
-  height:100%;
+  height: 70.25rem;
   display:flex;
   flex-direction:column; 
   padding-bottom:15rem;
 
+  
   `
 
   export const TextWrapper = styled.div`
@@ -21,7 +22,7 @@ export const Wrapper = styled.div`
   letter-spacing: 0px;
   color: #FFFFFF;
   margin-top:4rem;
-  margin-bottom:4rem;  
+  margin-bottom:6rem;  
   padding-left: 3rem;
 
   `
@@ -44,9 +45,10 @@ export const Wrapper = styled.div`
   font-size:2rem;
   font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
   letter-spacing: 0px;
-  margin-top:5rem;
+  margin-top:7rem;
   opacity: 1;  
   padding-left: 3rem;
+  margin-bottom:1rem;
 
   `
 
