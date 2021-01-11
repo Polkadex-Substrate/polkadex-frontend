@@ -15,6 +15,7 @@ const customMedia = generateMedia({
 export const WalletWrapper = styled.main`
   display: flex;
   flex-direction:row;
+
   height: 100vh;
   overflow-y: hidden;
   max-width: 192rem;
@@ -38,6 +39,7 @@ height:100%;
 flex-direction:row;
 margin-top:5rem;
 margin-bottom:2rem;
+
 `;
 
 

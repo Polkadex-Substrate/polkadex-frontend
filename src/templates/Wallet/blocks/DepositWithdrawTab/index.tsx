@@ -12,7 +12,7 @@ export type InputProps = {
 
 const DepositWithdrawTAb =()=>{    
   
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
 
     return(
           <S.MiddleCurrencyColumn>

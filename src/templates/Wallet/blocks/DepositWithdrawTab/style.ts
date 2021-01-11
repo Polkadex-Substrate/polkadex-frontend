@@ -68,6 +68,7 @@ ${({ coloricon }) => css`
   padding: 2rem 0;
   align-items:center;
   font-weight:500;
+  margin-top:15rem;
 
   font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
   

@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   width: 95%;
   padding: 2rem 0 2rem 2rem;
   box-shadow: 0px 0px 99px rgba(0, 0, 0, 0.65);
-  height: 70.25rem;
+  height: 55.25rem;
   display:flex;
   flex-direction:column; 
   padding-bottom:15rem;
