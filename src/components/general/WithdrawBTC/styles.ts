@@ -5,8 +5,8 @@ import styled , { css } from 'styled-components';
 export const Wrapper = styled.div`
   background-color:#242633;
   border-radius: 0 3rem 3rem 3rem;
-  width: 100%;
-  padding: 2rem 0 5rem 2rem;
+  width: 95%;
+  padding: 2rem 0 3rem 2rem;
   box-shadow: 0px 0px 99px rgba(0, 0, 0, 0.65);
   height:100%;
   
@@ -168,7 +168,7 @@ flex-direction:row;
 justify-content:center;
 align-item:center;
 color:white;
-margin-top:8rem;
+margin-top:6rem;
 margin-bottom:2rem;
 
 font-weight:500;

@@ -11,7 +11,7 @@ export const HistoryWrapper = styled.div`
 display: flex;
 flex-direction:column;
 margin-top:30rem;
-padding-left:2rem;
+
 
 
 `
