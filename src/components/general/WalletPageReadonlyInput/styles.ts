@@ -28,6 +28,8 @@ export const Label = styled.label`
     margin-right: 0.2rem;
   }
   font-size: 15px;
+  font-weight:500;
+ font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 `
 export const Box = styled.div<Partial<InputProps>>`
 
@@ -48,12 +50,16 @@ export const Span = styled.span`
   margin-right:3px;
   padding-top:3px;
   font-size: 15px;
+  font-weight:500;
+font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 `
 
 export const Input = styled.input`
   width: 100%;
   color: white;
   font-size: 15px;
+  font-weight:500;
+font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 `
 
 export const IconWrapper = styled.div`

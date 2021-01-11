@@ -3,10 +3,12 @@ import styled , { css } from 'styled-components'
 
 
 export const CryptolistWrapper = styled.div`
-display: block;
+display: flex;
 padding-top:30px;
 overflow-y: scroll;
-height:95vh;
+height:95%;
+
+flex-direction:column;
 
 `
 export const Currencynamerow = styled.div`
@@ -15,9 +17,11 @@ flex-direction: row;
 flex-wrap: wrap;
 width: 100%;
 text-align: left;
-font: normal normal medium 16px/19px Work Sans;
 letter-spacing: 0px;
 color: #FFFFFF;
+font-weight:400;
+font-size:16px;
+font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 `;
 
 export const CurrencyCoinValueColumn = styled.div`
@@ -26,7 +30,8 @@ flex-direction: column;
 flex-basis: 100%;
 flex: 1;
 text-align: left;
-font: normal normal medium 16px/19px Work Sans;
+font-weight:400;
+font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 letter-spacing: 0px;
 color: #FFFFFF;
 
@@ -102,7 +107,9 @@ flex-direction: row;
 flex-wrap: wrap;
 width: 100%;
 text-align: left;
-font: normal normal medium 16px/19px Work Sans;
+font-weight:400;
+font-size:16px;
+font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 letter-spacing: 0px;
 color: #8BA1BE;
 `;
@@ -114,7 +121,9 @@ flex-direction: column;
 flex-basis: 100%;
 flex: 1;
 text-align: left;
-font: normal normal medium 16px/19px Work Sans;
+font-weight:400;
+font-size:16px;
+font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 letter-spacing: 0px;
 color: #FFFFFF;
 

@@ -6,9 +6,10 @@ export const Wrapper = styled.div`
   background-color:#242633;
   border-radius: 0 3rem 3rem 3rem;
   width: 100%;
-  padding: 2rem 0 2rem 2rem;
+  padding: 2rem 0 5rem 2rem;
   box-shadow: 0px 0px 99px rgba(0, 0, 0, 0.65);
-  height:100vh;
+  height:100%;
+  
   `
 
   export const Header = styled.div`
@@ -48,7 +49,8 @@ export const Imagetitlewrapper = styled.div`
 
 export const Spantext = styled.span`
 text-align: left;
-font: normal normal medium 23px/27px Work Sans;
+font-weight:500;
+font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 letter-spacing: 0px;
 color: #FFFFFF;
 opacity: 1;
@@ -57,7 +59,8 @@ font-size: x-large
 
 export const Spantextblur = styled.span`
 text-align: left;
-font: normal normal medium 19px/23px Work Sans;
+font-weight:500;
+font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 letter-spacing: 0px;
 color: #8BA1BE;
 font-size: large;
@@ -82,8 +85,6 @@ export const ContainerWallet = styled.div`
  export const middlecolumn = styled.div`
  display:flex;
  flex-direction: row;
-
-
  ` 
 
  export const rightconnercolumn = styled.div`
@@ -99,11 +100,11 @@ export const ContainerWallet = styled.div`
   margin-left: 1rem;
   color: #8BA1BE;
  
- 
 `;
 export const Span = styled.span`
   font-size:2rem;
-  font-weight: Medium;
+  font-weight:500;
+  font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
   color: #ffffff;
 `;
 
@@ -111,8 +112,9 @@ export const ContainerForm = styled.div`
   color: #DCF307;
   margin-top:2rem;
   padding-left:2rem;
-  width:90%
-  
+  width:90%  
+  margin-bottom:5rem;
+  padding-right:3rem;
 `;
 
 export const WrapperActions = styled.div`
@@ -134,8 +136,6 @@ align-items:center;
 justify-content:space-between; 
 margin-top:3rem;
 width:100%;
-
-
 `;
 
 export const IconWrapper = styled.div`
@@ -149,13 +149,17 @@ display:flex;
 flex-direction:row;
 justify-content:space-between;
 margin-bottom:2rem;
-font: normal normal medium 19px/23px Work Sans;
+margin-top:3rem;
+font-weight:500;
+font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 font-size:1.2rem;
 color:white
 `
 
 export const blur = styled.span`
 color: #8BA1BE;
+font-weight:500;
+font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 `
 
 export const textcenterwrapper = styled.div`
@@ -164,7 +168,11 @@ flex-direction:row;
 justify-content:center;
 align-item:center;
 color:white;
-margin-top:6rem;
+margin-top:8rem;
+margin-bottom:2rem;
+
+font-weight:500;
+font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 `
 
 

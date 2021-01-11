@@ -18,9 +18,7 @@ const Cryptocurrencies = () => {
       <S.LeftCurrencyColumn>
           <S.CryptocurrenciesWrapper>
               <S.WrapperTitle>
-                <Heading title="Cryptocurrencies" />
-                   <S.ContainerTitle>       
-                   </S.ContainerTitle>
+                 Cryptocurrencies                  
                 </S.WrapperTitle>
                 <S.SearchWrapper>
                     <Searchbar placeholder="Search.." type="search"/>   

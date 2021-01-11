@@ -12,7 +12,9 @@ export const MainWrapper = styled.div`
   display:flex;
   flex-direction: row;
   justify-content:space-between;
-  font-size:1.1rem;
+  font-weight:500;
+  font-size:1.2rem;
+  font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
   
   `
 
@@ -22,7 +24,9 @@ export const MainWrapper = styled.div`
   `
 
   export const Span = styled.div`
-  font: normal normal medium 16px/19px Work Sans;
+  font-weight:500;
+  font-size:14px;
+  font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
   letter-spacing: 0px;
    color: #8BA1BE;
   `
@@ -50,6 +54,9 @@ export const MainWrapper = styled.div`
   display: flex;
   padding-right:1.9rem;
   font-size:13px;
+  font-weight:400;
+
+  font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
   `
 
   export const Currencyspan =styled.div<Partial<InputProps>>`
@@ -58,7 +65,9 @@ export const MainWrapper = styled.div`
   
   color: ${coloricon}
   `
-  }`
+  }
+  
+  `
 
   export const Image = styled.div`
   width: 10%;

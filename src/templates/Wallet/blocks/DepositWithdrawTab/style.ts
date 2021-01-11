@@ -32,6 +32,9 @@ ${({ coloricon }) => css`
   grid-template-columns: 1.2fr 0.8fr;
   padding: 2rem 0;
   align-items:center;
+  font-weight:500;
+  font-size:20px;
+  font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
   
 letter-spacing: 0px;
     ${media.lessThan('large')`

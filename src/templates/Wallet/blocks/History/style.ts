@@ -21,7 +21,10 @@ flex-direction: row;
 flex-wrap: wrap;
 width: 100%;
 text-align: left;
-font: normal normal medium 16px/19px Work Sans;
+
+font-weight:400;
+font-size:16px;
+font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 letter-spacing: 1px;
 color: #FFFFFF;
 font-size:large;

@@ -37,12 +37,8 @@ display:flex;
 height:100%;
 flex-direction:row;
 margin-top:5rem;
+margin-bottom:2rem;
 `;
-
-
-
-
-
 
 
 export const Section = styled.section`
@@ -66,11 +62,11 @@ export const Header = styled.div`
 
 
 export const ContentHeading = styled.div`
-    font-size: 32px;
+    font-size: 55px/64px;
     font-weight: 800;
     line-height: 29px;
     text-align: center;
-    font: normal normal 800 55px/64px Work Sans;
+    font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
     letter-spacing: 0px;
     color: #FFFFFF;
     

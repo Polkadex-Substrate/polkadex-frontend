@@ -1,14 +1,16 @@
 import styled from 'styled-components'
 
 export const CryptocurrenciesWrapper = styled.div`
+display:flex;
+flex-direction:column;
 margin-left: 25px;
 background-color: #242633;
 border-radius: 0 3rem 3rem 3rem;
 width: 100%;
-padding: 2rem 0 2rem 0rem;
+padding: 2rem 0 3rem 0rem;
 box-shadow: 0px 0px 99px rgba(0,0,0,0.65);
 margin-top: 48px;
-
+height:100%;
 
 
 `
@@ -21,6 +23,9 @@ export const WrapperTitle = styled.div`
   margin-bottom:1rem;
   padding-right: 2rem;
   padding-left: 2rem;
+  font-weight: 400;
+  font-size:medium;
+  font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
   
 `
 export const ContainerActions = styled.div`
@@ -55,8 +60,7 @@ export const ImageWrapper = styled.div`
     display: flex;
     align-items:center;
     justify-content: center;
-    cursor: pointer;
-    
+    cursor: pointer;    
     padding-left:0.6rem;
     padding-right:0.6rem;
     
@@ -77,6 +81,7 @@ display: flex;
 flex-direction: column;
 flex-basis: 100%;
 flex:1;
+height:100%;
 `;
 
 
