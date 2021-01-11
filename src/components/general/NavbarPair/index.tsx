@@ -17,7 +17,12 @@ export type NavbarPairProps = {
 
 const NavbarPair = ({ coin, pairs }: NavbarPairProps) => {
   const [state, setState] = useState("USDT")
-  const handleChange = (select: string) => setState(select)
+  const [dropdownState, setDropdownState] = useState(false)
+
+  const handleChange = (select: string) => {
+    setDropdownState(false);
+    setState(select)
+  }
 
   return (
     <S.Wrapper>
@@ -41,7 +46,7 @@ const NavbarPair = ({ coin, pairs }: NavbarPairProps) => {
           Pair
       </S.Label>
 
-        <Dropdown title={state}>
+        <Dropdown title={state} active={dropdownState} setDropdownState={setDropdownState}>
           <>
             {pairs.map( ({id, name}) => (
                 <DropdownItem key={id} title={name} handleAction={handleChange} />

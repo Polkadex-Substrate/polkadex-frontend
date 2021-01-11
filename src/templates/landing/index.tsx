@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 
 import * as S from './styles'
@@ -9,8 +9,11 @@ import Dropdown from '../../components/general/Dropdown'
 
 export default function Landing({ account, allAccounts, setAccount }) {
 
-  const setExtensionAccount = (address) => {
+  const [dropdownState, setDropdownState] = useState(false)
 
+  const setAccountDropdown = (account) => {
+    setAccount(account);
+    setDropdownState(false);
   }
 
   return (
@@ -45,10 +48,10 @@ export default function Landing({ account, allAccounts, setAccount }) {
             <S.DropdownWrapper>
               <S.AccountHeading>Select Account:</S.AccountHeading>
 
-              <Dropdown title={account?.meta?.name}>
+              <Dropdown title={account?.meta?.name} active={dropdownState} setDropdownState={setDropdownState}>
                 {
                   allAccounts?.map((account, index)  => {
-                    return <DropdownItem title = { account.meta.name } handleAction={() => setAccount(account)} key={index}/>
+                    return <DropdownItem title = { account.meta.name } handleAction={() => setAccountDropdown(account)} key={index}/>
                   })
                 }
               </Dropdown>

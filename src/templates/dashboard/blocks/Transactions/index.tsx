@@ -20,10 +20,14 @@ const initialFilters = {
 const Transactions = ({ data, openOrderData, newTradeData, remove }: ITransactions, pair = "DOT") => {
   const [filters, setFilters] = useState(initialFilters)
   const [activeIndex, setActiveIndex] = useState(3);
+  const [dropdownState, setDropdownState] = useState(false)
 
   // Filters Actions
   const handleChangeHidden = () =>  setFilters({ ...filters, hiddenPairs: !filters.hiddenPairs })
-  const handleChangeStatus = (status: string) => setFilters({ ...filters, status })
+  const handleChangeStatus = (status: string) => {
+    setDropdownState(false);
+    setFilters({ ...filters, status })
+  }
   const handleChangeBuy = () => setFilters({ ...filters, onlyBuy: !filters.onlyBuy })
   const handleChangeSell = () => setFilters({ ...filters, onlySell: !filters.onlySell! })
 
@@ -44,10 +48,10 @@ const Transactions = ({ data, openOrderData, newTradeData, remove }: ITransactio
               <Checkbox title="Sell" checked={filters.onlySell} action={handleChangeSell}/>
             </S.ContainerActions>
             <S.ContainerTransactions>
-              <Dropdown title={filters.status}>
+              <Dropdown title={filters.status} active={dropdownState} setDropdownState={setDropdownState}>
                 <>
                   <DropdownItem title="All Transactions" handleAction={handleChangeStatus} />
-                  <DropdownItem title="Pending" handleAction={ handleChangeStatus} />
+                  <DropdownItem title="Pending" handleAction={handleChangeStatus} />
                   <DropdownItem title="Completed" handleAction={handleChangeStatus} />
                   <DropdownItem title="Canceled" handleAction={handleChangeStatus} />
                 </>
