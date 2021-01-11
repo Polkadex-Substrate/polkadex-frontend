@@ -24,7 +24,7 @@ export type MarketOrderActionProps = {
 const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice, setAmount, account, blockchainApi, orderType }: MarketOrderActionProps) => {
 
   const [slider, setSlider] = useState({ values: [50] })
-  const [available, setAvailable] = useState(10)
+  const [available, setAvailable] = useState(0)
   const [dropdownState, setDropdownState] = useState(false)
 
   const tradingPairID = "0xf28a3c76161b8d5723b6b8b092695f418037c747faa2ad8bc33d8871f720aac9";
@@ -32,7 +32,7 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
 
   useEffect(() => {
     blockchainApi?.query.genericAsset.freeBalance(type === 'Buy' ? 1 : 2, account.address, (data) => {
-      // setAvailable(+data.toString() / UNIT);
+      setAvailable(+data.toString() / UNIT);
     });
   }, [blockchainApi])
 
