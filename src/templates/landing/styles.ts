@@ -71,8 +71,32 @@ export const Content = styled.div`
   margin: 2rem 0;
 `
 
+export const Account = styled.div`
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+export const AccountHeading = styled.div`
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 29px;
+  margin-right: 1rem;
+`
+
+export const DropdownWrapper = styled.div`
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 29px;
+  margin-right: 1rem;
+  padding: 0 0.5rem 0 2rem;
+  display: flex;
+`
+
 export const ButtonWrapper = styled.div`
   display: flex;
+  flex-direction: column;
 `
 
 export const LoginButton = styled.button`
@@ -81,7 +105,7 @@ export const LoginButton = styled.button`
   color: white;
   border-radius: 5px;
   font-size: 14px;
-  margin-right: 2rem;
+  margin-bottom: 2rem;
   cursor: pointer;
   
   &:focus {

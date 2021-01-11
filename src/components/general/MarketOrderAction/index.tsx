@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
-
-const {ApiPromise, WsProvider} = require('@polkadot/api');
+import React, { useEffect, useState } from 'react'
+import BN from 'bn.js';
 import { toast } from 'react-toastify';
 
 import Button from '../Button'
@@ -18,83 +17,64 @@ export type MarketOrderActionProps = {
   amount: number
   setPrice: any
   setAmount: any
-  enableTransaction: any
+  account: any
+  blockchainApi: any
+  orderType: string
 }
-const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice, setAmount, enableTransaction }: MarketOrderActionProps) => {
-  const wsProvider = new WsProvider('ws://0.0.0.0:9944');
+const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice, setAmount, account, blockchainApi, orderType }: MarketOrderActionProps) => {
+
   const [slider, setSlider] = useState({ values: [50] })
-  const [available, setAvailable] = useState(2)
+  const [available, setAvailable] = useState(0)
+  const [dropdownState, setDropdownState] = useState(false)
 
   const tradingPairID = "0xf28a3c76161b8d5723b6b8b092695f418037c747faa2ad8bc33d8871f720aac9";
   const UNIT = 1000000000000;
 
-  const startTransaction = async () => {
-    if (enableTransaction.address) {
-      const api = await ApiPromise.create({
-        provider: wsProvider,
-        types: {
-          "OrderType": {
-            "_enum": [
-              "BidLimit",
-              "BidMarket",
-              "AskLimit",
-              "AskMarket"
-            ]
-          },
-          "Order": {
-            "id": "Hash",
-            "trading_pair": "Hash",
-            "trader": "AccountId",
-            "price": "FixedU128",
-            "quantity": "FixedU128",
-            "order_type": "OrderType"
-          },
-          "MarketData": {
-            "low": "FixedU128",
-            "high": "FixedU128",
-            "volume": "FixedU128",
-            "open": "FixedU128",
-            "close": "FixedU128"
+  useEffect(() => {
+    blockchainApi?.query.genericAsset.freeBalance(type === 'Buy' ? 1 : 2, account.address, (data) => {
+      setAvailable(+data.toString() / UNIT);
+    });
+  }, [blockchainApi])
 
-          },
-          "LinkedPriceLevel": {
-            "next": "Option<FixedU128>",
-            "prev": "Option<FixedU128>",
-            "orders": "Vec<Order>"
-          },
-          "Orderbook": {
-            "trading_pair": "Hash",
-            "base_asset_id": "u32",
-            "quote_asset_id": "u32",
-            "best_bid_price": "FixedU128",
-            "best_ask_price": "FixedU128"
-          },
-          "LookupSource": "AccountId",
-          "Address": "AccountId"
-        },
-      });
-      const polkadotExtensionDapp = await import('@polkadot/extension-dapp');
-      const injector = await polkadotExtensionDapp.web3FromSource(enableTransaction.meta.source);
-      let transferExtrinsic;
+  const cleanString = (value) => {
+    let pos = value.indexOf(".");
+    if (pos === -1 ){
+      return value;
+    } else {
+      return value.substring(0, pos);
+    }
+  }
+
+  const getCurrentStatus = () => {
+    if (orderType === 'Limit Order') {
       if (type === 'Buy') {
-        toast.success('Buy initiated');
-        transferExtrinsic = api.tx.polkadex.submitOrder(
-          "BidLimit",
-          tradingPairID,
-          (parseFloat(price + '') * UNIT),
-          (parseFloat(amount + '') * UNIT)
-        );
-      } else if (type === 'Sell') {
-        toast.success('Sold initiated');
-        transferExtrinsic = api.tx.polkadex.submitOrder(
-          "AskLimit",
-          tradingPairID,
-          (parseFloat(price + '') * UNIT),
-          (parseFloat(amount + '') * UNIT)
-        );
+        return "BidLimit"
+      } else {
+        return "AskLimit"
       }
+    } else if (orderType === 'Market Order') {
+      if (type === 'Buy') {
+        return "BidMarket"
+      } else {
+        return "AskMarket"
+      }
+    }
+  }
 
-      transferExtrinsic.signAndSend(enableTransaction.address, { signer: injector.signer }, ({ status }) => {
+  const startTransaction = async () => {
+    if (account.address) {
+      const polkadotExtensionDapp = await import('@polkadot/extension-dapp');
+      const injector = await polkadotExtensionDapp.web3FromSource(account.meta.source);
+
+      toast.success(type + ' initiated');
+      let transferExtrinsic = blockchainApi.tx.polkadex.submitOrder(
+        getCurrentStatus(),
+        tradingPairID,
+        new BN(cleanString((parseFloat(price + '') * UNIT).toString()),10),
+        new BN(cleanString((parseFloat(amount + '') * UNIT).toString()),10)
+      );
+
+      transferExtrinsic.signAndSend(account.address, { signer: injector.signer }, ({ status }) => {
         setOpenOrder({
           price,
           amount,
@@ -105,25 +85,33 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
         });
         setPrice('');
         setAmount('');
-        if (status.isInBlock) {
-          toast.success('Transaction successful');
-          console.log(`Completed at block hash #${status.asInBlock.toString()}`);
-        } else {
-          console.log(`Current status: ${status.type}`);
-        }
+        toast.success(`Transaction status: ${status.type}`);
       }).catch((error: any) => {
-        console.log(':( transaction failed', error);
+        toast.success('Transaction failed: ' + error);
       });
     }
   }
 
-  const setSliderValue = (sliderValue) => {
-    setAmount(available*(sliderValue.values[0].toFixed(0)));
+  const validatePrice = (inputPrice) => {
+    if (!isNaN(inputPrice)) {
+      setPrice(inputPrice);
+    }
+  }
+
+  const validateAmount = (inputAmount) => {
+    if (!isNaN(inputAmount) && inputAmount >= 0 && inputAmount <= available) {
+      setAmount(inputAmount);
+      setSlider({values: [+((inputAmount / available) * 100).toFixed(2)]});
+    }
+  }
+
+  const setSliderValue = (sliderValue: {values: number[]}) => {
+    setAmount(available * (+sliderValue.values[0].toFixed(2)) /100);
     setSlider(sliderValue);
   }
 
   useEffect(() => {
-    setAmount(available * (slider.values[0].toFixed(0)))
+    setAmount((available * (+slider.values[0].toFixed(2))) / 100)
   }, [])
 
   return (
@@ -137,20 +125,25 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
       </S.ContainerWallet>
       <S.ContainerForm>
         <form onSubmit={() => console.log("Submiting..")}>
-          <Input label="Price" icon="ArrowVerticalTop" placeholder="0.0000000" value={price}
-                 type="text" inputInfo="USDT" fullWidth={true} setValue={(inputPrice) => setPrice(inputPrice)} />
+          {
+            orderType === 'Limit Order'
+              ? <Input label="Price" icon="ArrowVerticalTop" placeholder="0.0000000" value={price}
+                     type="text" inputInfo="USDT" fullWidth={true} setValue={(inputPrice) => validatePrice(inputPrice)}/>
+              : <Input label="Price" icon="ArrowVerticalTop" placeholder="0.0000000" value={'Market'}
+                       type="text" inputInfo="USDT" fullWidth={true}/>
+          }
           <Input label="Amount" icon="ArrowVerticalBottom" placeholder="0.0000000" value={amount}
-                 type="text" inputInfo="BTC" fullWidth={true} setValue={(inputAmount) => setAmount(inputAmount)} />
+                 type="text" inputInfo="BTC" fullWidth={true} setValue={(inputAmount) => validateAmount(inputAmount)} />
           <S.WrapperActions>
             <p>Equivalent ~
             <span> $0</span>
             </p>
-            <Dropdown title="Fee 0 PDX">
+            <Dropdown title="Fee 0 PDX" active={dropdownState} setDropdownState={setDropdownState}>
               <Link title="Custom Fee" />
             </Dropdown>
           </S.WrapperActions>
           <Range values={slider.values} setValues={(value) => setSliderValue(value)} />
-          <Button type="button" title={type} fullWidth={true} click={startTransaction} disabled={!enableTransaction.address} />
+          <Button type="button" title={type} fullWidth={true} click={startTransaction} disabled={!account?.address} />
         </form>
       </S.ContainerForm>
     </S.WrapperOrder>

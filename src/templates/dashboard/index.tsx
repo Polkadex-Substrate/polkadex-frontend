@@ -8,9 +8,8 @@ import Navbar from './blocks/Navbar'
 import Transactions from './blocks/Transactions'
 import * as S from './styles'
 import Toast from '../../components/general/Toast'
-import { toast } from 'react-toastify'
 
-export default function Dashboard({ account }) {
+export default function Dashboard({ account, blockchainApi }) {
 
   const [state, setState] = useState(false)
   const [orderBookBids, setOrderBookBids] = useState([])
@@ -32,7 +31,6 @@ export default function Dashboard({ account }) {
     socket.on('bids_levels', async (bid_levels) => {
       let currentOrderBook = [];
 
-      // console.log(bid_levels)
       bid_levels.map(({ price, quantity }) => {
         currentOrderBook.push({
           id: currentOrderBook.length + 1,
@@ -108,15 +106,11 @@ export default function Dashboard({ account }) {
 
   useEffect(() => {
     const webSocketInstance = webSocket;
-    // fetchMarketData(webSocketInstance)
-    // fetchOrderBookBids(webSocketInstance)
-    // fetchOrderBookAsks(webSocketInstance)
+    fetchMarketData(webSocketInstance)
+    fetchOrderBookBids(webSocketInstance)
+    fetchOrderBookAsks(webSocketInstance)
     fetchLastTrade(webSocketInstance);
-    // fetchNewTrade(webSocketInstance);
-    // fetchAvailableBalance(webSocketInstance)
-    if (!account) {
-      toast.warn('Please setup Polka extension for transactions.')
-    }
+    fetchNewTrade(webSocketInstance);
   }, [])
 
   return (
@@ -124,7 +118,7 @@ export default function Dashboard({ account }) {
       <Menu handleChange={() => setState(!state)} />
       {/*{state && <Market/>}*/}
       <S.WrapperMain >
-        <Navbar lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType}
+        <Navbar account={account} lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType}
         blockValues={{volume, high, low, blockPrice}}/>
         <S.WrapperGraph marketActive={state}>
           <Graph orderBookAsks={orderBookAsks}
@@ -133,6 +127,7 @@ export default function Dashboard({ account }) {
                  latestTransactionType={lastTradePriceType}/>
           <MarketOrder setOpenOrder={(order) => updateOpenOrders(order)}
                        validAccount={account}
+                       blockchainApi={blockchainApi}
                        latestTransaction={lastTradePrice}
                        price={price} setPrice={inputPrice => setPrice(inputPrice)}
                        amount={amount} setAmount={inputAmount => setAmount(inputAmount)} />
