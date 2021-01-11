@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
   export const TextWrapper = styled.div`
   text-align: left;
   font-weight: bold;
-  font-size:18px;
+  font-size:2rem;
   font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
   letter-spacing: 0px;
   color: #FFFFFF;
@@ -41,7 +41,7 @@ export const Wrapper = styled.div`
   export const NormalQRWrapper = styled.div`
   text-align: left;
   font-weight:400;
-  font-size:18px;
+  font-size:2rem;
   font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
   letter-spacing: 0px;
   margin-top:5rem;

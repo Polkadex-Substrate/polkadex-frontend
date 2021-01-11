@@ -5,7 +5,7 @@ import styled , { css } from 'styled-components';
 export const Wrapper = styled.div`
   background-color:#242633;
   border-radius: 0 3rem 3rem 3rem;
-  width: 95%;
+  width: 96%;
   padding: 2rem 0 3rem 2rem;
   box-shadow: 0px 0px 99px rgba(0, 0, 0, 0.65);
   height:100%;
@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
   background: #EBEEF4 0% 0% no-repeat padding-box;
   border-radius: 111px;
   opacity: 1;
-  margin-right:12px;
+  margin-right:1rem;
   align-item:center;
   `;
 
@@ -148,7 +148,7 @@ export const TextWrapper = styled.div`
 display:flex;
 flex-direction:row;
 justify-content:space-between;
-margin-bottom:2rem;
+margin-bottom:3rem;
 margin-top:3rem;
 font-weight:500;
 font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
@@ -168,7 +168,7 @@ flex-direction:row;
 justify-content:center;
 align-item:center;
 color:white;
-margin-top:6rem;
+margin-top:8rem;
 margin-bottom:2rem;
 
 font-weight:500;
@@ -184,6 +184,7 @@ align-item:center;
 color:white;
 margin-top:1rem;
 text-align: center;
+margin-bottom:2rem;
 
 `
 

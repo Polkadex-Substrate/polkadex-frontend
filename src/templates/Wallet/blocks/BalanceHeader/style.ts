@@ -3,7 +3,7 @@ import { InputProps } from '.';
 
 
 export const ContentHeading = styled.div`
-    font-size: 55px;
+    font-size: 5rem;
     font-weight: 800;
     line-height: 29px;
     text-align: center;
@@ -15,7 +15,7 @@ export const ContentHeading = styled.div`
     
 `
 export const ContentBlur = styled.div`
-  font-size: 28px;
+  font-size:3rem;
   font-weight:normal;
   line-height: 24px;
   text-align: center;

@@ -72,7 +72,7 @@ const WithdrawBTC =({ walletAddress }: WalletProps)=>{
                    <WalletInput label="Amount" icon="None" placeholder="0.0000000" value="0.4352456462"
                         type="text" inputInfo="BTC" fullWidth={true}  readonly={false} setValue={(walletAddress) => SetwalletAddress(walletAddress)} />
                      
-                     <S.IconWrapper><Icon source="Swap2" background="None" size="XtraLarge" /></S.IconWrapper>
+                     <S.IconWrapper><Icon source="Exchange" size="XtraLarge" background="None"/></S.IconWrapper>
 
                     <WalletInput label="In fiat" icon="None" placeholder="0.0000000" value="0.4352456462"
                         type="text" inputInfo="USD" fullWidth={true}  readonly={false} setValue={(walletAddress) => SetwalletAddress(walletAddress)} />     

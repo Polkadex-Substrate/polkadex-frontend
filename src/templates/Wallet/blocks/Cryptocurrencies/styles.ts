@@ -3,14 +3,14 @@ import styled from 'styled-components'
 export const CryptocurrenciesWrapper = styled.div`
 display:flex;
 flex-direction:column;
-margin-left: 25px;
+margin-left: 2rem;
 background-color: #242633;
 border-radius: 0 3rem 3rem 3rem;
 width: 100%;
 padding: 2rem 0 3rem 0rem;
 box-shadow: 0px 0px 99px rgba(0,0,0,0.65);
-margin-top: 48px;
-height:105%;
+margin-top: 5rem;
+height:100%;
 
 
 `
