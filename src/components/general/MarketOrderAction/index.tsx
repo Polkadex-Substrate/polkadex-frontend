@@ -35,7 +35,7 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
     if (account?.address) {
       blockchainApi?.query.genericAsset.freeBalance(type === 'Buy' ? 1 : 2, account.address, (data) => {
         const availableBalance = +data.toString() / UNIT;
-        setAvailable(availableBalance.toFixed(4));
+        setAvailable(+availableBalance.toFixed(4));
         setAmount(getAmountValue(availableBalance, price).toFixed(4));
       });
     }
