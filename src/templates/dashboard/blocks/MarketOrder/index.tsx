@@ -16,7 +16,7 @@ const MarketOrder = ({ setOpenOrder, price, amount, setPrice, setAmount, validAc
   }
 
   useEffect(() => {
-    setPrice(latestTransaction)
+    setPrice(latestTransaction.toFixed(4))
   }, [latestTransaction !== 0])
 
   resetIdCounter();

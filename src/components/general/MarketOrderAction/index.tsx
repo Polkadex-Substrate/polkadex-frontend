@@ -35,8 +35,8 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
     if (account?.address) {
       blockchainApi?.query.genericAsset.freeBalance(type === 'Buy' ? 1 : 2, account.address, (data) => {
         const availableBalance = +data.toString() / UNIT;
-        setAvailable(availableBalance);
-        setAmount(getAmountValue(availableBalance, price));
+        setAvailable(availableBalance.toFixed(4));
+        setAmount(getAmountValue(availableBalance, price).toFixed(4));
       });
     }
   }, [blockchainApi])
@@ -72,12 +72,23 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
       const injector = await polkadotExtensionDapp.web3FromSource(account.meta.source);
 
       toast.success(type + ' initiated');
-      let transferExtrinsic = blockchainApi.tx.polkadex.submitOrder(
-        getCurrentStatus(),
-        tradingPairID,
-        new BN(cleanString((parseFloat(price + '') * UNIT).toString()),10),
-        new BN(cleanString((parseFloat(amount + '') * UNIT).toString()),10)
-      );
+      let transferExtrinsic;
+
+      if (getCurrentStatus() === "BidMarket") {
+        transferExtrinsic = blockchainApi.tx.polkadex.submitOrder(
+          getCurrentStatus(),
+          tradingPairID,
+          new BN(cleanString((parseFloat(amount + '') * UNIT).toString()), 10),
+          new BN(cleanString((parseFloat(price + '') * UNIT).toString()), 10)
+        );
+      } else {
+        transferExtrinsic = blockchainApi.tx.polkadex.submitOrder(
+          getCurrentStatus(),
+          tradingPairID,
+          new BN(cleanString((parseFloat(price + '') * UNIT).toString()), 10),
+          new BN(cleanString((parseFloat(amount + '') * UNIT).toString()), 10)
+        );
+      }
 
       setActiveIndex(0);
       transferExtrinsic.signAndSend(account.address, { signer: injector.signer }, ({ status }) => {
@@ -123,7 +134,7 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
   }
 
   const setSliderValue = (sliderValue: {values: number[]}) => {
-    setAmount(getAmountValue(available, price, sliderValue));
+    setAmount(getAmountValue(available, price, sliderValue).toFixed(4));
     setSlider(sliderValue);
   }
 
@@ -140,7 +151,7 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
   }
 
   useEffect(() => {
-    setAmount(getAmountValue(available, price));
+    setAmount(getAmountValue(available, price).toFixed(4));
   }, [price, orderType])
 
   return (
