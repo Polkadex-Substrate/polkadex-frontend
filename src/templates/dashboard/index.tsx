@@ -22,8 +22,9 @@ export default function Dashboard({ account, blockchainApi }) {
   const [lastTradePriceType, setLastTradePriceType] = useState();
   const [newTrade, setNewTrade] = useState();
   const [openOrders, setOpenOrders] = useState([]);
-  const [price, setPrice] = useState<string>()
-  const [amount, setAmount] = useState<string>()
+  const [price, setPrice] = useState<string>('0')
+  const [amount, setAmount] = useState<string>('0')
+  const [activeIndex, setActiveIndex] = useState(3);
 
   const removeTransactionsOrder = (id: string) => console.log('remove transaction' + id);
 
@@ -100,7 +101,6 @@ export default function Dashboard({ account, blockchainApi }) {
 
   const updateOpenOrders = order => {
     const finalOrders = [...openOrders, order];
-    console.log(finalOrders)
     setOpenOrders(finalOrders);
   }
 
@@ -126,6 +126,7 @@ export default function Dashboard({ account, blockchainApi }) {
                  latestTransaction={lastTradePrice}
                  latestTransactionType={lastTradePriceType}/>
           <MarketOrder setOpenOrder={(order) => updateOpenOrders(order)}
+                       setActiveIndex={(index) => setActiveIndex(index)}
                        validAccount={account}
                        blockchainApi={blockchainApi}
                        latestTransaction={lastTradePrice}
@@ -136,6 +137,8 @@ export default function Dashboard({ account, blockchainApi }) {
           newTradeData={newTrade}
           data={[]}
           openOrderData={openOrders}
+          activeIndex={activeIndex}
+          setActiveIndex={(index) => setActiveIndex(index)}
           remove={removeTransactionsOrder}/>
       </S.WrapperMain>
       <Toast />

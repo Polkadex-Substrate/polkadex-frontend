@@ -17,9 +17,8 @@ const initialFilters = {
   status: "All Transactions"
 }
 
-const Transactions = ({ data, openOrderData, newTradeData, remove }: ITransactions, pair = "DOT") => {
+const Transactions = ({ data, openOrderData, newTradeData, remove, activeIndex, setActiveIndex }: ITransactions, pair = "DOT") => {
   const [filters, setFilters] = useState(initialFilters)
-  const [activeIndex, setActiveIndex] = useState(3);
   const [dropdownState, setDropdownState] = useState(false)
 
   // Filters Actions
