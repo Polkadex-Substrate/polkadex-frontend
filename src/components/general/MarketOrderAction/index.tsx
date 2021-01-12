@@ -127,9 +127,20 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
   }
 
   const validateAmount = (inputAmount) => {
-    if (!isNaN(inputAmount) && inputAmount >= 0 && inputAmount <= available) {
+    let sliderValue = getSliderValue(inputAmount);
+    if (!isNaN(inputAmount) && inputAmount >= 0 && sliderValue >= 0 && sliderValue <= 100) {
       setAmount(inputAmount);
-      setSlider({values: [+(((inputAmount * price) / available) * 100).toFixed(2)]});
+      setSlider({values: [+sliderValue.toFixed(2)]});
+    }
+  }
+
+  const getSliderValue = (inputAmount) => {
+    if (price === 0 && orderType === 'Limit Order' && type === 'Buy') {
+      return 0;
+    } else if (price > 0 && orderType === 'Limit Order' && type === 'Buy') {
+      return (inputAmount * price * 100) / available;
+    } else {
+      return (inputAmount * 100) / available;
     }
   }
 
