@@ -90,14 +90,14 @@ const Currencylist =()=>{
                      </S.currencynamecolumn>              
                      
                      <S.currencyvaluecolumn>
-                          <S.Currencynamerow>  
+                          <S.Currencyvaluerow>  
                               <S.CurrencyCoinValueColumn>
                                 {coin.value}
                               </S.CurrencyCoinValueColumn>
                               <S.currencyvaluecolumn>
                                 <SidebarDropdown/>
                               </S.currencyvaluecolumn>                           
-                          </S.Currencynamerow>
+                          </S.Currencyvaluerow>
                      </S.currencyvaluecolumn>             
                  </S.Currencyrow>
                       )

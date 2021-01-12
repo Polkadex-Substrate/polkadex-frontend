@@ -46,7 +46,7 @@ const WithdrawBTC =({ walletAddress }: WalletProps)=>{
                         </S.ContainerWallet>
                         <S.WrapperBalance>
                         <S.Spantextblur>Available </S.Spantextblur>
-                            <S.Span>0.9645734533 BTC</S.Span>
+                            <S.Span>0.9645734 BTC</S.Span>
                         </S.WrapperBalance>
 
                 </S.middlecolumn>

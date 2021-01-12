@@ -5,14 +5,9 @@ const customMedia = generateMedia({
   custom: '1245px'
 })
 export const Wrapper = styled.section`
-  display: grid;
-  grid-template-columns: auto auto;
-  padding-left: 103rem;
-  margin-bottom: 1rem;
-  ${customMedia.lessThan('custom')`
-    grid-template-columns: 1fr;
-    padding-left: 0;
-  `}
+display:flex;
+flex-direction:row;
+justify-content:flex-end;
 `
 export const ContainerPair = styled.div`
   display: flex;
@@ -52,7 +47,8 @@ export const WrapperLinks = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content:space-around; 
+  width: 40%;
 
     ${customMedia.lessThan('custom')`
       display: none;

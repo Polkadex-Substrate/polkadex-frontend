@@ -24,6 +24,20 @@ font-size:16px;
 font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 `;
 
+export const Currencyvaluerow = styled.div`
+display:flex;
+flex-direction: row;
+justify-content:space-between;
+width: 100%;
+text-align: left;
+letter-spacing: 0px;
+color: #FFFFFF;
+font-weight:400;
+font-size:16px;
+font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+`;
+
+
 export const CurrencyCoinValueColumn = styled.div`
 display: flex;
 flex-direction: column;
