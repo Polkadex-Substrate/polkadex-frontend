@@ -62,8 +62,8 @@ const OpenOrderTable = ({ data }: Props) => (
               <S.Td>
                 <S.Tag>Side</S.Tag>
                 <S.ContainerFlex>
-                  <S.Image src={`img/icons/${order.side === 'AskLimit' ? 'Sell' : 'Buy'}.svg`} />
-                  <span>{order.side === 'AskLimit' ? 'Sell' : 'Buy'}</span>
+                  <S.Image src={`img/icons/${(order.side === 'AskLimit' || order.side === 'AskMarket' ) ? 'Sell' : 'Buy'}.svg`} />
+                  <span>{(order.side === 'AskLimit' || order.side === 'AskMarket' ) ? 'Sell' : 'Buy'}</span>
                 </S.ContainerFlex>
               </S.Td>
 

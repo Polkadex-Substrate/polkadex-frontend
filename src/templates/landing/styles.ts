@@ -85,6 +85,20 @@ export const AccountHeading = styled.div`
   margin-right: 1rem;
 `
 
+export const AccountMessage = styled.div`
+  padding: 0.5rem 0.5rem 0 2rem;
+  font-size: 16px;
+  
+  a {
+    text-decoration: underline;
+    color: #E60079;
+  }
+`
+
+export const DropdownWrapperWithErrorMessage = styled.div`
+  
+`
+
 export const DropdownWrapper = styled.div`
   font-size: 18px;
   font-weight: 500;
@@ -107,6 +121,21 @@ export const LoginButton = styled.button`
   font-size: 14px;
   margin-bottom: 2rem;
   cursor: pointer;
+  
+  &:focus {
+    outline: 0;
+  }
+`
+
+export const ExplorerButton = styled.button`
+  background-color: #E60079;
+  padding: 1.25rem 2rem;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  width: 100%;
   
   &:focus {
     outline: 0;

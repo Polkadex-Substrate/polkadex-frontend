@@ -15,7 +15,7 @@ export type DropdownProps = {
   action?: (name:void)=> void
 }
 
-const Dropdown = ({ title="Dropdown", children, active, setDropdownState }: DropdownProps) => {
+const Dropdown = ({ title="Select Value", children, active, setDropdownState }: DropdownProps) => {
 
   useEffect(() => {
     setState(active);
