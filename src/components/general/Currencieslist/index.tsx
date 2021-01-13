@@ -95,7 +95,7 @@ const Currencylist =()=>{
                                 {coin.value}
                               </S.CurrencyCoinValueColumn>
                               <S.currencyvaluecolumn>
-                                <SidebarDropdown/>
+                                <SidebarDropdown rotation = 'rotate(270deg)' backgroundcolor='#1C2023' hoverrotation='rotate(0deg)'/>
                               </S.currencyvaluecolumn>                           
                           </S.Currencyvaluerow>
                      </S.currencyvaluecolumn>             

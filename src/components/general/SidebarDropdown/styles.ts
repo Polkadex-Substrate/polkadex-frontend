@@ -1,16 +1,18 @@
 import styled, { css } from 'styled-components'
 
-import { NavbarDropdownProps } from '.';
+import { SidebarDropdownProps } from '.';
 
-export const Image = styled.img<Partial<NavbarDropdownProps>>`
-  transform: rotate(270deg);
+export const Image = styled.img<Partial<SidebarDropdownProps>>`
+
+${({ rotation }) => css`
+  transform: ${rotation};
+`}
 `
-
 // NavbarDropdown Content
 export const WrapperContent = styled.div`
   position: absolute;
   right: 0;
-  background-color:#1C2023;
+  background-color:;
   color: white;
   border-radius: 0 1rem 1rem 1rem;
   padding: 1rem;
@@ -24,8 +26,11 @@ export const WrapperContent = styled.div`
     padding: 0.5rem;
     font-weight:200;
   }
-`;
-export const Wrapper = styled.div`
+`
+
+export const Wrapper = styled.div<Partial<SidebarDropdownProps>>`
+
+${({ hoverrotation }) => css`
   width: fit-content;
   position: relative;
 
@@ -34,19 +39,21 @@ export const Wrapper = styled.div`
   }
 
   &:hover ${Image} {
-    transform: rotate(0deg);
+    transform: ${hoverrotation} ;
   }
 
-`;
+`}`
+;
 
 
 
-export const WrapperImage = styled.div`
-${({ theme }) => css`
+export const WrapperImage = styled.div<Partial<SidebarDropdownProps>>`
+
+${({ backgroundcolor }) => css`
   display: flex;
   align-items:center;
   justify-content: center;
-  background:#1C2023;
+  background:#1C2023;${backgroundcolor}
   border-radius: 0.5rem;
   width: 2rem;
 	height: 2rem;

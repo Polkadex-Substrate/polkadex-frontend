@@ -54,6 +54,7 @@ export const LeftColumn = styled.div`
   justify-content:flex-end;
   margin-left:1.2rem;
   padding-bottom:1.3rem;
+  flex:1
 `
 
 export const LabelWithIcon = styled.div`
@@ -66,7 +67,7 @@ export const LabelWithIcon = styled.div`
     justify-content:flex-start;
     padding-left:0.8rem;
     font-size:17px;
-    font-family:Work Sans;
+    font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
     font-weight:medium;
     line-spacing:20px;
 `
@@ -92,10 +93,11 @@ export const MiddleColumn = styled.div`
     height:100%;
     justify-content:flex-end;
     margin-left:7rem;
+    flex:3;
   
 `
 export const bottomlabel = styled.div`
-    width: 964px;
+    
     height: 4rem;
     display:flex;   
     background: #2E303C 0% 0% no-repeat padding-box;
@@ -104,12 +106,26 @@ export const bottomlabel = styled.div`
     justify-content:center;
     align-items:center;
     font-size:17px;
-    font-family:Work Sans;
+    font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
     font-weight:medium;
     line-spacing:20px;
 `
 export const Bottomtextwrapper = styled.div`
-     
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly; 
+    width:17rem;
+`
+
+
+export const RightColumn = styled.div`
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  justify-content:flex-end;
+  margin-left:1.2rem;
+  padding-bottom:1.3rem;
+  flex:1
 `
 
 

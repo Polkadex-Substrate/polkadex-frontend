@@ -1,6 +1,7 @@
 import Icon from 'components/general/Icon'
 import SidebarDropdown from 'components/general/SidebarDropdown'
 import React, { useState } from 'react'
+import Swapbox from './blocks/Swapbox'
 import * as S from './style'
 
 export default function Swap({}){
@@ -32,11 +33,23 @@ export default function Swap({}){
                                 </S.LabelWithIcon>
                             </S.LeftColumn>
                             <S.MiddleColumn>
+                                
+
+                                <Swapbox/>
                                 <S.bottomlabel>
-                                 Pair Analitycs
-                                 <SidebarDropdown/>
+                                    <S.Bottomtextwrapper>
+                                        <span>
+                                           Pair Analitycs
+                                        </span>
+                                        <span>
+                                           <SidebarDropdown rotation = 'rotate(0deg)'  backgroundcolor='#1C2023' hoverrotation='rotate(180deg)'/>
+                                        </span>
+                                    </S.Bottomtextwrapper>
                                 </S.bottomlabel>
                             </S.MiddleColumn>
+                            <S.RightColumn>
+                                
+                            </S.RightColumn>
                         </S.BottomContentWrapper>    
                    </S.ContentWrapper>
              </S.Wrapper>        
