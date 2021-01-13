@@ -1,0 +1,67 @@
+2021-01-13T06:18:09.625Z [INFO]: Git SSH Key acquired
+2021-01-13T06:18:09.695Z [INFO]: # Cloning repository: git@github.com:Polkadex-Substrate/polkadex-frontend.git
+2021-01-13T06:18:09.734Z [INFO]: Agent pid 120
+2021-01-13T06:18:09.738Z [INFO]: Identity added: /root/.ssh/git_rsa (/root/.ssh/git_rsa)
+2021-01-13T06:18:10.006Z [INFO]: Cloning into 'polkadex-frontend'...
+2021-01-13T06:18:10.546Z [INFO]: Warning: Permanently added the RSA host key for IP address '140.82.121.3' to the list of known hosts.
+2021-01-13T06:18:12.137Z [INFO]: # Switching to commit: 3f124981c866829e8e14e6fa2c0caaae3303f0cb
+2021-01-13T06:18:12.145Z [INFO]: Agent pid 133
+2021-01-13T06:18:12.148Z [INFO]: Identity added: /root/.ssh/git_rsa (/root/.ssh/git_rsa)
+2021-01-13T06:18:12.208Z [INFO]: Note: switching to '3f124981c866829e8e14e6fa2c0caaae3303f0cb'.
+                                 You are in 'detached HEAD' state. You can look around, make experimental
+                                 changes and commit them, and you can discard any commits you make in this
+                                 state without impacting any branches by switching back to a branch.
+                                 If you want to create a new branch to retain commits you create, you may
+                                 do so (now or later) by using -c with the switch command. Example:
+                                 git switch -c <new-branch-name>
+                                 Or undo this operation with:
+                                 git switch -
+                                 Turn off this advice by setting config variable advice.detachedHead to false
+                                 HEAD is now at 3f12498 Merge pull request #36 from Polkadex-Substrate/feature/Design-updates
+2021-01-13T06:18:12.243Z [INFO]: Successfully cleaned up Git credentials
+2021-01-13T06:18:12.244Z [INFO]: # Checking for Git submodules at: /codebuild/output/src102406455/src/polkadex-frontend/.gitmodules
+2021-01-13T06:18:12.270Z [INFO]: # Retrieving cache...
+2021-01-13T06:18:22.998Z [INFO]: # Extracting cache...
+2021-01-13T06:18:29.830Z [INFO]: # Extraction completed
+2021-01-13T06:18:30.268Z [INFO]: # Retrieving environment cache...
+2021-01-13T06:18:30.299Z [INFO]: # Retrieved environment cache
+2021-01-13T06:18:42.976Z [INFO]: ## Starting Frontend Build
+                                 # Starting phase: preBuild
+                                 # Executing command: yarn install
+2021-01-13T06:18:43.537Z [INFO]: yarn install v1.22.0
+2021-01-13T06:18:43.621Z [INFO]: [1/4] Resolving packages...
+2021-01-13T06:18:44.169Z [INFO]: [2/4] Fetching packages...
+2021-01-13T06:19:07.675Z [INFO]: info fsevents@1.2.13: The platform "linux" is incompatible with this module.
+2021-01-13T06:19:07.678Z [INFO]: info "fsevents@1.2.13" is an optional dependency and failed compatibility check. Excluding it from installation.
+                                 info fsevents@2.1.3: The platform "linux" is incompatible with this module.
+                                 info "fsevents@2.1.3" is an optional dependency and failed compatibility check. Excluding it from installation.
+2021-01-13T06:19:07.694Z [INFO]: [3/4] Linking dependencies...
+2021-01-13T06:19:07.709Z [WARNING]: warning " > babel-loader@8.1.0" has unmet peer dependency "webpack@>=2".
+2021-01-13T06:19:35.819Z [INFO]: [4/4] Building fresh packages...
+2021-01-13T06:19:38.668Z [INFO]: Done in 55.13s.
+2021-01-13T06:19:38.751Z [INFO]: # Completed phase: preBuild
+                                 # Starting phase: build
+2021-01-13T06:19:38.751Z [INFO]: # Executing command: yarn run build
+2021-01-13T06:19:38.872Z [INFO]: yarn run v1.22.0
+2021-01-13T06:19:38.897Z [INFO]: $ next build && next export -o build
+2021-01-13T06:19:39.470Z [INFO]: warn  - No build cache found. Please configure build caching for faster rebuilds. Read more: https://err.sh/next.js/no-cache
+2021-01-13T06:19:39.470Z [INFO]: info  - Creating an optimized production build...
+2021-01-13T06:19:39.484Z [INFO]: Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2021-01-13T06:19:39.485Z [INFO]: This information is used to shape Next.js' roadmap and prioritize features.
+                                 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+                                 https://nextjs.org/telemetry
+2021-01-13T06:19:46.716Z [WARNING]: Failed to compile.
+2021-01-13T06:19:46.719Z [WARNING]: ./src/components/general/SidebarDropdown/stories.tsx:11:2
+                                    Type error: Type '{ title: string; }' has no properties in common with type 'IntrinsicAttributes'.
+                                    [0m [90m  9 | [39m[0m
+                                    [0m [90m 10 | [39m[36mexport[39m [36mconst[39m [33mDefault[39m[33m:[39m [33mStory[39m[33m<[39m[33mNavbarDropdownProps[39m[33m>[39m [33m=[39m (args) [33m=>[39m[0m
+                                    [0m[31m[1m>[22m[39m[90m 11 | [39m[33m<[39m[33mNavbarDropdown[39m {[33m...[39margs} [33m/[39m[33m>[39m[0m
+                                    [0m [90m    | [39m [31m[1m^[22m[39m[0m
+                                    [0m [90m 12 | [39m[0m
+2021-01-13T06:19:46.747Z [WARNING]: error Command failed with exit code 1.
+2021-01-13T06:19:46.748Z [INFO]: info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+2021-01-13T06:19:46.754Z [ERROR]: !!! Build failed
+2021-01-13T06:19:46.754Z [ERROR]: !!! Non-Zero Exit Code detected
+2021-01-13T06:19:46.754Z [INFO]: # Starting environment caching...
+2021-01-13T06:19:46.754Z [INFO]: # Environment caching completed
+Terminating logging...
