@@ -72,9 +72,9 @@ export default function Landing({ account, allAccounts, setAccount }) {
                   <S.ExplorerButton>Go to Polkadex Explorer</S.ExplorerButton>
                 </a>
               </div>
-              <Link href="/twitter">
-                <S.TweetButton disabled={!account}>Get Testnet Tokens from Twitter</S.TweetButton>
-              </Link>
+              {/*<Link href="/twitter">*/}
+                {/*<S.TweetButton disabled={!account}>Get Testnet Tokens from Twitter</S.TweetButton>*/}
+              {/*</Link>*/}
             </S.ButtonWrapper>
           </S.Account>
         </S.DisclaimerWrapper>
