@@ -9,6 +9,7 @@ export type InputProps = {
   inputInfo?: string
   fullWidth?: boolean
   setValue?: any
+  
 }
 
 const Input = ({ label = 'Label', placeholder = 'Text..', type = "text", value="", icon = "None", inputInfo, fullWidth = false, setValue }: InputProps) => {
