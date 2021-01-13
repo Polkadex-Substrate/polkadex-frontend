@@ -2,14 +2,14 @@ import React, { useEffect,useState } from 'react'
 
 import { webSocket } from '../../components/dashboard/CustomChart/api/stream'
 import Graph from './blocks/Graph'
-import Market from './blocks/Market'
 import MarketOrder from './blocks/MarketOrder'
 import Menu from './blocks/Menu'
 import Navbar from './blocks/Navbar'
 import Transactions from './blocks/Transactions'
 import * as S from './styles'
+import Toast from '../../components/general/Toast'
 
-export default function Dashboard() {
+export default function Dashboard({ account, blockchainApi }) {
 
   const [state, setState] = useState(false)
   const [orderBookBids, setOrderBookBids] = useState([])
@@ -21,6 +21,10 @@ export default function Dashboard() {
   const [lastTradePrice, setLastTradePrice] = useState(0);
   const [lastTradePriceType, setLastTradePriceType] = useState();
   const [newTrade, setNewTrade] = useState();
+  const [openOrders, setOpenOrders] = useState([]);
+  const [price, setPrice] = useState<string>('0')
+  const [amount, setAmount] = useState<string>('0')
+  const [activeIndex, setActiveIndex] = useState(3);
 
   const removeTransactionsOrder = (id: string) => console.log('remove transaction' + id);
 
@@ -28,7 +32,6 @@ export default function Dashboard() {
     socket.on('bids_levels', async (bid_levels) => {
       let currentOrderBook = [];
 
-      // console.log(bid_levels)
       bid_levels.map(({ price, quantity }) => {
         currentOrderBook.push({
           id: currentOrderBook.length + 1,
@@ -49,7 +52,6 @@ export default function Dashboard() {
     socket.on('asks_levels', async (ask_levels) => {
       let currentOrderBook = [];
 
-      // console.log(ask_levels)
       ask_levels.map(({ price, quantity }) => {
         currentOrderBook.push({
           id: currentOrderBook.length + 1,
@@ -97,6 +99,11 @@ export default function Dashboard() {
     });
   }
 
+  const updateOpenOrders = order => {
+    const finalOrders = [...openOrders, order];
+    setOpenOrders(finalOrders);
+  }
+
   useEffect(() => {
     const webSocketInstance = webSocket;
     fetchMarketData(webSocketInstance)
@@ -111,20 +118,30 @@ export default function Dashboard() {
       <Menu handleChange={() => setState(!state)} />
       {/*{state && <Market/>}*/}
       <S.WrapperMain >
-        <Navbar lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType}
+        <Navbar account={account} lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType}
         blockValues={{volume, high, low, blockPrice}}/>
         <S.WrapperGraph marketActive={state}>
           <Graph orderBookAsks={orderBookAsks}
                  orderBookBids={orderBookBids}
                  latestTransaction={lastTradePrice}
                  latestTransactionType={lastTradePriceType}/>
-          <MarketOrder />
+          <MarketOrder setOpenOrder={(order) => updateOpenOrders(order)}
+                       setActiveIndex={(index) => setActiveIndex(index)}
+                       validAccount={account}
+                       blockchainApi={blockchainApi}
+                       latestTransaction={lastTradePrice}
+                       price={price} setPrice={inputPrice => setPrice(inputPrice)}
+                       amount={amount} setAmount={inputAmount => setAmount(inputAmount)} />
         </S.WrapperGraph>
         <Transactions
           newTradeData={newTrade}
           data={[]}
+          openOrderData={openOrders}
+          activeIndex={activeIndex}
+          setActiveIndex={(index) => setActiveIndex(index)}
           remove={removeTransactionsOrder}/>
       </S.WrapperMain>
+      <Toast />
     </S.Wrapper>
   )
 }

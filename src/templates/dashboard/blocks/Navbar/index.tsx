@@ -24,9 +24,10 @@ type BlockProps = {
 type Props = {
   blockValues: BlockProps,
   lastTradePrice: number,
-  lastTradePriceType: 'AskLimit' | 'BidLimit'
+  lastTradePriceType: 'AskLimit' | 'BidLimit',
+  account: any
 }
-const Navbar = ({ blockValues, lastTradePrice, lastTradePriceType }: Props) => {
+const Navbar = ({ blockValues, lastTradePrice, lastTradePriceType, account }: Props) => {
   return (
   <S.Wrapper>
     <S.WrapperInfo>
@@ -59,12 +60,12 @@ const Navbar = ({ blockValues, lastTradePrice, lastTradePriceType }: Props) => {
       </S.ContainerInfo>
     </S.WrapperInfo>
     <S.WrapperLinks>
-      <Link title="Market" href="#" />
-      <NavbarDropdown title="Trade" />
-      <NavbarDropdown title="Derivatives" />
-      <NavbarDropdown title="Finance" />
-      <NavbarLanguage />
-
+      {/*<Link title="Market" href="#" />*/}
+      {/*<NavbarDropdown title="Trade" />*/}
+      {/*<NavbarDropdown title="Derivatives" />*/}
+      {/*<NavbarDropdown title="Finance" />*/}
+      {/*<NavbarLanguage />*/}
+      <S.AccountAddress>{ account?.address }</S.AccountAddress>
     </S.WrapperLinks>
   </S.Wrapper>
 )

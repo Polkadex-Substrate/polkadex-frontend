@@ -1,6 +1,6 @@
 import { LogoText } from 'components/general/Logo/styles';
 import styled from 'styled-components'
-import { WrapperMain } from 'templates/dashboard/styles';
+
 
 export const WrapperIcon = styled.a`
   display: flex;
@@ -8,8 +8,17 @@ export const WrapperIcon = styled.a`
   align-items:center;
   width: 100%;
   cursor:pointer;
+  border-radius: 4px;
+  
+  &.active {
+    background-color: #FF0877;
+  }
+  
   :hover {
     opacity: 0.8;
+  }
+  :active {
+    background-color: rgb(255, 8, 119);
   }
 `
 export const Span = styled.span`
