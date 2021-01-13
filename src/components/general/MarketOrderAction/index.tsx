@@ -184,7 +184,7 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
                        type="text" inputInfo="USDT" fullWidth={true}/>
           }
           <Input label="Amount" icon="ArrowVerticalBottom" placeholder="0.0000000" value={amount}
-                 type="text" inputInfo={orderType === "Market Order" ? "USDT" : "BTC"} fullWidth={true} setValue={(inputAmount) => validateAmount(inputAmount)} />
+                 type="text" inputInfo={orderType === "Market Order" && type === "Buy" ? "USDT" : "BTC"} fullWidth={true} setValue={(inputAmount) => validateAmount(inputAmount)} />
           <S.WrapperActions>
             <p>Equivalent ~
             <span> $0</span>
