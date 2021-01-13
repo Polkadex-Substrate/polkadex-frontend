@@ -7,9 +7,7 @@ display: flex;
 padding-top:3rem;
 overflow-y: scroll;
 height:95%;
-
 flex-direction:column;
-
 `
 export const Currencynamerow = styled.div`
 display:flex;
