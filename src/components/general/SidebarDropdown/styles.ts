@@ -53,7 +53,7 @@ ${({ backgroundcolor }) => css`
   display: flex;
   align-items:center;
   justify-content: center;
-  background:#1C2023;${backgroundcolor}
+  background:${backgroundcolor};
   border-radius: 0.5rem;
   width: 2rem;
 	height: 2rem;

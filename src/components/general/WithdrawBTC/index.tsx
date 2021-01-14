@@ -78,20 +78,14 @@ const WithdrawBTC =({ walletAddress }: WalletProps)=>{
                     <WalletInput label="In fiat" icon="None" placeholder="0.0000000" value="0.4352456462"
                         type="text" inputInfo="USD" fullWidth={true}  readonly={false} setValue={(walletAddress) => SetwalletAddress(walletAddress)} />     
                 </S.AmountExchangeWrapper>  
-
               
                 <Range values={slider.values} setValues={(value) => setSliderValue(value)} />
-
                 <S.TextWrapper>
                     <span><S.blur>Free</S.blur> 0.0001 BTC</span>
                     <span><S.blur>You will get</S.blur>  0.00060 BTC</span>
                 </S.TextWrapper>
-                <Button type="button" title={"Withdraw"} fullWidth={true} disabled={false} />    
-                
-                
-                 
+                <Button type="button" title={"Withdraw"} fullWidth={true} disabled={false} />  
                 </form>
-
                 <S.textcenterwrapper>Minimum withdrawal <S.blur> : 0.002 BTC</S.blur></S.textcenterwrapper>
                 <S.textnewwrapper> <S.blur> Please make sure you insert the correct BTC address. Withdrawals processed to an incorrect address are not reversible.</S.blur> </S.textnewwrapper>
 

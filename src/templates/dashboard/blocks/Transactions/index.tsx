@@ -4,7 +4,6 @@ import Dropdown from 'components/general/Dropdown'
 import DropdownItem from 'components/general/DropdownItem';
 import TransactionTable from 'components/general/TransactionTable'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
-
 import { ITransactions } from './ITransactions';
 import * as S from './styles'
 import OpenOrderTable from '../../../../components/general/OpenOrderTable'
