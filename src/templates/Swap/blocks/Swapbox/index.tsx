@@ -7,13 +7,22 @@ import * as S from './styles'
 
 
 
-const Swapbox =()=>{   
+const Swapbox =({handlecryptolistmodal})=>{   
     const [intialValue,setIntialValue] = useState(false);
     const [cssclassname,setcssclassname] = useState("Active")
+
+ 
+
     const handleaction = (value) =>{
                 setIntialValue(value);
                 value==false?setcssclassname("Active"):setcssclassname("Not_Active");
-                }          
+                }  
+
+    const openmodalcryptolist = () =>{
+                handlecryptolistmodal()
+                }    
+                
+                
     return(    
                 <S.SwapboxContainer>
                     <S.SwapboxWrapper className={cssclassname}>
@@ -26,7 +35,7 @@ const Swapbox =()=>{
                                     <S.TextWrapper>My Orders</S.TextWrapper>
                                 </S.Rowone>
                                 <S.Rowtwo className={cssclassname}>
-                                    <MyOrders handlechange={handleaction}/>
+                                    <MyOrders handlechange={handleaction} cryptolist={openmodalcryptolist}/>
                                 </S.Rowtwo>                  
                             <S.Rowthree className={cssclassname}>                            
                                     <S.smallfont>
@@ -75,6 +84,7 @@ const Swapbox =()=>{
                             </S.bottomtextwrapper>
                         </S.bottomrow>
                    </S.SwapboxContainer>
+                
     )       
 
 }

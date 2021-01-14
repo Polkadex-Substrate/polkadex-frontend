@@ -4,10 +4,11 @@ import SidebarDropdown from 'components/general/SidebarDropdown'
 import { useState } from 'react';
 import * as S from './styles'
 
-const MyOrders =({handlechange})=>{
+const MyOrders =({handlechange,cryptolist})=>{
 
     const [coinValue, setCoinValue] = useState(0);
     const [intialValue,setIntialValue] = useState(false);
+    
     const onClick = () => {
                            
                            intialValue == true
@@ -21,6 +22,10 @@ const MyOrders =({handlechange})=>{
                                 )
                            
                            }
+
+   const  openCyptolistmodal = ()=>{                        
+             cryptolist()                           
+                            }                        
     return( <S.Myorders>
               <S.FirstRow> 
                         <S.ContainerWallet>
@@ -51,7 +56,7 @@ const MyOrders =({handlechange})=>{
                         <S.Wrapper>
                              <S.Image src={`/img/icons/Exchange_B.svg`}  />
                         </S.Wrapper> 
-                        <S.BlockWrapper>
+                        <S.BlockWrapper  onClick={openCyptolistmodal}>
                             <S.NoDarkBlockWrapper>
                             <S.smalltext>To</S.smalltext>
                                 <span>{coinValue}</span>

@@ -145,6 +145,119 @@ background: #0CA564 0% 0% no-repeat padding-box;
 border-radius: 20px;
 `
 
+export const Root = styled.div`
+  position: relative;
+`;
+
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+`;
+
+export const Dialog = styled.div`
+  border-radius: 5px;  
+  position: absolute;
+  height:80%;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width:22%
+`;
+
+
+
+
+export const LeftCurrencyColumn = styled.div`
+display: flex;
+flex-direction: column;
+flex-basis: 100%;
+
+height:100%;
+`;
+
+
+export const CryptocurrenciesWrapper = styled.div`
+display:flex;
+flex-direction:column;
+margin-left: 2rem;
+background-color: #242633;
+border-radius: 0 3rem 3rem 3rem;
+width: 100%;
+padding: 2rem 0 3rem 0rem;
+box-shadow: 0px 0px 99px rgba(0,0,0,0.65);
+margin-top: 5rem;
+height: 100%
+
+
+`
+
+export const WrapperTitle = styled.div`
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:1rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  font-weight: 400;
+  font-size:medium;
+  font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+  
+`
+export const ContainerActions = styled.div`
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap:0.5rem;
+  margin-right:1rem;
+`
+export const ContainerTitle = styled.div`
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+`
+
+export const SearchWrapper = styled.div`
+display:flex;
+flex-direction:row;
+padding-left:2rem;
+
+`
+
+export const Image2 = styled.img`
+  width:80%;
+  height:40%;
+  
+`
+
+export const ImageWrapper = styled.div`
+    background: #030517 0% 0% no-repeat ;
+    border-radius: 7px;
+    opacity: 1;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    cursor: pointer;    
+    padding-left:0.6rem;
+    padding-right:0.6rem;
+    
+    :hover {
+      opacity: 0.8;
+    }
+  
+`
+export const Iconwrapper = styled.div`
+
+
+}
+  `
+
+
+
 
 
 

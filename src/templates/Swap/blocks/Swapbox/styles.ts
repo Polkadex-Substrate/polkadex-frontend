@@ -230,3 +230,6 @@ export const bottomrow = styled.div`
   opacity:0.7;
 `
 
+
+
+

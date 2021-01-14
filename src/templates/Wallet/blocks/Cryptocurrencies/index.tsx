@@ -25,7 +25,7 @@ const Cryptocurrencies = () => {
                     <S.Iconwrapper><Icon source="Settings" size="Small" background="Black"/></S.Iconwrapper>         
                 </S.SearchWrapper> 
 
-               <Currencylist/>
+               <Currencylist valuecolumn={true}/>
           </S.CryptocurrenciesWrapper>
       </S.LeftCurrencyColumn>
   )
