@@ -32,6 +32,14 @@ const Menu = ({handleChange}:MenuProps) => (
           <div>
             <S.Span>Wallets</S.Span>
           </div>
+        </S.WrapperIcon>
+        <S.WrapperIcon href="/swap">
+          <div>
+            <Icon source="News" size="Small" background="None"/>
+          </div>
+          <div>
+            <S.Span>Swap</S.Span>
+          </div>
 
         </S.WrapperIcon>
       </S.Container>

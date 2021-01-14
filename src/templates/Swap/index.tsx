@@ -32,23 +32,25 @@ export default function Swap({}){
                                     </span>
                                 </S.LabelWithIcon>
                             </S.LeftColumn>
-                            <S.MiddleColumn>
-                                
-
+                            <S.MiddleColumn>   
                                 <Swapbox/>
                                 <S.bottomlabel>
                                     <S.Bottomtextwrapper>
+                                        <S.Image src={`/img/icons/show_chart-white.svg`}  />
                                         <span>
                                            Pair Analitycs
                                         </span>
                                         <span>
-                                           <SidebarDropdown rotation = 'rotate(0deg)'  backgroundcolor='#1C2023' hoverrotation='rotate(180deg)'/>
+                                           <SidebarDropdown rotation = 'rotate(0deg)'  backgroundcolor='#1C2023' hoverrotation='rotate(180deg)' icon='ArrowTop'/>
                                         </span>
                                     </S.Bottomtextwrapper>
                                 </S.bottomlabel>
                             </S.MiddleColumn>
+
                             <S.RightColumn>
-                                
+                                <S.bottomrightcontentwrapper>
+                                    <S.bottomcolor></S.bottomcolor> 1092049
+                                </S.bottomrightcontentwrapper>
                             </S.RightColumn>
                         </S.BottomContentWrapper>    
                    </S.ContentWrapper>

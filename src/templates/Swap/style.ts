@@ -107,7 +107,7 @@ export const bottomlabel = styled.div`
     align-items:center;
     font-size:17px;
     font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
-    font-weight:medium;
+    font-weight:400;
     line-spacing:20px;
 `
 export const Bottomtextwrapper = styled.div`
@@ -116,7 +116,9 @@ export const Bottomtextwrapper = styled.div`
     justify-content:space-evenly; 
     width:17rem;
 `
-
+export const Image = styled.img`
+  width:10%;
+`
 
 export const RightColumn = styled.div`
   display:flex;
@@ -124,8 +126,25 @@ export const RightColumn = styled.div`
   height:100%;
   justify-content:flex-end;
   margin-left:1.2rem;
-  padding-bottom:1.3rem;
-  flex:1
+  padding-bottom:2rem;
+
+  flex:1;
 `
+
+export const bottomrightcontentwrapper = styled.div`
+display:flex;
+flex-direction:row;
+padding-left:15rem;
+align-items:center;
+`
+export const bottomcolor = styled.div`
+width: 10px;
+height: 10px;
+margin-right:1.5rem;
+background: #0CA564 0% 0% no-repeat padding-box;
+border-radius: 20px;
+`
+
+
 
 

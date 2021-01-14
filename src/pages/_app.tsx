@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import 'react-tabs/style/react-tabs.css';
+
 import { ApiPromise, WsProvider } from '@polkadot/api'
 import * as S from '../templates/landing/styles'
 
