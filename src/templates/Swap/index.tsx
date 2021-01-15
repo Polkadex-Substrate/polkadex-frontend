@@ -80,6 +80,10 @@ export default function Swap({}){
                         
                     </S.SearchWrapper> 
                     <Currencylist valuecolumn={false}/>
+                    <S.WrapperDefault>
+                        <div>Default List</div>
+                        <div>change</div>
+                    </S.WrapperDefault>
             </S.CryptocurrenciesWrapper>
            </S.LeftCurrencyColumn>
              

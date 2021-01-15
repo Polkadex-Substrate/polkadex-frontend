@@ -188,7 +188,7 @@ margin-left: 2rem;
 background-color: #242633;
 border-radius: 0 3rem 3rem 3rem;
 width: 100%;
-padding: 2rem 0 3rem 0rem;
+padding: 2rem 0 0rem 0rem;
 box-shadow: 0px 0px 99px rgba(0,0,0,0.65);
 margin-top: 5rem;
 height: 100%
@@ -255,6 +255,23 @@ export const Iconwrapper = styled.div`
 
 }
   `
+
+export const WrapperDefault = styled.div`
+background: #1F1F24 0% 0% no-repeat padding-box;
+box-shadow: 0px 100px 99px #0000002C;
+border-radius: 30px 30px 30px 30px;
+
+width:95%;
+height:12%;
+display:flex;
+flex-direction:row;
+align-items:center;
+justify-content:space-between;
+padding-left:1.4rem;
+margin-left:1rem;
+padding-right:1.4rem;
+color: #FFFFFF;
+`
 
 
 
