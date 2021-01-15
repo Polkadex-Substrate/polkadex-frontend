@@ -2,7 +2,7 @@ import SidebarDropdown from 'components/general/SidebarDropdown'
 import * as S from './style'
 
 
-const Currencylist =()=>{
+const Currencylist =({valuecolumn})=>{
 
     const cryptocurrencieslist = [  
 
@@ -89,16 +89,22 @@ const Currencylist =()=>{
                         </S.Currencyabbreviationrow>
                      </S.currencynamecolumn>              
                      
-                     <S.currencyvaluecolumn>
-                          <S.Currencyvaluerow>  
-                              <S.CurrencyCoinValueColumn>
-                                {coin.value}
-                              </S.CurrencyCoinValueColumn>
-                              <S.currencyvaluecolumn>
-                                <SidebarDropdown rotation = 'rotate(270deg)' backgroundcolor='#1C2023' hoverrotation='rotate(0deg)' icon='ArrowTop'/>
-                              </S.currencyvaluecolumn>                           
-                          </S.Currencyvaluerow>
-                     </S.currencyvaluecolumn>             
+                     { (valuecolumn==true)
+
+                        ?<S.currencyvaluecolumn>
+                            <S.Currencyvaluerow>  
+                                <S.CurrencyCoinValueColumn>
+                                    {coin.value}
+                                </S.CurrencyCoinValueColumn>
+                                <S.currencyvaluecolumn>
+                                    <SidebarDropdown rotation = 'rotate(270deg)' backgroundcolor='#1C2023' hoverrotation='rotate(0deg)' icon='ArrowTop'/>
+                                </S.currencyvaluecolumn>                           
+                            </S.Currencyvaluerow>
+                        </S.currencyvaluecolumn>
+                        :
+                        <span></span>
+
+                      }             
                  </S.Currencyrow>
                       )
          }
