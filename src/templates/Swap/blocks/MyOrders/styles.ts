@@ -6,42 +6,42 @@ const customMedia = generateMedia({
 })
 
 export const Myorders = styled.div`
-height:100%;
-display:flex;
-flex-direction:column;
-padding-top:1rem;
-width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  padding-top:1rem;
+  width:100%;
 `
 
 export const FirstRow = styled.div`
-display:flex;
-flex-direction:row;
-align-items:center;
-width:100%;
-height:34%;
-padding-left:5rem;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  width:100%;
+  height:34%;
+  padding-left:5rem;
 `
 export const SecondRow = styled.div`
-display:flex;
-flex-direction:row;
-width:100%;
-height:35%;
-align-items:center;
-padding-left:3rem;
-padding-right:3rem;
-justify-content:space-evenly;
+  display:flex;
+  flex-direction:row;
+  width:100%;
+  height:35%;
+  align-items:center;
+  padding-left:3rem;
+  padding-right:3rem;
+  justify-content:space-evenly;
 `
 
 export const ThirdRow = styled.div`
-display:flex;
-flex-direction:row;
-width:100%;
-height:32%;
-align-items:center;
-padding-top:1rem;
-padding-left:5rem;
-padding-right:5rem;
-justify-content:space-between;
+  display:flex;
+  flex-direction:row;
+  width:100%;
+  height:32%;
+  align-items:center;
+  padding-top:1rem;
+  padding-left:5rem;
+  padding-right:5rem;
+  justify-content:space-between;
 `
 
 export const ContainerWallet = styled.div`
@@ -70,12 +70,12 @@ export const Span = styled.span`
 `;
 
 export const Spantextblur = styled.span`
-text-align: left;
-font-weight:400;
-font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
-letter-spacing: 0px;
-color: #8BA1BE;
-font-size: small;
+  text-align: left;
+  font-weight:400;
+  font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+  letter-spacing: 0px;
+  color: #8BA1BE;
+  font-size: small;
 `;
 
 
@@ -176,10 +176,10 @@ export const smalltext = styled.span`
   color: #FFFFFFCC;
 `
 export const CoinImage = styled.img` 
-width: 20px;
-height: 20px;
-background: transparent 0% 0% no-repeat padding-box;
-opacity: 1;
+  width: 20px;
+  height: 20px;
+  background: transparent 0% 0% no-repeat padding-box;
+  opacity: 1;
 `;
 
 export const RowinsideDarkBlockWrapper = styled.div`
@@ -190,22 +190,22 @@ export const RowinsideDarkBlockWrapper = styled.div`
 `
 
 export const TextWrapper = styled.div`
-display:flex;
-flex-direction:row;
-justify-content:space-between;
-font-weight:400;
-font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
-font-size:1.2rem;
-color:white;
-align-items:center;
-padding-bottom:1.4rem;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    font-weight:400;
+    font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+    font-size:1.2rem;
+    color:white;
+    align-items:center;
+    padding-bottom:1.4rem;
 
 `
 
 export const blur = styled.span`
-color: #8BA1BE;
-font-weight:400;
-font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+  color: #8BA1BE;
+  font-weight:400;
+  font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 `
 
 

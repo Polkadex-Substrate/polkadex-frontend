@@ -3,7 +3,8 @@ import Checkbox from 'components/general/Checkbox'
 import Dropdown from 'components/general/Dropdown'
 import DropdownItem from 'components/general/DropdownItem';
 import TransactionTable from 'components/general/TransactionTable'
-import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import { Tab,TabList, TabPanel , Tabs , resetIdCounter} from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 import { ITransactions } from './ITransactions';
 import * as S from './styles'
 import OpenOrderTable from '../../../../components/general/OpenOrderTable'
@@ -16,9 +17,8 @@ const initialFilters = {
   status: "All Transactions"
 }
 
-const Transactions = ({ data, openOrderData, newTradeData, remove }: ITransactions, pair = "DOT") => {
+const Transactions = ({ data, openOrderData, newTradeData, remove, activeIndex, setActiveIndex }: ITransactions, pair = "DOT") => {
   const [filters, setFilters] = useState(initialFilters)
-  const [activeIndex, setActiveIndex] = useState(3);
   const [dropdownState, setDropdownState] = useState(false)
 
   // Filters Actions

@@ -10,9 +10,7 @@ import * as S from './styles'
 const Swapbox =({handlecryptolistmodal})=>{   
     const [intialValue,setIntialValue] = useState(false);
     const [cssclassname,setcssclassname] = useState("Active")
-
- 
-
+    
     const handleaction = (value) =>{
                 setIntialValue(value);
                 value==false?setcssclassname("Active"):setcssclassname("Not_Active");
@@ -37,7 +35,7 @@ const Swapbox =({handlecryptolistmodal})=>{
                                 <S.Rowtwo className={cssclassname}>
                                     <MyOrders handlechange={handleaction} cryptolist={openmodalcryptolist}/>
                                 </S.Rowtwo>                  
-                            <S.Rowthree className={cssclassname}>                            
+                               <S.Rowthree className={cssclassname}>                            
                                     <S.smallfont>
                                     Transaction Route
                                     </S.smallfont>
@@ -84,9 +82,7 @@ const Swapbox =({handlecryptolistmodal})=>{
                             </S.bottomtextwrapper>
                         </S.bottomrow>
                    </S.SwapboxContainer>
-                
-    )       
-
+    ) 
 }
 
 export default Swapbox

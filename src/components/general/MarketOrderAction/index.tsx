@@ -20,8 +20,9 @@ export type MarketOrderActionProps = {
   account: any
   blockchainApi: any
   orderType: string
+  setActiveIndex: any
 }
-const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice, setAmount, account, blockchainApi, orderType }: MarketOrderActionProps) => {
+const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice, setAmount, account, blockchainApi, orderType, setActiveIndex }: MarketOrderActionProps) => {
 
   const [slider, setSlider] = useState({ values: [50] })
   const [available, setAvailable] = useState(0)
@@ -31,9 +32,13 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
   const UNIT = 1000000000000;
 
   useEffect(() => {
-    blockchainApi?.query.genericAsset.freeBalance(type === 'Buy' ? 1 : 2, account?.address, (data) => {
-      setAvailable(+data.toString() / UNIT);
-    });
+    if (account?.address) {
+      blockchainApi?.query.genericAsset.freeBalance(type === 'Buy' ? 1 : 2, account.address, (data) => {
+        const availableBalance = +data.toString() / UNIT;
+        setAvailable(+availableBalance.toFixed(4));
+        setAmount(getAmountValue(availableBalance, price).toFixed(4));
+      });
+    }
   }, [blockchainApi])
 
   const cleanString = (value) => {
@@ -67,24 +72,47 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
       const injector = await polkadotExtensionDapp.web3FromSource(account.meta.source);
 
       toast.success(type + ' initiated');
-      let transferExtrinsic = blockchainApi.tx.polkadex.submitOrder(
-        getCurrentStatus(),
-        tradingPairID,
-        new BN(cleanString((parseFloat(price + '') * UNIT).toString()),10),
-        new BN(cleanString((parseFloat(amount + '') * UNIT).toString()),10)
-      );
+      let transferExtrinsic;
 
+      if (getCurrentStatus() === "BidMarket") {
+        transferExtrinsic = blockchainApi.tx.polkadex.submitOrder(
+          getCurrentStatus(),
+          tradingPairID,
+          new BN(cleanString((parseFloat(amount + '') * UNIT).toString()), 10),
+          new BN(cleanString((parseFloat(price + '') * UNIT).toString()), 10)
+        );
+      } else {
+        transferExtrinsic = blockchainApi.tx.polkadex.submitOrder(
+          getCurrentStatus(),
+          tradingPairID,
+          new BN(cleanString((parseFloat(price + '') * UNIT).toString()), 10),
+          new BN(cleanString((parseFloat(amount + '') * UNIT).toString()), 10)
+        );
+      }
+
+      setActiveIndex(0);
       transferExtrinsic.signAndSend(account.address, { signer: injector.signer }, ({ status }) => {
-        setOpenOrder({
-          price,
-          amount,
-          tradeAmount: price * amount,
-          status: status.type,
-          fee: (0.2 * price * amount),
-          side: type === 'Sell' ? 'AskLimit' : 'BidLimit'
-        });
-        setPrice('');
-        setAmount('');
+        if (orderType === 'Limit Order') {
+          setOpenOrder({
+            price,
+            amount,
+            tradeAmount: price * amount,
+            status: status.type,
+            fee: (0.2 * price * amount),
+            side: getCurrentStatus()
+          });
+        } else if (orderType === 'Market Order') {
+          setOpenOrder({
+            price: 'Market',
+            amount,
+            tradeAmount: '-',
+            status: status.type,
+            fee: '-',
+            side: getCurrentStatus()
+          });
+        }
+        setPrice('0');
+        orderType === 'Limit Order' && type === 'Buy' && setAmount('0');
         toast.success(`Transaction status: ${status.type}`);
       }).catch((error: any) => {
         toast.success('Transaction failed: ' + error);
@@ -99,20 +127,43 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
   }
 
   const validateAmount = (inputAmount) => {
-    if (!isNaN(inputAmount) && inputAmount >= 0 && inputAmount <= available) {
+    let sliderValue = getSliderValue(inputAmount);
+    if (!isNaN(inputAmount) && inputAmount >= 0 && sliderValue >= 0 && sliderValue <= 100) {
       setAmount(inputAmount);
-      setSlider({values: [+((inputAmount / available) * 100).toFixed(2)]});
+      setSlider({values: [+sliderValue.toFixed(2)]});
+    }
+  }
+
+  const getSliderValue = (inputAmount) => {
+    if (price === 0 && orderType === 'Limit Order' && type === 'Buy') {
+      return 0;
+    } else if (price > 0 && orderType === 'Limit Order' && type === 'Buy') {
+      return (inputAmount * price * 100) / available;
+    } else {
+      return (inputAmount * 100) / available;
     }
   }
 
   const setSliderValue = (sliderValue: {values: number[]}) => {
-    setAmount(available * (+sliderValue.values[0].toFixed(2)) /100);
+    setAmount(getAmountValue(available, price, sliderValue).toFixed(4));
     setSlider(sliderValue);
   }
 
+  const getAmountValue = (availableBalance, updatedPrice, sliderValue = slider) => {
+    let newAmount = 0;
+    if (+updatedPrice === 0 && orderType === 'Limit Order' && type === 'Buy') {
+      newAmount = 0;
+    } else if (updatedPrice > 0 && orderType === 'Limit Order' && type === 'Buy') {
+      newAmount = (availableBalance * (+sliderValue.values[0].toFixed(2))) / (updatedPrice * 100);
+    } else {
+      newAmount = (availableBalance * (+sliderValue.values[0].toFixed(2))) / 100;
+    }
+    return newAmount;
+  }
+
   useEffect(() => {
-    setAmount((available * (+slider.values[0].toFixed(2))) / 100)
-  }, [])
+    setAmount(getAmountValue(available, price).toFixed(4));
+  }, [price, orderType])
 
   return (
     <S.WrapperOrder>
@@ -133,7 +184,7 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
                        type="text" inputInfo="USDT" fullWidth={true}/>
           }
           <Input label="Amount" icon="ArrowVerticalBottom" placeholder="0.0000000" value={amount}
-                 type="text" inputInfo="BTC" fullWidth={true} setValue={(inputAmount) => validateAmount(inputAmount)} />
+                 type="text" inputInfo={orderType === "Market Order" && type === "Buy" ? "USDT" : "BTC"} fullWidth={true} setValue={(inputAmount) => validateAmount(inputAmount)} />
           <S.WrapperActions>
             <p>Equivalent ~
             <span> $0</span>

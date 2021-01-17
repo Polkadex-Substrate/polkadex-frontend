@@ -4,12 +4,17 @@ import { generateMedia } from 'styled-media-query'
 const customMedia = generateMedia({
     custom: '1199px'
   })
+  type Props = {
+    marketActive: boolean
+  }
 
 export const Wrapper = styled.main`
   display: flex;
   flex-direction:row;
   height: 100vh;
-  overflow-y: hidden;
+  &.Active{
+    height: 131vh;
+  }
   max-width: 192rem;
   margin: 0 auto;
   box-shadow: 0px -36px 99px rgba(0, 0, 0, 0.5);
@@ -24,13 +29,18 @@ flex-direction:row;
 height: 13%;
 margin-top:1.3rem;
 margin-left:1.2rem;
+&.Active{
+  height: 8%;
+}
 `
 
 export const PolkaLogo = styled.img`
-  width: 17%;
+  width: 14%;
   margin-bottom: 2rem;
-  height: 85%;
-
+  height: 79%;
+  &.Active{
+    height: 76%;
+  }
 `
 
 export const ContentWrapper = styled.div`
@@ -99,8 +109,12 @@ export const MiddleColumn = styled.div`
 export const bottomlabel = styled.div`
     
     height: 4rem;
+
+    &.Active{
+      height:11rem;
+    }
     display:flex;   
-    background: #2E303C 0% 0% no-repeat padding-box;
+    background: #24252C 0% 0% no-repeat padding-box;
     box-shadow: 0px 100px 99px #0000002C;
     border-radius: 12px;
     justify-content:center;
@@ -117,7 +131,7 @@ export const Bottomtextwrapper = styled.div`
     width:17rem;
 `
 export const Image = styled.img`
-  width:10%;
+    width:10%;
 `
 
 export const RightColumn = styled.div`
@@ -127,7 +141,6 @@ export const RightColumn = styled.div`
   justify-content:flex-end;
   margin-left:1.2rem;
   padding-bottom:2rem;
-
   flex:1;
 `
 
@@ -147,6 +160,8 @@ border-radius: 20px;
 
 export const Root = styled.div`
   position: relative;
+  
+
 `;
 
 export const Overlay = styled.div`
@@ -155,7 +170,7 @@ export const Overlay = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.3); 
 `;
 
 export const Dialog = styled.div`
@@ -166,7 +181,7 @@ export const Dialog = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  width:22%
+  width:25%
 `;
 
 
@@ -176,7 +191,6 @@ export const LeftCurrencyColumn = styled.div`
 display: flex;
 flex-direction: column;
 flex-basis: 100%;
-
 height:100%;
 `;
 
@@ -185,15 +199,13 @@ export const CryptocurrenciesWrapper = styled.div`
 display:flex;
 flex-direction:column;
 margin-left: 2rem;
-background-color: #242633;
+background-color: #2E303C;
 border-radius: 0 3rem 3rem 3rem;
 width: 100%;
 padding: 2rem 0 0rem 0rem;
 box-shadow: 0px 0px 99px rgba(0,0,0,0.65);
 margin-top: 5rem;
 height: 100%
-
-
 `
 
 export const WrapperTitle = styled.div`
@@ -261,17 +273,27 @@ background: #1F1F24 0% 0% no-repeat padding-box;
 box-shadow: 0px 100px 99px #0000002C;
 border-radius: 30px 30px 30px 30px;
 
-width:95%;
+width:100%;
 height:12%;
 display:flex;
 flex-direction:row;
 align-items:center;
 justify-content:space-between;
 padding-left:1.4rem;
-margin-left:1rem;
+margin-left:0.1rem;
+margin-bottom:0.1rem;
 padding-right:1.4rem;
 color: #FFFFFF;
+font-weight: 400;
+font-size:medium;
+font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 `
+
+export const WrapperGraph = styled.div<Props>`
+  display: flex;
+  width:108%;
+
+`;
 
 
 

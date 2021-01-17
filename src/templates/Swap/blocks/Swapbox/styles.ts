@@ -13,42 +13,23 @@ display:flex;
 flex-direction:column;
 justify-content: center;
 align-items:center;
-padding-bottom:12rem;
+padding-bottom:5rem;
 `
 export const SwapboxWrapper = styled.div`
-width: 67%;
-
-background: #24252C 0% 0% no-repeat padding-box;
-box-shadow: 0px 100px 99px #0000002C;
-border-radius: 20px;
+width: 66%;
+height: 38rem;
 display:flex;
 flex-direction:column;
 justify-content: flex-start;
 align-items:center;
-  transition-duration: 0.8s;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.075, 1);
-  transition-delay: initial;
-  transition-property: initial;
-&.Active{
-  height: 55%;
-  transition-duration: 0.8s;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.075, 1);
-  transition-delay: initial;
-  transition-property: initial;
-}
-&.Not_Active{
-  height: 69%;
-  transition-duration: 0.1s;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.075, 0);
-  transition-delay: initial;
-  transition-property: initial;
-}
-
 `
 export const Rowone = styled.div`
 height:13%;
 display:flex;
 flex-direction:row;
+background: #24252C 0% 0% no-repeat padding-box;
+box-shadow: 0px 100px 99px #0000002C;
+border-radius: 20px 20px 0px 0px;
 width:100%;
 font-size:17px;
 font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
@@ -74,10 +55,11 @@ display:flex;
 align-items:center;
 padding-left:2.5rem;
 padding-right:4rem;
-padding-top:0.5rem;
-padding-bottom:2rem;
-${customMedia.lessThan('custom')`
 padding-top:0rem;
+padding-bottom:2rem;
+
+${customMedia.lessThan('custom')`
+
 `}
 &.Active{
   padding-top:0rem;
@@ -89,33 +71,14 @@ padding-left:1rem;
 `
 
 export const Rowtwo = styled.div`
-
 display:flex;
 flex-direction:row;
+height: 68%;
 background: #2E303C 0% 0% no-repeat padding-box;
 box-shadow: 0px 100px 99px #0000002C;
 border-radius: 0px 30px 30px 30px;
 opacity: 1;
 width:120%;
-transition-duration: 0.8s;
-transition-timing-function: cubic-bezier(0.075, 0.82, 0.075, 1);
-transition-delay: initial;
-transition-property: initial;
-&.Active{
-  height: 87%;
-  transition-duration: 0.8s;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.075, 1);
-  transition-delay: initial;
-  transition-property: initial;
-}
-&.Not_Active{
-  height: 68%;
-  transition-duration: 0.1s;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.075, 0);
-  transition-delay: initial;
-  transition-property: initial;
-
-}
 `
 
 export const Rowthree = styled.div`
@@ -127,10 +90,14 @@ justify-content:space-around;
 align-items:center;
 padding-left:1.5rem;
 padding-right:1.5rem;
-&.Active{
-  display:none
+&.Active{ 
+  display:none;
 }
-
+&.Not_Active{ 
+  background: #24252C 0% 0% no-repeat padding-box;
+  box-shadow: 0px 100px 99px #0000002C;
+  border-radius: 0px 0px 20px 20px; 
+}
 `
 
 export const Rowfour = styled.div`

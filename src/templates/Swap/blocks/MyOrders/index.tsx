@@ -24,8 +24,9 @@ const MyOrders =({handlechange,cryptolist})=>{
                            }
 
    const  openCyptolistmodal = ()=>{                        
-             cryptolist()                           
-                            }                        
+                                     cryptolist()                           
+                                      }    
+                                                          
     return( <S.Myorders>
               <S.FirstRow> 
                         <S.ContainerWallet>

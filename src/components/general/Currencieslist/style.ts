@@ -85,6 +85,15 @@ height: 27px;
 background: transparent 0% 0% no-repeat padding-box;
 opacity: 1;
 `;
+
+export const Image2 = styled.img` 
+ width: 42px;
+ height: 41px;
+ background: transparent 0% 0% no-repeat padding-box;
+ border: 2px solid #000000;
+ border-radius: 111px;
+ opacity: 1;
+`;
 export const Imageiconwrapper = styled.div`
 top: 508px;
 left: 145px;
@@ -103,6 +112,13 @@ border-radius: 111px;
 opacity: 1;
 margin-right:1rem;
 `;
+
+export const Imagewrapper2 = styled.div`
+padding-right:1rem;
+`;
+
+
+
 
 
 export const currencynamecolumn = styled.div`

@@ -25,13 +25,10 @@ export default function Landing({ account, allAccounts, setAccount }) {
           <S.PolkaLogo src="img/Logo.svg" alt="Polkadex"></S.PolkaLogo>
           <S.ScheduleHeading>Upcoming Testnet Release Schedules</S.ScheduleHeading>
           <S.ReleasePoints>
-            <S.PointWrapper><S.Number>01.</S.Number>Enable Public to Submit Trades </S.PointWrapper>
-            <S.PointWrapper><S.Number>02.</S.Number>Enable Multiple Markets </S.PointWrapper>
-            <S.PointWrapper><S.Number>03.</S.Number>Fluid Switch Protocol </S.PointWrapper>
-            <S.PointWrapper><S.Number>04.</S.Number>Custom Trading Bots </S.PointWrapper>
-            <S.PointWrapper><S.Number>05.</S.Number>Enable Asset Management Systems </S.PointWrapper>
-            <S.PointWrapper><S.Number>06.</S.Number>Polkadex Parachain Integration </S.PointWrapper>
-            <S.PointWrapper><S.Number>07.</S.Number>Polkadex Themed Block explorer</S.PointWrapper>
+            <S.PointWrapper><S.Number>01.</S.Number>Enable Multiple Markets </S.PointWrapper>
+            <S.PointWrapper><S.Number>02.</S.Number>Fluid Switch Protocol </S.PointWrapper>
+            <S.PointWrapper><S.Number>03.</S.Number>Custom Trading Bots </S.PointWrapper>
+            <S.PointWrapper><S.Number>04.</S.Number>Polkadex Parachain Integration </S.PointWrapper>
           </S.ReleasePoints>
         </div>
         <S.Copyright>
@@ -45,25 +42,39 @@ export default function Landing({ account, allAccounts, setAccount }) {
           <S.ContentHeading>Disclaimer</S.ContentHeading>
           <S.Content>The following interface shows simulated trades from one of the largest centralized exchanges, processing about 20-30 trades per second on average for BTC-USDT. In this release, the public cannot submit trades as it is a private testnet release to find the stability of Polkadex nodes. There will be frequent restarts of the testnet by our development team. The next release of our testnet will enable public to run a node, check the blocks and submit trades. Most of the features are disabled for now and will be enabled as per the following schedule.</S.Content>
           <S.Account>
-            <S.DropdownWrapper>
-              <S.AccountHeading>Select Account:</S.AccountHeading>
-
-              <Dropdown title={account?.meta?.name} active={dropdownState} setDropdownState={setDropdownState}>
+            <S.DropdownWrapperWithErrorMessage>
+              <S.DropdownWrapper>
+                <S.AccountHeading>Select Account:</S.AccountHeading>
                 {
-                  allAccounts?.map((account, index)  => {
-                    return <DropdownItem title = { account.meta.name } handleAction={() => setAccountDropdown(account)} key={index}/>
-                  })
+                  allAccounts?.length > 0
+                  && <Dropdown title={account?.meta?.name} active={dropdownState} setDropdownState={setDropdownState}>
+                      {
+                        allAccounts?.map((account, index) => {
+                          return <DropdownItem title={account.meta.name} handleAction={() => setAccountDropdown(account)}
+                                               key={index}/>
+                        })
+                      }
+                    </Dropdown>
                 }
-              </Dropdown>
-            </S.DropdownWrapper>
+              </S.DropdownWrapper>
+              {
+                !allAccounts &&
+                <S.AccountMessage>Please install <a href="https://github.com/polkadot-js/extension" target="_blank"> PolkadotJS extension</a>, create an account and refresh</S.AccountMessage>
+              }
+            </S.DropdownWrapperWithErrorMessage>
 
             <S.ButtonWrapper>
               <Link href="/dashboard">
                 <S.LoginButton>Login with PolkadotJS</S.LoginButton>
               </Link>
-              <Link href="/twitter">
-                <S.TweetButton disabled={!account}>Get Testnet Tokens from Twitter</S.TweetButton>
-              </Link>
+              <div>
+                <a href="https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fblockchain.polkadex.trade#/explorer" target="_blank">
+                  <S.ExplorerButton>Go to Polkadex Explorer</S.ExplorerButton>
+                </a>
+              </div>
+              {/*<Link href="/twitter">*/}
+                {/*<S.TweetButton disabled={!account}>Get Testnet Tokens from Twitter</S.TweetButton>*/}
+              {/*</Link>*/}
             </S.ButtonWrapper>
           </S.Account>
         </S.DisclaimerWrapper>
