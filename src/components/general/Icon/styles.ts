@@ -32,6 +32,15 @@ const WrapperModifier = {
       height: 100%;
     }
   `,
+  XMedium: () => css`
+    height: 3rem;
+    width: 3rem;
+    padding: 0.4rem;
+    border-radius: 7px;
+    img {
+      width: 70%;
+    }
+  `,
   Medium: (theme: DefaultTheme) => css`
     height: 3.6rem;
     width: 3.6rem;
@@ -74,9 +83,9 @@ const WrapperModifier = {
     color: ${theme.colors.white};
   `,
   Black: (theme: DefaultTheme) => css`
-  background-color:#1C2023;
-  color: ${theme.colors.white};
-`
+    background-color:#1C2023;
+    color: ${theme.colors.white};
+  `,
 }
 
 export const Wrapper = styled.div<Partial<IconProps>>`
