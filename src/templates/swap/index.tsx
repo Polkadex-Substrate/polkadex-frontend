@@ -8,7 +8,6 @@ import Graph from './blocks/Graph'
 import { webSocket } from '../../components/dashboard/CustomChart/api/stream'
 import ModalCryptoList from 'components/general/ModalCryptoList'
 
-
 export default function Swap({ account, blockchainApi }) {
 
   const [state, setState] = useState(false)
@@ -127,7 +126,6 @@ export default function Swap({ account, blockchainApi }) {
     fetchMarketData(webSocketInstance)
     fetchOrderBookBids(webSocketInstance)
     fetchOrderBookAsks(webSocketInstance)
-
   }, [])
 
   return (
@@ -135,7 +133,7 @@ export default function Swap({ account, blockchainApi }) {
       <S.Wrapper className={cssclassname}>
         <S.ContentWrapper>
           <S.Header>
-            <S.PolkaLogo src="img/Logo.svg" alt="Polkadex" />
+            <S.PolkaLogo src="img/Logo.svg" alt="Polkadex"/>
           </S.Header>
           <S.BottomContentWrapper>
             <S.LeftColumn>
