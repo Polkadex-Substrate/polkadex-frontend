@@ -9,10 +9,6 @@ import { webSocket } from '../../components/dashboard/CustomChart/api/stream'
 import ModalCryptoList from 'components/general/ModalCryptoList'
 
 
-
-
-
-
 export default function Swap({ account, blockchainApi }) {
 
   const [state, setState] = useState(false)
