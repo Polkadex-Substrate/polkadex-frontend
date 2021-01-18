@@ -50,7 +50,7 @@ const OrderBook = ({ orderBookBids, orderBookAsks, latestTransaction, latestTran
             <OrderBookIcon icon="Order" filterState={filterState} handleChange={handleChange} />
             <OrderBookIcon icon="OrderDesc" filterState={filterState} handleChange={handleChange} />
           </S.ContainerActions>
-          <Dropdown title={sizeState} active={dropdownState} setDropdownState={setDropdownState}>
+          {/* <Dropdown title={sizeState} active={dropdownState} setDropdownState={setDropdownState}>
             <>
               <DropdownItem title={0.1} handleAction={handleAction} />
               <DropdownItem title={0.01} handleAction={handleAction} />
@@ -59,7 +59,7 @@ const OrderBook = ({ orderBookBids, orderBookAsks, latestTransaction, latestTran
               <DropdownItem title={0.00001} handleAction={handleAction} />
               <DropdownItem title={0.000001} handleAction={handleAction} />
             </>
-          </Dropdown>
+          </Dropdown> */}
         </S.ContainerTitle>
       </S.WrapperTitle>
       <OrderBookTable orderBookAsks={updateDataSize(orderBookAsks)}

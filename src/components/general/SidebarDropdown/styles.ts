@@ -12,7 +12,7 @@ ${({ rotation }) => css`
 export const WrapperContent = styled.div`
   position: absolute;
   right: 0;
-  background-color:;
+
   color: white;
   border-radius: 0 1rem 1rem 1rem;
   padding: 1rem;
@@ -44,11 +44,7 @@ ${({ hoverrotation }) => css`
 
 `}`
 ;
-
-
-
 export const WrapperImage = styled.div<Partial<SidebarDropdownProps>>`
-
 ${({ backgroundcolor }) => css`
   display: flex;
   align-items:center;

@@ -6,11 +6,11 @@ const customMedia = generateMedia({
 })
 export const Wrapper = styled.div`
   grid-area:graph;  
-  background: #2E303C;
-  border-radius: 0 3rem 3rem 3rem;
   margin-left:0.5rem;
-  box-shadow: 0px 30px 45px rgba(0, 0, 0, 0.17);
+  box-shadow: 0px 100px 99px #0000002C;
+  border-radius: 0px 30px 0px 0px;
   display: flex;
+  background: #2E303C;
   flex-direction:row;
   justify-content:space-between;
   width: 102%;
@@ -24,10 +24,10 @@ export const Wrapper = styled.div`
   // `}
 `
 export const WrapperGraph = styled.section`
-  width: 82%;
+  width: 80%;
   padding: 2rem;
-  box-shadow: 0px 30px 45px rgba(0, 0, 0, 0.17);
-  background-color: #22232d;
+  background:  #2E303C 0% 0% no-repeat padding-box;
+
   // min-width:65rem;
 `
 // Header
@@ -80,4 +80,25 @@ export const Item = styled.div<ItemProps>`
     border-radius: 0.7rem;
   `}
 `
+
+ export const HeaderFont = styled.div`
+ text-align: left;
+ font-size:23px;
+ letter-spacing: 0px;
+ color: #FFFFFF;
+ font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+ font-weight:bold;
+ margin-left:1rem;
+ margin-right:2rem;
+ `
+
+ export const DateRangeWrapper = styled.div`
+ background: #1C2023 0% 0% no-repeat padding-box;
+ border-radius: 7px
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ 
+ `
+ 
 

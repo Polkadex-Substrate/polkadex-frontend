@@ -7,7 +7,7 @@ import { useState } from 'react'
 import OrderBook from '../OrderBook'
 import { IGraph } from './IGraph'
 import * as S from './styles'
-const ChartContainer = dynamic(() => import('../../../../components/dashboard/CustomChart').then(), { ssr: false })
+const ChartContainer = dynamic(() => import('../../../../components/swappage/CustomChart').then(), { ssr: false })
 
 const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransactionType }: IGraph) => {
 
@@ -19,15 +19,14 @@ const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransact
       <S.WrapperGraph>
         <S.Header>
           <S.FlexWrapper>
-            <Icon source="Edit" />
+            {/* <Icon source="Edit" /> */}
+            <S.HeaderFont>DOT/BTC</S.HeaderFont>
             <S.List>
-              <S.Item selected>
-                3m
-              </S.Item>
-              <S.Item>
+              
+              <S.Item >
                 1H
               </S.Item>
-              <S.Item>
+              <S.Item selected>
                 24H
               </S.Item>
               <S.Item>
@@ -40,22 +39,18 @@ const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransact
                 1Y
               </S.Item>
               <S.Item>
-                all
+                All
               </S.Item>
-              <DateRange position='left'/>
+              <DateRange position='left' backgroundcolor  = 'Black'/>
+       
             </S.List>
           </S.FlexWrapper>
-          {/*<Dropdown title="Candles">*/}
-          {/*  <div>*/}
-          {/*    /!* <div>Candled</div> *!/*/}
-          {/*    /!* <div>Area</div> *!/*/}
-          {/*</div>*/}
-          {/*</Dropdown>*/}
+      
           <S.FlexWrapper>
             <S.List>
-              <ListItemButton title="Original" size="Default" selected />
-              <ListItemButton title="Trading View" size="Default" />
-              <ListItemButton title="Market Depth" size="Default" />
+              
+              <ListItemButton title="Baseline" size="Default" icon= {true}  icontype='show_chart-white' />
+              <ListItemButton title="Candle" size="Default" icon= {true}  icontype='Candles' />
               <Icon source="Expand"/>
             </S.List>
           </S.FlexWrapper>

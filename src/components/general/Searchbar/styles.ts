@@ -23,15 +23,12 @@ margin-right:10px;
 export const Input = styled.input`
 top: 495px;
 left: 176px;
-width: 68px;
+width: 100%;
 height: 19px;
 text-align: left;
-font: normal normal medium 16px/19px Work Sans;
 letter-spacing: 0px;
 color: #fff;
 padding-bottom:5px;
-
-
 opacity: 1;
 
 `
