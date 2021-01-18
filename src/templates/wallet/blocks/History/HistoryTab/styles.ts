@@ -1,5 +1,9 @@
 import styled, { css } from 'styled-components'
 
+type CurrencyProps = {
+  side: string
+}
+
 export const MainWrapper = styled.div`
     display: flex;
     justify-content: space-between;
@@ -35,7 +39,7 @@ export const Image = styled.img`
     margin-right: 0.5rem;
 `
 
-export const Currency = styled.div`
+export const Currency = styled.div<CurrencyProps>`
     ${({ side, theme }) => css`
         color: ${side === 'AskLimit' ? theme.colors.primary : theme.colors.green}
     `}

@@ -1,7 +1,10 @@
 import styled, { css } from 'styled-components'
 
 import media from 'styled-media-query'
-import { InputProps } from '.'
+
+type TabHeaderProps = {
+  currentTab: number
+}
 
 export const MiddleCurrencyColumn = styled.div`
     display: flex;
@@ -16,7 +19,7 @@ export const TabSection = styled.section`
 `
 
 // Header
-export const TabHeader = styled.div<Partial<InputProps>>`
+export const TabHeader = styled.div<TabHeaderProps>`
 
     ${({ currentTab, theme }) => css`
         display: grid;
@@ -41,12 +44,11 @@ export const TabHeader = styled.div<Partial<InputProps>>`
             padding: ${currentTab === 1 ? '1rem 1.5rem' : '1rem'};
             border-bottom: 3px solid ${currentTab === 1 ? theme.colors.green : theme.colors.primary};
         }    
-    `
-    }
+    `}
 `
 
 export const Wrapper = styled.div`
-    background-color:#242633;
+    background-color: #242633;
     border-radius: 0 3rem 3rem 3rem;
     padding: 6rem 3rem 3rem;
     box-shadow: 0px 0px 99px rgba(0, 0, 0, 0.65);

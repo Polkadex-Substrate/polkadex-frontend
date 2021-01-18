@@ -21,11 +21,11 @@ const WithdrawBTC = ({ currentCurrency, walletAddress, setWalletAddress }: Walle
 
     const setSliderValue = (sliderValue) => {
         setSlider(sliderValue);
-        setAmount((currentCurrency.value * sliderValue.values[0] / 100).toFixed(8));
+        setAmount(+(currentCurrency.value * sliderValue.values[0] / 100).toFixed(8));
     }
 
     useEffect(() => {
-        setAmount((currentCurrency.value * slider.values[0] / 100).toFixed(8));
+        setAmount(+(currentCurrency.value * slider.values[0] / 100).toFixed(8));
     }, [currentCurrency])
 
     return (

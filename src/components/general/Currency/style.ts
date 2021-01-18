@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { RowProps } from './index'
+
 export const DetailsWrapper = styled.div`
     display: flex;
     align-items: center;
@@ -46,7 +48,7 @@ export const Value = styled.div`
     margin-right: 1rem;
 `
 
-export const Row = styled.div`
+export const Row = styled.div<RowProps>`
     display: flex;
     justify-content: space-between;
     margin: 0.6rem 0;

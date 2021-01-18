@@ -3,6 +3,10 @@ import * as S from './style'
 
 import Icon from '../Icon'
 
+export type RowProps = {
+  active: boolean;
+}
+
 const Currency = ({ currency, setCurrency, active }) => {
     return (
         <S.Row onClick={setCurrency} active={active}>
