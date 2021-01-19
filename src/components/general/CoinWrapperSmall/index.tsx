@@ -1,4 +1,3 @@
-import SidebarDropdown from '../SidebarDropdown'
 import * as S from './style'
 
 

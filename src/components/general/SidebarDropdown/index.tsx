@@ -12,12 +12,9 @@ export type SidebarDropdownProps = {
 const SidebarDropdown = ({ rotation = 'rotate(270deg)', backgroundColor='#1C2023', hoverRotation='rotate(0deg)' , icon='ArrowTop'}: SidebarDropdownProps) => {
   return (
     <S.Wrapper hoverRotation={hoverRotation}>
-     
         <S.WrapperImage backgroundColor = {backgroundColor}>
           <S.Image src={`/img/icons/${icon}.svg`} rotation = {rotation} />
-        </S.WrapperImage>
-      
-     
+        </S.WrapperImage>     
     </S.Wrapper>
   )
 }

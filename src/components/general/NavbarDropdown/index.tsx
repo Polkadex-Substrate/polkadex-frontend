@@ -14,14 +14,7 @@ const NavbarDropdown = ({ title = "NavbarDropdown" }: NavbarDropdownProps) => {
         <S.WrapperImage>
           <S.Image src="/img/icons/ArrowTop.svg" />
         </S.WrapperImage>
-      </S.Header>
-      {/*{*/}
-        {/*children && <S.WrapperContent className="animation">*/}
-          {/*<S.ContainerContent>*/}
-            {/*{children}*/}
-          {/*</S.ContainerContent>*/}
-        {/*</S.WrapperContent>*/}
-      {/*}*/}
+      </S.Header>     
     </S.Wrapper>
   )
 }

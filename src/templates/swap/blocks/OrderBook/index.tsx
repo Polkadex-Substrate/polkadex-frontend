@@ -34,10 +34,7 @@ const OrderBook = ({ orderBookBids, orderBookAsks, latestTransaction, latestTran
     total: order.total.toFixed(getDecimalPlaces())
   }));
 
-  // const lastOrderBook = (data) => data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]
-  //
-  // const last = useMemo<IOrderBookData>(() => lastOrderBook(data), [data])
-
+  
   return (
     <S.Wrapper>
       <S.WrapperTitle>
@@ -48,16 +45,6 @@ const OrderBook = ({ orderBookBids, orderBookAsks, latestTransaction, latestTran
             <OrderBookIcon icon="Order" filterState={filterState} handleChange={handleChange} />
             <OrderBookIcon icon="OrderDesc" filterState={filterState} handleChange={handleChange} />
           </S.ContainerActions>
-          {/* <Dropdown title={sizeState} active={dropdownState} setDropdownState={setDropdownState}>
-            <>
-              <DropdownItem title={0.1} handleAction={handleAction} />
-              <DropdownItem title={0.01} handleAction={handleAction} />
-              <DropdownItem title={0.001} handleAction={handleAction} />
-              <DropdownItem title={0.0001} handleAction={handleAction} />
-              <DropdownItem title={0.00001} handleAction={handleAction} />
-              <DropdownItem title={0.000001} handleAction={handleAction} />
-            </>
-          </Dropdown> */}
         </S.ContainerTitle>
       </S.WrapperTitle>
       <OrderBookTable orderBookAsks={updateDataSize(orderBookAsks)}
