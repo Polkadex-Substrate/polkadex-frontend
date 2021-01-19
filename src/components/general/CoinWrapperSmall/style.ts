@@ -6,13 +6,13 @@ const customMedia = generateMedia({
 })
 
 
-export const coinwrapper = styled.div`
+export const CoinWrapper = styled.div`
 display:flex;
 flex-direction:row;
 align-items:center;
 
 `
-export const nameandvaluecolumn = styled.div`
+export const NameandValueColumn = styled.div`
 display:flex;
 flex-direction:column;
 `
@@ -25,7 +25,7 @@ opacity: 1;
 margin-right:1rem;
 `;
 
-export const blurtext = styled.div`
+export const BlurText = styled.div`
 color:#FFFFFF;
 font-weight:Regular;
 font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;

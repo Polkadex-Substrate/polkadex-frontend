@@ -101,7 +101,7 @@ return (
                     </S.IconWrapper>
                     <span>
                         Connect to wallet
-                </span>
+                   </span>
                 </S.LabelWithIcon>
             </S.LeftColumn>
             <S.MiddleColumn>
