@@ -110,7 +110,10 @@ const ModalCryptoList = ({ ModalCloseHandler, SetCryptolistLefthandler, leftalig
           <S.Image src={`/img/icons/top-bottom-white.svg`}/>
           Coin
         </S.TextWrapper>
+        
+        <S.CryptoListWrapper>
         { currencyList.map((currency, index) => <Currency displayValue={false} currency={currency} key={index} active={false} setCurrency={null} />) }
+       </S.CryptoListWrapper>
         <S.WrapperDefault>
           <div>Default List</div>
           <div>change</div>

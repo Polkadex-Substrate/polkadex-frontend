@@ -1,6 +1,5 @@
 import CoinWrapper from 'components/general/CoinWrapperSmall'
 import NavbarDropdown from 'components/general/NavbarDropdown'
-import SidebarDropdown from 'components/general/SidebarDropdown'
 import { useState } from 'react'
 import MyOrders from '../../../../components/general/MyOrdersSwapbox'
 import * as S from './styles'

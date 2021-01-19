@@ -65,7 +65,8 @@ export const SearchWrapper = styled.div`
 display:flex;
 flex-direction:row;
 padding-left:3rem;
-
+margin-top:1rem;
+width:85%;
 `
 
 
@@ -89,4 +90,10 @@ export const Image = styled.img`
 
 export const pointercursor = styled.div`
 cursor:pointer;
+`
+export const CryptoListWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    overflow-y: auto;
 `

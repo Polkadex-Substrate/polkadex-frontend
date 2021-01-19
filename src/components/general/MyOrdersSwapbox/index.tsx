@@ -1,7 +1,5 @@
 
 import CurrencyValueSwapbox from 'components/general/CurrenciesValueSwapbox';
-import Icon from 'components/general/Icon'
-import SidebarDropdown from 'components/general/SidebarDropdown'
 import { useState } from 'react';
 import * as S from './styles'
 
