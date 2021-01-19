@@ -104,7 +104,7 @@ const ModalCryptoList = ({ modalCloseHandler, setCryptoListLeftHandler }) => {
           <div onClick={clickHandler}><Icon source="Close" size="XSmall" background="None"/> </div>
         </S.WrapperTitle>
         <S.SearchWrapper>
-          <SearchBar placeholder="Search name or paste address " type="search" value={''} setValue={null} resize = "Active"/>
+          <SearchBar placeholder="Search name or paste address " type="search" value={''} setValue={null} resize = "git branchActive"/>
         </S.SearchWrapper>
         <S.TextWrapper>
           <S.Image src={`/img/icons/top-bottom-white.svg`}/>
