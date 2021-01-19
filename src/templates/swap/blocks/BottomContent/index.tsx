@@ -6,7 +6,7 @@ import Icon from 'components/general/Icon'
 import SidebarDropdown from 'components/general/SidebarDropdown'
 import { useEffect, useState } from 'react'
 import Graph from '../Graph'
-import SwapBox from '../SwapBox'
+import SwapBox from '../Swapbox'
 
 
 const BottomContent = ({ openCryptoListModal , openBottomChartCss ,OnClickPairAnalyticsPanel,isPairAnalyticsVisible}) => {

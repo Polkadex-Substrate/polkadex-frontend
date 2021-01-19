@@ -3,7 +3,7 @@ import { useState } from 'react'
 import CoinWrapper from 'components/general/CoinWrapperSmall'
 import NavbarDropdown from 'components/general/NavbarDropdown'
 import MyOrders from '../MyOrdersSwapbox'
-import * as S  from './styles'
+import * as S from './styles'
 
 const SwapBox = ({ handleCryptoListModal  }) => {
     const [intialValue, setIntialValue] = useState(false);
