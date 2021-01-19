@@ -1,66 +1,64 @@
+import { useState } from 'react'
+
 import CoinWrapper from 'components/general/CoinWrapperSmall'
 import NavbarDropdown from 'components/general/NavbarDropdown'
-import { useState } from 'react'
-import MyOrders from '../../../../components/general/MyOrdersSwapbox'
-import * as S from './styles'
+import MyOrders from '../MyOrdersSwapbox'
+import * as S  from './styles'
 
-const Swapbox = ({ handlecryptolistmodal  }) => {
-
-
+const SwapBox = ({ handleCryptoListModal  }) => {
     const [intialValue, setIntialValue] = useState(false);
-    const [cssclassname, setcssclassname] = useState("Active")
-
-    const handleaction = (value) => {
+    const [hideContent, sethideContent] = useState("Active")
+    const handleAction = (value) => {
         setIntialValue(value);
-        value == false ? setcssclassname("Active") : setcssclassname("Not_Active");
+        value == false ? sethideContent("Active") : sethideContent("Not_Active");
     }
-    const openmodalcryptolist = () => {
-        handlecryptolistmodal()
+    const openModalCryptoList = () => {
+        handleCryptoListModal()
     }
 
     return (
-        <S.SwapboxContainer>
-            <S.SwapboxWrapper className={cssclassname}>
-                <S.Rowone>
+        <S.SwapBoxContainer>
+            <S.SwapBoxWrapper className={hideContent}>
+                <S.RowOne>
                     <div>
-                    <S.TextWrapperwithoutborder className={cssclassname}>
+                    <S.TextWrapperWithoutBorder className={hideContent}>
                        Market Order
                      <S.IconWrapper> <NavbarDropdown title="" /></S.IconWrapper>
-                    </S.TextWrapperwithoutborder>
+                    </S.TextWrapperWithoutBorder>
                     </div>
                     <S.TextWrapper>My Orders</S.TextWrapper>
-                </S.Rowone>
-                <S.Rowtwo className={cssclassname}>
-                    <MyOrders handlechange={handleaction} cryptolist={openmodalcryptolist} />
-                </S.Rowtwo>
-                <S.Rowthree className={cssclassname}>
+                </S.RowOne>
+                <S.RowTwo className={hideContent}>
+                    <MyOrders handleChange={handleAction} cryptoList={openModalCryptoList} />
+                </S.RowTwo>
+                <S.RowThree className={hideContent}>
                     Transaction Route                    
-                    <CoinWrapper CoinName= {"Polkadot"} Cointype = {"DOT"}/>
+                    <CoinWrapper CoinName= {"Polkadot"} CoinType = {"DOT"}/>
                     <S.Image src={`/img/icons/double_arrow-white.svg`} />
-                    <CoinWrapper CoinName= {"Thether"} Cointype = {"USDT"}/>
+                    <CoinWrapper CoinName= {"Thether"} CoinType = {"USDT"}/>
                     <S.Image src={`/img/icons/double_arrow-white.svg`} />
-                    <CoinWrapper CoinName= {"Bitcoin"} Cointype = {"BTC"}/>
-                 </S.Rowthree>
-            </S.SwapboxWrapper>
-            <S.bottomrow className={cssclassname}>
-                <S.bottomtextwrapper>
+                    <CoinWrapper CoinName= {"Bitcoin"} CoinType = {"BTC"}/>
+                 </S.RowThree>
+            </S.SwapBoxWrapper>
+            <S.BottomRow className={hideContent}>
+                <S.BottomTextWrapper>
                     <S.HelperIconImage src={`/img/icons/help_outline-white.svg`} />
-                    <S.blur>Minimum</S.blur>
-                    <S.noblurtext>0.01008 DOT</S.noblurtext>
-                </S.bottomtextwrapper>
-                <S.bottomtextwrapper>
+                    <S.Blur>Minimum</S.Blur>
+                    <S.NoBlurText>0.01008 DOT</S.NoBlurText>
+                </S.BottomTextWrapper>
+                <S.BottomTextWrapper>
                     <S.HelperIconImage src={`/img/icons/help_outline-white.svg`} />
-                    <S.blur>Liquidity Provider Fee</S.blur>
-                    <S.noblurtext>0.00005991 BTC</S.noblurtext>
-                </S.bottomtextwrapper>
-                <S.bottomtextwrapper>
+                    <S.Blur>Liquidity Provider Fee</S.Blur>
+                    <S.NoBlurText>0.00005991 BTC</S.NoBlurText>
+                </S.BottomTextWrapper>
+                <S.BottomTextWrapper>
                     <S.HelperIconImage src={`/img/icons/help_outline-white.svg`} />
-                    <S.blur>Price Impact</S.blur>
-                    <S.textspecialcolor>8.49%</S.textspecialcolor>
-                </S.bottomtextwrapper>
-            </S.bottomrow>
-        </S.SwapboxContainer>
+                    <S.Blur>Price Impact</S.Blur>
+                    <S.TextSpecialColor>8.49%</S.TextSpecialColor>
+                </S.BottomTextWrapper>
+            </S.BottomRow>
+        </S.SwapBoxContainer>
     )
 }
 
-export default Swapbox
+export default SwapBox

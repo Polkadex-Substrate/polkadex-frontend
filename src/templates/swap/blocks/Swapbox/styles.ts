@@ -7,7 +7,7 @@ const customMedia = generateMedia({
   custom: '1366px'
 })
 
-export const SwapboxContainer = styled.div`
+export const SwapBoxContainer = styled.div`
 height:100%;
 display:flex;
 flex-direction:column;
@@ -15,7 +15,7 @@ justify-content: center;
 align-items:center;
 padding-bottom:5rem;
 `
-export const SwapboxWrapper = styled.div`
+export const SwapBoxWrapper = styled.div`
 width: 66%;
 height: 38rem;
 display:flex;
@@ -23,7 +23,7 @@ flex-direction:column;
 justify-content: flex-start;
 align-items:center;
 `
-export const Rowone = styled.div`
+export const RowOne = styled.div`
 height:13%;
 display:flex;
 background: #24252C 0% 0% no-repeat padding-box;
@@ -34,6 +34,7 @@ font-size:17px;
 font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 font-weight:400;
 justify-content:space-between;
+padding-top:0.5rem;
 `
 export const TextWrapper = styled.div`
 border-bottom:5px solid #0CA564;
@@ -43,7 +44,7 @@ padding-left:4rem;
 padding-right:4rem;
 border-radius:3px 0px 3px 0px;
 `
-export const TextWrapperwithoutborder = styled.div`
+export const TextWrapperWithoutBorder = styled.div`
 display:flex;
 align-items:center;
 padding-left:2.5rem;
@@ -55,7 +56,7 @@ export const IconWrapper = styled.div`
 padding-left:1rem;
 `
 
-export const Rowtwo = styled.div`
+export const RowTwo = styled.div`
 display:flex;
 flex-direction:row;
 height: 68%;
@@ -66,7 +67,7 @@ opacity: 1;
 width:120%;
 `
 
-export const Rowthree = styled.div`
+export const RowThree = styled.div`
 height:19%;
 display:flex;
 flex-direction:row;
@@ -93,7 +94,7 @@ export const Image = styled.img`
   width:4%;
 `
 
-export const bottomrow = styled.div`
+export const BottomRow = styled.div`
   display:flex;
   width: 68%;
   justify-content:space-evenly;
@@ -113,26 +114,26 @@ export const bottomrow = styled.div`
   }
  `
 
- export const blur = styled.span`
+ export const Blur = styled.span`
   color: #8BA1BE;   
   padding-left:0.2rem;
   padding-right:0.8rem;  
   `
 
-  export const bottomtextwrapper = styled.div`
+  export const BottomTextWrapper = styled.div`
    display:flex;
    ${customMedia.lessThan('custom')`
    font-size:1rem;
   `}
   `
-  export const noblurtext = styled.span`
+  export const NoBlurText = styled.span`
    ${customMedia.lessThan('custom')`
   font-size:1rem;
   padding-top:0.1rem;
  `}
   `
 
-  export const textspecialcolor = styled.div`
+  export const TextSpecialColor = styled.div`
   color: #E6007A;
    ${customMedia.lessThan('custom')`
   font-size:1rem;

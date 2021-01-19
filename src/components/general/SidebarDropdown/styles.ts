@@ -30,7 +30,7 @@ export const WrapperContent = styled.div`
 
 export const Wrapper = styled.div<Partial<SidebarDropdownProps>>`
 
-${({ hoverrotation }) => css`
+${({ hoverRotation }) => css`
   width: fit-content;
   position: relative;
 
@@ -39,17 +39,17 @@ ${({ hoverrotation }) => css`
   }
 
   &:hover ${Image} {
-    transform: ${hoverrotation} ;
+    transform: ${hoverRotation} ;
   }
 
 `}`
 ;
 export const WrapperImage = styled.div<Partial<SidebarDropdownProps>>`
-${({ backgroundcolor }) => css`
+${({ backgroundColor }) => css`
   display: flex;
   align-items:center;
   justify-content: center;
-  background:${backgroundcolor};
+  background:${backgroundColor};
   border-radius: 0.5rem;
   width: 2rem;
 	height: 2rem;

@@ -69,13 +69,6 @@ margin-top:1rem;
 width:85%;
 `
 
-
-export const Iconwrapper = styled.div`
-
-
-}
-  `
-
 export const TextWrapper = styled.div`
 color: #FFFFFF;
 opacity: 0.5;
@@ -88,7 +81,7 @@ export const Image = styled.img`
   width:4%;
 `
 
-export const pointercursor = styled.div`
+export const PointerCursor = styled.div`
 cursor:pointer;
 `
 export const CryptoListWrapper = styled.div`

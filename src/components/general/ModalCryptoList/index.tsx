@@ -6,7 +6,7 @@ import * as S from './styles'
 import Currency from '../Currency'
 import { CurrencyDetails } from '../../../templates/wallet/blocks/CryptoCurrencies'
 
-const ModalCryptoList = ({ ModalCloseHandler, SetCryptolistLefthandler, leftalignvalue }) => {
+const ModalCryptoList = ({ modalCloseHandler, setCryptoListLeftHandler }) => {
 
   const currenciesList = [
     {
@@ -91,20 +91,20 @@ const ModalCryptoList = ({ ModalCloseHandler, SetCryptolistLefthandler, leftalig
   ]
   const [currencyList, setCurrencyList] = useState<CurrencyDetails[]>(currenciesList)
 
-  const Clickhandler = () => {
-    ModalCloseHandler(false)
-    SetCryptolistLefthandler(false)
+  const clickHandler = () => {
+    modalCloseHandler(false)
+    setCryptoListLeftHandler(false)
   }
 
   return (
     <S.LeftCurrencyColumn>
       <S.CryptocurrenciesWrapper>
         <S.WrapperTitle>
-          <S.pointercursor onClick={() => SetCryptolistLefthandler(true)}> Select Coin </S.pointercursor>
-          <S.Iconwrapper onClick={Clickhandler}><Icon source="Close" size="XSmall" background="None"/> </S.Iconwrapper>
+          <S.PointerCursor onClick={() => setCryptoListLeftHandler(true)}> Select Coin </S.PointerCursor>
+          <div onClick={clickHandler}><Icon source="Close" size="XSmall" background="None"/> </div>
         </S.WrapperTitle>
         <S.SearchWrapper>
-          <SearchBar placeholder="Search name or paste address " type="search" value={''} setValue={null}/>
+          <SearchBar placeholder="Search name or paste address " type="search" value={''} setValue={null} resize = "Active"/>
         </S.SearchWrapper>
         <S.TextWrapper>
           <S.Image src={`/img/icons/top-bottom-white.svg`}/>

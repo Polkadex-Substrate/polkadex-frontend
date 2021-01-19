@@ -5,7 +5,7 @@ const customMedia = generateMedia({
   custom: '1366px'
 })
 
-export const Myorders = styled.div`
+export const MyOrders = styled.div`
   height:100%;
   display:flex;
   flex-direction:column;
@@ -49,7 +49,7 @@ export const ThirdRow = styled.div`
   font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
    color: #ffffff;  
 `;
-export const Spantextblur = styled.span`
+export const SpanTextBlur = styled.span`
   text-align: left;
   font-weight:400;
   font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
@@ -104,7 +104,7 @@ export const TextWrapper = styled.div`
     padding-bottom:1.4rem;
 
 `
-export const blur = styled.span`
+export const Blur = styled.span`
   color: #8BA1BE;
   font-weight:400;
   font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;

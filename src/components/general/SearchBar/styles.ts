@@ -10,6 +10,9 @@ export const Wrapper = styled.div`
 export const Image = styled.img`
     color: #C6D2E5;
     margin-right: 10px;
+    &.Active{
+     height:1.2rem;   
+    }
 `
 
 export const Input = styled.input`

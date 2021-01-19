@@ -1,10 +1,8 @@
-import Dropdown from 'components/general/Dropdown'
-import DropdownItem from 'components/general/DropdownItem'
+
 import Heading from 'components/general/Heading'
 import OrderBookIcon from 'components/general/OrderBookIcon'
 import OrderBookTable from 'components/general/OrderBookTable'
-import {useMemo,useState} from "react"
-
+import {useState} from "react"
 import { IOrderBookData } from '../Graph/IGraph'
 import * as S from './styles'
 import Dinero from 'dinero.js'

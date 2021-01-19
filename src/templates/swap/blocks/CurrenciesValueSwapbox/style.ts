@@ -50,7 +50,7 @@ export const NoDarkBlockWrapper = styled.div`
 
 `
 
-export const smalltext = styled.span`
+export const SmallText = styled.span`
   font-size:1.2rem;
   color: #FFFFFFCC;
 `
@@ -61,7 +61,7 @@ export const CoinImage = styled.img`
   opacity: 1;
 `;
 
-export const RowinsideDarkBlockWrapper = styled.div`
+export const RowInsideDarkBlockWrapper = styled.div`
     display:flex;
     flex-direction:row;
     justify-content:space-evenly;
