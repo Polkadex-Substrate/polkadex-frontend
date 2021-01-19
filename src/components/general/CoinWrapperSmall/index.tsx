@@ -4,13 +4,13 @@ import * as S from './style'
 
 const CoinWrapper =({CoinName,CoinType})=>{
 
-  return (<S.coinwrapper>
+  return (<S.CoinWrapper>
             <S.CoinImage src={`img/cryptocurrencies/${CoinType}.png`} />
-            <S.nameandvaluecolumn>
+            <S.NameandValueColumn>
                 <span>{CoinType}</span>
-                <S.blurtext>{CoinName}</S.blurtext>
-            </S.nameandvaluecolumn>
-          </S.coinwrapper>
+                <S.BlurText>{CoinName}</S.BlurText>
+            </S.NameandValueColumn>
+          </S.CoinWrapper>
             
                         )
    }
