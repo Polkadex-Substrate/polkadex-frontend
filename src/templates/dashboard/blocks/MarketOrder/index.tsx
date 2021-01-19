@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Tab,TabList, TabPanel , Tabs , resetIdCounter} from 'react-tabs';
+import { Tab, TabList, TabPanel, Tabs, resetIdCounter } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Dropdown from 'components/general/Dropdown'
 import DropdownItem from 'components/general/DropdownItem';
