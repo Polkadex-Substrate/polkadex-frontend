@@ -3,7 +3,6 @@ import * as S from './styles'
 
 import Icon from 'components/general/Icon'
 import Logo from 'components/general/Logo'
-import ActiveLink from '../general/ActiveLink'
 import { useRouter } from 'next/router'
 
 const Menu = () => {
