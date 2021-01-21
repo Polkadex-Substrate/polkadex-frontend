@@ -37,11 +37,11 @@ export default function Swap({ account, blockchainApi }) {
     config: {
       duration: 250,
     },
-    left: isModalLeftAlign ? '86%' : '50%',
+    left: isModalLeftAlign ? '85%' : '50%',
     top: '40%',
     position: 'absolute',
     borderRadius: '5px',
-    height: isModalLeftAlign ? '86%' : '80%',
+    height: isModalLeftAlign ? '61rem' : '56rem',
 
     width: '25%',
     zIndex: 999,

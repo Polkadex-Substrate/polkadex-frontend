@@ -11,7 +11,7 @@ export const Wrapper = styled.main`
   flex-direction:column;
   height: 100vh;
   &.Active{
-    height: 151vh;
+    height: 160vh;
   }
   background-color: #1C2023;
   max-width: 192rem;
