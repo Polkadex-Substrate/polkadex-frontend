@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      { (asPath === '/dashboard' || asPath === '/wallet' || asPath === '/swap') && <Menu/>}
+      { (asPath === '/dashboard' || asPath === '/wallet') && <Menu/>}
       {children}
     </>
   )

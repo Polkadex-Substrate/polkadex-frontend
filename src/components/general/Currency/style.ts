@@ -62,17 +62,17 @@ export const Value = styled.div`
 `
 
 export const Row = styled.div<RowProps>`
-  ${({ theme }) => css`
+  ${({ active, theme }) => css`
     display: flex;
     justify-content: space-between;
     margin: 0.6rem 0;
     padding: 0 2rem;
-    border-left: 4px solid ${({active}) => active ? '#E6007A' : '#242633'};
+    border-left: 4px solid ${active ? '#E6007A' : '#242633'};
     cursor: pointer;
     font-size: 13px;
     font-weight: 400;
     
-    ${({active, theme}) => active && css`
+    ${active && css`
       ${Name}, ${Value} {
         color: ${theme.colors.primary};
       }
