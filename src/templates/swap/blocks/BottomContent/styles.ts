@@ -101,7 +101,7 @@ export const RightColumn = styled.div`
 export const BottomRightContentWrapper = styled.div`
 display:flex;
 flex-direction:row;
-padding-left:15rem;
+padding-left:12rem;
 align-items:center;
 `
 export const BottomColor = styled.div`
