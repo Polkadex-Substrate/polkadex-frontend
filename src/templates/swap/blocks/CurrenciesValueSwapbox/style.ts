@@ -23,6 +23,7 @@ export const DarkBlockWrapper = styled.div`
     border-radius: 15px;
     width: 40%;
     flex-direction:column;
+    font-weight:500;
     height: 100%;
     justify-content:flex-end;
     padding-bottom:1.4rem;
@@ -39,6 +40,7 @@ export const NoDarkBlockWrapper = styled.div`
     border-radius: 20px;
     width: 60%;
     flex-direction:column;
+    font-weight:500;
     height: 100%;
     justify-content:flex-end;
     padding-left:2rem;
@@ -53,6 +55,7 @@ export const NoDarkBlockWrapper = styled.div`
 export const SmallText = styled.span`
   font-size:1.2rem;
   color: #FFFFFFCC;
+  font-weight:500;
 `
 export const CoinImage = styled.img` 
   width: 20px;
@@ -66,4 +69,5 @@ export const RowInsideDarkBlockWrapper = styled.div`
     flex-direction:row;
     justify-content:space-evenly;
     opacity: 1;  
+    font-weight:500;
 `

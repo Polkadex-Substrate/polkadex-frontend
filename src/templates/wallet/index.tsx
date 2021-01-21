@@ -10,7 +10,7 @@ import BalanceHeader from './blocks/BalanceHeader'
 
 export type InputProps = {}
 
-export default function Wallet() {
+export default function Wallet( themetoggler) {
     const currenciesList = [
         {
             id: 1,
@@ -133,10 +133,9 @@ export default function Wallet() {
         setSearchInput(searchInput)
         setCurrencyList(currenciesList.filter(({ name, type }) => name.toLowerCase().search(searchInput.toLowerCase()) > -1 || type.toLowerCase().search(searchInput.toLowerCase()) > -1))
     }
-
     return (
         <S.WalletWrapper>
-            <Menu handleChange={() => setState(!state)}/>
+            <Menu handleChange={() => setState(!state)} />
             <S.WalletWrapperMain>
                 <Navbar/>
                 <BalanceHeader btcBalance={btcBalance} usdBalance={usdBalance}/>

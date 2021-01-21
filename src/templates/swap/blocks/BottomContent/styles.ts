@@ -39,7 +39,7 @@ export const LabelWithIcon = styled.div`
     padding-left:0.8rem;
     font-size:17px;
     font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
-    font-weight:medium;
+    font-weight:500;
     line-spacing:20px;
 `
 export const IconWrapper = styled.div`
@@ -77,7 +77,7 @@ export const BottomLabel = styled.div`
     align-items:center;
     font-size:17px;
     font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
-    font-weight:400;
+    font-weight:500;
     line-spacing:20px;
 `
 export const BottomTextWrapper = styled.div`

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled , { css } from 'styled-components'
 
 export const ContentHeading = styled.div`
     font-size: 5rem;
@@ -7,11 +7,12 @@ export const ContentHeading = styled.div`
     text-align: center;
     font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
     letter-spacing: 0px;
-    color: #FFFFFF;
     margin-top:3rem;
     margin-bottom:2rem;
+    ${({ theme }) => css`
+    color: ${theme.colors.NormalWhite}
+  `}
 `
-
 export const ContentBlur = styled.div`
   font-size:3rem;
   font-weight:normal;
@@ -24,7 +25,6 @@ export const ContentBlur = styled.div`
   color: #8BA1BE;
   opacity: 1;
 `
-
 export const BalanceHeaderWrapper = styled.div`
   padding-top: 8rem;
 `;

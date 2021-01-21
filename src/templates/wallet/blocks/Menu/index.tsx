@@ -5,8 +5,9 @@ import * as S from './styles'
 
 export type MenuProps = {
   handleChange?: ()=> void
-}
-const Menu = ({handleChange}:MenuProps) => (
+  toggletheme?: ()=>void
+} 
+const Menu = ({handleChange , toggletheme}:MenuProps) => (
   <S.Wrapper>
     <S.WrapperLinks>
       <Logo size="Medium" />
@@ -71,7 +72,7 @@ const Menu = ({handleChange}:MenuProps) => (
           <S.Span>Support</S.Span>
         </S.WrapperIcon>
       </S.Container>
-      <S.WrapperIcon onClick={() => console.log("Light Mode")} href="#">
+      <S.WrapperIcon onClick={() => toggletheme} href="#">
         <div>
           <Icon source="Sun" size="Small" background="LightGray"/>
         </div>

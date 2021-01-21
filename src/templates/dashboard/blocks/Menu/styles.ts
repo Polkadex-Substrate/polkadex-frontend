@@ -9,11 +9,9 @@ export const WrapperIcon = styled.a`
   width: 100%;
   cursor:pointer;
   border-radius: 4px;
-  
   &.active {
     background-color: #FF0877;
   }
-  
   :hover {
     opacity: 0.8;
   }
@@ -76,9 +74,6 @@ export const Container = styled.div`
   grid-row-gap:1rem;
 
 `
-
-
-
 export const WrapperProfile = styled.div`
   display: flex;
   flex-direction:column;

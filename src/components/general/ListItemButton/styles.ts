@@ -50,12 +50,10 @@ ${({ theme, size, darkMode, fullWidth, selected }) => css`
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   display: inline-block;
   cursor: pointer;
-
   ${wrapperModifier[size](theme)}
   ${darkMode ? wrapperModifier.Dark(theme) : wrapperModifier.Light(theme)}
   ${fullWidth && wrapperModifier.FullWidth()}
   ${selected && wrapperModifier.Selected()}
-
   :hover {
     opacity: ${theme.colors.black};
   }
@@ -67,8 +65,12 @@ ${({ theme, size, darkMode, fullWidth, selected }) => css`
   }
 `}
 `
-
 export const Image = styled.img`
-    width:32%;
-    padding-right:1rem;
+    width:20%;
+    margin-right:0.2rem;
+    
+`
+export const iconwrapper = styled.div`
+    display:flex;
+
 `

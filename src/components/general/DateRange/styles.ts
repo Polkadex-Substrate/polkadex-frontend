@@ -13,8 +13,7 @@ const wrapperModifier = {
 }
 export const Wrapper = styled.div`
   position: relative;
-
-  
+  margin-right:1rem;
 `
 export const WrapperCalendar = styled.div<Props>`
   position: absolute;
@@ -22,5 +21,6 @@ export const WrapperCalendar = styled.div<Props>`
   ${({ position }) => css`
     ${wrapperModifier[position]}
   `}
+
  
 `

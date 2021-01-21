@@ -22,7 +22,6 @@ const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransact
             {/* <Icon source="Edit" /> */}
             <S.HeaderFont>DOT/BTC</S.HeaderFont>
             <S.List>
-              
               <S.Item >
                 1H
               </S.Item>
@@ -41,14 +40,13 @@ const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransact
               <S.Item>
                 All
               </S.Item>
-              <DateRange position='left' backgroundcolor  = 'Black'/>
        
+             
             </S.List>
           </S.FlexWrapper>
-      
           <S.FlexWrapper>
             <S.List>
-              
+              <DateRange position='left' backgroundcolor  = 'Black'/>
               <ListItemButton title="Baseline" size="Default" icon= {true}  icontype='show_chart-white' />
               <ListItemButton title="Candle" size="Default" icon= {true}  icontype='Candles' />
               <Icon source="Expand"/>

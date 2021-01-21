@@ -1,10 +1,13 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Header = styled.div`
     display: flex;
     margin-bottom: 4rem; 
     align-items: center;
     justify-content: space-between;
+    ${({ theme }) => css`
+    color: ${theme.colors.NormalWhite}
+  `}
 `
 
 export const SymbolWrapper = styled.div`
@@ -45,16 +48,23 @@ export const InnerWrapper = styled.div`
     display: flex;
     flex-direction: column;
     margin-left: 1rem;
+    ${({ theme }) => css`
+    color: ${theme.colors.NormalWhite}
+  `}
 `
 
 export const Name = styled.span`
     font-size: 20px;
     margin-bottom: 0.25rem;
+    ${({ theme }) => css`
+    color: ${theme.colors.NormalWhite}
+  `}
 `
 
 export const Type = styled.span`
     color: #8BA1BE;
     font-size: 16px;
+    
 `
 
 export const ContentHeading = styled.span`

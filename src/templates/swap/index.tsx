@@ -44,7 +44,7 @@ export default function Swap({ account, blockchainApi }) {
     height: isModalLeftAlign ? '86%' : '80%',
 
     width: '25%',
-    zIndex: 1,
+    zIndex: 999,
     transform: 'translate(-50%,-50%)',
   })
 
@@ -60,15 +60,13 @@ export default function Swap({ account, blockchainApi }) {
             isPairAnalyticsVisible={isPairAnalyticsVisible}
           />  
       </S.Wrapper>
-      {isModalOpen && (
-        <S.Overlay>
+      {isModalOpen && (     
           <animated.div style={animationLeft}>
             <animated.div style={animation}>
               <ModalCryptoList modalCloseHandler={setisModalOpen} setCryptoListLeftHandler={setisModalLeftAlign}
                 />
             </animated.div>
-          </animated.div>
-        </S.Overlay>
+          </animated.div>       
       )}
     </S.Root>
   )

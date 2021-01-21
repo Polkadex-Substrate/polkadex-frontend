@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { RowProps } from './index'
 
@@ -70,7 +70,8 @@ export const Row = styled.div<RowProps>`
     border-left: 4px solid ${({active}) => active ? '#E6007A' : '#242633'};
     cursor: pointer;
     font-size: 13px;
-    font-weight: 400;
+    ${({ theme }) => css`
+    font-weight: ${theme.font.normal};`}
     
     &:hover {
       border-left: 4px solid #E6007A; 
