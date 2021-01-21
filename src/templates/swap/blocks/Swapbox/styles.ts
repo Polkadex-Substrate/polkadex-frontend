@@ -7,118 +7,67 @@ const customMedia = generateMedia({
   custom: '1366px'
 })
 
-export const SwapboxContainer = styled.div`
+export const SwapBoxContainer = styled.div`
 height:100%;
 display:flex;
 flex-direction:column;
 justify-content: center;
 align-items:center;
-padding-bottom:12rem;
+padding-bottom:5rem;
 `
-export const SwapboxWrapper = styled.div`
-width: 67%;
-
-background: #24252C 0% 0% no-repeat padding-box;
-box-shadow: 0px 100px 99px #0000002C;
-border-radius: 20px;
+export const SwapBoxWrapper = styled.div`
+width: 66%;
+height: 38rem;
 display:flex;
 flex-direction:column;
 justify-content: flex-start;
 align-items:center;
-  transition-duration: 0.8s;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.075, 1);
-  transition-delay: initial;
-  transition-property: initial;
-&.Active{
-  height: 55%;
-  transition-duration: 0.8s;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.075, 1);
-  transition-delay: initial;
-  transition-property: initial;
-}
-&.Not_Active{
-  height: 69%;
-  transition-duration: 0.1s;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.075, 0);
-  transition-delay: initial;
-  transition-property: initial;
-}
-
 `
-export const Rowone = styled.div`
+export const RowOne = styled.div`
 height:13%;
 display:flex;
-flex-direction:row;
+background: #24252C 0% 0% no-repeat padding-box;
+box-shadow: 0px 100px 99px #0000002C;
+border-radius: 20px 20px 0px 0px;
 width:100%;
 font-size:17px;
 font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 font-weight:400;
 justify-content:space-between;
+padding-top:0.5rem;
 `
 export const TextWrapper = styled.div`
 border-bottom:5px solid #0CA564;
-font-size:17px;
-font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
-font-weight:400;
 display:flex;
 align-items:center;
 padding-left:4rem;
 padding-right:4rem;
-border-radius:3px;
+border-radius:3px 0px 3px 0px;
 `
-export const TextWrapperwithoutborder = styled.div`
-font-size:17px;
-font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
-font-weight:400;
+export const TextWrapperWithoutBorder = styled.div`
 display:flex;
 align-items:center;
 padding-left:2.5rem;
 padding-right:4rem;
-padding-top:0.5rem;
-padding-bottom:2rem;
-${customMedia.lessThan('custom')`
-padding-top:0rem;
-`}
-&.Active{
-  padding-top:0rem;
-}
-
+padding-bottom:1rem;
+justify-content:space-between;
 `
 export const IconWrapper = styled.div`
 padding-left:1rem;
 `
 
-export const Rowtwo = styled.div`
-
+export const RowTwo = styled.div`
 display:flex;
 flex-direction:row;
+height: 68%;
 background: #2E303C 0% 0% no-repeat padding-box;
 box-shadow: 0px 100px 99px #0000002C;
 border-radius: 0px 30px 30px 30px;
 opacity: 1;
 width:120%;
-transition-duration: 0.8s;
-transition-timing-function: cubic-bezier(0.075, 0.82, 0.075, 1);
-transition-delay: initial;
-transition-property: initial;
-&.Active{
-  height: 87%;
-  transition-duration: 0.8s;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.075, 1);
-  transition-delay: initial;
-  transition-property: initial;
-}
-&.Not_Active{
-  height: 68%;
-  transition-duration: 0.1s;
-  transition-timing-function: cubic-bezier(0.075, 0.82, 0.075, 0);
-  transition-delay: initial;
-  transition-property: initial;
-
-}
 `
 
-export const Rowthree = styled.div`
+export const RowThree = styled.div`
 height:19%;
 display:flex;
 flex-direction:row;
@@ -127,53 +76,26 @@ justify-content:space-around;
 align-items:center;
 padding-left:1.5rem;
 padding-right:1.5rem;
-&.Active{
-  display:none
-}
-
-`
-
-export const Rowfour = styled.div`
-`
-
-export const smallfont = styled.div`
 font-size:1.6rem;
-`
 
-export const coinwrapper = styled.div`
-display:flex;
-flex-direction:row;
-align-items:center;
-
-`
-export const nameandvaluecolumn = styled.div`
-display:flex;
-flex-direction:column;
-`
-
-export const CoinImage = styled.img` 
-width: 20px;
-height: 20px;
-background: transparent 0% 0% no-repeat padding-box;
-opacity: 1;
-margin-right:1rem;
-`;
-
-export const blurtext = styled.div`
-color:#FFFFFF;
-font-weight:Regular;
-font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
-font-size:1.2rem;
-opacity: 0.5;
+transition: visibility 0s, opacity 0.5s linear;
+&.Active{ 
+  opacity: 0;
+}
+&.Not_Active{ 
+  background: #24252C 0% 0% no-repeat padding-box;
+  box-shadow: 0px 100px 99px #0000002C;
+  border-radius: 0px 0px 20px 20px; 
+  opacity: 1;
+}
 `
 
 export const Image = styled.img`
   width:4%;
 `
 
-export const bottomrow = styled.div`
+export const BottomRow = styled.div`
   display:flex;
-  flex-direction:row;
   width: 68%;
   justify-content:space-evenly;
   font-weight:400;
@@ -185,42 +107,35 @@ export const bottomrow = styled.div`
   margin-top:2rem;
   padding-left:1rem;
   padding-right:1rem;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.5s linear;
   &.Active{
-    display:none
+    opacity: 0;
   }
  `
 
- export const blur = styled.span`
-  color: #8BA1BE;
-  font-weight:400;
-  font-size:1.2rem; 
+ export const Blur = styled.span`
+  color: #8BA1BE;   
   padding-left:0.2rem;
-  padding-right:0.8rem; 
-  font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+  padding-right:0.8rem;  
   `
 
-  export const bottomtextwrapper = styled.div`
+  export const BottomTextWrapper = styled.div`
    display:flex;
-   flex-direction:row;
    ${customMedia.lessThan('custom')`
    font-size:1rem;
   `}
-
   `
-  export const noblurtext = styled.span`
-  font-weight:400;
-  font-size:1.2rem; 
-  ${customMedia.lessThan('custom')`
+  export const NoBlurText = styled.span`
+   ${customMedia.lessThan('custom')`
   font-size:1rem;
   padding-top:0.1rem;
  `}
   `
 
-  export const textspecialcolor = styled.div`
+  export const TextSpecialColor = styled.div`
   color: #E6007A;
-  font-weight:400;
-  font-size:1.2rem; 
-  ${customMedia.lessThan('custom')`
+   ${customMedia.lessThan('custom')`
   font-size:1rem;
   padding-top:0.1rem;
  `}

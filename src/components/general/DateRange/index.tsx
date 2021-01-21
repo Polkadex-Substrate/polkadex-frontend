@@ -8,8 +8,9 @@ import * as S from './styles'
 
 type Props = {
   position: 'right' | 'left'
+  backgroundcolor ? : any;
 }
-const DateRange = ( {position='right'}: Props ) => {
+const DateRange = ( {position='right' , backgroundcolor  = 'Gray'}: Props ) => {
   const [state, setState] = useState(false)
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
@@ -21,7 +22,7 @@ const DateRange = ( {position='right'}: Props ) => {
 
   return (
     <S.Wrapper>
-      <Icon source="Transactions" background="Gray" size="Medium" action={()=>setState(!state)} />
+      <Icon source="Transactions" background={backgroundcolor} size="Medium" action={()=>setState(!state)} />
       {state &&
         <S.WrapperCalendar position={position}>
         <DatePicker
