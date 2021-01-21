@@ -11,6 +11,10 @@ export const Wrapper = styled.div`
 export const Navbar = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 35%; 
+  align-items: center;
   text-align: center;
+  
+  div {
+    margin-left: 0.75rem;
+  }
 `;

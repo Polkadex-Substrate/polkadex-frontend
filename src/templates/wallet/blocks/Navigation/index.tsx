@@ -8,7 +8,7 @@ import NavbarLanguage from '../../../../components/general/NavbarLanguage'
 const Navigation = () => (
   <S.Wrapper>
     <S.Navbar>
-      <Link title="Market" href="#" />
+      <Link href="#">Market</Link>
       <NavbarDropdown title="Trade" />
       <NavbarDropdown title="Derivatives" />
       <NavbarDropdown title="Finance" />
