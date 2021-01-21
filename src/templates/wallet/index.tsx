@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import * as S from './styles'
 
 import CryptoCurrencies, { CurrencyDetails } from './blocks/CryptoCurrencies'
-
 import History from './blocks/History'
 import DepositWithdrawTab from './blocks/DepositWithdrawTab'
 import BalanceHeader from './blocks/BalanceHeader'
 import Menu from '../../components/Menu'
+import Navigation from './blocks/Navigation'
 
 export type InputProps = {}
 
@@ -135,9 +135,9 @@ export default function Wallet() {
 
   return (
     <S.WalletWrapper>
-      <Menu/>
+      <Menu />
       <S.WalletWrapperMain>
-        {/*<Navbar/>*/}
+        <Navigation />
         <BalanceHeader btcBalance={btcBalance} usdBalance={usdBalance}/>
         <S.BottomContentWrapper>
           <CryptoCurrencies currencyList={currencyList} setCurrency={currency => setCurrentCurrency(currency)}

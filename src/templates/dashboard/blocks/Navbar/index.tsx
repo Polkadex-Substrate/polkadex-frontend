@@ -1,7 +1,4 @@
-import Link from 'components/general/Link'
-import NavbarDropdown from 'components/general/NavbarDropdown'
 import NavbarItem from 'components/general/NavbarItem'
-import NavbarLanguage from 'components/general/NavbarLanguage'
 import NavbarPair from 'components/general/NavbarPair'
 import Dinero from "dinero.js"
 import { IMarketToken } from 'utils/Interfaces'
@@ -60,11 +57,6 @@ const Navbar = ({ blockValues, lastTradePrice, lastTradePriceType, account }: Pr
       </S.ContainerInfo>
     </S.WrapperInfo>
     <S.WrapperLinks>
-      {/*<Link title="Market" href="#" />*/}
-      {/*<NavbarDropdown title="Trade" />*/}
-      {/*<NavbarDropdown title="Derivatives" />*/}
-      {/*<NavbarDropdown title="Finance" />*/}
-      {/*<NavbarLanguage />*/}
       <S.AccountAddress>{ account?.address }</S.AccountAddress>
     </S.WrapperLinks>
   </S.Wrapper>
