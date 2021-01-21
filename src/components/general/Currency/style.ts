@@ -20,6 +20,20 @@ export const ImageWrapper = styled.div`
 export const Image = styled.img` 
     width: 27px;
     height: 27px;
+
+`
+export const ImageWrapper2 = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 1rem;
+    border:2px solid #000;
+`
+
+export const Image2 = styled.img` 
+    width: 32px;
+    height: 32px;
 `
 
 export const NameWrapper = styled.div`

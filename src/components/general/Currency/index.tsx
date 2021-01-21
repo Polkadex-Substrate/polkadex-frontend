@@ -11,10 +11,17 @@ const Currency = ({ currency, setCurrency, active, displayValue = true }) => {
   return (
     <S.Row onClick={setCurrency} active={active}>
       <S.DetailsWrapper>
-        <S.ImageWrapper>
-          <S.Image src={`img/cryptocurrencies/${currency.type}.png`}/>
-        </S.ImageWrapper>
+        { displayValue ?
 
+            <S.ImageWrapper>
+              <S.Image src={`img/cryptocurrencies/${currency.type}.png`}/>
+            </S.ImageWrapper>
+            :
+            <S.ImageWrapper2>
+            <S.Image2 src={`img/cryptocurrencies/${currency.type}.png`}/>
+            </S.ImageWrapper2>
+
+         }
         <S.NameWrapper>
           <S.Name>{currency.name}</S.Name>
           <S.Type>{currency.type}</S.Type>

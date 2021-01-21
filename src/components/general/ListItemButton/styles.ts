@@ -67,3 +67,8 @@ ${({ theme, size, darkMode, fullWidth, selected }) => css`
   }
 `}
 `
+
+export const Image = styled.img`
+    width:32%;
+    padding-right:1rem;
+`

@@ -1,23 +1,20 @@
 import * as S from './styles'
 
 export type SidebarDropdownProps = {
-  backgroundcolor: string;
+  backgroundColor: string;
   rotation:string;
-  hoverrotation:string;
+  hoverRotation:string;
   icon?: 'None' | 'ArrowTop' | 'ArrowDownBlack'
 }
 
 
 
-const SidebarDropdown = ({ rotation = 'rotate(270deg)', backgroundcolor='#1C2023', hoverrotation='rotate(0deg)' , icon='ArrowTop'}: SidebarDropdownProps) => {
+const SidebarDropdown = ({ rotation = 'rotate(270deg)', backgroundColor='#1C2023', hoverRotation='rotate(0deg)' , icon='ArrowTop'}: SidebarDropdownProps) => {
   return (
-    <S.Wrapper hoverrotation={hoverrotation}>
-     
-        <S.WrapperImage backgroundcolor = {backgroundcolor}>
+    <S.Wrapper hoverRotation={hoverRotation}>
+        <S.WrapperImage backgroundColor = {backgroundColor}>
           <S.Image src={`/img/icons/${icon}.svg`} rotation = {rotation} />
-        </S.WrapperImage>
-      
-     
+        </S.WrapperImage>     
     </S.Wrapper>
   )
 }
