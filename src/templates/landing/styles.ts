@@ -174,7 +174,7 @@ export const Warning = styled.div`
 
 export const Page = styled.div`
   ${customMedia.greaterThan('custom')`
-    display: flex;
+    display: block;
   `}
   
   ${customMedia.lessThan('custom')`

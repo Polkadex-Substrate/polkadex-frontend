@@ -61,18 +61,18 @@ export default function Swap({ account, blockchainApi }) {
             openBottomChartCss={openBottomChartCss}
             OnClickPairAnalyticsPanel={OnClickPairAnalyticsPanel}
             isPairAnalyticsVisible={isPairAnalyticsVisible}
-          />  
+          />
       </S.Wrapper>
-      {isModalOpen && (
-        <S.Overlay>
-          <animated.div style={animationLeft}>
-            <animated.div style={animation}>
-              <ModalCryptoList modalCloseHandler={setisModalOpen} setCryptoListLeftHandler={setisModalLeftAlign}
-                />
-            </animated.div>
-          </animated.div>
-        </S.Overlay>
-      )}
+      {/*{isModalOpen && (*/}
+        {/*<S.Overlay>*/}
+          {/*<animated.div style={animationLeft}>*/}
+            {/*<animated.div style={animation}>*/}
+              {/*<ModalCryptoList modalCloseHandler={setisModalOpen} setCryptoListLeftHandler={setisModalLeftAlign}*/}
+                {/*/>*/}
+            {/*</animated.div>*/}
+          {/*</animated.div>*/}
+        {/*</S.Overlay>*/}
+      {/*)}*/}
     </S.Root>
   )
 }

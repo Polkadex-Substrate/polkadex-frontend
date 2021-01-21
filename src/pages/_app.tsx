@@ -10,7 +10,6 @@ import theme from 'styles/theme'
 import WarningAlert from '../components/general/WarningAlert'
 import { toast } from 'react-toastify'
 import Toast from '../components/general/Toast'
-import Layout from '../components/common/Layout'
 
 function App({ Component, pageProps }: AppProps) {
   const [account, setAccount] = useState<any>();
@@ -198,9 +197,7 @@ function App({ Component, pageProps }: AppProps) {
         </S.Warning>
         <Toast/>
         <S.Page>
-          <Layout>
-            <Component {...pageProps} account={account} setAccount={address => setAccount(address)} allAccounts={allAccounts} blockchainApi={blockchainApi} />
-          </Layout>
+          <Component {...pageProps} account={account} setAccount={address => setAccount(address)} allAccounts={allAccounts} blockchainApi={blockchainApi} />
         </S.Page>
       </ThemeProvider>
     </>

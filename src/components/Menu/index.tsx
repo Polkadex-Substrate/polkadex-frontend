@@ -4,8 +4,12 @@ import * as S from './styles'
 import Icon from 'components/general/Icon'
 import Logo from 'components/general/Logo'
 import ActiveLink from '../general/ActiveLink'
+import { useRouter } from 'next/router'
 
 const Menu = () => {
+
+  const { asPath } = useRouter()
+
   return (
     <S.Wrapper>
       <S.WrapperLinks>
@@ -18,38 +22,32 @@ const Menu = () => {
             <S.Span>Markets</S.Span>
           </S.WrapperIcon>
 
-          <ActiveLink href="/dashboard" activeClassName="active">
-            <S.WrapperIcon>
-              <div>
-                <Icon source="Exchange" size="Small" background="None"/>
-              </div>
-              <div>
-                <S.Span>Exchange</S.Span>
-              </div>
-            </S.WrapperIcon>
-          </ActiveLink>
+          <S.WrapperIcon href={asPath === '/dashboard' ? '#' : '/dashboard'} className={asPath === '/dashboard' && 'active'}>
+            <div>
+              <Icon source="Exchange" size="Small" background="None"/>
+            </div>
+            <div>
+              <S.Span>Exchange</S.Span>
+            </div>
+          </S.WrapperIcon>
 
-          <ActiveLink href="/wallet" activeClassName="active">
-            <S.WrapperIcon>
-              <div>
-                <Icon source="Wallet" size="Small" background="None"/>
-              </div>
-              <div>
-                <S.Span>Wallets</S.Span>
-              </div>
-            </S.WrapperIcon>
-          </ActiveLink>
+          <S.WrapperIcon href={asPath === '/wallet' ? '#' : '/wallet'} className={asPath === '/wallet' && 'active'}>
+            <div>
+              <Icon source="Wallet" size="Small" background="None"/>
+            </div>
+            <div>
+              <S.Span>Wallets</S.Span>
+            </div>
+          </S.WrapperIcon>
 
-          <ActiveLink href="/swap" activeClassName="active">
-            <S.WrapperIcon>
-              <div>
-                <Icon source="News" size="Small" background="None"/>
-              </div>
-              <div>
-                <S.Span>Swap</S.Span>
-              </div>
-            </S.WrapperIcon>
-          </ActiveLink>
+          <S.WrapperIcon href={asPath === '/swap' ? '#' : '/swap'} className={asPath === '/swap' && 'active'}>
+            <div>
+              <Icon source="News" size="Small" background="None"/>
+            </div>
+            <div>
+              <S.Span>Swap</S.Span>
+            </div>
+          </S.WrapperIcon>
         </S.Container>
 
         <S.Container>

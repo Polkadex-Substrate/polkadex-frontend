@@ -105,15 +105,16 @@ export default function Dashboard({ account, blockchainApi }) {
 
   useEffect(() => {
     const webSocketInstance = webSocket;
-    // fetchMarketData(webSocketInstance)
-    // fetchOrderBookBids(webSocketInstance)
-    // fetchOrderBookAsks(webSocketInstance)
-    // fetchLastTrade(webSocketInstance);
-    // fetchNewTrade(webSocketInstance);
+    fetchMarketData(webSocketInstance)
+    fetchOrderBookBids(webSocketInstance)
+    fetchOrderBookAsks(webSocketInstance)
+    fetchLastTrade(webSocketInstance);
+    fetchNewTrade(webSocketInstance);
   }, [])
 
   return (
     <S.Wrapper>
+      <Menu />
       {/*{state && <Market/>}*/}
       <S.WrapperMain >
         <Navbar account={account} lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType}
