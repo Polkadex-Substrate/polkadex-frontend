@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import * as S from './styles'
 
 import CryptoCurrencies, { CurrencyDetails } from './blocks/CryptoCurrencies'
-import Menu from './blocks/Menu'
-import Navbar from './blocks/Navbar'
+
 import History from './blocks/History'
 import DepositWithdrawTab from './blocks/DepositWithdrawTab'
 import BalanceHeader from './blocks/BalanceHeader'
@@ -122,7 +121,6 @@ export default function Wallet() {
             side: 'AskLimit'
         },
     ]
-    const [state, setState] = useState(false)
     const [btcBalance, setBtcBalance] = useState(0.93871332)
     const [usdBalance, setUsdBalance] = useState(4243)
     const [currentCurrency, setCurrentCurrency] = useState(currenciesList[0])
@@ -136,9 +134,8 @@ export default function Wallet() {
 
     return (
         <S.WalletWrapper>
-            <Menu handleChange={() => setState(!state)}/>
             <S.WalletWrapperMain>
-                <Navbar/>
+                {/*<Navbar/>*/}
                 <BalanceHeader btcBalance={btcBalance} usdBalance={usdBalance}/>
                 <S.BottomContentWrapper>
                     <CryptoCurrencies currencyList={currencyList} setCurrency={currency => setCurrentCurrency(currency)}

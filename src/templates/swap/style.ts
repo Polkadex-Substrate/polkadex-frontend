@@ -147,6 +147,8 @@ border-radius: 20px;
 
 export const Root = styled.div`
   position: relative;
+  display: block;
+  width: 100%;
 `;
 
 export const Overlay = styled.div`

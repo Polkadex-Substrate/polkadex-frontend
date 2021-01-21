@@ -12,13 +12,6 @@ export const WrapperIcon = styled.a`
   &.active {
     background-color: #FF0877;
   }
-  
-  :hover {
-    opacity: 0.8;
-  }
-  :active {
-    background-color: rgb(255, 8, 119);
-  }
 `
 
 export const Span = styled.span`
@@ -48,21 +41,22 @@ export const Wrapper = styled.nav`
   display: grid;
   grid-template-rows: 1.5fr 1fr;
   height: 100vh;
-  width: 4.5rem;
+  width: 5rem;
   transition-duration: 0.8s;
   transition-timing-function: cubic-bezier(0.075, 0.82, 0.075, 1);
   transition-delay: initial;
   transition-property: initial;
-  & :hover, :hover ${WrapperLinks} {
+  
+  &:hover, :hover ${WrapperLinks} {
     width: 17rem;
   }
   
-  & :hover ${LogoText} {
+  &:hover ${LogoText} {
     display:block;
     opacity: 1;
   }
   
-  & :hover ${Span} {
+  &:hover ${Span} {
     display:block;
     opacity: 1;
   }
@@ -75,7 +69,6 @@ export const Logo = styled.img`
 export const Container = styled.div`
   display: grid;
   grid-row-gap:1rem;
-
 `
 
 export const WrapperProfile = styled.div`
