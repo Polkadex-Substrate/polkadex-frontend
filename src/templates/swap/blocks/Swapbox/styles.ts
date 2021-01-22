@@ -51,7 +51,7 @@ padding-left:2.5rem;
 padding-right:4rem;
 padding-bottom:1rem;
 justify-content:space-between;
-font-size: 1.3rem;
+font-size: 1.4rem;
 font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
 font-weight:400;
 `
