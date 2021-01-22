@@ -40,7 +40,7 @@ export default function Landing({ account, allAccounts, setAccount }) {
       <S.ContentWrapper>
         <S.DisclaimerWrapper>
           <S.ContentHeading>Disclaimer</S.ContentHeading>
-          <S.Content>The following interface shows simulated trades from one of the largest centralized exchanges, processing about 20-30 trades per second on average for BTC-USDT. In this release, the public cannot submit trades as it is a private testnet release to find the stability of Polkadex nodes. There will be frequent restarts of the testnet by our development team. The next release of our testnet will enable public to run a node, check the blocks and submit trades. Most of the features are disabled for now and will be enabled as per the following schedule.</S.Content>
+          <S.Content>The following interface shows simulated trades from one of the largest centralized exchanges, processing about 20-30 trades per second on average for BTC-USDT. In this release, the public can place trades and play around with the exchange interface. The testnet tokens required for this can be asks in the Polkadex telegram group. There will be frequent restarts of the testnet by our development team. The next release of our testnet will enable public to run a node. Most of the features are disabled for now and will be enabled as per the following schedule.</S.Content>
           <S.Account>
             <S.DropdownWrapperWithErrorMessage>
               <S.DropdownWrapper>
