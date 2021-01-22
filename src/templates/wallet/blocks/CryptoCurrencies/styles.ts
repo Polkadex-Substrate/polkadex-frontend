@@ -4,8 +4,8 @@ export const CryptoCurrenciesWrapper = styled.div`
     display:flex;
     flex-direction:column;
     ${({ theme }) => css`
-    background-color: ${theme.colors.NormalWhite}
-    `}   
+    background-color: ${theme.colors.componentbackground}
+    `}  ;
     border-radius: 0 3rem 3rem 3rem;
     height: 100%;
     padding: 2rem 0 3rem 0rem;

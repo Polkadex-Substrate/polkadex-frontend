@@ -40,8 +40,8 @@ export const TabHeader = styled.div<TabHeaderProps>`
 `
 export const Wrapper = styled.div`
     ${({ theme }) => css`
-    background-color: ${theme.colors.NormalWhite}
-    `} 
+    background-color: ${theme.colors.componentbackground}
+    `}  ;
     border-radius: 0 3rem 3rem 3rem;
     padding: 6rem 3rem 3rem;
     box-shadow: 0px 0px 99px rgba(0, 0, 0, 0.65);

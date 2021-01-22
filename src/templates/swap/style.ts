@@ -46,14 +46,7 @@ export const Root = styled.div`
   display: block;
   width: 100%;
   background-color: #1C2023;
-<<<<<<< HEAD
  
-=======
-`;
-
-export const Overlay = styled.div`
-  position: fixed;
->>>>>>> 4b7adb9e99ac2d790c098e2b345f8f68b4330239
   top: 0;
   left: 0;
   bottom: 0;
