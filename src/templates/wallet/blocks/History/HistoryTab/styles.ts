@@ -17,6 +17,7 @@ export const MainWrapper = styled.div`
 
 export const TimeAndHashWrapper = styled.div`
     font-size: 13px;
+    font-family: Work Sans Medium;
 `
 
 export const Hash = styled.div`
@@ -24,6 +25,7 @@ export const Hash = styled.div`
     font-size: 12px;
     margin-top: 0.25rem;
     color: #8BA1BE;
+    font-family: Work Sans;
 `
 
 export const CurrencyWrapper = styled.div`
@@ -40,6 +42,8 @@ export const Image = styled.img`
 `
 
 export const Currency = styled.div<CurrencyProps>`
+    font-family: Work Sans Medium;
+    
     ${({ side, theme }) => css`
         color: ${side === 'AskLimit' ? theme.colors.primary : theme.colors.green}
     `}

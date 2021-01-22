@@ -12,7 +12,8 @@ export const NormalTextWrapper = styled.div`
 `
 
 export const QrHeading = styled.div`
-    font-size: 17px;
+    font-size: 15px;
+    font-family: Work Sans Medium;
 `
 
 export const AddressWrapper = styled.div`

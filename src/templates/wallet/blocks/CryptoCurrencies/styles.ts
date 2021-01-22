@@ -11,15 +11,14 @@ export const CryptoCurrenciesWrapper = styled.div`
 `
 
 export const WrapperTitle = styled.div`
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
     padding-right: 2rem;
     padding-left: 2rem;
-    font-weight: 400;
-    font-size:medium;
+    font-family: Work Sans Medium;
 `
 
 export const ContainerActions = styled.div`

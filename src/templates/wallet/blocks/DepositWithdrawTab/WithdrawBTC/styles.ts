@@ -5,6 +5,7 @@ export const Header = styled.div`
     margin-bottom: 4rem; 
     align-items: center;
     justify-content: space-between;
+    font-family: Work Sans Medium;
 `
 
 export const SymbolWrapper = styled.div`
@@ -90,6 +91,7 @@ export const TextWrapper = styled.div`
     justify-content: space-between;
     margin: 1rem 0 2rem;
     font-size: 13px;
+    font-family: Work Sans Medium;
 `
 
 export const Blur = styled.span`
@@ -100,10 +102,12 @@ export const DisclaimerWrapper = styled.div`
     font-size: 13px;
     text-align: center;
     margin-top: 8rem;
+    font-family: Work Sans Medium;
 `
 
 export const Disclaimer = styled.div`
     font-size: 12px;
     color: #6780A2;
     margin-top: 1.5rem;
+    font-family: Work Sans;
 `
