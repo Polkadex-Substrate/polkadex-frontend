@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { animated, useSpring } from 'react-spring'
+import Link from 'next/link'
 import * as S from './style'
 
 import ModalCryptoList from 'components/general/ModalCryptoList'
@@ -51,14 +52,16 @@ export default function Swap({ account, blockchainApi }) {
   return (
     <S.Root>
       <S.Wrapper className={openBottomChartCss}>      
+        <Link href="/dashboard">
           <S.Header>
             <S.PolkaLogo src="img/Logo.svg" alt="Polkadex" />
           </S.Header>
+        </Link>
           <BottomContent openCryptoListModal={openCryptoListModal}
             openBottomChartCss={openBottomChartCss}
             OnClickPairAnalyticsPanel={OnClickPairAnalyticsPanel}
             isPairAnalyticsVisible={isPairAnalyticsVisible}
-          />  
+          />
       </S.Wrapper>
       {isModalOpen && (     
           <animated.div style={animationLeft}>

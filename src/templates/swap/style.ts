@@ -2,9 +2,8 @@ import styled from 'styled-components'
 import { generateMedia } from 'styled-media-query'
 
 const customMedia = generateMedia({
-    custom: '1199px'
-  })
-  
+  custom: '1199px'
+})
 
 export const Wrapper = styled.main`
   display: flex;
@@ -44,8 +43,17 @@ export const PolkaLogo = styled.img`
 
 export const Root = styled.div`
   position: relative;
+  display: block;
+  width: 100%;
   background-color: #1C2023;
+<<<<<<< HEAD
  
+=======
+`;
+
+export const Overlay = styled.div`
+  position: fixed;
+>>>>>>> 4b7adb9e99ac2d790c098e2b345f8f68b4330239
   top: 0;
   left: 0;
   bottom: 0;

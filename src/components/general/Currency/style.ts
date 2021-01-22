@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-
 import { RowProps } from './index'
 
 export const DetailsWrapper = styled.div`
@@ -63,21 +62,28 @@ export const Value = styled.div`
 `
 
 export const Row = styled.div<RowProps>`
+  ${({ active, theme }) => css`
     display: flex;
     justify-content: space-between;
     margin: 0.6rem 0;
     padding: 0 2rem;
-    border-left: 4px solid ${({active}) => active ? '#E6007A' : '#242633'};
+    border-left: 4px solid ${active ? '#E6007A' : '#242633'};
     cursor: pointer;
     font-size: 13px;
-    ${({ theme }) => css`
-    font-weight: ${theme.font.normal};`}
+    font-weight: 400;
+    
+    ${active && css`
+      ${Name}, ${Value} {
+        color: ${theme.colors.primary};
+      }
+    `}
     
     &:hover {
-      border-left: 4px solid #E6007A; 
+      border-left: 4px solid ${theme.colors.primary}; 
       
         ${Name}, ${Value} {
-          color: #E6007A;
+          color: ${theme.colors.primary};
         }
     }
+  `}
 `

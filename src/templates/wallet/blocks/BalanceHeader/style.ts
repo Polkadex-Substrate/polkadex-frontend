@@ -26,5 +26,5 @@ export const ContentBlur = styled.div`
   opacity: 1;
 `
 export const BalanceHeaderWrapper = styled.div`
-  padding-top: 8rem;
+  padding-top: 6rem;
 `;

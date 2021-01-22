@@ -3,15 +3,14 @@ import React, { useEffect,useState } from 'react'
 import { webSocket } from '../../components/dashboard/CustomChart/api/stream'
 import Graph from './blocks/Graph'
 import MarketOrder from './blocks/MarketOrder'
-import Menu from './blocks/Menu'
-import Navbar from './blocks/Navbar'
+import Menu from '../../components/Menu'
 import Transactions from './blocks/Transactions'
 import * as S from './styles'
 import Toast from '../../components/general/Toast'
+import Navbar from './blocks/Navbar'
 
 export default function Dashboard({ account, blockchainApi }) {
 
-  const [state, setState] = useState(false)
   const [orderBookBids, setOrderBookBids] = useState([])
   const [orderBookAsks, setOrderBookAsks] = useState([])
   const [volume, setVolume] = useState(0);
@@ -115,12 +114,12 @@ export default function Dashboard({ account, blockchainApi }) {
 
   return (
     <S.Wrapper>
-      <Menu handleChange={() => setState(!state)} />
+      <Menu />
       {/*{state && <Market/>}*/}
       <S.WrapperMain >
         <Navbar account={account} lastTradePrice={lastTradePrice} lastTradePriceType={lastTradePriceType}
         blockValues={{volume, high, low, blockPrice}}/>
-        <S.WrapperGraph marketActive={state}>
+        <S.WrapperGraph>
           <Graph orderBookAsks={orderBookAsks}
                  orderBookBids={orderBookBids}
                  latestTransaction={lastTradePrice}
