@@ -21,7 +21,11 @@ export const TabHeader = styled.div<TabHeaderProps>`
         grid-template-columns: 1.2fr 0.8fr;
         padding-bottom: 2rem;
         align-items: center;
-        font-weight: 400;        
+        ${({ theme }) => css`
+        font-weight: ${theme.font.normal};
+        color :${theme.colors.NormalWhite} 
+        `}  ;
+              
         ${media.lessThan('large')`
             grid-template-columns: 1fr;
             grid-row-gap: 2rem;
@@ -40,11 +44,12 @@ export const TabHeader = styled.div<TabHeaderProps>`
 `
 export const Wrapper = styled.div`
     ${({ theme }) => css`
-    background-color: ${theme.colors.componentbackground}
+    background-color: ${theme.colors.componentbackground};
+    box-shadow: ${theme.shadow.largecomponentshadow};
     `}  ;
     border-radius: 0 3rem 3rem 3rem;
     padding: 6rem 3rem 3rem;
-    box-shadow: 0px 0px 99px rgba(0, 0, 0, 0.65);
+    
     font-size: 16px;
     ${({ theme }) => css`
     color: ${theme.colors.NormalWhite}

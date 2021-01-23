@@ -7,7 +7,11 @@ export default{
   border: {
     radius: '0.7rem'
   },
+  shadow:{
+    largecomponentshadow:'0px -36px 99px rgba(0, 0, 0, 0.5);'
 
+
+  },
   font: {
     family:
       "Work Sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
@@ -45,7 +49,8 @@ export default{
     gray: '#2E303C',
     darkGray: '#1c2023',
     none:"none",
-    componentbackground:"#FFFFFF"
+    componentbackground:"#FFFFFF",
+    dropdownbackgroundcolor:"#2E303C"
   },
  
   spacings: {
@@ -85,6 +90,12 @@ export const lightTheme = {
     radius: '0.7rem'
   },
 
+  shadow:{
+    largecomponentshadow:'0px 0px 0px rgba(0,0,0,0.65);'
+
+
+  },
+
   font: {
     family:
       "Work Sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
@@ -116,13 +127,15 @@ export const lightTheme = {
     green:'#0CA564',
     mainBg: '#F9FBFC',
     white: '#FAFAFA',
-    black: '#030517',
+    black: '#EBEEF4',
     lightGray: '#EBEEF4',
-    gray: '#2E303C',
-    darkGray: '#1c2023',
+    gray: '#EBEEF4',
+    darkGray: '#EBEEF4',
     NormalWhite:"#000000",
     none:"none",
     componentbackground:"#FFFFFF",
+    dropdownbackgroundcolor:"#EBEEF4"
+    
     
   },
  
@@ -162,6 +175,9 @@ export const blackTheme = {
   border: {
     radius: '0.7rem'
   },
+  shadow:{
+    largecomponentshadow:'0px 0px 99px rgba(0,0,0,0.65);'
+  },
 
   font: {
     family:
@@ -200,7 +216,8 @@ export const blackTheme = {
     gray: '#2E303C',
     darkGray: '#1c2023',
     none:"none",
-    componentbackground:"#242633"
+    componentbackground:"#242633",    
+    dropdownbackgroundcolor:"#2E303C"
   },
  
   spacings: {

@@ -1,12 +1,9 @@
 import { useEffect, useState } from 'react'
+import { useTheme,Theme } from 'Context/ThemeContext';
 
 import * as S from './styles'
 
-// type DropdownItem = {
-//  title: string
-//  link?: string
-//  action?:()=> void
-// }
+
 export type DropdownProps = {
   title: string | number,
   children?: JSX.Element
@@ -16,7 +13,7 @@ export type DropdownProps = {
 }
 
 const Dropdown = ({ title="Select Value", children, active, setDropdownState }: DropdownProps) => {
-
+  const { theme, setTheme } = useTheme();
   useEffect(() => {
     setState(active);
   }, [active])
@@ -27,7 +24,13 @@ const Dropdown = ({ title="Select Value", children, active, setDropdownState }: 
       <S.Header onClick={() => setDropdownState(!active)}>
         <S.Title>{title}</S.Title>
         <S.WrapperImage>
-          <S.Image src="/img/icons/ArrowTop.svg" active={state}/>
+        {theme ==  Theme.Dark
+          ?
+          <S.Image src={"/img/icons/ArrowTop.svg"} active={state}/>
+          :
+          <S.Image2 src={"/img/icons/ArrowDownBlack.svg"} active={state}/>
+          }
+      
         </S.WrapperImage>
       </S.Header>
       {state &&

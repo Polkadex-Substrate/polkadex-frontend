@@ -10,8 +10,9 @@ export const Image = styled.img<Partial<NavbarDropdownProps>>`
 export const WrapperContent = styled.div`
   position: absolute;
   right: 0;
-  background-color:#2E303C;
-  color: white;
+   ${({ theme }) => css`
+  background-color: ${theme.colors.dropdownbackgroundcolor};
+  `}  ;
   border-radius: 0 1rem 1rem 1rem;
   padding: 1rem;
   -webkit-box-shadow: 0 7px 18px 0 rgba(0, 0, 0, 0.27);
@@ -50,6 +51,13 @@ export const Header = styled.div`
 
 export const Title = styled.span`
   margin-right:0.5rem;
+  ${({ theme }) => css`
+  color: ${theme.colors.NormalWhite} 
+  `}  ;
+  ${({ theme }) => css`
+  font-weight: ${theme.font.normal} 
+  `}  
+  
   
 `
 
@@ -58,7 +66,9 @@ ${({ theme }) => css`
   display: flex;
   align-items:center;
   justify-content: center;
-  background: ${theme.colors.gray};
+  ${({ theme }) => css`
+  background-color: ${theme.colors.dropdownbackgroundcolor}
+  `}  ;
   border-radius: 0.5rem;
   width: 2rem;
 	height: 2rem;

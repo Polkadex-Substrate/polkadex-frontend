@@ -6,8 +6,9 @@ export const Header = styled.div`
     align-items: center;
     justify-content: space-between;
     ${({ theme }) => css`
-    color: ${theme.colors.NormalWhite}
-  `}
+        font-weight: ${theme.font.normal};
+        color :${theme.colors.NormalWhite} 
+        `} 
 `
 
 export const SymbolWrapper = styled.div`
@@ -49,16 +50,18 @@ export const InnerWrapper = styled.div`
     flex-direction: column;
     margin-left: 1rem;
     ${({ theme }) => css`
-    color: ${theme.colors.NormalWhite}
-  `}
+    font-weight: ${theme.font.normal};
+    color :${theme.colors.NormalWhite} 
+    `} 
 `
 
 export const Name = styled.span`
     font-size: 20px;
     margin-bottom: 0.25rem;
     ${({ theme }) => css`
-    color: ${theme.colors.NormalWhite}
-  `}
+    font-weight: ${theme.font.normal};
+    color :${theme.colors.NormalWhite} 
+    `} 
 `
 
 export const Type = styled.span`

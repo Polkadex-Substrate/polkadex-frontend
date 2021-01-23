@@ -48,7 +48,6 @@ export default function Swap({ account, blockchainApi }) {
     zIndex: 999,
     transform: 'translate(-50%,-50%)',
   })
-
   return (
     <S.Root>
       <S.Wrapper className={openBottomChartCss}>      

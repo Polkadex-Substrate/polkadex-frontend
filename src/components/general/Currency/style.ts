@@ -67,10 +67,10 @@ export const Row = styled.div<RowProps>`
     justify-content: space-between;
     margin: 0.6rem 0;
     padding: 0 2rem;
-    border-left: 4px solid ${active ? '#E6007A' : '#242633'};
+    border-left: 4px solid ${active ? '#E6007A' : theme.colors.componentbackground};
     cursor: pointer;
     font-size: 13px;
-    font-weight: 400;
+    font-weight: ${theme.font.normal};
     
     ${active && css`
       ${Name}, ${Value} {

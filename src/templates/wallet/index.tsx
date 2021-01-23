@@ -135,7 +135,7 @@ export default function Wallet() {
 
   return (
     <S.WalletWrapper>
-      <Menu />
+      <Menu  />
       <S.WalletWrapperMain>
         <Navigation />
         <BalanceHeader btcBalance={btcBalance} usdBalance={usdBalance}/>

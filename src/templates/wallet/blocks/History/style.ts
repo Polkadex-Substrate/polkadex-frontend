@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import  { css } from 'styled-components'
 
 export const RightCurrencyColumn = styled.div`
     display: flex;
@@ -12,6 +13,11 @@ export const HistoryHeader = styled.div`
     font-size: 16px;
     justify-content: space-between; 
     align-items: center;
+    ${({ theme }) => css`
+    font-weight: ${theme.font.normal};
+    color: ${theme.colors.NormalWhite}
+    `}
+    
 `
 
 export const FilterAndSettingWrapper = styled.div`

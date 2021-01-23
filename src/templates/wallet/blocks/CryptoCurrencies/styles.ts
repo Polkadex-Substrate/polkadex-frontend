@@ -4,12 +4,13 @@ export const CryptoCurrenciesWrapper = styled.div`
     display:flex;
     flex-direction:column;
     ${({ theme }) => css`
-    background-color: ${theme.colors.componentbackground}
+    background-color: ${theme.colors.componentbackground};
+    box-shadow: ${theme.shadow.largecomponentshadow}
     `}  ;
     border-radius: 0 3rem 3rem 3rem;
     height: 100%;
     padding: 2rem 0 3rem 0rem;
-    box-shadow: 0px 0px 99px rgba(0,0,0,0.65);
+    box-shadow: 
 `
 export const WrapperTitle = styled.div`
     display:flex;

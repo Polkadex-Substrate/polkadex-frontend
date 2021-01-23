@@ -21,7 +21,7 @@ ${({ theme }) => css`
   display: flex;
   align-items:center;
   justify-content: center;
-  background: ${theme.colors.gray};
+  background:  ${theme.colors.dropdownbackgroundcolor};
   border-radius: 0.5rem;
   width: 2rem;
 	height: 2rem;
@@ -32,10 +32,11 @@ ${({ theme }) => css`
 `}
 `
 export const WrapperContent = styled.div`
+${({ theme }) => css`
   position: absolute;
   right: 0;
-  background-color:#2E303C;
-  color: white;
+  background-color: ${theme.colors.dropdownbackgroundcolor};
+  color: ${theme.colors.NormalWhite};
   border-radius: 0 1rem 1rem 1rem;
   padding: 1rem;
   -webkit-box-shadow: 0 7px 18px 0 rgba(0, 0, 0, 0.27);
@@ -46,7 +47,7 @@ export const WrapperContent = styled.div`
   a {
     padding: 0.5rem;
   }
-`;
+`}`;
 export const Wrapper = styled.div`
   width: fit-content;
   position: relative;
@@ -70,8 +71,12 @@ export const Header = styled.div`
 `
 
 export const Title = styled.span`
-  margin-right:0.5rem;
-`
+${({ theme }) => css`
+ margin-right:0.5rem;
+ color: ${theme.colors.NormalWhite};
+ font-weight: ${theme.font.normal};
+ `
+}`
 
 export const ContainerContent = styled.div`
   display: grid;
