@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from 'react'
-
 import { ApiPromise, WsProvider } from '@polkadot/api'
 import * as S from '../templates/landing/styles'
-
 import { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from 'styles/global'
-import theme from 'styles/theme'
+import {lightTheme,blackTheme} from 'styles/theme'
 import WarningAlert from '../components/general/WarningAlert'
 import { toast } from 'react-toastify'
 import Toast from '../components/general/Toast'
+import { ThemeContext, Theme } from '../Context/ThemeContext';
 
 function App({ Component, pageProps }: AppProps) {
   const [account, setAccount] = useState<any>();
   const [allAccounts, setAllAccounts] = useState<any>();
   const [blockchainApi, setBlockchainApi] = useState<any>();
+  const [theme, setTheme] = useState(Theme.Dark);
+  
+
+
+  
 
   useEffect(() => {
     const getExtensionAddress = async () => {
@@ -190,16 +194,18 @@ function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
+    <ThemeContext.Provider  value={{ theme, setTheme }}>
+      <ThemeProvider theme={theme === Theme.Light ? lightTheme : blackTheme}>
         <GlobalStyles />
         <S.Warning>
           <WarningAlert/>
         </S.Warning>
         <Toast/>
         <S.Page>
-          <Component {...pageProps} account={account} setAccount={address => setAccount(address)} allAccounts={allAccounts} blockchainApi={blockchainApi} />
+          <Component {...pageProps}  currentTheme={theme}  account={account} setAccount={address => setAccount(address)} allAccounts={allAccounts} blockchainApi={blockchainApi} />
         </S.Page>
       </ThemeProvider>
+    </ThemeContext.Provider> 
     </>
   )
 }

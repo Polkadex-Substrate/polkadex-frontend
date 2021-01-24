@@ -4,10 +4,13 @@ import * as S from './styles'
 import Icon from 'components/general/Icon'
 import Logo from 'components/general/Logo'
 import { useRouter } from 'next/router'
+import ThemeSwitcher from 'components/general/ThemeSwitcher'
+import { useTheme ,Theme} from '../../Context/ThemeContext'
 
-const Menu = () => {
+const Menu = ( ) => {
 
   const { asPath } = useRouter()
+  const { theme, setTheme } = useTheme();
 
   return (
     <S.Wrapper>
@@ -20,7 +23,6 @@ const Menu = () => {
             </div>
             <S.Span>Markets</S.Span>
           </S.WrapperIcon>
-
           <S.WrapperIcon href={asPath === '/dashboard' ? '#' : '/dashboard'} className={asPath === '/dashboard' && 'active'}>
             <div>
               <Icon source="Exchange" size="Small" background="None"/>
@@ -29,7 +31,6 @@ const Menu = () => {
               <S.Span>Exchange</S.Span>
             </div>
           </S.WrapperIcon>
-
           <S.WrapperIcon href={asPath === '/wallet' ? '#' : '/wallet'} className={asPath === '/wallet' && 'active'}>
             <div>
               <Icon source="Wallet" size="Small" background="None"/>
@@ -38,7 +39,6 @@ const Menu = () => {
               <S.Span>Wallets</S.Span>
             </div>
           </S.WrapperIcon>
-
           <S.WrapperIcon href={asPath === '/swap' ? '#' : '/swap'} className={asPath === '/swap' && 'active'}>
             <div>
               <Icon source="News" size="Small" background="None"/>
@@ -48,7 +48,6 @@ const Menu = () => {
             </div>
           </S.WrapperIcon>
         </S.Container>
-
         <S.Container>
           <S.WrapperIcon href="#">
             <div>
@@ -63,7 +62,6 @@ const Menu = () => {
             <S.Span>Transactions</S.Span>
           </S.WrapperIcon>
         </S.Container>
-
         <S.Container>
           <S.WrapperIcon href="#">
             <div>
@@ -77,16 +75,10 @@ const Menu = () => {
             </div>
             <S.Span>Support</S.Span>
           </S.WrapperIcon>
-        </S.Container>
-
-        <S.WrapperIcon onClick={() => console.log('Light Mode')} href="#">
-          <div>
-            <Icon source="Sun" size="Small" background="LightGray"/>
-          </div>
-          <S.Span>Dark</S.Span>
-        </S.WrapperIcon>
+        </S.Container>    
+         <ThemeSwitcher/>       
       </S.WrapperLinks>
-
+        
       <S.WrapperProfile>
         <Icon source="Notifications" size="Small" background="None"/>
         <S.Profile src="/img/Avatar.png"/>

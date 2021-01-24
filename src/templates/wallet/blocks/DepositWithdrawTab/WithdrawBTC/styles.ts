@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Header = styled.div`
     display: flex;
@@ -46,16 +46,25 @@ export const InnerWrapper = styled.div`
     display: flex;
     flex-direction: column;
     margin-left: 1rem;
+    ${({ theme }) => css`
+    font-weight: ${theme.font.normal};
+    color :${theme.colors.NormalWhite} 
+    `} 
 `
 
 export const Name = styled.span`
     font-size: 20px;
     margin-bottom: 0.25rem;
+    ${({ theme }) => css`
+    font-weight: ${theme.font.normal};
+    color :${theme.colors.NormalWhite} 
+    `} 
 `
 
 export const Type = styled.span`
     color: #8BA1BE;
     font-size: 16px;
+    
 `
 
 export const ContentHeading = styled.span`

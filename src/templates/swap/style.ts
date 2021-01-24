@@ -10,7 +10,7 @@ export const Wrapper = styled.main`
   flex-direction:column;
   height: 100vh;
   &.Active{
-    height: 131vh;
+    height: 160vh;
   }
   background-color: #1C2023;
   max-width: 192rem;
@@ -46,15 +46,18 @@ export const Root = styled.div`
   display: block;
   width: 100%;
   background-color: #1C2023;
-`;
-
-export const Overlay = styled.div`
-  position: fixed;
+ 
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.3); 
+
+`;
+
+
+export const Overlay = styled.div`
+  
 `;
 
 

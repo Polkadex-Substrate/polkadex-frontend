@@ -24,7 +24,7 @@ ${({ theme }) => css`
   display: flex;
   align-items:center;
   justify-content: center;
-  background: ${theme.colors.darkGray};
+  background: ${theme.colors.componentbackground};
   border-radius: 0.5rem;
   width: 2rem;
 	height: 2rem;
@@ -41,12 +41,19 @@ export const Image = styled.img<Partial<DropdownProps>>`
   `}
   width: 0.8rem;
 `
+export const Image2 = styled.img<Partial<DropdownProps>>`
+  ${({active }) => css`
+    transform: ${active ? "rotate(180deg)" : "rotate(0deg)"};
+  `}
+  width: 1.8rem;
+`
 
 // Dropdown Content
 export const WrapperContent = styled.div`
+${({ theme }) => css`
   position: absolute;
-  background-color:#2E303C;
-  color: white;
+  background-color: ${theme.colors.dropdownbackgroundcolor};
+  color:  ${theme.colors.NormalWhite};
   border-radius: 0 1rem 1rem 1rem;
   padding: 1rem;
   -webkit-box-shadow: 0 7px 18px 0 rgba(0, 0, 0, 0.27);
@@ -56,7 +63,7 @@ export const WrapperContent = styled.div`
   a {
     padding: 0.5rem;
   }
-
+`}
 `;
 export const ContainerContent = styled.div`
   display: flex;

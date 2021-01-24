@@ -1,8 +1,10 @@
+import { useTheme ,Theme} from 'Context/ThemeContext';
 import NavbarSingleCurrency from '../NavbarSingleCurrency'
 import NavbarSingleLanguage from '../NavbarSingleLanguage'
 import * as S from './styles'
 
 const NavbarLanguage = () => {
+  const { theme, setTheme } = useTheme();
 
   return (
     <S.Wrapper>
@@ -12,7 +14,12 @@ const NavbarLanguage = () => {
           </S.WrapperFlag>
           <S.Title>EN/USD</S.Title>
           <S.WrapperImage>
-            <S.Image src="/img/icons/ArrowTop.svg" />
+          {theme ==  Theme.Dark
+          ?
+          <S.Image src="/img/icons/ArrowTop.svg" />
+          :
+          <S.Image src={`/img/icons/ArrowDownBlack.svg`} />
+          }
           </S.WrapperImage>
       </S.Header>
       <S.WrapperContent className="animation">

@@ -38,17 +38,16 @@ export default function Swap({ account, blockchainApi }) {
     config: {
       duration: 250,
     },
-    left: isModalLeftAlign ? '86%' : '50%',
+    left: isModalLeftAlign ? '85%' : '50%',
     top: '40%',
     position: 'absolute',
     borderRadius: '5px',
-    height: isModalLeftAlign ? '86%' : '80%',
+    height: isModalLeftAlign ? '61rem' : '56rem',
 
     width: '25%',
-    zIndex: 1,
+    zIndex: 999,
     transform: 'translate(-50%,-50%)',
   })
-
   return (
     <S.Root>
       <S.Wrapper className={openBottomChartCss}>      
@@ -63,15 +62,13 @@ export default function Swap({ account, blockchainApi }) {
             isPairAnalyticsVisible={isPairAnalyticsVisible}
           />
       </S.Wrapper>
-      {isModalOpen && (
-        <S.Overlay>
+      {isModalOpen && (     
           <animated.div style={animationLeft}>
             <animated.div style={animation}>
               <ModalCryptoList modalCloseHandler={setisModalOpen} setCryptoListLeftHandler={setisModalLeftAlign}
                 />
             </animated.div>
-          </animated.div>
-        </S.Overlay>
+          </animated.div>       
       )}
     </S.Root>
   )

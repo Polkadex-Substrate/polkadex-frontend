@@ -18,7 +18,6 @@ const MyOrders = ({ handleChange, cryptoList }) => {
                setCoinValue(144560),
                handleChange(true)
           }
-
      }
 
      const openCyptolistModal = () => {

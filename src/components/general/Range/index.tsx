@@ -1,4 +1,6 @@
 import { getTrackBackground,Range as CustomRange } from 'react-range';
+import { useTheme,Theme } from 'Context/ThemeContext';
+
 
 import * as S from './styles'
 
@@ -7,6 +9,9 @@ const MIN = 0;
 const MAX = 100;
 
 const Range = ({ values, setValues }) => {
+  const { theme, setTheme } = useTheme();
+   
+
 
   return (
     <S.Wrapper>
@@ -27,6 +32,8 @@ const Range = ({ values, setValues }) => {
               width: "100%"
             }}
           >
+          {theme ==  Theme.Dark
+          ?
             <div
               ref={props.ref}
               style={{
@@ -41,9 +48,31 @@ const Range = ({ values, setValues }) => {
                 }),
                 alignSelf: "center"
               }}
-            >
+            >   
               {children}
             </div>
+
+            :
+
+            <div
+              ref={props.ref}
+              style={{
+                height: "5px",
+                width: "100%",
+                borderRadius: "4px",
+                background: getTrackBackground({
+                  values: values,
+                  colors: ["#E6007A", "#EBEEF4"],
+                  min: MIN,
+                  max: MAX
+                }),
+                alignSelf: "center"
+              }}
+            >   
+              {children}
+            </div>
+        }
+
           </div>
         )}
         renderThumb={({ props, isDragged }) => (

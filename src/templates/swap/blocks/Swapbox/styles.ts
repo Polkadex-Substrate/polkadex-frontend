@@ -29,10 +29,7 @@ display:flex;
 background: #24252C 0% 0% no-repeat padding-box;
 box-shadow: 0px 100px 99px #0000002C;
 border-radius: 20px 20px 0px 0px;
-width:100%;
-font-size:17px;
-font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
-font-weight:400;
+width:110%;
 justify-content:space-between;
 padding-top:0.5rem;
 `
@@ -43,6 +40,9 @@ align-items:center;
 padding-left:4rem;
 padding-right:4rem;
 border-radius:3px 0px 3px 0px;
+font-size: 1.4rem;
+font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+font-weight:400;
 `
 export const TextWrapperWithoutBorder = styled.div`
 display:flex;
@@ -51,6 +51,9 @@ padding-left:2.5rem;
 padding-right:4rem;
 padding-bottom:1rem;
 justify-content:space-between;
+font-size: 1.4rem;
+font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+font-weight:400;
 `
 export const IconWrapper = styled.div`
 padding-left:1rem;
@@ -65,28 +68,36 @@ box-shadow: 0px 100px 99px #0000002C;
 border-radius: 0px 30px 30px 30px;
 opacity: 1;
 width:120%;
+z-index:1;
+
+
 `
 
 export const RowThree = styled.div`
 height:19%;
 display:flex;
 flex-direction:row;
-width:100%;
+width:110%;
 justify-content:space-around;
 align-items:center;
 padding-left:1.5rem;
 padding-right:1.5rem;
 font-size:1.6rem;
+font-weight:500;
 
-transition: visibility 0s, opacity 0.5s linear;
+transition: transform 0.3s linear  ;
 &.Active{ 
-  opacity: 0;
+  transform:translateY(-75px);
+
+
 }
 &.Not_Active{ 
   background: #24252C 0% 0% no-repeat padding-box;
   box-shadow: 0px 100px 99px #0000002C;
   border-radius: 0px 0px 20px 20px; 
-  opacity: 1;
+  transform:translateY(0px);
+
+
 }
 `
 
@@ -98,7 +109,7 @@ export const BottomRow = styled.div`
   display:flex;
   width: 68%;
   justify-content:space-evenly;
-  font-weight:400;
+  font-weight:500;
   font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
   font-size:1.2rem;
   ${customMedia.lessThan('custom')`
@@ -107,10 +118,14 @@ export const BottomRow = styled.div`
   margin-top:2rem;
   padding-left:1rem;
   padding-right:1rem;
-  opacity: 1;
-  transition: visibility 0s, opacity 0.5s linear;
-  &.Active{
-    opacity: 0;
+  transition: transform 0.3s linear  ;
+  &.Active{ 
+    transform:translateY(-120px);
+    
+  }
+  &.Not_Active{ 
+    transform:translateY(0px);
+    
   }
  `
 

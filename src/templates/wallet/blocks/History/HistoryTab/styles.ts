@@ -8,10 +8,13 @@ export const MainWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #242633;
+    ${({ theme }) => css`
+    background-color: ${theme.colors.componentbackground};
+    box-shadow: ${theme.shadow.largecomponentshadow};
+    `}
     border-radius: 0 3rem 3rem;
     padding: 2rem;
-    box-shadow: 0px 0px 99px rgba(0, 0, 0, 0.65);
+
     margin-top: 1rem;
 `
 

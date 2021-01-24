@@ -15,6 +15,7 @@ const SwapBox = ({ handleCryptoListModal  }) => {
     const openModalCryptoList = () => {
         handleCryptoListModal()
     }
+   
 
     return (
         <S.SwapBoxContainer>

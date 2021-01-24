@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import  { css } from 'styled-components'
 
 export const RightCurrencyColumn = styled.div`
     display: flex;

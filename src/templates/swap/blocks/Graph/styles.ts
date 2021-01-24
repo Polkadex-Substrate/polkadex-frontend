@@ -45,7 +45,7 @@ export const FlexWrapper = styled.div`
 `
 export const List = styled.div`
   display: flex;
-  justify-content:space-space-between;
+  justify-content:space-evenly;
   align-items:center;
 `
 export const WrapperFilters = styled.div``
@@ -63,15 +63,12 @@ export const Item = styled.div<ItemProps>`
   :first-child {
     margin-left: 1rem;
   }
-  
   :not(:first-child){
     margin-right: 1rem;
   }
-    
   :not(:last-child){
     margin-left: 1rem;
   }
-  
   ${({ selected }) => selected && css`
     background-color: #FF0087;
     height: 3.6rem;

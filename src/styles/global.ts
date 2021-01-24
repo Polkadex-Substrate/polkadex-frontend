@@ -20,6 +20,7 @@ const GlobalStyles: GlobalStyleComponent<
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    
   }
 
   ${({ theme, removeBg }) => css`
@@ -270,6 +271,7 @@ vertical-align:top;
 ::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 2rem;
+  height:5rem;
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {

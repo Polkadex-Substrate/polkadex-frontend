@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled ,{css}from 'styled-components'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -6,6 +6,10 @@ export const Wrapper = styled.div`
   width: 100%; 
   text-align: center;
   margin-top: 0.5rem;
+  ${({ theme }) => css`
+  font-weight: ${theme.font.normal};
+  color :${theme.colors.NormalWhite} 
+  `} 
 `;
 
 export const Navbar = styled.div`
@@ -13,6 +17,7 @@ export const Navbar = styled.div`
   justify-content: space-between;
   align-items: center;
   text-align: center;
+  
   
   div {
     margin-left: 0.75rem;
