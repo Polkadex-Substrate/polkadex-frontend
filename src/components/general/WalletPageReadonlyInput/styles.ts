@@ -13,6 +13,7 @@ const inputModifier = {
 export const Wrapper = styled.div`
   margin-bottom: 2rem;
   width:100%;
+  font-family: Work Sans Medium;
 `
 
 export const ContainerInput = styled.div`
@@ -46,18 +47,18 @@ export const Box = styled.div<Partial<InputProps>>`
 `
 
 export const Span = styled.span`
-  color:  #8BA1BE;;
+  color:  #8BA1BE;
   opacity: 0.8;
   margin-right:3px;
   padding-top:3px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight:400;
 `
 
 export const Input = styled.input`
   width: 100%;
   color: white;
-  font-size: 15px;
+  font-size: 14px;
   font-weight:400;
 `
 

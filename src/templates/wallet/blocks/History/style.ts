@@ -12,6 +12,7 @@ export const HistoryHeader = styled.div`
     font-size: 16px;
     justify-content: space-between; 
     align-items: center;
+    font-family: Work Sans Medium;
 `
 
 export const FilterAndSettingWrapper = styled.div`

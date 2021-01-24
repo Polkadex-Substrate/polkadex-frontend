@@ -39,6 +39,7 @@ ${({ theme, size, darkMode, fullWidth }) => css`
   color: white;
   cursor:pointer;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  font-family: Work Sans Medium;
 
   ${wrapperModifier[size](theme)}
   ${darkMode ? wrapperModifier.Dark(theme) : wrapperModifier.Light(theme) }

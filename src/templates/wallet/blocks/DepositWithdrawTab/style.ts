@@ -34,8 +34,9 @@ export const TabHeader = styled.div<TabHeaderProps>`
         `}
     
         & .react-tabs__tab {
-            opacity: 0.6;
+            opacity: 0.5;
             padding: 1rem;
+            font-family: Work Sans Medium;
         }
       
         & .react-tabs__tab--selected {
