@@ -39,7 +39,7 @@ export const WrapperLinks = styled.div`
 
 export const Wrapper = styled.nav`
   display: grid;
-  grid-template-rows: 1.5fr 1fr;
+  grid-template-rows: 5fr 1fr;
   height: 100vh;
   width: 5rem;
   transition-duration: 0.8s;
@@ -75,7 +75,7 @@ export const WrapperProfile = styled.div`
   display: flex;
   flex-direction:column;
   justify-content: flex-end;
-  padding-left: 1rem;
+  padding-left: 1.25rem;
 `;
 
 export const Profile = styled.img`

@@ -13,11 +13,7 @@ export const HistoryHeader = styled.div`
     font-size: 16px;
     justify-content: space-between; 
     align-items: center;
-    ${({ theme }) => css`
-    font-weight: ${theme.font.normal};
-    color: ${theme.colors.NormalWhite}
-    `}
-    
+    font-family: Work Sans Medium;
 `
 
 export const FilterAndSettingWrapper = styled.div`

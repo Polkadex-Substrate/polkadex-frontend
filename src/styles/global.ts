@@ -84,6 +84,13 @@ const GlobalStyles: GlobalStyleComponent<
     src: local(''),
     url('/fonts/work-sans-v8-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
   }
+  /* Work Sans - Medium */
+  @font-face {
+    font-family: 'Work Sans Medium';
+    src: local(''),
+      url('/fonts/Work-Sans-Medium.ttf') format('truetype');
+    font-style: normal;
+  }
 
 /* ----------------------------------------------------------------------------------------------------
 Reset Link
@@ -116,7 +123,6 @@ line-height:1;
 
 /* Browsers have different default form fonts */
 font-size:13px;
-font-family:Arial;
 }
 
 /* Remove the stupid outer glow in Webkit */

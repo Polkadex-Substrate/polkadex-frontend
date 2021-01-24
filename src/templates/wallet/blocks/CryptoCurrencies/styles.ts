@@ -13,19 +13,14 @@ export const CryptoCurrenciesWrapper = styled.div`
     box-shadow: 
 `
 export const WrapperTitle = styled.div`
-    display:flex;
-    flex-direction:row;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
     padding-right: 2rem;
     padding-left: 2rem;
-    ${({ theme }) => css`
-    font-weight: ${theme.font.normal};`}
-    font-size:medium;
-    ${({ theme }) => css`
-    color: ${theme.colors.NormalWhite} `}
-`
+    font-family: Work Sans Medium;
 export const ContainerActions = styled.div`
     display:grid;
     grid-template-columns: repeat(3, 1fr);

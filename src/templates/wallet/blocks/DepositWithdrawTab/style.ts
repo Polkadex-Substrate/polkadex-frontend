@@ -31,9 +31,11 @@ export const TabHeader = styled.div<TabHeaderProps>`
             grid-row-gap: 2rem;
         `}    
         & .react-tabs__tab {
-            opacity: 0.6;
+            opacity: 0.5;
             padding: 1rem;
-        }      
+
+            font-family: Work Sans Medium;
+}
         & .react-tabs__tab--selected {
             opacity: 1;
             color: ${currentTab === 1 ? theme.colors.green : theme.colors.primary};
