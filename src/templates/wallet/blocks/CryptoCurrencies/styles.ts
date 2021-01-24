@@ -10,7 +10,7 @@ export const CryptoCurrenciesWrapper = styled.div`
     border-radius: 0 3rem 3rem 3rem;
     height: 100%;
     padding: 2rem 0 3rem 0rem;
-    box-shadow: 
+    
 `
 export const WrapperTitle = styled.div`
     display: flex;
@@ -21,6 +21,7 @@ export const WrapperTitle = styled.div`
     padding-right: 2rem;
     padding-left: 2rem;
     font-family: Work Sans Medium;
+    `
 export const ContainerActions = styled.div`
     display:grid;
     grid-template-columns: repeat(3, 1fr);
