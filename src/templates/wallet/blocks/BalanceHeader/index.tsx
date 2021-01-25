@@ -11,7 +11,7 @@ const BalanceHeader = ({ btcBalance, usdBalance }: InputProps) => {
         <S.BalanceHeaderWrapper>
             <S.ContentBlur>Total Balance</S.ContentBlur>
             <S.ContentHeading> {btcBalance.toFixed(8)} BTC</S.ContentHeading>
-            <S.ContentBlur> ~ {usdBalance.toFixed(2)} USD</S.ContentBlur>
+            <S.ContentBlur> ~{usdBalance.toFixed(2)} USD</S.ContentBlur>
         </S.BalanceHeaderWrapper>
     )
 }

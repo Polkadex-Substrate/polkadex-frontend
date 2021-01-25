@@ -51,14 +51,11 @@ export const Header = styled.div`
 
 export const Title = styled.span`
   margin-right:0.5rem;
+  font-family: Work Sans Medium;
+  font-size: 14px;
   ${({ theme }) => css`
-  color: ${theme.colors.NormalWhite} 
-  `}  ;
-  ${({ theme }) => css`
-  font-weight: ${theme.font.normal} 
-  `}  
-  
-  
+    color: ${theme.colors.NormalWhite} 
+  `};  
 `
 
 export const WrapperImage = styled.div`

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 
 import CryptoCurrencies, { CurrencyDetails } from './blocks/CryptoCurrencies'
@@ -7,6 +7,7 @@ import DepositWithdrawTab from './blocks/DepositWithdrawTab'
 import BalanceHeader from './blocks/BalanceHeader'
 import Menu from '../../components/Menu'
 import Navigation from './blocks/Navigation'
+import { webSocket } from '../../components/dashboard/CustomChart/api/stream'
 
 export type InputProps = {}
 
@@ -126,12 +127,23 @@ export default function Wallet() {
   const [usdBalance, setUsdBalance] = useState(4243)
   const [currentCurrency, setCurrentCurrency] = useState(currenciesList[0])
   const [currencyList, setCurrencyList] = useState<CurrencyDetails[]>(currenciesList)
-  const [searchInput, setSearchInput] = useState()
+  const [searchInput, setSearchInput] = useState('')
+  const [lastTradePrice, setLastTradePrice] = useState(0);
 
   const filterResults = searchInput => {
     setSearchInput(searchInput)
     setCurrencyList(currenciesList.filter(({ name, type }) => name.toLowerCase().search(searchInput.toLowerCase()) > -1 || type.toLowerCase().search(searchInput.toLowerCase()) > -1))
   }
+
+  const fetchLastTrade = (socket) => {
+    socket.on('last-trade', lastTradeData => {
+      setLastTradePrice(lastTradeData.price);
+    });
+  }
+
+  useEffect(() => {
+    fetchLastTrade(webSocket);
+  }, [])
 
   return (
     <S.WalletWrapper>
@@ -143,7 +155,8 @@ export default function Wallet() {
           <CryptoCurrencies currencyList={currencyList} setCurrency={currency => setCurrentCurrency(currency)}
                             currentCurrency={currentCurrency}
                             searchValue={searchInput} setValue={(input) => filterResults(input)}/>
-          <DepositWithdrawTab currentCurrency={currentCurrency}/>
+          <DepositWithdrawTab currentCurrency={currentCurrency}
+                              lastTradePrice={lastTradePrice} />
           <History historyList={historyList}/>
         </S.BottomContentWrapper>
       </S.WalletWrapperMain>

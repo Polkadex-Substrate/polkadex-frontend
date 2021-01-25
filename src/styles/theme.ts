@@ -176,7 +176,7 @@ export const blackTheme = {
     radius: '0.7rem'
   },
   shadow:{
-    largecomponentshadow:'0px 0px 99px rgba(0,0,0,0.65);'
+    largecomponentshadow:'0px 100px 99px #0000002C;'
   },
 
   font: {
@@ -216,7 +216,7 @@ export const blackTheme = {
     gray: '#2E303C',
     darkGray: '#1c2023',
     none:"none",
-    componentbackground:"#242633",    
+    componentbackground:"#2E303C",
     dropdownbackgroundcolor:"#2E303C"
   },
  
