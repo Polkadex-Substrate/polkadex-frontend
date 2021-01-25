@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { generateMedia } from 'styled-media-query'
 
 const customMedia = generateMedia({
@@ -8,56 +8,43 @@ const customMedia = generateMedia({
 export const Wrapper = styled.main`
   display: flex;
   flex-direction:column;
-  height: 120vh;
   overflow:hidden;
-  &.Active{
-    height: 160vh;
-  }
   background-color: #1C2023;
   max-width: 192rem;
   margin: 0 auto;
   box-shadow: 0px -36px 99px rgba(0, 0, 0, 0.5);
+  position: relative;
+  min-height: 110vh;
+  
+  -webkit-transition: all 3s linear;
+  -moz-transition: all 3s linear;
+  -o-transition: all 3s linear;
+  -ms-transition: all 3s linear;
+  transition: all 3s linear;
+
   ${customMedia.lessThan('custom')`
     display: none;
   `}
 `
 export const Header = styled.div`
-display: flex;
-flex-direction:row;
-height: 13%;
-margin-top:0.1rem;
-margin-left:0.3rem;
-&.Active{
-  height: 8%;
-}
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  width: 14%;
 `
 
 export const PolkaLogo = styled.img`
-  width: 14%;
+  width: 100%;
   margin-bottom: 2rem;
-  height: 79%;
-  &.Active{
-    height: 76%;
-  }
 `
 export const Root = styled.div`
   position: relative;
   display: block;
   width: 100%;
   background-color: #1C2023;
- 
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.3); 
-
 `;
-
-
-
-
-
-
-
-

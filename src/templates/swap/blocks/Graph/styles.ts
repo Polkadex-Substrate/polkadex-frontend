@@ -5,7 +5,6 @@ const customMedia = generateMedia({
   custom: '1425px'
 })
 export const Wrapper = styled.div`
-  grid-area:graph;  
   margin-left:0.5rem;
   box-shadow: 0px 100px 99px #0000002C;
   border-radius: 0px 30px 0px 0px;
@@ -13,8 +12,6 @@ export const Wrapper = styled.div`
   background: #2E303C;
   flex-direction:row;
   justify-content:space-between;
-  width: 102%;
-  margin-left:-32px;
   ${media.lessThan('large')`
     flex-direction: column;
   `}

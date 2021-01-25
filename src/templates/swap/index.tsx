@@ -10,19 +10,19 @@ export default function Swap({ account, blockchainApi }) {
   const [openBottomChartCss, setopenBottomChartCss] = useState('notactive')
   const [isModalOpen, setisModalOpen] = useState(false)
   const [isModalLeftAlign, setisModalLeftAlign] = useState(false)
-  const [isPairAnalyticsVisible, setisPairAnalyticsVisible] = useState(false)
+  const [isPairAnalyticsVisible, setIsPairAnalyticsVisible] = useState(false)
 
   const openCryptoListModal = () => {
     setisModalOpen(true)
     setisModalLeftAlign(false)
   }
-  const OnClickPairAnalyticsPanel = () => {
+  const onClickPairAnalyticsPanel = () => {
     if (isPairAnalyticsVisible) {
-      setisPairAnalyticsVisible(false)
+      setIsPairAnalyticsVisible(false)
       setopenBottomChartCss('notactive')
     } else {
       setopenBottomChartCss('Active')
-      setisPairAnalyticsVisible(true)
+      setIsPairAnalyticsVisible(true)
     }
   }
   const animation = useSpring({
@@ -48,19 +48,20 @@ export default function Swap({ account, blockchainApi }) {
     zIndex: 999,
     transform: 'translate(-50%,-50%)',
   })
+
   return (
     <S.Root>
-      <S.Wrapper className={openBottomChartCss}>      
+      <S.Wrapper className={openBottomChartCss} isPairAnalyticsVisible={isPairAnalyticsVisible}>
         <Link href="/dashboard">
           <S.Header>
             <S.PolkaLogo src="img/Logo.svg" alt="Polkadex" />
           </S.Header>
         </Link>
-          <BottomContent openCryptoListModal={openCryptoListModal}
-            openBottomChartCss={openBottomChartCss}
-            OnClickPairAnalyticsPanel={OnClickPairAnalyticsPanel}
-            isPairAnalyticsVisible={isPairAnalyticsVisible}
-          />
+        <BottomContent openCryptoListModal={openCryptoListModal}
+          openBottomChartCss={openBottomChartCss}
+          onClickPairAnalyticsPanel={onClickPairAnalyticsPanel}
+          isPairAnalyticsVisible={isPairAnalyticsVisible}
+        />
       </S.Wrapper>
       {isModalOpen && (     
           <animated.div style={animationLeft}>
