@@ -5,11 +5,12 @@ import Icon from '../Icon'
 
 export type RowProps = {
   active: boolean;
+  displayValue?:any;
 }
 
 const Currency = ({ currency, setCurrency, active, displayValue = true }) => {
   return (
-    <S.Row onClick={setCurrency} active={active}>
+    <S.Row onClick={setCurrency} active={active} displayValue = {displayValue}>
       <S.DetailsWrapper>
             <S.ImageWrapper>
               <S.Image src={`img/cryptocurrencies/${currency.type}.png`}/>

@@ -41,10 +41,16 @@ export const Root = styled.div`
   position: relative;
   display: block;
   width: 100%;
-  background-color: #1C2023;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.3); 
+
+ 
 `;
+
+export const Overlay = styled.div`
+position:fixed;
+z-index:999;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+background: rgba(0, 0, 0, 0.3); 
+`
