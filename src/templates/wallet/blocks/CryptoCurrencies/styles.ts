@@ -1,16 +1,15 @@
 import styled , { css } from 'styled-components'
 
 export const CryptoCurrenciesWrapper = styled.div`
-    display:flex;
-    flex-direction:column;
-    ${({ theme }) => css`
+  display:flex;
+  flex-direction:column;
+  ${({ theme }) => css`
     background-color: ${theme.colors.componentbackground};
     box-shadow: ${theme.shadow.largecomponentshadow}
-    `}  ;
-    border-radius: 0 3rem 3rem 3rem;
-    height: 100%;
-    padding: 2rem 0 3rem 0rem;
-    
+  `};
+  border-radius: 0 3rem 3rem 3rem;
+  height: 100%;
+  padding: 2rem 0 3rem 0rem;
 `
 export const WrapperTitle = styled.div`
     display: flex;

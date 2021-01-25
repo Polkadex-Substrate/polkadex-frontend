@@ -34,7 +34,7 @@ export const Label = styled.label`
 export const Box = styled.div<Partial<InputProps>>`
   font-family: Work Sans Medium;
   ${({ theme, inputInfo }) => css`
-    padding: 0.25rem 0;
+    padding: 0.5rem 0 0.25rem;
     border-bottom: 0.1rem solid #8BA1BE;
     width: 100%;
     font-size: 15px;

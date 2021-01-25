@@ -1,15 +1,23 @@
 import styled, { css } from 'styled-components'
-import media from 'styled-media-query'
+import media, { generateMedia } from 'styled-media-query'
 
 type TabHeaderProps = {
   currentTab: number
 }
+
+const customMedia = generateMedia({
+  custom: '1400px',
+})
+
 export const MiddleCurrencyColumn = styled.div`
     display: flex;
     flex-direction: column;
     flex-basis: 100%;
-    flex:2;
+    flex: 2;
     margin: 0 1.75rem;
+    ${customMedia.greaterThan('custom')`
+        flex: 1.5;
+    `}
 `
 export const TabSection = styled.section`
   grid-area:transactions;
@@ -48,16 +56,15 @@ export const TabHeader = styled.div<TabHeaderProps>`
         }    
     `}
 `
+
 export const Wrapper = styled.div`
-    ${({ theme }) => css`
+  border-radius: 0 3rem 3rem 3rem;
+  padding: 6rem 3rem 3rem;
+  font-size: 16px;
+  
+  ${({ theme }) => css`
     background-color: ${theme.colors.componentbackground};
     box-shadow: ${theme.shadow.largecomponentshadow};
-    `}  ;
-    border-radius: 0 3rem 3rem 3rem;
-    padding: 6rem 3rem 3rem;
-    
-    font-size: 16px;
-    ${({ theme }) => css`
     color: ${theme.colors.NormalWhite}
-  `}
+  `};
 `
