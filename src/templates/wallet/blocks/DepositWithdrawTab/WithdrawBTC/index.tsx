@@ -32,7 +32,7 @@ const WithdrawBTC = ({ currentCurrency, walletAddress, setWalletAddress, lastTra
       }
       setSlider({values: [+((inputAmount*100) / currentCurrency.value).toFixed(2)]});
       setAmount(inputAmount);
-      setFiat((inputAmount * lastTradePrice).toFixed(8));
+      setFiat(+(inputAmount * lastTradePrice).toFixed(8));
     }
 
     useEffect(() => {
