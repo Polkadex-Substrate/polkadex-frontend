@@ -1,4 +1,5 @@
-import { useTheme,Theme } from 'Context/ThemeContext';
+import React from 'react';
+import { useTheme, Theme } from 'Context/ThemeContext';
 import * as S from './styles'
 
 export type NavbarDropdownProps = {
@@ -10,8 +11,6 @@ const NavbarDropdown = ({ title = "NavbarDropdown" }: NavbarDropdownProps) => {
   return (
     <S.Wrapper>
       <S.Header>
-        <S.Wrapper>
-        </S.Wrapper>
         <S.Title>{title}</S.Title>
         <S.WrapperImage>
           {theme ==  Theme.Dark
