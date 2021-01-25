@@ -7,23 +7,12 @@ import ModalCryptoList from 'components/general/ModalCryptoList'
 import BottomContent from './blocks/BottomContent'
 
 export default function Swap({ account, blockchainApi }) {
-  const [openBottomChartCss, setopenBottomChartCss] = useState('notactive')
   const [isModalOpen, setisModalOpen] = useState(false)
   const [isModalLeftAlign, setisModalLeftAlign] = useState(false)
-  const [isPairAnalyticsVisible, setIsPairAnalyticsVisible] = useState(false)
 
   const openCryptoListModal = () => {
     setisModalOpen(true)
     setisModalLeftAlign(false)
-  }
-  const onClickPairAnalyticsPanel = () => {
-    if (isPairAnalyticsVisible) {
-      setIsPairAnalyticsVisible(false)
-      setopenBottomChartCss('notactive')
-    } else {
-      setopenBottomChartCss('Active')
-      setIsPairAnalyticsVisible(true)
-    }
   }
   const animation = useSpring({
     config: {
@@ -51,17 +40,13 @@ export default function Swap({ account, blockchainApi }) {
 
   return (
     <S.Root>
-      <S.Wrapper className={openBottomChartCss} isPairAnalyticsVisible={isPairAnalyticsVisible}>
+      <S.Wrapper>
         <Link href="/dashboard">
           <S.Header>
             <S.PolkaLogo src="img/Logo.svg" alt="Polkadex" />
           </S.Header>
         </Link>
-        <BottomContent openCryptoListModal={openCryptoListModal}
-          openBottomChartCss={openBottomChartCss}
-          onClickPairAnalyticsPanel={onClickPairAnalyticsPanel}
-          isPairAnalyticsVisible={isPairAnalyticsVisible}
-        />
+        <BottomContent openCryptoListModal={openCryptoListModal} />
       </S.Wrapper>
       {isModalOpen && (     
           <animated.div style={animationLeft}>

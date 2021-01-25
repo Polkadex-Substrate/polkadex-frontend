@@ -9,7 +9,7 @@ import SidebarDropdown from '../../../../components/general/SidebarDropdown'
 import { Accordion, useAccordionToggle } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const BottomContent = ({ openCryptoListModal, openBottomChartCss, onClickPairAnalyticsPanel, isPairAnalyticsVisible }) => {
+const BottomContent = ({ openCryptoListModal }) => {
   const [state, setState] = useState(false)
   const [orderBookBids, setOrderBookBids] = useState([])
   const [orderBookAsks, setOrderBookAsks] = useState([])
@@ -131,7 +131,7 @@ const BottomContent = ({ openCryptoListModal, openBottomChartCss, onClickPairAna
           </S.BottomLabel>
 
           <Accordion.Collapse eventKey="0">
-            <S.WrapperGraph marketActive={state} isPairAnalyticsVisible={isPairAnalyticsVisible}>
+            <S.WrapperGraph>
               <Graph orderBookAsks={orderBookAsks}
                      orderBookBids={orderBookBids}
                      latestTransaction={lastTradePrice}

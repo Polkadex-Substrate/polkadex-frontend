@@ -1,8 +1,7 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled, { css } from 'styled-components'
 
 type Props = {
-  marketActive: boolean
-  isPairAnalyticsVisible: boolean
+  isAccordionActive: boolean
 }
 
 export const BottomContentWrapper = styled.div`
@@ -74,7 +73,7 @@ export const MiddleColumn = styled.div`
   }
 `
 
-export const BottomLabel = styled.div`
+export const BottomLabel = styled.div<Props>`
   padding: 1.5rem;
   ${({isAccordionActive}) => css`  
     background-color: ${isAccordionActive ? '#24252C' : '#2E303C'};    
@@ -132,7 +131,7 @@ export const BottomColor = styled.div`
   border-radius: 20px;
 `
 
-export const WrapperGraph = styled.div<Props>`
+export const WrapperGraph = styled.div`
   display: flex;
   position: relative;
 `;
