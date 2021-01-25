@@ -46,14 +46,12 @@ export const ThirdRow = styled.div`
   flex-direction:column;
   margin-left: 1rem;
   font-size:2rem;
-  font-weight:500;
-  font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
-   color: #ffffff;  
+  font-family: Work Sans Medium;
+  color: #ffffff;  
 `;
 export const SpanTextBlur = styled.span`
   text-align: left;
-  font-weight:500;
-  font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+  font-family: Work Sans Medium;
   letter-spacing: 0px;
   color: #8BA1BE;
   font-size: small;
@@ -81,15 +79,14 @@ export const WrapperImage = styled.div`
 `
 export const LoginButton = styled.button`
   background-color: #E60079;
-  padding: 1.25rem 2rem;
+  padding: 1.25rem 3rem;
   color: white;
   border-radius: 13px;
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 2rem;
   cursor: pointer;
-
-  font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
-  font-weight:500;
+  font-family: Work Sans Medium;
+  
   &:focus {
     outline: 0;
   }
@@ -97,8 +94,8 @@ export const LoginButton = styled.button`
 export const TextWrapper = styled.div`
     display:flex;
     justify-content:space-between;
-    font-weight:500;
-    font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
+    
+    font-family: Work Sans Medium;
     font-size:1.3rem;
     color:white;
     align-items:center;
@@ -107,8 +104,8 @@ export const TextWrapper = styled.div`
 `
 export const Blur = styled.span`
   color: #8BA1BE;
-  font-weight:400;
-  font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
-`
+  
+  font-family: Work Sans Medium;
+  `
 
 

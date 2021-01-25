@@ -64,12 +64,14 @@ export const Value = styled.div`
 `
 
 export const Row = styled.div<RowProps>`
-  ${({ active, theme }) => css`
+  ${({ active, theme ,displayValue}) => css`
     display: flex;
     justify-content: space-between;
     margin: 0.6rem 0;
     padding: 0 2rem;
+    ${displayValue && css`
     border-left: 4px solid ${active ? '#E6007A' : theme.colors.componentbackground};
+    `}
     cursor: pointer;
     font-size: 13px;
     font-weight: ${theme.font.normal};
@@ -81,11 +83,14 @@ export const Row = styled.div<RowProps>`
     `}
     
     &:hover {
+
+      ${displayValue && css`
       border-left: 4px solid ${theme.colors.primary}; 
       
         ${Name}, ${Value} {
           color: ${theme.colors.primary};
         }
+        `}
     }
   `}
 `

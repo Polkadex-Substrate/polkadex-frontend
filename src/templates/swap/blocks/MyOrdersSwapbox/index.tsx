@@ -30,7 +30,7 @@ const MyOrders = ({ handleChange, cryptoList }) => {
                     <S.Image src={`/img/icons/Wallet.svg`} />
                </S.WrapperImage>
                <S.WrapperBalance>
-                    <S.SpanTextBlur>My Balance </S.SpanTextBlur>
+                    <S.SpanTextBlur>My balance </S.SpanTextBlur>
                     <span>0.9645734 DOT</span>
                </S.WrapperBalance>
           </S.FirstRow>
