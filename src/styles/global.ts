@@ -91,6 +91,27 @@ const GlobalStyles: GlobalStyleComponent<
       url('/fonts/Work-Sans-Medium.ttf') format('truetype');
     font-style: normal;
   }
+  /* Work Sans - Bold */
+  @font-face {
+    font-family: 'Work Sans Bold';
+    src: local(''),
+      url('/fonts/Work-Sans-Bold.ttf') format('truetype');
+    font-style: normal;
+  }
+  /* Work Sans - ExtraBold */
+  @font-face {
+    font-family: 'Work Sans ExtraBold';
+    src: local(''),
+      url('/fonts/Work-Sans-ExtraBold.ttf') format('truetype');
+    font-style: normal;
+  }
+  /* Work Sans - SemiBold */
+  @font-face {
+    font-family: 'Work Sans SemiBold';
+    src: local(''),
+      url('/fonts/Work-Sans-SemiBold.ttf') format('truetype');
+    font-style: normal;
+  }
 
 /* ----------------------------------------------------------------------------------------------------
 Reset Link
