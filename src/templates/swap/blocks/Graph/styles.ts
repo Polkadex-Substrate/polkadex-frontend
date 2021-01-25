@@ -80,11 +80,11 @@ export const Item = styled.div<ItemProps>`
 
  export const HeaderFont = styled.div`
  text-align: left;
- font-size:23px;
+ font-size:21px;
  letter-spacing: 0px;
  color: #FFFFFF;
- font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
- font-weight:bold;
+ font-family: Work Sans Medium;
+ font-weight:500;
  margin-left:1rem;
  margin-right:2rem;
  `

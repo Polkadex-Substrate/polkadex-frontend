@@ -4,9 +4,10 @@ import { webSocket } from 'components/dashboard/CustomChart/api/stream'
 import * as S from './styles'
 import Icon from 'components/general/Icon'
 import SidebarDropdown from 'components/general/SidebarDropdown'
-import { useEffect, useState } from 'react'
+import React,{ useEffect, useState } from 'react'
 import Graph from '../Graph'
 import SwapBox from '../Swapbox'
+
 
 
 const BottomContent = ({ openCryptoListModal , openBottomChartCss ,OnClickPairAnalyticsPanel,isPairAnalyticsVisible}) => {
@@ -79,6 +80,8 @@ const BottomContent = ({ openCryptoListModal , openBottomChartCss ,OnClickPairAn
         setOpenOrders(finalOrders)
       }
 
+      const Scrollablediv = React.createRef()
+
       useEffect(() => {
         const webSocketInstance = webSocket
         fetchMarketData(webSocketInstance)
@@ -119,13 +122,14 @@ return (
                     </S.BottomTextWrapper>
                 </S.BottomLabel>
 
-                {isPairAnalyticsVisible && (
-                    <S.WrapperGraph marketActive={state}>
-                        <Graph orderBookAsks={orderBookAsks}
-                               orderBookBids={orderBookBids}
-                               latestTransaction={lastTradePrice}
-                               latestTransactionType={lastTradePriceType} />
-                    </S.WrapperGraph>
+                { (isPairAnalyticsVisible && 
+                      <S.WrapperGraph marketActive={state}>
+                          <Graph orderBookAsks={orderBookAsks}
+                                orderBookBids={orderBookBids}
+                                latestTransaction={lastTradePrice}
+                                latestTransactionType={lastTradePriceType} />
+                      </S.WrapperGraph>
+                    
                 )}
             </S.MiddleColumn>
             <S.RightColumn>

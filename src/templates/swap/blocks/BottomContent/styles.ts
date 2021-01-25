@@ -37,9 +37,8 @@ export const LabelWithIcon = styled.div`
     align-items:center;
     justify-content:flex-start;
     padding-left:0.8rem;
-    font-size:17px;
-    font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
-    font-weight:500;
+    font-size:14px;
+    font-family: Work Sans Medium;    
     line-spacing:20px;
 `
 export const IconWrapper = styled.div`
@@ -65,19 +64,19 @@ export const MiddleColumn = styled.div`
   
 `
 export const BottomLabel = styled.div`
-    height: 4rem;
+    height:4rem;
     &.Active{
-      height:11rem;
+      height:10rem;
+      background: #24252C 0% 0% no-repeat padding-box;
     }
     display:flex;   
-    background: #24252C 0% 0% no-repeat padding-box;
+    background: #2E303C 0% 0% no-repeat padding-box;
     box-shadow: 0px 100px 99px #0000002C;
     border-radius: 12px 12px 0px 0px;
     justify-content:center;
     align-items:center;
-    font-size:17px;
-    font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
-    font-weight:500;
+    font-size:14px;
+    font-family: Work Sans Medium;
     line-spacing:20px;
 `
 export const BottomTextWrapper = styled.div`
@@ -118,3 +117,8 @@ export const WrapperGraph = styled.div<Props>`
   width:108%;
 
 `;
+
+export const Animate = styled.div`
+
+`;
+

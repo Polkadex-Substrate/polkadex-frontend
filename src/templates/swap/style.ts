@@ -8,7 +8,8 @@ const customMedia = generateMedia({
 export const Wrapper = styled.main`
   display: flex;
   flex-direction:column;
-  height: 100vh;
+  height: 120vh;
+  overflow:hidden;
   &.Active{
     height: 160vh;
   }
@@ -24,8 +25,8 @@ export const Header = styled.div`
 display: flex;
 flex-direction:row;
 height: 13%;
-margin-top:1.3rem;
-margin-left:1.2rem;
+margin-top:0.1rem;
+margin-left:0.3rem;
 &.Active{
   height: 8%;
 }
@@ -39,8 +40,6 @@ export const PolkaLogo = styled.img`
     height: 76%;
   }
 `
-
-
 export const Root = styled.div`
   position: relative;
   display: block;
@@ -56,9 +55,7 @@ export const Root = styled.div`
 `;
 
 
-export const Overlay = styled.div`
-  
-`;
+
 
 
 
