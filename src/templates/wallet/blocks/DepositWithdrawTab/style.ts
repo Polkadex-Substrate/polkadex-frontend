@@ -30,17 +30,21 @@ export const TabHeader = styled.div<TabHeaderProps>`
             grid-template-columns: 1fr;
             grid-row-gap: 2rem;
         `}    
+
         & .react-tabs__tab {
             opacity: 0.5;
             padding: 1rem;
-
             font-family: Work Sans Medium;
-}
+            font-size: 15px;
+        }
+
         & .react-tabs__tab--selected {
             opacity: 1;
+            font-family: Work Sans SemiBold;
+            font-size: 16px;
             color: ${currentTab === 1 ? theme.colors.green : theme.colors.primary};
             padding: ${currentTab === 1 ? '1rem 1.5rem' : '1rem'};
-            border-bottom: 3px solid ${currentTab === 1 ? theme.colors.green : theme.colors.primary};
+            border-bottom: 4px solid ${currentTab === 1 ? theme.colors.green : theme.colors.primary};
         }    
     `}
 `

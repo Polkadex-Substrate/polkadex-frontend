@@ -126,7 +126,7 @@ export default function Wallet() {
   const [usdBalance, setUsdBalance] = useState(4243)
   const [currentCurrency, setCurrentCurrency] = useState(currenciesList[0])
   const [currencyList, setCurrencyList] = useState<CurrencyDetails[]>(currenciesList)
-  const [searchInput, setSearchInput] = useState()
+  const [searchInput, setSearchInput] = useState('')
 
   const filterResults = searchInput => {
     setSearchInput(searchInput)

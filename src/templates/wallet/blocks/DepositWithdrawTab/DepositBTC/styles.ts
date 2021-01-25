@@ -1,7 +1,8 @@
 import styled ,{css}from 'styled-components'
 
 export const TextWrapper = styled.div`
-    font-weight: bold;
+    font-family: Work Sans Bold;
+    font-size: 15px;
     margin-bottom: 2rem;
     ${({ theme }) => css`    
     color :${theme.colors.NormalWhite} 

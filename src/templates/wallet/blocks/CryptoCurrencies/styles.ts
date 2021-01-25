@@ -21,7 +21,9 @@ export const WrapperTitle = styled.div`
     padding-right: 2rem;
     padding-left: 2rem;
     font-family: Work Sans Medium;
-    `
+    font-size: 16px;
+`
+
 export const ContainerActions = styled.div`
     display:grid;
     grid-template-columns: repeat(3, 1fr);

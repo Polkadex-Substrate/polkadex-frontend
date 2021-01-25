@@ -17,7 +17,8 @@ export const Image = styled.img`
 
 export const Input = styled.input`
     text-align: left;
-    font: normal normal medium 16px/19px Work Sans;
+    font-family: Work Sans Medium;
+    font-size: 13px;
     letter-spacing: 0;
     color: #fff;
     padding-bottom: 5px;

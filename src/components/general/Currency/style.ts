@@ -39,14 +39,14 @@ export const Image2 = styled.img`
 export const NameWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    font-family: Work Sans Medium;
+    font-size: 13px;
 `
 
 export const Name = styled.div`
-    margin-bottom: 0.25rem;
 `
 
 export const Type = styled.div`
-    font-size: 1.4rem;
     color: #8BA1BE;
 `
 
@@ -54,6 +54,8 @@ export const ValueWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    font-family: Work Sans Medium;
+    font-size: 13px;
 `
 
 export const Value = styled.div`
