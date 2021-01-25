@@ -8,10 +8,11 @@ import DepositBTC from './DepositBTC'
 import { CurrencyDetails } from '../CryptoCurrencies'
 
 export type InputProps = {
-    currentCurrency: CurrencyDetails
+  currentCurrency: CurrencyDetails
+  lastTradePrice: any
 }
 
-const DepositWithdrawTab = ({ currentCurrency }: InputProps) => {
+const DepositWithdrawTab = ({ currentCurrency, lastTradePrice }: InputProps) => {
 
     const [activeIndex, setActiveIndex] = useState(0)
     const [walletAddress, setWalletAddress] = useState()
@@ -29,6 +30,7 @@ const DepositWithdrawTab = ({ currentCurrency }: InputProps) => {
                     <TabPanel>
                         <S.Wrapper>
                             <WithdrawBTC currentCurrency={currentCurrency}
+                                         lastTradePrice={lastTradePrice}
                                          walletAddress={walletAddress} setWalletAddress={setWalletAddress} />
                         </S.Wrapper>
                     </TabPanel>
