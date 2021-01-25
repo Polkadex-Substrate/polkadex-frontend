@@ -15,13 +15,21 @@ export type WalletProps = {
 }
 
 const WithdrawBTC = ({ currentCurrency, walletAddress, setWalletAddress }: WalletProps) => {
-    const [slider, setSlider] = useState({ values: [40] })
+    const [slider, setSlider] = useState({ values: [50] })
     const [amount, setAmount] = useState(0.0016108506)
     const [fiat, setFiat] = useState(0.0016108506)
 
     const setSliderValue = (sliderValue) => {
         setSlider(sliderValue);
         setAmount(+(currentCurrency.value * sliderValue.values[0] / 100).toFixed(8));
+    }
+
+    const updateAmount = (inputAmount) =>  {
+      if (inputAmount > currentCurrency.value || isNaN(inputAmount)) {
+        return;
+      }
+      setSlider({values: [+((inputAmount*100) / currentCurrency.value).toFixed(2)]});
+      setAmount(inputAmount);
     }
 
     useEffect(() => {
@@ -67,7 +75,7 @@ const WithdrawBTC = ({ currentCurrency, walletAddress, setWalletAddress }: Walle
                 <S.AmountExchangeWrapper>
                     <WalletInput label="Amount" icon="None" placeholder="0.0000000" value={amount}
                                  type="text" inputInfo="BTC" fullWidth={true} readonly={false}
-                                 setValue={(amount) => setAmount(amount.toFixed(8))}/>
+                                 setValue={(amount) => updateAmount(amount)}/>
 
                     <S.IconWrapper><Icon source="Exchange" size="XtraLarge" background="None"/></S.IconWrapper>
 
