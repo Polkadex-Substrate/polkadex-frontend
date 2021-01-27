@@ -138,7 +138,7 @@ export const WrapperGraph = styled.div`
 
 export const Button = styled.div``
 
-export const Overlay = styled.div`
+export const Overlay = styled.div<any>`
   ${({isModalOpen}) => isModalOpen && css`
     position: fixed;
     z-index: 999;
