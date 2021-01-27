@@ -15,10 +15,6 @@ function App({ Component, pageProps }: AppProps) {
   const [allAccounts, setAllAccounts] = useState<any>();
   const [blockchainApi, setBlockchainApi] = useState<any>();
   const [theme, setTheme] = useState(Theme.Dark);
-  
-
-
-  
 
   useEffect(() => {
     const getExtensionAddress = async () => {

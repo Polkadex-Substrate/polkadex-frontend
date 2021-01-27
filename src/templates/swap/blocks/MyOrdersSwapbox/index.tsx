@@ -1,63 +1,33 @@
-
-import CurrencyValueSwapBox from 'templates/swap/blocks/CurrenciesValueSwapbox';
-import { useState } from 'react';
 import * as S from './styles'
 
-const MyOrders = ({ handleChange, cryptoList }) => {
+import CurrencyValueSwapBox from 'templates/swap/blocks/CurrenciesValueSwapbox'
+import Icon from '../../../../components/general/Icon'
 
-     const [coinValue, setCoinValue] = useState(0);
-     const [intialValue, setIntialValue] = useState(false);
-     const onClick = () => {
-          if (intialValue == true) {
-               (setIntialValue(false),
-                    handleChange(false),
-                    setCoinValue(0))
-          }
-          else {
-               setIntialValue(true),
-               setCoinValue(144560),
-               handleChange(true)
-          }
-     }
-
-     const openCyptolistModal = () => {
-          cryptoList()
-     }
-
-     return (<S.MyOrders>
-          <S.FirstRow>
-               <S.WrapperImage >
-                    <S.Image src={`/img/icons/Wallet.svg`} />
-               </S.WrapperImage>
-               <S.WrapperBalance>
-                    <S.SpanTextBlur>My balance </S.SpanTextBlur>
-                    <span>0.9645734 DOT</span>
-               </S.WrapperBalance>
-          </S.FirstRow>
-          <S.SecondRow>
-               <CurrencyValueSwapBox CoinValue={coinValue} 
-               CoinType={"DOT"} 
-               FromTo={"From"} 
-               handleClickEvent={onClick} 
-               />
-               <S.WrapperImage>
-                    <S.Image src={`/img/icons/Exchange_B.svg`} />
-               </S.WrapperImage>
-               <CurrencyValueSwapBox
-                CoinValue={coinValue} 
-                CoinType={"BTC"} 
-                FromTo={"To"} 
-                handleClickEvent={openCyptolistModal} 
-                />
-          </S.SecondRow>
-          <S.ThirdRow>
-               <S.LoginButton>Connect Wallet</S.LoginButton>
-               <S.TextWrapper>
-                    <span><S.Blur>Price</S.Blur> 0.01013 DOT per BTC</span>
-               </S.TextWrapper>
-          </S.ThirdRow>
-     </S.MyOrders>
-     )
+const MyOrders = ({ handleChange, cryptoList, balance, currentCurrency }) => {
+  return (
+    <S.MyOrders>
+      <S.FirstRow>
+        <Icon background="Black" source="Wallet" size="Medium" />
+        <S.WrapperBalance>
+          <S.SpanTextBlur>My balance</S.SpanTextBlur>
+          <span>{balance.toFixed(8)} DOT</span>
+        </S.WrapperBalance>
+      </S.FirstRow>
+      <S.SecondRow>
+        <CurrencyValueSwapBox value={balance} type={'DOT'}
+                              text={'From'} handleClickEvent={handleChange}/>
+        <Icon source="Exchange_B" size="XMedium" />
+        <CurrencyValueSwapBox value={currentCurrency.value} type={currentCurrency.type}
+                              text={'To'} handleClickEvent={cryptoList} />
+      </S.SecondRow>
+      <S.ThirdRow>
+        <S.LoginButton>Connect Wallet</S.LoginButton>
+        <S.TextWrapper>
+          <S.Blur>Price</S.Blur> 0.01013 DOT per BTC
+        </S.TextWrapper>
+      </S.ThirdRow>
+    </S.MyOrders>
+  )
 
 }
 

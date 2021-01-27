@@ -26,8 +26,8 @@ export const LeftColumn = styled.div`
 
 export const LabelWithIcon = styled.div`
   display:flex;    
-  width: 224px;
-  height: 48px;
+  width: 200px;
+  padding: 1rem 0;
   background: #2E303C 0% 0% no-repeat padding-box;
   border-radius: 7px;
   align-items:center;
@@ -107,13 +107,13 @@ export const Image = styled.img`
 `
 
 export const RightColumn = styled.div`
-  display:flex;
-  flex-direction:column;
-  height:100%;
-  justify-content:flex-end;
-  margin-left:1.2rem;
-  padding-bottom:2rem;
-  flex:1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  margin-left: 1.2rem;
+  padding-bottom: 2rem;
+  flex: 1;
 `
 
 export const BottomRightContentWrapper = styled.div`
@@ -137,3 +137,14 @@ export const WrapperGraph = styled.div`
 `;
 
 export const Button = styled.div``
+
+export const Overlay = styled.div`
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #00000050;
+  box-shadow: 0px 100px 99px #0000002C;
+`
