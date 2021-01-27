@@ -5,7 +5,7 @@ export const TextWrapper = styled.div`
     font-size: 15px;
     margin-bottom: 2rem;
     ${({ theme }) => css`    
-    color :${theme.colors.NormalWhite} 
+    color :${theme.colors.normalWhite} 
     `} 
 `
 
@@ -14,7 +14,7 @@ export const NormalTextWrapper = styled.div`
     font-size: 14px;
     line-height: 19px;
     ${({ theme }) => css`    
-    color :${theme.colors.NormalWhite}; 
+    color :${theme.colors.normalWhite}; 
     font-weight: ${theme.font.normal};
     `}
 `
