@@ -11,7 +11,7 @@ export const WrapperContent = styled.div`
   position: absolute;
   right: 0;
    ${({ theme }) => css`
-  background-color: ${theme.colors.dropdownbackgroundcolor};
+  background-color: ${theme.colors.dropdownBackgroundColor};
   `}  ;
   border-radius: 0 1rem 1rem 1rem;
   padding: 1rem;
@@ -54,7 +54,7 @@ export const Title = styled.span`
   font-family: Work Sans Medium;
   font-size: 14px;
   ${({ theme }) => css`
-    color: ${theme.colors.NormalWhite} 
+    color: ${theme.colors.normalWhite} 
   `};  
 `
 
@@ -64,7 +64,7 @@ ${({ theme }) => css`
   align-items:center;
   justify-content: center;
   ${({ theme }) => css`
-  background-color: ${theme.colors.dropdownbackgroundcolor}
+  background-color: ${theme.colors.dropdownBackgroundColor}
   `}  ;
   border-radius: 0.5rem;
   width: 2rem;

@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   margin-top: 1rem;
   ${({ theme }) => css`
   font-weight: ${theme.font.normal};
-  color :${theme.colors.NormalWhite} 
+  color :${theme.colors.normalWhite} 
   `} 
 `;
 

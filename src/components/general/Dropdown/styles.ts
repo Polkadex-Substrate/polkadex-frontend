@@ -24,7 +24,7 @@ ${({ theme }) => css`
   display: flex;
   align-items:center;
   justify-content: center;
-  background: ${theme.colors.componentbackground};
+  background: ${theme.colors.componentBackground};
   border-radius: 0.5rem;
   width: 2rem;
 	height: 2rem;
@@ -52,8 +52,8 @@ export const Image2 = styled.img<Partial<DropdownProps>>`
 export const WrapperContent = styled.div`
 ${({ theme }) => css`
   position: absolute;
-  background-color: ${theme.colors.dropdownbackgroundcolor};
-  color:  ${theme.colors.NormalWhite};
+  background-color: ${theme.colors.dropdownBackgroundColor};
+  color:  ${theme.colors.normalWhite};
   border-radius: 0 1rem 1rem 1rem;
   padding: 1rem;
   -webkit-box-shadow: 0 7px 18px 0 rgba(0, 0, 0, 0.27);

@@ -1,5 +1,5 @@
 import { LogoText } from 'components/general/Logo/styles';
-import styled from 'styled-components'
+import styled , { css }from 'styled-components'
 
 export const WrapperIcon = styled.a`
   display: flex;
@@ -19,6 +19,9 @@ export const Span = styled.span`
   font-size: 1.3rem;
   display: none;
   opacity:0;
+  ${({ theme }) => css`
+    color: ${theme.colors.menuColor}
+  `}
 `
 
 export const WrapperLinks = styled.div`
@@ -27,7 +30,9 @@ export const WrapperLinks = styled.div`
   display: flex;
   flex-direction:column;
   justify-content:space-between;
-  background: #2E303C;
+  ${({ theme }) => css`
+    background-color: ${theme.colors.componentBackground};    
+  `}
   border-radius: 0 3rem 3rem 3rem;
   padding: 2rem 1rem;
   transition-duration: 0.8s;

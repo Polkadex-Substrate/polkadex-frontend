@@ -48,7 +48,7 @@ export const InnerWrapper = styled.div`
     margin-left: 1rem;
     ${({ theme }) => css`
     font-weight: ${theme.font.normal};
-    color :${theme.colors.NormalWhite} 
+    color :${theme.colors.normalWhite} 
     `} 
 `
 
@@ -57,7 +57,7 @@ export const Name = styled.span`
     margin-bottom: 0.25rem;
     ${({ theme }) => css`
     font-weight: ${theme.font.normal};
-    color :${theme.colors.NormalWhite} 
+    color :${theme.colors.normalWhite} 
     `} 
 `
 

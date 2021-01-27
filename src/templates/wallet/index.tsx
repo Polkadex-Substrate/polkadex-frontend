@@ -9,9 +9,13 @@ import Menu from '../../components/Menu'
 import Navigation from './blocks/Navigation'
 import { webSocket } from '../../components/dashboard/CustomChart/api/stream'
 
+
+
 export type InputProps = {}
 
 export default function Wallet() {
+  
+
   const currenciesList = [
     {
       id: 1,
