@@ -1,34 +1,27 @@
-import styled , { css } from 'styled-components'
-import { generateMedia } from 'styled-media-query'
-
-const customMedia = generateMedia({
-  custom: '1366px'
-})
-
+import styled from 'styled-components'
 
 export const CoinWrapper = styled.div`
-display:flex;
-flex-direction:row;
-align-items:center;
-
+  display:flex;
+  align-items:center;
 `
-export const NameandValueColumn = styled.div`
-display:flex;
-flex-direction:column;
+
+export const NameAndValueColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-family: Work Sans SemiBold;
+  line-height: 1.5rem;
 `
 
 export const CoinImage = styled.img` 
-width: 20px;
-height: 20px;
-background: transparent 0% 0% no-repeat padding-box;
-opacity: 1;
-margin-right:1rem;
+  width: 20px;
+  height: 20px;
+  margin-right: 1rem;
 `;
 
 export const BlurText = styled.div`
-color:#FFFFFF;
-font-weight:Regular;
-font-family: Work Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
-font-size:1.2rem;
-opacity: 0.5;
+  color: #FFFFFF;
+  opacity: 0.5;
+  font-size: 13px;
+  font-family: Work Sans;
 `

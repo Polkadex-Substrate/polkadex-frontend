@@ -1,15 +1,104 @@
-import { webSocket } from 'components/dashboard/CustomChart/api/stream'
-
-import * as S from './styles'
-import Icon from 'components/general/Icon'
 import React, { useEffect, useState } from 'react'
-import Graph from '../Graph'
-import SwapBox from '../Swapbox'
-import SidebarDropdown from '../../../../components/general/SidebarDropdown'
+import { animated, useSpring } from 'react-spring'
 import { Accordion, useAccordionToggle } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import * as S from './styles'
 
-const BottomContent = ({ openCryptoListModal }) => {
+import { webSocket } from 'components/dashboard/CustomChart/api/stream'
+import Icon from 'components/general/Icon'
+import Graph from '../Graph'
+import SwapBox from '../Swapbox'
+import SidebarDropdown from 'components/general/SidebarDropdown'
+import ModalCryptoList from 'components/general/ModalCryptoList'
+import { CurrencyDetails } from '../../../wallet/blocks/CryptoCurrencies'
+
+export type CurrentCurrency = {
+  type: string
+  value: number
+}
+
+const BottomContent = ({ balance }) => {
+  const currenciesList = [
+    {
+      id: 1,
+      name: 'Bitcoin',
+      type: 'BTC',
+      value: 0.456943324,
+    },
+    {
+      id: 2,
+      name: 'Dash',
+      type: 'DASH',
+      value: 0.100000000,
+    },
+    {
+      id: 3,
+      name: 'Ethreum',
+      type: 'ETH',
+      value: 0.200000000,
+    },
+    {
+      id: 4,
+      name: 'Polkadot',
+      type: 'DOT',
+      value: 0.300000000,
+    },
+    {
+      id: 5,
+      name: 'Riple',
+      type: 'BNB',
+      value: 0.400000000,
+    },
+    {
+      id: 6,
+      name: 'LiteCoin',
+      type: 'LTC',
+      value: 0.500000000,
+    },
+    {
+      id: 7,
+      name: 'Tether',
+      type: 'ATOM',
+      value: 0.600000000,
+    }
+    ,
+    {
+      id: 8,
+      name: 'Fil',
+      type: 'FIL',
+      value: 0.700000000,
+    },
+    {
+      id: 9,
+      name: 'Ethreum',
+      type: 'ETH',
+      value: 0.000000000,
+    },
+    {
+      id: 10,
+      name: 'Polkadot',
+      type: 'DOT',
+      value: 0.000000000,
+    },
+    {
+      id: 11,
+      name: 'Riple',
+      type: 'BNB',
+      value: 0.000000000,
+    },
+    {
+      id: 12,
+      name: 'LiteCoin',
+      type: 'LTC',
+      value: 0.000000000,
+    },
+    {
+      id: 13,
+      name: 'Tether',
+      type: 'ATOM',
+      value: 0.000000000,
+    },
+  ]
   const [state, setState] = useState(false)
   const [orderBookBids, setOrderBookBids] = useState([])
   const [orderBookAsks, setOrderBookAsks] = useState([])
@@ -21,6 +110,37 @@ const BottomContent = ({ openCryptoListModal }) => {
   const [high, setHigh] = useState(0)
   const [low, setLow] = useState(0)
   const [isAccordionActive, setIsAccordionActive] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalLeftAlign, setIsModalLeftAlign] = useState(false)
+  const [currentCurrency, setCurrentCurrency] = useState<CurrentCurrency>({type: 'BTC', value: 144560});
+  const [currencyList, setCurrencyList] = useState<CurrencyDetails[]>(currenciesList)
+
+  const openCryptoListModal = () => {
+    setIsModalOpen(true)
+    setIsModalLeftAlign(false)
+  }
+
+  const animation = useSpring({
+    config: {
+      duration: 250,
+    },
+    transform: (isModalOpen || isModalLeftAlign) ? 'translateY(0%)' : 'translateY(100%)',
+    height: '100%'
+  })
+
+  const animationLeft = useSpring({
+    config: {
+      duration: 250,
+    },
+    right: isModalLeftAlign ? '1.5%' : '50%',
+    top: '0',
+    position: 'absolute',
+    borderRadius: '5px',
+    height: '85vh',
+    width: '25%',
+    zIndex: 998,
+    transform: isModalLeftAlign ? 'translateX(0)' : 'translateX(50%)',
+  })
 
   const CustomToggle = ({ children, eventKey }) => {
     const decoratedOnClick = useAccordionToggle(eventKey, () => setIsAccordionActive(!isAccordionActive));
@@ -114,8 +234,7 @@ const BottomContent = ({ openCryptoListModal }) => {
         </S.LabelWithIcon>
       </S.LeftColumn>
       <S.MiddleColumn>
-        <SwapBox handleCryptoListModal={openCryptoListModal}/>
-
+        <SwapBox handleCryptoListModal={openCryptoListModal} balance={balance} currentCurrency={currentCurrency} />
         <Accordion defaultActiveKey="1">
           <S.BottomLabel isAccordionActive={isAccordionActive}>
             <CustomToggle eventKey="0">
@@ -141,6 +260,16 @@ const BottomContent = ({ openCryptoListModal }) => {
         </Accordion>
       </S.MiddleColumn>
       <S.RightColumn>
+        {(isModalOpen || isModalLeftAlign) && (
+          <S.Overlay isModalOpen={isModalOpen}>
+            <animated.div style={animationLeft}>
+              <animated.div style={animation}>
+                <ModalCryptoList modalCloseHandler={setIsModalOpen} setCryptoListLeftHandler={setIsModalLeftAlign}
+                                 currenciesList={currencyList} setCurrentCurrency={({ type, value }) => setCurrentCurrency({type, value})} />
+              </animated.div>
+             </animated.div>
+          </S.Overlay>
+        )}
         <S.BottomRightContentWrapper>
           <S.BottomColor/> 1092049
         </S.BottomRightContentWrapper>
