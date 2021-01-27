@@ -138,7 +138,7 @@ export const WrapperGraph = styled.div`
 
 export const Button = styled.div``
 
-export const Overlay = styled.div<any>`
+export const Overlay = styled.div`
   position: fixed;
   z-index: 999;
   top: 0;

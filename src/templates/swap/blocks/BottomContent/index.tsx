@@ -261,7 +261,7 @@ const BottomContent = ({ balance }) => {
       </S.MiddleColumn>
       <S.RightColumn>
         {(isModalOpen || isModalLeftAlign) && (
-          <S.Overlay isModalOpen={isModalOpen}>
+          <S.Overlay>
             <animated.div style={animationLeft}>
               <animated.div style={animation}>
                 <ModalCryptoList modalCloseHandler={setIsModalOpen} setCryptoListLeftHandler={setIsModalLeftAlign}
