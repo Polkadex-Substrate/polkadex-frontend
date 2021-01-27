@@ -20,10 +20,6 @@ const SwapBox = ({ handleCryptoListModal, balance, currentCurrency }) => {
     setHideContent(hideContent === 'Active' ? 'Not_Active' : 'Active')
   }
 
-  const openModalCryptoList = () => {
-    handleCryptoListModal()
-  }
-
   return (
     <S.SwapBoxContainer>
       <S.SwapBoxWrapper className={hideContent}>
@@ -42,7 +38,7 @@ const SwapBox = ({ handleCryptoListModal, balance, currentCurrency }) => {
           </S.OrdersWrapper>
         </S.RowOne>
         <S.RowTwo className={hideContent}>
-          <MyOrders handleChange={handleAction} cryptoList={openModalCryptoList} balance={balance}
+          <MyOrders handleChange={handleAction} cryptoList={handleCryptoListModal} balance={balance}
                     currentCurrency={currentCurrency}/>
         </S.RowTwo>
         <S.RowThree className={hideContent}>

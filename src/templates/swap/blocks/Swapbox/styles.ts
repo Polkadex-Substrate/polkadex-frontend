@@ -13,8 +13,8 @@ export const SwapBoxContainer = styled.div`
   justify-content: center;
   align-items:center;
   padding-bottom:3rem;
-  padding-right:2rem;
 `
+
 export const SwapBoxWrapper = styled.div`
   width: 68%;
   height: 38rem;
@@ -101,10 +101,10 @@ export const Image = styled.img`
 
 export const BottomRow = styled.div`
   display: flex;
-  width: 68%;
+  width: 80%;
   justify-content: space-evenly;
   ${customMedia.lessThan('custom')`
-  font-size:1rem;
+    font-size:1rem;
   `}
   margin-top:2rem;
   padding-left:1rem;

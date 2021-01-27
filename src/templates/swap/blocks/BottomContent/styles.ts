@@ -139,14 +139,12 @@ export const WrapperGraph = styled.div`
 export const Button = styled.div``
 
 export const Overlay = styled.div<any>`
-  ${({isModalOpen}) => isModalOpen && css`
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: #00000050;
-    box-shadow: 0px 100px 99px #0000002C;
-  `}
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #00000050;
+  box-shadow: 0px 100px 99px #0000002C;
 `
