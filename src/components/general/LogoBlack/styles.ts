@@ -30,5 +30,8 @@ export const LogoText = styled.g`
     transition-property: initial;
     display: none;
     opacity:0;
+    ${({ theme }) => css`
+    color: ${theme.colors.normalWhite};
+  `}
 `;
 export const LogoIcon = styled.g``;

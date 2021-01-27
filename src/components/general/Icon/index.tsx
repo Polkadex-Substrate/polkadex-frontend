@@ -1,7 +1,7 @@
 import * as S from './styles'
 
 export type IconProps = {
-  source: "Settings" | "Candles" | "Sun" | "Close" | "Graph" | "Options" | "Edit" | "Exchange" | "Expand" | "Help" | "History" | "News" | "Notifications" | "Order" | "OrderAsc" | "OrderDesc" | "Search" | "Star" | "Transactions" | "Wallet" | "Swap" | "Swap2" | "Clock-green" | "Clock" | "Copy" | "Lock" | "ArrowRight" | "SettingsBlack" | "WalletBlack" | "LockBlack" | "Arrow_rightblack" | "GraphLm" | "ExchangeLm" | "WalletLm" | "NewsLm" | "NotificationLm" | "HelpLm" | "TransactionLm" | "HistoryLm"
+  source: "Settings" | "Candles" | "Sun" | "Close" | "Graph" | "Options" | "Edit" | "Exchange" | "Expand" | "Help" | "History" | "News" | "Notifications" | "Order" | "OrderAsc" | "OrderDesc" | "Search" | "Star" | "Transactions" | "Wallet" | "Swap" | "Swap2" | "Clock-green" | "Clock" | "Copy" | "Lock" | "ArrowRight" | "SettingsBlack" | "WalletBlack" | "LockBlack" | "Arrow_rightblack" | "GraphLm" | "ExchangeLm" | "WalletLm" | "NewsLm" | "NotificationLm" | "HelpLm" | "TransactionLm" | "HistoryLm" | "SearchLm"
   size?: "XSmall" | "Small" | "XMedium" | "Medium" | "Large" | "XtraLarge",
   background?: "DarkGray" | "LightGray" | "None" | "Primary" | "Gray" | "Black" | "WhiteThemeBackground",
   action?: () => void

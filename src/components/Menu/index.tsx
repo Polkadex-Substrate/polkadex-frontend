@@ -17,20 +17,16 @@ const Menu = ( ) => {
     <S.Wrapper>
       <S.WrapperLinks>
       {theme ==  Theme.Dark
-            ?
-            <Logo size="Medium"/>
-            :
-            <LogoBlack size="Medium"/> 
+            ? <Logo size="Medium"/>
+            : <LogoBlack size="Medium"/> 
             }  
       
         <S.Container>
           <S.WrapperIcon>
             <div>
             {theme ==  Theme.Dark
-            ?
-              <Icon source="Graph" size="Small" background="None"/>
-            :
-              <Icon source="GraphLm" size="Small" background="None"/>
+            ?<Icon source="Graph" size="Small" background="None"/>
+            : <Icon source="GraphLm" size="Small" background="None"/>
             }  
             </div>
             <S.Span>Markets</S.Span>

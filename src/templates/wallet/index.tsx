@@ -89,13 +89,7 @@ export default function Wallet() {
       name: 'LiteCoin',
       type: 'LTC',
       value: 0.000000000,
-    },
-    {
-      id: 13,
-      name: 'Tether',
-      type: 'ATOM',
-      value: 0.000000000,
-    },
+    }
   ]
   const historyList = [
     {
