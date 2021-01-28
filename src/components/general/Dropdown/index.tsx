@@ -25,7 +25,7 @@ const Dropdown = ({ title="Select Value", children, active, setDropdownState }: 
         <S.Title>{title}</S.Title>
         <S.WrapperImage>
         <S.Image src={theme ===  Theme.Dark ? "/img/icons/ArrowTop.svg" : "/img/icons/ArrowDownBlack.svg"} active={state} />
-        </S.WrapperImage>
+       </S.WrapperImage>
       </S.Header>
       {state &&
         <S.WrapperContent className="animation">
