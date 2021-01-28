@@ -15,7 +15,6 @@ export type CurrencyDetails = {
 
 const CryptoCurrencies = ({ currentCurrency, currencyList, setCurrency, searchValue, setValue }) => {
     const { theme, setTheme } = useTheme();
-
     return (
         <S.LeftCurrencyColumn>
             <S.CryptoCurrenciesWrapper>

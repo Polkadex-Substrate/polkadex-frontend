@@ -19,7 +19,7 @@ export const ContainerInput = styled.div`
 export const Label = styled.label` 
 ${({ theme }) => css`
 
-  color: ${theme.colors.normalWhite};
+ color:  #8BA1BE;
   img {
     width: 1.1rem;
     height: 1.1rem;
@@ -42,7 +42,7 @@ export const Box = styled.div<Partial<InputProps>>`
 export const Span = styled.span` 
 ${({ theme }) => css`
 
-  color: ${theme.colors.normalWhite};
+ color:  #8BA1BE;
   opacity: 0.8;
 `}`
 

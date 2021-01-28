@@ -16,7 +16,7 @@ const ListItemButton = ({ title, size = "Medium", darkMode = true, fullWidth = f
           <S.Image src={`/img/icons/${icontype}.svg`} /> 
           {title} 
           </S.iconwrapper>
-    :<span>{title}</span>
+    :<S.Span>{title}</S.Span>
     }
     
 

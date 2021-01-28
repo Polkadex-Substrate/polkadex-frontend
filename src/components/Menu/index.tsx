@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import * as S from './styles'
 
 import Icon from 'components/general/Icon'
@@ -7,10 +7,12 @@ import { useRouter } from 'next/router'
 import ThemeSwitcher from 'components/general/ThemeSwitcher'
 import { useTheme ,Theme} from '../../Context/ThemeContext'
 
-const Menu = ( ) => {
+const Menu = (  ) => {
 
   const { asPath } = useRouter()
   const { theme, setTheme } = useTheme();
+
+  
 
   return (
     <S.Wrapper>

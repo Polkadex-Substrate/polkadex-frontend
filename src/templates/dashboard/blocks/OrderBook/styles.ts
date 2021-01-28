@@ -1,11 +1,15 @@
-import styled from 'styled-components'
+import styled,{css} from 'styled-components'
 
 export const Wrapper = styled.div`
-  background-color:#242633;
+${({ theme }) => css`
+    background-color: ${theme.colors.orderBookComponentColor};
+    box-shadow:${theme.shadow.orderBookShadow};
+  `};
+
   border-radius: 0 3rem 3rem 3rem;
   width: 35%;
   padding: 2rem 0 2rem 2rem;
-  box-shadow: 0px 0px 99px rgba(0, 0, 0, 0.65);
+  
 `
 
 export const WrapperTitle = styled.div`
@@ -26,5 +30,8 @@ export const ContainerTitle = styled.div`
   display:flex;
   flex-direction:row;
   align-items:center;
+  ${({ theme }) => css`
+   color: ${theme.colors.normalWhite};
+`}
 `
 

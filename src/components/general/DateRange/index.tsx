@@ -2,7 +2,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import { useState } from 'react';
 import DatePicker from "react-datepicker"
-
+import { useTheme, Theme } from 'Context/ThemeContext';
 import Icon from "../Icon";
 import * as S from './styles'
 
@@ -11,6 +11,7 @@ type Props = {
   backgroundcolor ? : any;
 }
 const DateRange = ( {position='right' , backgroundcolor  = 'Gray'}: Props ) => {
+  const { theme, setTheme } = useTheme();
   const [state, setState] = useState(false)
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
@@ -22,7 +23,7 @@ const DateRange = ( {position='right' , backgroundcolor  = 'Gray'}: Props ) => {
 
   return (
     <S.Wrapper>
-      <Icon source="Transactions" background={backgroundcolor} size="Medium" action={()=>setState(!state)} />
+      <Icon source={theme===Theme.Dark?"Transactions":"TransactionsBlack"} background={backgroundcolor} size="Medium" action={()=>setState(!state)} />
       {state &&
         <S.WrapperCalendar position={position}>
         <DatePicker

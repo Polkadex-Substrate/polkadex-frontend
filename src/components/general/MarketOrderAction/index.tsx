@@ -9,6 +9,7 @@ import Input from '../Input'
 import Link from '../Link'
 import Range from '../Range'
 import * as S from './styles'
+import { useTheme, Theme } from 'Context/ThemeContext';
 
 export type MarketOrderActionProps = {
   type?: 'Sell' | 'Buy'
@@ -23,7 +24,7 @@ export type MarketOrderActionProps = {
   setActiveIndex: any
 }
 const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice, setAmount, account, blockchainApi, orderType, setActiveIndex }: MarketOrderActionProps) => {
-
+  const { theme, setTheme } = useTheme();
   const [slider, setSlider] = useState({ values: [50] })
   const [available, setAvailable] = useState(0)
   const [dropdownState, setDropdownState] = useState(false)
@@ -168,7 +169,7 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
   return (
     <S.WrapperOrder>
       <S.ContainerWallet>
-        <Icon source="Wallet" background="DarkGray" size="Medium" />
+        <Icon source={theme===Theme.Dark?"Wallet":"WalletBlack"} background="DarkGray" size="Medium" />
         <S.WrapperBalance>
           <span>Available</span>
           <S.Span>{available} { type === 'Buy' ? 'USDT' : 'BTC' }</S.Span>
@@ -194,7 +195,8 @@ const MarketOrderAction = ({ type = 'Buy', setOpenOrder, price, amount, setPrice
             </Dropdown>
           </S.WrapperActions>
           <Range values={slider.values} setValues={(value) => setSliderValue(value)} />
-          <Button type="button" title={type} fullWidth={true} click={startTransaction} disabled={!account?.address} />
+          <Button type="button" title={type} fullWidth={true} click={startTransaction} disabled={false} />
+          {/*  Rudar code  =  disabled={!account?.address} */}
         </form>
       </S.ContainerForm>
     </S.WrapperOrder>

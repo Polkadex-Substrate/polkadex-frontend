@@ -6,10 +6,12 @@ const customMedia = generateMedia({
 })
 export const Wrapper = styled.div`
   grid-area:graph;
-  background: #2E303C;
+  ${({ theme }) => css`
+  background-color: ${theme.colors.componentBackground};
+  box-shadow: ${theme.shadow.dashboardBoxShadow}
+  `};
   border-radius: 0 3rem 3rem 3rem;
-  margin-left:0.5rem;
-  box-shadow: 0px 30px 45px rgba(0, 0, 0, 0.17);
+  margin-left:0.5rem;  
   display: flex;
   flex-direction:row;
   justify-content:space-between;
@@ -24,9 +26,11 @@ export const Wrapper = styled.div`
 `
 export const WrapperGraph = styled.section`
   width: 65%;
-  padding: 2rem;
-  box-shadow: 0px 30px 45px rgba(0, 0, 0, 0.17);
-  background-color: #22232d;
+  padding: 2rem;  
+  ${({ theme }) => css`
+  background-color: ${theme.colors.GraphBackgroundColor};
+  box-shadow: ${theme.shadow.dashboardBoxShadow}
+  `};
   // min-width:65rem;
 `
 // Header
@@ -36,6 +40,10 @@ export const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
+  ${({ theme }) => css`
+  color: ${theme.colors.normalWhite};
+ 
+  `};
 `
 export const FlexWrapper = styled.div`
   display: flex;
@@ -58,7 +66,9 @@ type ItemProps = {
 
 export const Item = styled.div<ItemProps>`
   cursor:pointer;
-  
+  ${({ theme }) => css`
+  color: ${theme.colors.normalWhite}; 
+  `};
   :first-child {
     margin-left: 1rem;
   }

@@ -9,7 +9,8 @@ export default{
   },
   shadow:{
     largeComponentShadow:'0px -36px 99px rgba(0, 0, 0, 0.5);',
-    dashboardBoxShadow:'0px 30px 45px rgba(0, 0, 0, 0.17);'
+    dashboardBoxShadow:'0px 30px 45px rgba(0, 0, 0, 0.17);',
+    orderBookShadow:' 0px 0px 99px rgba(0, 0, 0, 0.65)'
   },
   font: {
     family:
@@ -52,7 +53,12 @@ export default{
     dropdownBackgroundColor:"#2E303C",
     menuColor:"#ffffff",
     dashboardComponentBackground:"#2E303A",
-    dashboardFontColor:"#d8d8d8"    
+    dashboardFontColor:"#d8d8d8", 
+    orderBookComponentColor:"#242633",   
+    orderBookLabelColor:"#1D2127",
+    checkBoxBackgroundColor:"#434658",
+    tabBackgroundColor:"#24272E",
+    GraphBackgroundColor:"#22232d"
   },
  
   spacings: {
@@ -94,7 +100,8 @@ export const lightTheme = {
 
   shadow:{
     largeComponentShadow:'0px 100px 99px #ABC0E32C;',
-    dashboardBoxShadow:'0px 30px 45px #ABC0E32C;'
+    dashboardBoxShadow:'0px 30px 45px #ABC0E32C;',
+    orderBookShadow:'0px 30px 45px #ABC0E32C;'
   },
 
   font: {
@@ -138,7 +145,12 @@ export const lightTheme = {
     dropdownBackgroundColor:"#EBEEF4",
     menuColor:"#C6D2E5",
     dashboardComponentBackground:"#FFFFFF",
-    dashboardFontColor:"#8BA1BE"
+    dashboardFontColor:"#8BA1BE",
+    orderBookComponentColor:"#FFFFFF",
+    orderBookLabelColor:"#EBEEF4",
+    checkBoxBackgroundColor:"#EBEEF4",
+    tabBackgroundColor:"#FFFFFF",
+    GraphBackgroundColor:"#FFFFFF"
   },
  
   spacings: {
@@ -179,7 +191,8 @@ export const blackTheme = {
   },
   shadow:{
     largeComponentShadow:'0px 100px 99px #0000002C;',
-    dashboardBoxShadow:'0px 30px 45px rgba(0, 0, 0, 0.17);'
+    dashboardBoxShadow:'0px 30px 45px rgba(0, 0, 0, 0.17);',
+    orderBookShadow:' 0px 0px 99px rgba(0, 0, 0, 0.65)'
   },
 
   font: {
@@ -223,7 +236,12 @@ export const blackTheme = {
     dropdownBackgroundColor:"#2E303C",
     menuColor:"#ffffff",
     dashboardComponentBackground:"#2E303A",
-    dashboardFontColor:"#d8d8d8"
+    dashboardFontColor:"#d8d8d8",
+    orderBookComponentColor:"#242633",
+    orderBookLabelColor:"#1D2127",
+    checkBoxBackgroundColor:"#434658",
+    tabBackgroundColor:"#24272E",
+    GraphBackgroundColor:"#22232d"
   },
  
   spacings: {

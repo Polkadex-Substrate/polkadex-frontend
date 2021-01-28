@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled ,{css}from 'styled-components'
 import media from "styled-media-query"
 
 export const Wrapper = styled.div``
@@ -11,6 +11,7 @@ export const Table = styled.table`
 export const Thead = styled.thead`
   font-size: 1.2rem;
   color: #8BA1BE;
+ 
   tr {
     display: grid;
     grid-template-columns:  2.5fr repeat(5,1fr) 0.5fr;
@@ -18,8 +19,10 @@ export const Thead = styled.thead`
     padding: 0 1rem;
   }
 `
-export const Tbody = styled.tbody`
-  color: white;
+export const Tbody = styled.tbody` 
+  ${({ theme }) => css`       
+  color :${theme.colors.normalWhite}; 
+  `}  ;
   font-size: 1.3rem;
 
   ${media.greaterThan('large')`

@@ -9,6 +9,7 @@ import {
   IChartingLibraryWidget,
 } from '../../../../public/static/charting_library'
 
+
 export interface ChartContainerProps {
   symbol: ChartingLibraryWidgetOptions['symbol'];
   interval: ChartingLibraryWidgetOptions['interval'];
@@ -52,6 +53,7 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
   private tvWidget: IChartingLibraryWidget | null = null;
 
   public componentDidMount(): void {
+
     const widgetOptions: ChartingLibraryWidgetOptions = {
       symbol: this.props.symbol as string,
       datafeed: DataFeed,

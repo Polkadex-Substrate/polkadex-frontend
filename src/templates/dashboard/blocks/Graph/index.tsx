@@ -3,14 +3,17 @@ import Icon from 'components/general/Icon'
 import ListItemButton from 'components/general/ListItemButton'
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
+import { useTheme, Theme } from 'Context/ThemeContext';
 
 import OrderBook from '../OrderBook'
 import { IGraph } from './IGraph'
 import * as S from './styles'
+
 const ChartContainer = dynamic(() => import('../../../../components/dashboard/CustomChart').then(), { ssr: false })
 
-const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransactionType }: IGraph) => {
 
+const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransactionType }: IGraph) => {
+  const { theme, setTheme } = useTheme();
   const [filters, setFilters] = useState({
     type: "CandlestickSeries"
   })
@@ -19,7 +22,7 @@ const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransact
       <S.WrapperGraph>
         <S.Header>
           <S.FlexWrapper>
-            <Icon source="Edit" />
+            <Icon source= {theme===Theme.Dark?"Edit":"EditBlack"} />
             <S.List>
               <S.Item selected>
                 3m
@@ -56,11 +59,11 @@ const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransact
               <ListItemButton title="Original" size="Default" selected />
               <ListItemButton title="Trading View" size="Default" />
               <ListItemButton title="Market Depth" size="Default" />
-              <Icon source="Expand"/>
+              <Icon source={theme===Theme.Dark?"Expand":"ExpandDark"}/>
             </S.List>
           </S.FlexWrapper>
-        </S.Header>
-        <ChartContainer />
+        </S.Header>       
+        <ChartContainer />    
       </S.WrapperGraph>
       <OrderBook orderBookAsks={orderBookAsks} orderBookBids={orderBookBids} latestTransaction={latestTransaction} latestTransactionType={latestTransactionType}/>
     </S.Wrapper>
