@@ -21,8 +21,8 @@ export const Thead = styled.thead`
 `
 export const Tbody = styled.tbody` 
   ${({ theme }) => css`       
-  color :${theme.colors.normalWhite}; 
-  `}  ;
+    color :${theme.colors.normalWhite}; 
+  `};
   font-size: 1.3rem;
 
   ${media.greaterThan('large')`

@@ -142,6 +142,14 @@ export default function Wallet() {
   }
 
   useEffect(() => {
+    const  themeinLocalStorage = localStorage.getItem('theme')
+     if(themeinLocalStorage=="light"){
+       setTheme(Theme.Light)
+     }
+     else{
+      setTheme(Theme.Dark)
+     }
+
     fetchLastTrade(webSocket);
   }, [])
 

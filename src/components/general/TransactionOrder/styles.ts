@@ -2,16 +2,15 @@ import styled,{css} from 'styled-components'
 import media from "styled-media-query"
 export const Tr = styled.tr` 
   ${({ theme }) => css`       
-  background-color :${theme.colors.dropdownBackgroundColor}; 
-  `}  ;
+    background-color :${theme.colors.dropdownBackgroundColor};
+  `};
   padding:1.2rem;
   margin-bottom:1.2rem;
   border-radius: 0 1rem 1rem 1rem;
   :nth-child(even) {      
-      ${({ theme }) => css`       
-       background-color :${theme.colors.tabBackgroundColor}; 
-  `}  ;
-
+    ${({ theme }) => css`
+      background-color :${theme.colors.tabBackgroundColor}; 
+    `};
   }
 `
 export const Td = styled.td``

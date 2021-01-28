@@ -106,6 +106,14 @@ export default function Dashboard({ account, blockchainApi }) {
   }
 
   useEffect(() => {
+     const  themeinLocalStorage = localStorage.getItem('theme')
+     if(themeinLocalStorage=="light"){
+       setTheme(Theme.Light)
+     }
+     else{
+      setTheme(Theme.Dark)
+     }
+
     const webSocketInstance = webSocket;
     fetchMarketData(webSocketInstance)
     fetchOrderBookBids(webSocketInstance)
