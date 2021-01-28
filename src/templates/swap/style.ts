@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { generateMedia } from 'styled-media-query'
 
 const customMedia = generateMedia({
@@ -37,20 +37,9 @@ export const PolkaLogo = styled.img`
   width: 100%;
   margin-bottom: 2rem;
 `
+
 export const Root = styled.div`
   position: relative;
   display: block;
   width: 100%;
-
- 
 `;
-
-export const Overlay = styled.div`
-position:fixed;
-z-index:999;
-top: 0;
-left: 0;
-bottom: 0;
-right: 0;
-background: rgba(0, 0, 0, 0.3); 
-`
