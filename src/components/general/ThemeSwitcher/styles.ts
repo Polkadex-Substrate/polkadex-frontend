@@ -19,10 +19,3 @@ export const SpanDark = styled.span`
   display: none;
   opacity:0;
 `
-export const SpanLight = styled.span`
-  margin-left:0.5rem;
-  font-size: 1.3rem;
-  display: none;
-  opacity:0;
-  color:#000000;
-`

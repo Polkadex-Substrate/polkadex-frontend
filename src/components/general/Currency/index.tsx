@@ -26,10 +26,7 @@ const Currency = ({ currency, setCurrency, active, displayValue = true }) => {
         displayValue &&
         <S.ValueWrapper>
           <S.Value>{currency.value.toFixed(8)}</S.Value>
-          {theme ==  Theme.Dark
-           ? <Icon source={'ArrowRight'} size={'XSmall'}/>
-           :  <Icon source={'Arrow_rightblack'} size={'Small'} background = "WhiteThemeBackground"/>
-          }
+          <Icon source={ theme ===  Theme.Dark?'ArrowRight':'Arrow_rightblack'} size={'Small'} background = {theme ===  Theme.Dark?"None":"WhiteThemeBackground"}/>          
         </S.ValueWrapper>
       }
     </S.Row>

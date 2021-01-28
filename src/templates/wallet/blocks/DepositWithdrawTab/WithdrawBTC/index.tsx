@@ -55,26 +55,16 @@ const WithdrawBTC = ({ currentCurrency, walletAddress, setWalletAddress, lastTra
                     </S.InnerWrapper>
                 </S.SymbolWrapper>
 
-                <S.AvailableWrapper>
-                {theme ==  Theme.Dark
-                    ?
-                    <Icon source="Wallet" background="Black" size="XMedium"/>
-                    :
-                    <Icon source="WalletBlack" background="WhiteThemeBackground" size="XMedium"/>
-                } 
+                <S.AvailableWrapper>               
+                    <Icon source={theme === Theme.Dark?"Wallet":"WalletBlack"} background={theme === Theme.Dark?"Black":"WhiteThemeBackground"} size="XMedium"/>                  
                     <S.InnerWrapper>
                         <S.ContentHeading>Available </S.ContentHeading>
                         <S.Value>{currentCurrency.value.toFixed(8)} BTC</S.Value>
                     </S.InnerWrapper>
                 </S.AvailableWrapper>
 
-                <S.LockedWrapper>
-                {theme ==  Theme.Dark
-                    ?
-                    <Icon source="Lock" background="Black" size="XMedium"/>
-                    :
-                    <Icon source="LockBlack" background="WhiteThemeBackground" size="XMedium"/>
-                }                    
+                <S.LockedWrapper>               
+                    <Icon source={theme === Theme.Dark?"Lock":"LockBlack"} background={theme === Theme.Dark?"Black":"WhiteThemeBackground"} size="XMedium"/>                                    
                     <S.InnerWrapper>
                         <S.ContentHeading>Locked </S.ContentHeading>
                         <S.Value>0</S.Value>

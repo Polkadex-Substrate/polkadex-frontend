@@ -10,23 +10,13 @@ const ThemeSwitcher = () => {
 
   return (
     <span>
-      { theme == Theme.Dark
-        ?
-        <S.WrapperIcon onClick={() => setTheme(Theme.Light)}>
+     
+        <S.WrapperIcon onClick={() => theme === Theme.Dark ?setTheme(Theme.Light): setTheme(Theme.Dark)}>
           <div>
             <Icon source="Sun" size="Small" background="LightGray" />
           </div>
           <S.SpanDark>Dark</S.SpanDark>
-        </S.WrapperIcon>
-        :
-        <S.WrapperIcon onClick={() => setTheme(Theme.Dark)}>
-          <div>
-            <Icon source="Sun" size="Small" background="LightGray" />
-          </div>
-          <S.SpanLight>Light</S.SpanLight>
-        </S.WrapperIcon>
-      }
-
+        </S.WrapperIcon>  
     </span>
 
   )

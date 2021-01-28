@@ -24,11 +24,7 @@ const Dropdown = ({ title="Select Value", children, active, setDropdownState }: 
       <S.Header onClick={() => setDropdownState(!active)}>
         <S.Title>{title}</S.Title>
         <S.WrapperImage>
-        {theme ==  Theme.Dark
-          ? <S.Image src={"/img/icons/ArrowTop.svg"} active={state}/>
-          : <S.Image2 src={"/img/icons/ArrowDownBlack.svg"} active={state}/>
-          }
-      
+        <S.Image src={theme ===  Theme.Dark ? "/img/icons/ArrowTop.svg" : "/img/icons/ArrowDownBlack.svg"} active={state} />
         </S.WrapperImage>
       </S.Header>
       {state &&

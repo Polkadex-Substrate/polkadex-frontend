@@ -28,13 +28,8 @@ const History = ({ historyList }) => {
               <DropdownItem title="MarketLimit" handleAction={handleAction}/>
             </>
           </Dropdown>
-          <S.IconWrapper>
-          {theme ==  Theme.Dark
-                    ?
-                    <Icon source="Settings" background="Gray" size="Small"/>
-                    :
-                    <Icon source="SettingsBlack" background="WhiteThemeBackground" size="Small"/>
-                }            
+          <S.IconWrapper>    
+                    <Icon source={theme ===  Theme.Dark?"Settings":"SettingsBlack"} background="Gray" size="Small"/>                            
           </S.IconWrapper>
         </S.FilterAndSettingWrapper>
       </S.HistoryHeader>

@@ -24,12 +24,7 @@ const CryptoCurrencies = ({ currentCurrency, currencyList, setCurrency, searchVa
                 </S.WrapperTitle>
                 <S.SearchWrapper>
                     <SearchBar placeholder="Search..." type="search" value={searchValue} setValue={setValue}/>
-                    {theme ==  Theme.Dark
-                    ?
-                    <S.IconWrapper><Icon source="Settings" size="Small" background="Black"/></S.IconWrapper>
-                    :
-                    <S.IconWrapper><Icon source="SettingsBlack" size="Small" background="WhiteThemeBackground"/></S.IconWrapper>  
-                    }
+                    <S.IconWrapper><Icon source={theme ===  Theme.Dark?"Settings":"SettingsBlack"} size="Small" background={theme ===  Theme.Dark?"Black":"WhiteThemeBackground"}/></S.IconWrapper>                    
                 </S.SearchWrapper>
                 <S.CryptoListWrapper>
                     { currencyList.map((currency, index) => <Currency currency={currency} key={index} active={currentCurrency.id === currency.id} setCurrency={() => setCurrency(currency)} />) }
