@@ -31,7 +31,7 @@ export const ContainerInfo = styled.div`
   border-radius: 0 0 3rem 3rem;
   ${({ theme }) => css`
   background-color: ${theme.colors.dashboardComponentBackground}; 
-  box-shadow: ${theme.shadow.dashboardBoxShadow} ;
+  box-shadow: ${theme.shadow.dashboardBoxShadow};
 `};    
   padding: 1rem 2rem 0.9rem;
   border-radius:0 0 1.9rem 1.9rem;
