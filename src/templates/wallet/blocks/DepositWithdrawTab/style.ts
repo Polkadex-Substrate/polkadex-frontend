@@ -31,7 +31,7 @@ export const TabHeader = styled.div<TabHeaderProps>`
         align-items: center;
         ${({ theme }) => css`
         font-weight: ${theme.font.normal};
-        color :${theme.colors.NormalWhite} 
+        color :${theme.colors.normalWhite} 
         `}  ;
               
         ${media.lessThan('large')`
@@ -63,8 +63,8 @@ export const Wrapper = styled.div`
   font-size: 16px;
   
   ${({ theme }) => css`
-    background-color: ${theme.colors.componentbackground};
-    box-shadow: ${theme.shadow.largecomponentshadow};
-    color: ${theme.colors.NormalWhite}
+    background-color: ${theme.colors.componentBackground};
+    box-shadow: ${theme.shadow.largeComponentShadow};
+    color: ${theme.colors.normalWhite}
   `};
 `

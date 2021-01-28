@@ -27,7 +27,7 @@ const OrderBookTable = ({ latestTransaction, latestTransactionType, orderBookAsk
 
     <S.LastTransaction>
       <p>
-        Latest transaction&nbsp;
+        <S.FontColor>Latest transaction</S.FontColor>&nbsp;
         {
           latestTransactionType ?
             (

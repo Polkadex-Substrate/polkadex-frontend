@@ -86,6 +86,11 @@ const WrapperModifier = {
     background-color:#1C2023;
     color: ${theme.colors.white};
   `,
+  WhiteThemeBackground: (theme: DefaultTheme) => css`
+    background-color:${theme.colors.dropdownBackgroundColor};
+    color: ${theme.colors.white};
+  `,
+
 }
 
 export const Wrapper = styled.div<Partial<IconProps>>`

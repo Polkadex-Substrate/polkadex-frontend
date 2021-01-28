@@ -19,7 +19,7 @@ const wrapperModifier = {
   `,
   Dark: (theme: DefaultTheme) => css`
     background-color: ${theme.colors.darkGray};
-    color: ${theme.colors.NormalWhite};
+    color: ${theme.colors.normalWhite};
     font-weight:${theme.font.normal};
   `,
   Light: (theme: DefaultTheme) => css`
@@ -37,7 +37,7 @@ ${({ theme, size, darkMode, fullWidth }) => css`
   border: 0;
   border-radius: ${theme.border.radius};
   padding: ${theme.spacings.xxsmall};
-  color: ${theme.colors.NormalWhite};
+  color: ${theme.colors.normalWhite};
   font-weight:${theme.font.normal};
   cursor:pointer;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);

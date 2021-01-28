@@ -38,7 +38,6 @@ export const Box = styled.div<Partial<InputProps>>`
     border-bottom: 0.1rem solid #8BA1BE;
     width: 100%;
     font-size: 15px;
-
     ${inputInfo && inputModifier.Flex()}
     :hover {
       border-bottom-color: ${theme.colors.primary};
@@ -57,7 +56,10 @@ export const Span = styled.span`
 
 export const Input = styled.input`
   width: 100%;
-  color: white;
+  ${({ theme }) => css`
+  font-weight: ${theme.font.normal};
+  color :${theme.colors.normalWhite} 
+  `}  ;
   font-size: 14px;
   font-weight:400;
 `

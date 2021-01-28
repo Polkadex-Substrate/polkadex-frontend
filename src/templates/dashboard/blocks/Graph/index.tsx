@@ -3,23 +3,25 @@ import Icon from 'components/general/Icon'
 import ListItemButton from 'components/general/ListItemButton'
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
+import { Theme, useTheme } from 'Context/ThemeContext'
 
 import OrderBook from '../OrderBook'
 import { IGraph } from './IGraph'
 import * as S from './styles'
-const ChartContainer = dynamic(() => import('../../../../components/dashboard/CustomChart').then(), { ssr: false })
+
+const ChartContainer = dynamic<{ theme: Theme }>(() => import('../../../../components/dashboard/CustomChart').then(), { ssr: false })
 
 const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransactionType }: IGraph) => {
-
+  const { theme } = useTheme()
   const [filters, setFilters] = useState({
-    type: "CandlestickSeries"
+    type: 'CandlestickSeries',
   })
   return (
     <S.Wrapper>
       <S.WrapperGraph>
         <S.Header>
           <S.FlexWrapper>
-            <Icon source="Edit" />
+            <Icon source={theme === Theme.Dark ? 'Edit' : 'EditBlack'}/>
             <S.List>
               <S.Item selected>
                 3m
@@ -53,16 +55,17 @@ const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransact
           {/*</Dropdown>*/}
           <S.FlexWrapper>
             <S.List>
-              <ListItemButton title="Original" size="Default" selected />
-              <ListItemButton title="Trading View" size="Default" />
-              <ListItemButton title="Market Depth" size="Default" />
-              <Icon source="Expand"/>
+              <ListItemButton title="Original" size="Default" selected/>
+              <ListItemButton title="Trading View" size="Default"/>
+              <ListItemButton title="Market Depth" size="Default"/>
+              <Icon source={theme === Theme.Dark ? 'Expand' : 'ExpandDark'}/>
             </S.List>
           </S.FlexWrapper>
         </S.Header>
-        <ChartContainer />
+        <ChartContainer theme={theme}/>
       </S.WrapperGraph>
-      <OrderBook orderBookAsks={orderBookAsks} orderBookBids={orderBookBids} latestTransaction={latestTransaction} latestTransactionType={latestTransactionType}/>
+      <OrderBook orderBookAsks={orderBookAsks} orderBookBids={orderBookBids} latestTransaction={latestTransaction}
+                 latestTransactionType={latestTransactionType}/>
     </S.Wrapper>
   )
 }

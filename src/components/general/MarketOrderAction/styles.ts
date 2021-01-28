@@ -1,12 +1,14 @@
-import styled from 'styled-components'
+import styled,{css} from 'styled-components'
 
 // Order Box
 
-export const WrapperOrder = styled.div`
-  background: #2E303C;
+export const WrapperOrder = styled.div`  
   border-radius: 0 3rem 3rem 3rem;
-  padding: 4.5rem 2rem;
-  box-shadow: 0px 30px 45px rgba(0, 0, 0, 0.17);
+  padding: 4.5rem 2rem;  
+  ${({ theme }) => css`
+  background-color: ${theme.colors.dashboardComponentBackground}; 
+  box-shadow: ${theme.shadow.dashboardBoxShadow};
+`}; 
 `;
 
 export const ContainerWallet = styled.div`
@@ -19,12 +21,14 @@ export const WrapperBalance = styled.div`
   display:flex;
   flex-direction:column;
   margin-left: 1rem;
-  color: #8BA1BE;
+  color: #8BA1BE;  
 `;
 export const Span = styled.span`
   font-size:2rem;
   font-weight: Medium;
-  color: #ffffff;
+  ${({ theme }) => css`
+  color:${theme.colors.normalWhite};
+`}; 
 `;
 export const ContainerForm = styled.div`
   color: #DCF307;
@@ -37,8 +41,14 @@ export const WrapperActions = styled.div`
   align-items:center;
   font-size: 1.2rem;
   color: #8BA1BE;
+  
   span{
-    color:white;
+    ${({ theme }) => css`
+    color:${theme.colors.normalWhite};
+  `};   
   }
 `;
+export const BlurSpan = styled.div`
+ color: #8BA1BE;
+`
 

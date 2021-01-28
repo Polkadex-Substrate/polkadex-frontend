@@ -4,7 +4,7 @@ export const ContentHeading = styled.div`
   font-size: 52px;
   font-family: Work Sans ExtraBold;
   ${({ theme }) => css`
-    color: ${theme.colors.NormalWhite}
+    color: ${theme.colors.normalWhite}
   `}
 `
 export const ContentBlur = styled.div`

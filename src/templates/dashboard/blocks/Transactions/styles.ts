@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled ,{css} from 'styled-components'
 import media from "styled-media-query"
 
 export const Section = styled.section`
@@ -10,6 +10,9 @@ export const Section = styled.section`
 export const Header = styled.div`
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
+  ${({ theme }) => css`       
+        color :${theme.colors.normalWhite};
+  `};     
   padding: 2rem 0;
   align-items:center;
     ${media.lessThan('large')`
@@ -22,10 +25,13 @@ export const Header = styled.div`
     }
 
     & .react-tabs__tab--selected {
-      opacity: 1;
-      color: white;
+      opacity: 1;      
+      ${({ theme }) => css`       
+        color :${theme.colors.normalWhite};
+        border-bottom: 2px solid ${theme.colors.normalWhite};
+        `}  ;
       padding: 1rem 0;
-      border-bottom: 2px solid white;
+     
     }
     & .react-tabs__tab:not(:last-child) {
       margin-right:2rem;

@@ -46,7 +46,9 @@ ${({ theme, size, darkMode, fullWidth, selected }) => css`
   border: 0;
   border-radius: ${theme.border.radius};
   padding: ${theme.spacings.xxsmall};
-  color: white;
+  ${({ theme }) => css`
+  color: ${theme.colors.normalWhite}; 
+  `};
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   display: inline-block;
   cursor: pointer;
@@ -72,5 +74,13 @@ export const Image = styled.img`
 `
 export const iconwrapper = styled.div`
     display:flex;
+    ${({ theme }) => css`
+    color: ${theme.colors.normalWhite}; 
+    `};
+`
 
+export const Span = styled.div`
+${({ theme }) => css`
+    color: ${theme.colors.normalWhite}; 
+    `};
 `

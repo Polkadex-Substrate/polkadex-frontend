@@ -10,6 +10,10 @@ export const Section = styled.section`
       color: ${theme.colors.green}
     `}
   }
+  
+    ${({ theme }) => css`
+    color: ${theme.colors.normalWhite}
+  `} 
 `
 // Header
 export const Header = styled.div`
@@ -18,4 +22,11 @@ export const Header = styled.div`
   justify-content:space-between;
   align-items:center;
   padding: 1.5rem 0;
+
 `;
+
+export const Fontcolor = styled.div`
+${({ theme }) => css`
+      color: ${theme.colors.dashboardFontColor}
+    `} 
+`

@@ -7,26 +7,26 @@ import * as S from './styles'
 
 const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
+  const changeLocalStorage =()=>{
+    if(theme === Theme.Dark)
+    {localStorage.setItem('theme','light')
+    setTheme(Theme.Light)
+    }
+    else
+    {setTheme(Theme.Dark)
+      localStorage.setItem('theme','dark')
+    }
+  }
 
   return (
     <span>
-      { theme == Theme.Dark
-        ?
-        <S.WrapperIcon onClick={() => setTheme(Theme.Light)}>
+     
+        <S.WrapperIcon onClick={changeLocalStorage}>
           <div>
-            <Icon source="Sun" size="Small" background="LightGray" />
+            <Icon source={theme===Theme.Dark?"Sun":"moon"} size="Small" background="LightGray" />
           </div>
           <S.SpanDark>Dark</S.SpanDark>
-        </S.WrapperIcon>
-        :
-        <S.WrapperIcon onClick={() => setTheme(Theme.Dark)}>
-          <div>
-            <Icon source="Sun" size="Small" background="LightGray" />
-          </div>
-          <S.SpanLight>Light</S.SpanLight>
-        </S.WrapperIcon>
-      }
-
+        </S.WrapperIcon>  
     </span>
 
   )

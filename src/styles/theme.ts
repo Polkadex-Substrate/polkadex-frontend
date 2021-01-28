@@ -8,9 +8,9 @@ export default{
     radius: '0.7rem'
   },
   shadow:{
-    largecomponentshadow:'0px -36px 99px rgba(0, 0, 0, 0.5);'
-
-
+    largeComponentShadow:'0px -36px 99px rgba(0, 0, 0, 0.5);',
+    dashboardBoxShadow:'0px 30px 45px rgba(0, 0, 0, 0.17);',
+    orderBookShadow:' 0px 0px 99px rgba(0, 0, 0, 0.65)'
   },
   font: {
     family:
@@ -45,12 +45,20 @@ export default{
     white: '#FAFAFA',
     black: '#030517',
     lightGray: '#EBEEF4',
-    NormalWhite:"#000000",
+    normalWhite:"#000000",
     gray: '#2E303C',
     darkGray: '#1c2023',
     none:"none",
-    componentbackground:"#FFFFFF",
-    dropdownbackgroundcolor:"#2E303C"
+    componentBackground:"#FFFFFF",
+    dropdownBackgroundColor:"#2E303C",
+    menuColor:"#ffffff",
+    dashboardComponentBackground:"#2E303A",
+    dashboardFontColor:"#d8d8d8", 
+    orderBookComponentColor:"#242633",   
+    orderBookLabelColor:"#1D2127",
+    checkBoxBackgroundColor:"#434658",
+    tabBackgroundColor:"#24272E",
+    GraphBackgroundColor:"#22232d"
   },
  
   spacings: {
@@ -91,16 +99,16 @@ export const lightTheme = {
   },
 
   shadow:{
-    largecomponentshadow:'0px 0px 0px rgba(0,0,0,0.65);'
-
-
+    largeComponentShadow:'0px 100px 99px #ABC0E32C;',
+    dashboardBoxShadow:'0px 30px 45px #ABC0E32C;',
+    orderBookShadow:'0px 30px 45px #ABC0E32C;'
   },
 
   font: {
     family:
       "Work Sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
     light: 300,
-    normal: 600,
+    normal: 400,
     bold: 600,
     sizes: {
       xsmall: '1.2rem',
@@ -131,12 +139,18 @@ export const lightTheme = {
     lightGray: '#EBEEF4',
     gray: '#EBEEF4',
     darkGray: '#EBEEF4',
-    NormalWhite:"#000000",
+    normalWhite:"#000000",
     none:"none",
-    componentbackground:"#FFFFFF",
-    dropdownbackgroundcolor:"#EBEEF4"
-    
-    
+    componentBackground:"#FFFFFF",
+    dropdownBackgroundColor:"#EBEEF4",
+    menuColor:"#C6D2E5",
+    dashboardComponentBackground:"#FFFFFF",
+    dashboardFontColor:"#8BA1BE",
+    orderBookComponentColor:"#FFFFFF",
+    orderBookLabelColor:"#EBEEF4",
+    checkBoxBackgroundColor:"#EBEEF4",
+    tabBackgroundColor:"#FFFFFF",
+    GraphBackgroundColor:"#FFFFFF"
   },
  
   spacings: {
@@ -176,7 +190,9 @@ export const blackTheme = {
     radius: '0.7rem'
   },
   shadow:{
-    largecomponentshadow:'0px 100px 99px #0000002C;'
+    largeComponentShadow:'0px 100px 99px #0000002C;',
+    dashboardBoxShadow:'0px 30px 45px rgba(0, 0, 0, 0.17);',
+    orderBookShadow:' 0px 0px 99px rgba(0, 0, 0, 0.65)'
   },
 
   font: {
@@ -212,12 +228,20 @@ export const blackTheme = {
     white: '#FAFAFA',
     black: '#030517',
     lightGray: '#EBEEF4',
-    NormalWhite:"#FFFFFF",
+    normalWhite:"#FFFFFF",
     gray: '#2E303C',
     darkGray: '#1c2023',
     none:"none",
-    componentbackground:"#2E303C",
-    dropdownbackgroundcolor:"#2E303C"
+    componentBackground:"#2E303C",
+    dropdownBackgroundColor:"#2E303C",
+    menuColor:"#ffffff",
+    dashboardComponentBackground:"#2E303A",
+    dashboardFontColor:"#d8d8d8",
+    orderBookComponentColor:"#242633",
+    orderBookLabelColor:"#1D2127",
+    checkBoxBackgroundColor:"#434658",
+    tabBackgroundColor:"#24272E",
+    GraphBackgroundColor:"#22232d"
   },
  
   spacings: {

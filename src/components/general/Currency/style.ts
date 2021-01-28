@@ -70,7 +70,7 @@ export const Row = styled.div<RowProps>`
     margin: 0.6rem 0;
     padding: 0 2rem;
     ${displayValue && css`
-    border-left: 4px solid ${active ? '#E6007A' : theme.colors.componentbackground};
+    border-left: 4px solid ${active ? '#E6007A' : theme.colors.componentBackground};
     `}
     cursor: pointer;
     font-size: 13px;

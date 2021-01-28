@@ -1,13 +1,16 @@
-import styled from 'styled-components'
+import styled,{css} from 'styled-components'
 import media from "styled-media-query"
-export const Tr = styled.tr`
-  background-color: #2E303C;
+export const Tr = styled.tr` 
+  ${({ theme }) => css`       
+    background-color :${theme.colors.dropdownBackgroundColor};
+  `};
   padding:1.2rem;
   margin-bottom:1.2rem;
   border-radius: 0 1rem 1rem 1rem;
-  :nth-child(even) {
-      background-color: #24272E;
-
+  :nth-child(even) {      
+    ${({ theme }) => css`
+      background-color :${theme.colors.tabBackgroundColor}; 
+    `};
   }
 `
 export const Td = styled.td``

@@ -1,5 +1,6 @@
 import React from 'react'
 import * as S from './style'
+import { useTheme, Theme } from 'Context/ThemeContext';
 
 import Icon from '../Icon'
 
@@ -9,6 +10,7 @@ export type RowProps = {
 }
 
 const Currency = ({ currency, setCurrency, active, displayValue = true }) => {
+  const { theme, setTheme } = useTheme();
   return (
     <S.Row onClick={setCurrency} active={active} displayValue = {displayValue}>
       <S.DetailsWrapper>
@@ -24,7 +26,7 @@ const Currency = ({ currency, setCurrency, active, displayValue = true }) => {
         displayValue &&
         <S.ValueWrapper>
           <S.Value>{currency.value.toFixed(8)}</S.Value>
-          <Icon source={'ArrowRight'} size={'XSmall'}/>
+          <Icon source={ theme ===  Theme.Dark?'ArrowRight':'Arrow_rightblack'} size={theme ===  Theme.Dark?'XSmall':'Small'} background = {theme ===  Theme.Dark?"Black":"WhiteThemeBackground"}/>          
         </S.ValueWrapper>
       }
     </S.Row>

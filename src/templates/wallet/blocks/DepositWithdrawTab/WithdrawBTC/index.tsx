@@ -7,6 +7,7 @@ import WalletInput from '../../../../../components/general/WalletPageReadonlyInp
 import Range from '../../../../../components/general/Range'
 import Button from '../../../../../components/general/Button'
 import { CurrencyDetails } from '../../CryptoCurrencies'
+import { useTheme, Theme } from 'Context/ThemeContext';
 
 export type WalletProps = {
     currentCurrency: CurrencyDetails
@@ -16,6 +17,7 @@ export type WalletProps = {
 }
 
 const WithdrawBTC = ({ currentCurrency, walletAddress, setWalletAddress, lastTradePrice = 0 }: WalletProps) => {
+    const { theme, setTheme } = useTheme();
     const [slider, setSlider] = useState({ values: [50] })
     const [amount, setAmount] = useState(0.0016108506)
     const [fiat, setFiat] = useState(0)
@@ -53,16 +55,16 @@ const WithdrawBTC = ({ currentCurrency, walletAddress, setWalletAddress, lastTra
                     </S.InnerWrapper>
                 </S.SymbolWrapper>
 
-                <S.AvailableWrapper>
-                    <Icon source="Wallet" background="Black" size="XMedium"/>
+                <S.AvailableWrapper>               
+                    <Icon source={theme === Theme.Dark?"Wallet":"WalletBlack"} background={theme === Theme.Dark?"Black":"WhiteThemeBackground"} size="XMedium"/>                  
                     <S.InnerWrapper>
                         <S.ContentHeading>Available </S.ContentHeading>
                         <S.Value>{currentCurrency.value.toFixed(8)} BTC</S.Value>
                     </S.InnerWrapper>
                 </S.AvailableWrapper>
 
-                <S.LockedWrapper>
-                    <Icon source="Lock" background="Black" size="XMedium"/>
+                <S.LockedWrapper>               
+                    <Icon source={theme === Theme.Dark?"Lock":"LockBlack"} background={theme === Theme.Dark?"Black":"WhiteThemeBackground"} size="XMedium"/>                                    
                     <S.InnerWrapper>
                         <S.ContentHeading>Locked </S.ContentHeading>
                         <S.Value>0</S.Value>

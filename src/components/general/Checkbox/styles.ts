@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled,{css} from 'styled-components'
 
 export const Label = styled.label`
   display: flex;
@@ -43,7 +43,10 @@ export const Input = styled.input`
 export const Span = styled.span`
   width: 2rem;
   height: 2rem;
-  background-color: #434658;
+ 
+  ${({ theme }) => css`       
+  background-color :${theme.colors.checkBoxBackgroundColor}; 
+  `}  ;
   margin-right:0.5rem;
   border-radius: 0.4rem;
 

@@ -9,8 +9,8 @@ export const MainWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     ${({ theme }) => css`
-    background-color: ${theme.colors.componentbackground};
-    box-shadow: ${theme.shadow.largecomponentshadow};
+    background-color: ${theme.colors.componentBackground};
+    box-shadow: ${theme.shadow.largeComponentShadow};
     `}
     border-radius: 0 3rem 3rem;
     padding: 2rem;
@@ -21,6 +21,10 @@ export const MainWrapper = styled.div`
 export const TimeAndHashWrapper = styled.div`
     font-size: 13px;
     font-family: Work Sans Medium;
+    ${({ theme }) => css`
+    font-weight: ${theme.font.normal};
+    color :${theme.colors.normalWhite} 
+    `}  ;
 `
 
 export const Hash = styled.div`

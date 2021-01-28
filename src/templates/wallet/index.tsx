@@ -8,10 +8,15 @@ import BalanceHeader from './blocks/BalanceHeader'
 import Menu from '../../components/Menu'
 import Navigation from './blocks/Navigation'
 import { webSocket } from '../../components/dashboard/CustomChart/api/stream'
+import { useTheme ,Theme} from '../../Context/ThemeContext'
+
+
 
 export type InputProps = {}
 
 export default function Wallet() {
+  
+
   const currenciesList = [
     {
       id: 1,
@@ -85,13 +90,7 @@ export default function Wallet() {
       name: 'LiteCoin',
       type: 'LTC',
       value: 0.000000000,
-    },
-    {
-      id: 13,
-      name: 'Tether',
-      type: 'ATOM',
-      value: 0.000000000,
-    },
+    }
   ]
   const historyList = [
     {
@@ -129,6 +128,7 @@ export default function Wallet() {
   const [currencyList, setCurrencyList] = useState<CurrencyDetails[]>(currenciesList)
   const [searchInput, setSearchInput] = useState('')
   const [lastTradePrice, setLastTradePrice] = useState(0);
+  const { theme, setTheme } = useTheme();
 
   const filterResults = searchInput => {
     setSearchInput(searchInput)
@@ -142,6 +142,14 @@ export default function Wallet() {
   }
 
   useEffect(() => {
+    const  themeinLocalStorage = localStorage.getItem('theme')
+     if(themeinLocalStorage=="light"){
+       setTheme(Theme.Light)
+     }
+     else{
+      setTheme(Theme.Dark)
+     }
+
     fetchLastTrade(webSocket);
   }, [])
 

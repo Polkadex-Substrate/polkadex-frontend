@@ -25,16 +25,20 @@ const MarketOrder = ({ setOpenOrder, price, amount, setPrice, setAmount, validAc
     <S.Section>
       <Tabs>
         <S.Header>
+        <S.Fontcolor>
           <TabList>
             <Tab>Buy BTC</Tab>
             <Tab>Sell BTC</Tab>
           </TabList>
+          </S.Fontcolor> 
+          
           <Dropdown title={orderType} active={dropdownState} setDropdownState={setDropdownState}>
             <>
               <DropdownItem title="Limit Order" handleAction={handleChange} />
               <DropdownItem title="Market Order" handleAction={handleChange} />
             </>
           </Dropdown>
+       
         </S.Header>
 
         <TabPanel>

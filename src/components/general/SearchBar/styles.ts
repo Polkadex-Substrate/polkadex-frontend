@@ -13,6 +13,10 @@ export const Image = styled.img`
     &.Active{
      height:1.2rem;   
     }
+    &.NotActive{
+        height: 1.9rem;
+        margin-top: 1rem;
+    }
 `
 
 export const Input = styled.input`

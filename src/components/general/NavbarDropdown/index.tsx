@@ -13,13 +13,8 @@ const NavbarDropdown = ({ title = "NavbarDropdown" }: NavbarDropdownProps) => {
       <S.Header>
         <S.Title>{title}</S.Title>
         <S.WrapperImage>
-          {theme ==  Theme.Dark
-          ?
-          <S.Image src="/img/icons/ArrowTop.svg" />
-          :
-          <S.Image src={`/img/icons/ArrowDownBlack.svg`} />
-          }
-        </S.WrapperImage>
+        <S.Image src = {theme === Theme.Dark ? "/img/icons/ArrowTop.svg" : `/img/icons/ArrowDownBlack.svg` }/>
+         </S.WrapperImage>
       </S.Header>     
     </S.Wrapper>
   )

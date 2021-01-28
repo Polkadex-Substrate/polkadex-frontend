@@ -4,8 +4,8 @@ export const CryptoCurrenciesWrapper = styled.div`
   display:flex;
   flex-direction:column;
   ${({ theme }) => css`
-    background-color: ${theme.colors.componentbackground};
-    box-shadow: ${theme.shadow.largecomponentshadow}
+    background-color: ${theme.colors.componentBackground};
+    box-shadow: ${theme.shadow.largeComponentShadow}
   `};
   border-radius: 0 3rem 3rem 3rem;
   height: 100%;
@@ -21,6 +21,10 @@ export const WrapperTitle = styled.div`
     padding-left: 2rem;
     font-family: Work Sans Medium;
     font-size: 16px;
+    ${({ theme }) => css`
+    color:${theme.colors.normalWhite };
+    font-weight: ${theme.font.normal};
+    `}
 `
 
 export const ContainerActions = styled.div`
@@ -47,7 +51,7 @@ export const CryptoListWrapper = styled.div`
     ${({ theme }) => css`
     font-weight: ${theme.font.normal};`}
     ${({ theme }) => css`
-    color: ${theme.colors.NormalWhite}
+    color: ${theme.colors.normalWhite}
   `}
 `
 export const IconWrapper = styled.div`

@@ -5,8 +5,10 @@ import Icon from 'components/general/Icon'
 import HistoryTab from './HistoryTab'
 import Dropdown from 'components/general/Dropdown'
 import DropdownItem from 'components/general/DropdownItem'
+import { useTheme, Theme } from 'Context/ThemeContext';
 
 const History = ({ historyList }) => {
+  const { theme, setTheme } = useTheme();
   const [filter, setFilter] = useState('All')
   const [dropdownState, setDropdownState] = useState(false)
   const handleAction = (select: string) => {
@@ -26,7 +28,9 @@ const History = ({ historyList }) => {
               <DropdownItem title="MarketLimit" handleAction={handleAction}/>
             </>
           </Dropdown>
-          <S.IconWrapper><Icon source="Settings" size="Small" background="Gray"/></S.IconWrapper>
+          <S.IconWrapper>    
+                    <Icon source={theme ===  Theme.Dark?"Settings":"SettingsBlack"} background="Gray" size="Small"/>                            
+          </S.IconWrapper>
         </S.FilterAndSettingWrapper>
       </S.HistoryHeader>
       {
