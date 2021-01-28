@@ -63,7 +63,7 @@ const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransact
             </S.List>
           </S.FlexWrapper>
         </S.Header>       
-        <ChartContainer />    
+        <ChartContainer theme={theme}/>    
       </S.WrapperGraph>
       <OrderBook orderBookAsks={orderBookAsks} orderBookBids={orderBookBids} latestTransaction={latestTransaction} latestTransactionType={latestTransactionType}/>
     </S.Wrapper>

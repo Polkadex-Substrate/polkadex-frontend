@@ -8,9 +8,10 @@ import {
   LanguageCode,
   IChartingLibraryWidget,
 } from '../../../../public/static/charting_library'
-
+import { Theme } from 'Context/ThemeContext';
 
 export interface ChartContainerProps {
+  theme:Theme;
   symbol: ChartingLibraryWidgetOptions['symbol'];
   interval: ChartingLibraryWidgetOptions['interval'];
 
@@ -54,6 +55,8 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
 
   public componentDidMount(): void {
 
+   console.log(this.props.theme)
+   
     const widgetOptions: ChartingLibraryWidgetOptions = {
       symbol: this.props.symbol as string,
       datafeed: DataFeed,
@@ -78,19 +81,19 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
       user_id: this.props.userId,
       fullscreen: this.props.fullscreen,
       autosize: this.props.autosize,
-      loading_screen:  { backgroundColor: "#2E303C" },
+      loading_screen:  { backgroundColor: this.props.theme === Theme.Dark ? "#2E303C" : "#fff"},
       studies_overrides: {
         "volume.volume.color.0": "#E6007A",
         "volume.volume.color.1": "#0CA564",
       },
       overrides: {
-        "paneProperties.background": "#22232d",
+        "paneProperties.background":  this.props.theme === Theme.Dark ? "#22232d" : "#fff",
         "paneProperties.vertGridProperties.color": "#b1b1b100",
         "paneProperties.horzGridProperties.color": "#b1b1b100",
         "symbolWatermarkProperties.transparency": 90,
-        "scalesProperties.textColor": "#fff",
+        "scalesProperties.textColor": this.props.theme === Theme.Dark ? "#fff" : "#000",
         "scalesProperties.fontSize": 11,
-        "scalesProperties.backgroundColor": "#2E303C",
+        "scalesProperties.backgroundColor":this.props.theme === Theme.Dark ? "#2E303C" : "#fff",
         "paneProperties.topMargin": 15,
         "mainSeriesProperties.candleStyle.upColor": '#0CA564',
         "mainSeriesProperties.candleStyle.downColor": '#E6007A',
