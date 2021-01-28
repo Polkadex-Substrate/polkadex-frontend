@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import media from "styled-media-query"
 
 export const Wrapper = styled.div``
@@ -27,11 +27,23 @@ export const Tbody = styled.tbody`
     display: block;
     overflow-y: auto;
   `}
+  
   tr {
     display: grid;
     grid-template-columns: 1fr repeat(5,1fr) 1fr;
     align-items:center;
-    background-color: #2E303C;
+    
+    ${({ theme }) => css`
+      background-color :${theme.colors.dropdownBackgroundColor}; 
+      color :${theme.colors.normalWhite};
+    `};
+    
+    :nth-child(even) { 
+      ${({ theme }) => css`       
+        background-color :${theme.colors.tabBackgroundColor}; 
+      `};
+    }
+    
     ${media.lessThan('large')`
       grid-template-columns: repeat(4,1fr);
       grid-row-gap: 2rem;
@@ -52,11 +64,8 @@ export const Tr = styled.tr`
   padding:1.2rem;
   margin-bottom:1.2rem;
   border-radius: 0 1rem 1rem 1rem;
-  :nth-child(even) {
-      background-color: #24272E;
-
-  }
 `
+
 export const Td = styled.td``
 export const ContainerFlex = styled.div`
   display: flex;

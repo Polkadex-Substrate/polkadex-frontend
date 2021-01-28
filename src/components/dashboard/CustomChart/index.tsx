@@ -1,17 +1,17 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from 'react'
 
 import DataFeed from './api/'
 import * as S from './styles'
 import {
-  widget,
   ChartingLibraryWidgetOptions,
-  LanguageCode,
   IChartingLibraryWidget,
+  LanguageCode,
+  widget,
 } from '../../../../public/static/charting_library'
-import { Theme } from 'Context/ThemeContext';
+import { Theme } from 'Context/ThemeContext'
 
 export interface ChartContainerProps {
-  theme:Theme;
+  theme: Theme;
   symbol: ChartingLibraryWidgetOptions['symbol'];
   interval: ChartingLibraryWidgetOptions['interval'];
 
@@ -53,11 +53,8 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
 
   private tvWidget: IChartingLibraryWidget | null = null;
 
-  public componentDidUpdate(): void {
-
-     console.log(this.props.theme)
-   
-    const widgetOptions: ChartingLibraryWidgetOptions = {
+  public getWidgetOptions(): ChartingLibraryWidgetOptions {
+    return {
       symbol: this.props.symbol as string,
       datafeed: DataFeed,
       interval: this.props.interval as ChartingLibraryWidgetOptions['interval'],
@@ -103,11 +100,19 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
         "mainSeriesProperties.candleStyle.wickDownColor": "#E6007A"
       }
     };
-   
-    const tvWidget = new widget(widgetOptions);
+  }
+
+  public componentDidMount(): void {
+    const tvWidget = new widget(this.getWidgetOptions());
     this.tvWidget = tvWidget;
 
     tvWidget.onChartReady(() => console.log('Chart has loaded'))
+  }
+
+  componentDidUpdate(prevProps: Readonly<Partial<ChartContainerProps>>): void {
+    if (prevProps.theme !== this.props.theme) {
+      this.tvWidget = new widget(this.getWidgetOptions());
+    }
   }
 
   public componentWillUnmount(): void {
