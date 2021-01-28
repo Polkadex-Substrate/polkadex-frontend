@@ -20,7 +20,7 @@ export const Span = styled.span`
   display: none;
   opacity:0;
   ${({ theme }) => css`
-    color: ${theme.colors.menuColor}
+    color: ${theme.colors.dashboardFontColor}
   `}
 `
 

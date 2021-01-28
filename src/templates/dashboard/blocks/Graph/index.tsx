@@ -9,7 +9,11 @@ import OrderBook from '../OrderBook'
 import { IGraph } from './IGraph'
 import * as S from './styles'
 
-const ChartContainer = dynamic(() => import('../../../../components/dashboard/CustomChart').then(), { ssr: false })
+
+const ChartContainer = dynamic<{theme: Theme}>(() => import('../../../../components/dashboard/CustomChart').then(), { ssr: false });
+
+
+
 
 
 const Graph = ({ orderBookAsks, orderBookBids, latestTransaction, latestTransactionType }: IGraph) => {

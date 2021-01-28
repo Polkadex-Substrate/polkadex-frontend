@@ -53,9 +53,9 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
 
   private tvWidget: IChartingLibraryWidget | null = null;
 
-  public componentDidMount(): void {
+  public componentDidUpdate(): void {
 
-   console.log(this.props.theme)
+     console.log(this.props.theme)
    
     const widgetOptions: ChartingLibraryWidgetOptions = {
       symbol: this.props.symbol as string,
@@ -103,7 +103,7 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
         "mainSeriesProperties.candleStyle.wickDownColor": "#E6007A"
       }
     };
-
+   
     const tvWidget = new widget(widgetOptions);
     this.tvWidget = tvWidget;
 
