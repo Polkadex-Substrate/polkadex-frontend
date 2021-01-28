@@ -29,8 +29,10 @@ export const ContainerInfo = styled.div`
   grid-template-columns: repeat(4,auto);
   grid-column-gap:3rem;
   border-radius: 0 0 3rem 3rem;
-  background: #2e303a;
-  box-shadow: 0px 30px 45px rgba(0, 0, 0, 0.17);
+  ${({ theme }) => css`
+  background-color: ${theme.colors.dashboardComponentBackground}; 
+  box-shadow: ${theme.shadow.dashboardBoxShadow} ;
+`};    
   padding: 1rem 2rem 0.9rem;
   border-radius:0 0 1.9rem 1.9rem;
   width: -webkit-fill-available;
@@ -91,7 +93,9 @@ export const WrapperVolume = styled.div`
 
 export const Span = styled.span`
   font-size: 1.2rem;
-  color: #d8d8d8;
+  ${({ theme }) => css`
+  color :${theme.colors.dashboardFontColor} 
+`}; 
   margin-right:1rem;
 `;
 

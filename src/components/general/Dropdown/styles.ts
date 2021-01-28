@@ -24,7 +24,7 @@ ${({ theme }) => css`
   display: flex;
   align-items:center;
   justify-content: center;
-  background: ${theme.colors.componentBackground};
+  background: ${theme.colors.dropdownBackgroundColor};
   border-radius: 0.5rem;
   width: 2rem;
 	height: 2rem;
@@ -62,4 +62,5 @@ export const ContainerContent = styled.div`
   display: flex;
   flex-direction:column;
   align-items:flex-start;
+  
 `;

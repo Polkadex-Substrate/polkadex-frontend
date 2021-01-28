@@ -10,6 +10,9 @@ export const WrapperCoin = styled.div`
   display: flex;
   flex-direction: column;
   align-items:flex-start;
+  ${({ theme }) => css`
+   color :${theme.colors.normalWhite} 
+   `}  ;
 `;
 
 export const WrapperExchange = styled.div`
@@ -19,7 +22,10 @@ export const WrapperExchange = styled.div`
 export const Label = styled.span`
   margin-bottom: 0.3rem;
   font-size: 1.2rem;
-  color: #d8d8d8;
+  ${({ theme }) => css`
+  color :${theme.colors.dashboardFontColor} 
+`}; 
+ 
 `;
 
 export const Container = styled.div`
@@ -34,4 +40,8 @@ export const Image = styled.img`
   height: 2rem;
   margin-right: 0.5rem;
 `;
-export const Name = styled.p``;
+export const Name = styled.p`
+${({ theme }) => css`
+color :${theme.colors.normalWhite} 
+`}  ;
+`;

@@ -1,9 +1,9 @@
 import { useState } from 'react'
-
 import Dropdown from '../Dropdown'
 import DropdownItem from '../DropdownItem'
 import Icon from '../Icon'
 import * as S from './styles'
+import { useTheme, Theme } from 'Context/ThemeContext';
 
 type IPairs = {
   id: number
@@ -18,6 +18,7 @@ export type NavbarPairProps = {
 const NavbarPair = ({ coin, pairs }: NavbarPairProps) => {
   const [state, setState] = useState("USDT")
   const [dropdownState, setDropdownState] = useState(false)
+  const { theme, setTheme } = useTheme();
 
   const handleChange = (select: string) => {
     setDropdownState(false);
@@ -36,16 +37,14 @@ const NavbarPair = ({ coin, pairs }: NavbarPairProps) => {
             {coin}
           </S.Name>
         </S.Container>
-
       </S.WrapperCoin>
       <S.WrapperExchange>
-        <Icon source="Exchange" />
+        <Icon source={theme === Theme.Dark? "Exchange" : "ExchangeDark"} background="None"/>
       </S.WrapperExchange>
       <S.WrapperCoin>
         <S.Label>
           Pair
       </S.Label>
-
         <Dropdown title={state} active={dropdownState} setDropdownState={setDropdownState}>
           <>
             {pairs.map( ({id, name}) => (
