@@ -128,6 +128,7 @@ export default function Wallet() {
   const [currencyList, setCurrencyList] = useState<CurrencyDetails[]>(currenciesList)
   const [searchInput, setSearchInput] = useState('')
   const [lastTradePrice, setLastTradePrice] = useState(0);
+  const { theme, setTheme } = useTheme();
 
   const filterResults = searchInput => {
     setSearchInput(searchInput)
@@ -140,7 +141,19 @@ export default function Wallet() {
     });
   }
 
+  const getInitialTheme = () => {
+    let initialTheme = localStorage.getItem('theme');
+    if (initialTheme) {
+      setTheme(initialTheme === Theme.Light ? Theme.Light : Theme.Dark)
+    } else {
+      initialTheme = Theme.Dark
+    }
+    return initialTheme;
+  }
+
+
   useEffect(() => {
+    localStorage.setItem('theme', getInitialTheme());
     fetchLastTrade(webSocket);
   }, [])
 

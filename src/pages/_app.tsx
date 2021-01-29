@@ -16,23 +16,13 @@ function App({ Component, pageProps }: AppProps) {
   const [blockchainApi, setBlockchainApi] = useState<any>()
   const [theme, setTheme] = useState(null)
 
-  const getInitialTheme = () => {
-    let initialTheme = localStorage.getItem('theme');
-    if (initialTheme) {
-      setTheme(initialTheme === Theme.Light ? Theme.Light : Theme.Dark)
-    } else {
-      initialTheme = Theme.Dark
-    }
-    return initialTheme;
-  }
-
+  
   const updateTheme = (theme) => {
-    setTheme(theme);
-    localStorage.setItem('theme', theme);
+       setTheme(theme);    
   }
 
   useEffect(() => {
-    localStorage.setItem('theme', getInitialTheme());
+  
     const getExtensionAddress = async () => {
       const polkadotExtensionDapp = await import('@polkadot/extension-dapp')
       const extensions = await polkadotExtensionDapp.web3Enable('Polkadex')

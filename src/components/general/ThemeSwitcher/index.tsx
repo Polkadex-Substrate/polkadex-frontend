@@ -7,7 +7,16 @@ import * as S from './styles'
 const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
 
-  const updateTheme = () => setTheme(theme === Theme.Dark ? Theme.Light : Theme.Dark);
+  const updateTheme = () => {
+    if(theme===Theme.Dark){
+    setTheme(Theme.Light);
+    localStorage.setItem('theme', Theme.Light);  
+    }
+    else{
+      setTheme(Theme.Dark);
+      localStorage.setItem('theme', Theme.Dark); 
+    }
+  }
 
   return (
     <span>
