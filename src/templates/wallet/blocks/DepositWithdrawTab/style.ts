@@ -62,6 +62,7 @@ export const Wrapper = styled.div`
   padding: 6rem 3rem 3rem;
   font-size: 16px;
   
+  
   ${({ theme }) => css`
     background-color: ${theme.colors.componentBackground};
     box-shadow: ${theme.shadow.largeComponentShadow};

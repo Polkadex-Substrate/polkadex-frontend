@@ -141,15 +141,19 @@ export default function Wallet() {
     });
   }
 
-  useEffect(() => {
-    const  themeinLocalStorage = localStorage.getItem('theme')
-     if(themeinLocalStorage=="light"){
-       setTheme(Theme.Light)
-     }
-     else{
-      setTheme(Theme.Dark)
-     }
+  const getInitialTheme = () => {
+    let initialTheme = localStorage.getItem('theme');
+    if (initialTheme) {
+      setTheme(initialTheme === Theme.Light ? Theme.Light : Theme.Dark)
+    } else {
+      initialTheme = Theme.Dark
+    }
+    return initialTheme;
+  }
 
+
+  useEffect(() => {
+    localStorage.setItem('theme', getInitialTheme());
     fetchLastTrade(webSocket);
   }, [])
 

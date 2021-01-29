@@ -56,16 +56,19 @@ export const WrapperLinks = styled.div`
   align-items: center;
   justify-content: space-around;
 
-    ${customMedia.lessThan('custom')`
-      display: none;
-    `};
-
+  ${customMedia.lessThan('custom')`
+    display: none;
+  `};
 `
 
 export const AccountAddress = styled.div`
   font-size: 1.5rem;
   font-weight: 700;
   padding: 0 1rem;
+  
+  ${({ theme }) => css`
+    color :${theme.colors.normalWhite}
+  `}; 
 `
 
 export const VolumeHigh = styled.div`
@@ -94,8 +97,8 @@ export const WrapperVolume = styled.div`
 export const Span = styled.span`
   font-size: 1.2rem;
   ${({ theme }) => css`
-  color :${theme.colors.dashboardFontColor} 
-`}; 
+    color :${theme.colors.dashboardFontColor} 
+  `}; 
   margin-right:1rem;
 `;
 
@@ -114,7 +117,6 @@ export const WrapperDropdownContent = styled.a`
 export const DropdownTitle = styled.p`
   font-size: 1.3rem;
   font-weight:600;
-
 `;
 
 export const DropdownDescription = styled.p`

@@ -7,8 +7,8 @@ export enum Theme {
 
 export type ThemeContextType = {
     theme: Theme;
-    setTheme: (Theme: Theme) => void;
+    setTheme: (theme: Theme) => void;
 }
 
-export const ThemeContext = createContext<ThemeContextType>({ theme: Theme.Dark, setTheme: theme => console.warn('no theme provider')});
+export const ThemeContext = createContext<ThemeContextType>({ theme: Theme.Dark, setTheme: () => {}});
 export const useTheme = () => useContext(ThemeContext);

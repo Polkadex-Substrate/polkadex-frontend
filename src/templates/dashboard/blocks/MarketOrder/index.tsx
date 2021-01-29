@@ -9,7 +9,7 @@ import * as S from './styles'
 const MarketOrder = ({ setOpenOrder, price, amount, setPrice, setAmount, validAccount, latestTransaction, blockchainApi, setActiveIndex }) => {
   const [orderType, setOrderType] = useState("Limit Order")
   const [dropdownState, setDropdownState] = useState(false)
-
+  const [activeIndex, setActiveTabIndex] = useState(0)
   const handleChange = (select: string) => {
     setDropdownState(false);
     setOrderType(select)
@@ -23,8 +23,8 @@ const MarketOrder = ({ setOpenOrder, price, amount, setPrice, setAmount, validAc
 
   return (
     <S.Section>
-      <Tabs>
-        <S.Header>
+      <Tabs selectedIndex={activeIndex} onSelect={(index) => setActiveTabIndex(index)}>
+        <S.Header currentTab={activeIndex}>
         <S.Fontcolor>
           <TabList>
             <Tab>Buy BTC</Tab>

@@ -8,7 +8,7 @@ import Transactions from './blocks/Transactions'
 import * as S from './styles'
 import Toast from '../../components/general/Toast'
 import Navbar from './blocks/Navbar'
-import { useTheme, Theme } from 'Context/ThemeContext';
+import { useTheme ,Theme} from '../../Context/ThemeContext'
 
 export default function Dashboard({ account, blockchainApi }) {
 
@@ -105,15 +105,18 @@ export default function Dashboard({ account, blockchainApi }) {
     setOpenOrders(finalOrders);
   }
 
-  useEffect(() => {
-     const  themeinLocalStorage = localStorage.getItem('theme')
-     if(themeinLocalStorage=="light"){
-       setTheme(Theme.Light)
-     }
-     else{
-      setTheme(Theme.Dark)
-     }
+  const getInitialTheme = () => {
+    let initialTheme = localStorage.getItem('theme');
+    if (initialTheme) {
+      setTheme(initialTheme === Theme.Light ? Theme.Light : Theme.Dark)
+    } else {
+      initialTheme = Theme.Dark
+    }
+    return initialTheme;
+  }
 
+  useEffect(() => {
+    localStorage.setItem('theme', getInitialTheme());
     const webSocketInstance = webSocket;
     fetchMarketData(webSocketInstance)
     fetchOrderBookBids(webSocketInstance)
