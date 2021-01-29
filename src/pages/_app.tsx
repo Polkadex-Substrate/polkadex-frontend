@@ -4,24 +4,40 @@ import * as S from '../templates/landing/styles'
 import { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from 'styles/global'
-import {lightTheme,blackTheme} from 'styles/theme'
+import { blackTheme, lightTheme } from 'styles/theme'
 import WarningAlert from '../components/general/WarningAlert'
 import { toast } from 'react-toastify'
 import Toast from '../components/general/Toast'
-import { ThemeContext, Theme } from '../Context/ThemeContext';
+import { Theme, ThemeContext } from '../Context/ThemeContext'
 
 function App({ Component, pageProps }: AppProps) {
-  const [account, setAccount] = useState<any>();
-  const [allAccounts, setAllAccounts] = useState<any>();
-  const [blockchainApi, setBlockchainApi] = useState<any>();
-  const [theme, setTheme] = useState(Theme.Dark);
+  const [account, setAccount] = useState<any>()
+  const [allAccounts, setAllAccounts] = useState<any>()
+  const [blockchainApi, setBlockchainApi] = useState<any>()
+  const [theme, setTheme] = useState(null)
+
+  const getInitialTheme = () => {
+    let initialTheme = localStorage.getItem('theme');
+    if (initialTheme) {
+      setTheme(initialTheme === Theme.Light ? Theme.Light : Theme.Dark)
+    } else {
+      initialTheme = Theme.Dark
+    }
+    return initialTheme;
+  }
+
+  const updateTheme = (theme) => {
+    setTheme(theme);
+    localStorage.setItem('theme', theme);
+  }
 
   useEffect(() => {
+    localStorage.setItem('theme', getInitialTheme());
     const getExtensionAddress = async () => {
-      const polkadotExtensionDapp = await import('@polkadot/extension-dapp');
-      const extensions = await polkadotExtensionDapp.web3Enable('Polkadex');
+      const polkadotExtensionDapp = await import('@polkadot/extension-dapp')
+      const extensions = await polkadotExtensionDapp.web3Enable('Polkadex')
       if (extensions.length > 0) {
-        const allAccounts = await polkadotExtensionDapp.web3Accounts();
+        const allAccounts = await polkadotExtensionDapp.web3Accounts()
         if (allAccounts.length > 0) {
           setAllAccounts(allAccounts)
           setAccount(allAccounts[0])
@@ -33,176 +49,175 @@ function App({ Component, pageProps }: AppProps) {
       }
     }
     const connectBlockchain = async () => {
-      const wsProvider = new WsProvider('wss://blockchain.polkadex.trade');
+      const wsProvider = new WsProvider('wss://blockchain.polkadex.trade')
       const api = await ApiPromise.create({
         types: {
-          "OrderType": {
-            "_enum": [
-              "BidLimit",
-              "BidMarket",
-              "AskLimit",
-              "AskMarket"
-            ]
+          'OrderType': {
+            '_enum': [
+              'BidLimit',
+              'BidMarket',
+              'AskLimit',
+              'AskMarket',
+            ],
           },
-          "Order": {
-            "id": "Hash",
-            "trading_pair": "Hash",
-            "trader": "AccountId",
-            "price": "FixedU128",
-            "quantity": "FixedU128",
-            "order_type": "OrderType"
+          'Order': {
+            'id': 'Hash',
+            'trading_pair': 'Hash',
+            'trader': 'AccountId',
+            'price': 'FixedU128',
+            'quantity': 'FixedU128',
+            'order_type': 'OrderType',
           },
-          "Order4RPC": {
-            "id": "[u8;32]",
-            "trading_pair": "[u8;32]",
-            "trader": "[u8;32]",
-            "price": "Vec<u8>",
-            "quantity": "Vec<u8>",
-            "order_type": "OrderType"
+          'Order4RPC': {
+            'id': '[u8;32]',
+            'trading_pair': '[u8;32]',
+            'trader': '[u8;32]',
+            'price': 'Vec<u8>',
+            'quantity': 'Vec<u8>',
+            'order_type': 'OrderType',
           },
-          "MarketData": {
-            "low": "FixedU128",
-            "high": "FixedU128",
-            "volume": "FixedU128",
-            "open": "FixedU128",
-            "close": "FixedU128"
+          'MarketData': {
+            'low': 'FixedU128',
+            'high': 'FixedU128',
+            'volume': 'FixedU128',
+            'open': 'FixedU128',
+            'close': 'FixedU128',
 
           },
-          "LinkedPriceLevel": {
-            "next": "Option<FixedU128>",
-            "prev": "Option<FixedU128>",
-            "orders": "Vec<Order>"
+          'LinkedPriceLevel': {
+            'next': 'Option<FixedU128>',
+            'prev': 'Option<FixedU128>',
+            'orders': 'Vec<Order>',
           },
-          "LinkedPriceLevelRpc": {
-            "next": "Vec<u8>",
-            "prev": "Vec<u8>",
-            "orders": "Vec<Order4RPC>"
+          'LinkedPriceLevelRpc': {
+            'next': 'Vec<u8>',
+            'prev': 'Vec<u8>',
+            'orders': 'Vec<Order4RPC>',
           },
-          "Orderbook": {
-            "trading_pair": "Hash",
-            "base_asset_id": "u32",
-            "quote_asset_id": "u32",
-            "best_bid_price": "FixedU128",
-            "best_ask_price": "FixedU128"
+          'Orderbook': {
+            'trading_pair': 'Hash',
+            'base_asset_id': 'u32',
+            'quote_asset_id': 'u32',
+            'best_bid_price': 'FixedU128',
+            'best_ask_price': 'FixedU128',
           },
-          "OrderbookRPC": {
-            "trading_pair": "[u8;32]",
-            "base_asset_id": "u32",
-            "quote_asset_id": "u32",
-            "best_bid_price": "Vec<u8>",
-            "best_ask_price": "Vec<u8>"
+          'OrderbookRPC': {
+            'trading_pair': '[u8;32]',
+            'base_asset_id': 'u32',
+            'quote_asset_id': 'u32',
+            'best_bid_price': 'Vec<u8>',
+            'best_ask_price': 'Vec<u8>',
           },
-          "OrderbookUpdates": {
-            "bids": "Vec<FrontendPricelevel>",
-            "asks": "Vec<FrontendPricelevel>"
+          'OrderbookUpdates': {
+            'bids': 'Vec<FrontendPricelevel>',
+            'asks': 'Vec<FrontendPricelevel>',
           },
-          "FrontendPricelevel": {
-            "price": "FixedU128",
-            "quantity": "FixedU128"
+          'FrontendPricelevel': {
+            'price': 'FixedU128',
+            'quantity': 'FixedU128',
           },
-          "LookupSource": "AccountId",
-          "Address": "AccountId"
+          'LookupSource': 'AccountId',
+          'Address': 'AccountId',
         },
         rpc: {
           polkadex: {
             getAllOrderbook: {
-              description: " Blah",
+              description: ' Blah',
               params: [],
-              type: "Vec<OrderbookRpc>"
+              type: 'Vec<OrderbookRpc>',
             },
             getAskLevel: {
-              description: " Blah",
+              description: ' Blah',
               params: [
                 {
-                  name: "trading_pair",
-                  type: "Hash"
-                }
+                  name: 'trading_pair',
+                  type: 'Hash',
+                },
               ],
-              type: "Vec<FixedU128>"
+              type: 'Vec<FixedU128>',
             },
             getBidLevel: {
-              description: " Blah",
+              description: ' Blah',
               params: [
                 {
-                  name: "trading_pair",
-                  type: "Hash"
-                }
+                  name: 'trading_pair',
+                  type: 'Hash',
+                },
               ],
-              type: "Vec<FixedU128>"
+              type: 'Vec<FixedU128>',
             },
             getMarketInfo: {
-              description: " Blah",
+              description: ' Blah',
               params: [
                 {
-                  name: "trading_pair",
-                  type: "Hash"
+                  name: 'trading_pair',
+                  type: 'Hash',
                 },
                 {
-                  name: "blocknum",
-                  type: "u32"
-                }
+                  name: 'blocknum',
+                  type: 'u32',
+                },
               ],
-              type: "MarketDataRpc"
+              type: 'MarketDataRpc',
             },
             getOrderbook: {
-              description: " Blah",
+              description: ' Blah',
               params: [
                 {
-                  name: "trading_pair",
-                  type: "Hash"
-                }
+                  name: 'trading_pair',
+                  type: 'Hash',
+                },
               ],
-              type: "OrderbookRpc"
+              type: 'OrderbookRpc',
             },
             getOrderbookUpdates: {
-              description: "Gets best 10 bids & asks",
+              description: 'Gets best 10 bids & asks',
               params: [
                 {
-                  name: "at",
-                  type: "Hash"
+                  name: 'at',
+                  type: 'Hash',
                 },
                 {
-                  name: "trading_pair",
-                  type: "Hash"
-                }
+                  name: 'trading_pair',
+                  type: 'Hash',
+                },
               ],
-              type: "OrderbookUpdates"
+              type: 'OrderbookUpdates',
             },
             getPriceLevel: {
-              description: " Blah",
+              description: ' Blah',
               params: [
                 {
-                  name: "trading_pair",
-                  type: "Hash"
-                }
+                  name: 'trading_pair',
+                  type: 'Hash',
+                },
               ],
-              type: "Vec<LinkedPriceLevelRpc>"
+              type: 'Vec<LinkedPriceLevelRpc>',
             },
-          }
+          },
         },
-        provider: wsProvider
-      });
-      await setBlockchainApi(api);
+        provider: wsProvider,
+      })
+      await setBlockchainApi(api)
     }
-    getExtensionAddress();
-    connectBlockchain();
+    getExtensionAddress()
+    connectBlockchain()
   }, [])
 
   return (
-    <>
-    <ThemeContext.Provider  value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme: updateTheme }}>
       <ThemeProvider theme={theme === Theme.Light ? lightTheme : blackTheme}>
-        <GlobalStyles />
+        <GlobalStyles/>
         <S.Warning>
           <WarningAlert/>
         </S.Warning>
         <Toast/>
         <S.Page>
-          <Component {...pageProps}  currentTheme={theme}  account={account} setAccount={address => setAccount(address)} allAccounts={allAccounts} blockchainApi={blockchainApi} />
+          <Component {...pageProps} currentTheme={theme} account={account} setAccount={address => setAccount(address)}
+                     allAccounts={allAccounts} blockchainApi={blockchainApi}/>
         </S.Page>
       </ThemeProvider>
-    </ThemeContext.Provider> 
-    </>
+    </ThemeContext.Provider>
   )
 }
 

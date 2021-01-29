@@ -128,7 +128,6 @@ export default function Wallet() {
   const [currencyList, setCurrencyList] = useState<CurrencyDetails[]>(currenciesList)
   const [searchInput, setSearchInput] = useState('')
   const [lastTradePrice, setLastTradePrice] = useState(0);
-  const { theme, setTheme } = useTheme();
 
   const filterResults = searchInput => {
     setSearchInput(searchInput)
@@ -142,14 +141,6 @@ export default function Wallet() {
   }
 
   useEffect(() => {
-    const  themeinLocalStorage = localStorage.getItem('theme')
-     if(themeinLocalStorage=="light"){
-       setTheme(Theme.Light)
-     }
-     else{
-      setTheme(Theme.Dark)
-     }
-
     fetchLastTrade(webSocket);
   }, [])
 

@@ -8,7 +8,6 @@ import Transactions from './blocks/Transactions'
 import * as S from './styles'
 import Toast from '../../components/general/Toast'
 import Navbar from './blocks/Navbar'
-import { useTheme, Theme } from 'Context/ThemeContext';
 
 export default function Dashboard({ account, blockchainApi }) {
 
@@ -25,7 +24,6 @@ export default function Dashboard({ account, blockchainApi }) {
   const [price, setPrice] = useState<string>('0')
   const [amount, setAmount] = useState<string>('0')
   const [activeIndex, setActiveIndex] = useState(3);
-  const { theme, setTheme } = useTheme();
 
   const removeTransactionsOrder = (id: string) => console.log('remove transaction' + id);
 
@@ -106,14 +104,6 @@ export default function Dashboard({ account, blockchainApi }) {
   }
 
   useEffect(() => {
-     const  themeinLocalStorage = localStorage.getItem('theme')
-     if(themeinLocalStorage=="light"){
-       setTheme(Theme.Light)
-     }
-     else{
-      setTheme(Theme.Dark)
-     }
-
     const webSocketInstance = webSocket;
     fetchMarketData(webSocketInstance)
     fetchOrderBookBids(webSocketInstance)
