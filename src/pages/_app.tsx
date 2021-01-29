@@ -10,6 +10,7 @@ import { toast } from 'react-toastify'
 import Toast from '../components/general/Toast'
 import { Theme, ThemeContext } from '../Context/ThemeContext'
 
+
 function App({ Component, pageProps }: AppProps) {
   const [account, setAccount] = useState<any>()
   const [allAccounts, setAllAccounts] = useState<any>()
@@ -18,11 +19,13 @@ function App({ Component, pageProps }: AppProps) {
 
   
   const updateTheme = (theme) => {
-       setTheme(theme);    
+       setTheme(theme);   
   }
 
-  useEffect(() => {
-  
+
+
+  useEffect(() => {  
+    
     const getExtensionAddress = async () => {
       const polkadotExtensionDapp = await import('@polkadot/extension-dapp')
       const extensions = await polkadotExtensionDapp.web3Enable('Polkadex')

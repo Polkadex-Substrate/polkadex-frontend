@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect} from 'react'
 import Link from 'next/link'
 
 import * as S from './styles'
@@ -6,15 +6,21 @@ import SocialIcons from '../../components/general/SocialIcons'
 import BackgroundPattern from '../../components/general/BackgroundPattern'
 import DropdownItem from '../../components/general/DropdownItem'
 import Dropdown from '../../components/general/Dropdown'
+import { useTheme, Theme } from 'Context/ThemeContext';
 
 export default function Landing({ account, allAccounts, setAccount }) {
-
+  const { theme, setTheme } = useTheme();
   const [dropdownState, setDropdownState] = useState(false)
 
   const setAccountDropdown = (account) => {
     setAccount(account);
     setDropdownState(false);
   }
+
+  useEffect(() => {
+    setTheme(Theme.Dark);
+    localStorage.setItem('theme',Theme.Dark);
+  },[])
 
   return (
     <div style={{display: 'flex', height: '100vh', width: '100vw', backgroundColor: '#101213', padding: '1rem 2rem', position: 'fixed'}}>
