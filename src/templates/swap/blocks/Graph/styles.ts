@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   border-radius: 0px 30px 0px 0px;
   display: flex;
   background: #2E303C;
+  width:100%;
   flex-direction:row;
   justify-content:space-between;
   ${media.lessThan('large')`
