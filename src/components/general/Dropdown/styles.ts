@@ -40,6 +40,8 @@ export const Image = styled.div<Partial<DropdownProps>>`
     transform: ${active ? "rotate(180deg)" : "rotate(0deg)"};
  
   `}
+ display:flex;
+ align-items:center;
 `
 // Dropdown Content
 export const WrapperContent = styled.div`
