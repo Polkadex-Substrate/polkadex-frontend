@@ -110,4 +110,6 @@ export const Wrapper = styled.div<Partial<IconProps>>`
 
 export const Image = styled.img`
   width:100%;
+
+  
 `

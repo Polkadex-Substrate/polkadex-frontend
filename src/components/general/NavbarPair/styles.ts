@@ -35,7 +35,7 @@ export const Container = styled.div`
   font-weight: bold;
 `;
 
-export const Image = styled.img`
+export const Image = styled.div`
   width: 2rem;
   height: 2rem;
   margin-right: 0.5rem;

@@ -32,7 +32,10 @@ const NavbarPair = ({ coin, pairs }: NavbarPairProps) => {
           Coin
       </S.Label>
         <S.Container>
-          <S.Image src={`img/cryptocurrencies/${coin}.png`} />
+        
+          <S.Image>
+            <img src={`img/cryptocurrencies/${coin}.png`} alt="coin image" width="100%" height="100%"/>
+          </S.Image>
           <S.Name>
             {coin}
           </S.Name>

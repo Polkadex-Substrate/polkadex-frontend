@@ -8,7 +8,7 @@ export type IconProps = {
 }
 const Icon = ({ source = "Settings", background = "DarkGray", size = "Medium", action}:IconProps) => (
   <S.Wrapper background={background} size={size} onClick={action}>
-    <S.Image src={`/img/icons/${source}.svg`}  />
+    <img width="100%" height= "100%" src={`/img/icons/${source}.svg`} alt="Icon image" />
 </S.Wrapper>
 )
 

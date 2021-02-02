@@ -83,7 +83,7 @@ export const WrapperProfile = styled.div`
   padding-left: 1.25rem;
 `;
 
-export const Profile = styled.img`
+export const Profile = styled.div`
   border-radius: 55rem;
   margin:1.5rem 0;
   width: 2.5rem;

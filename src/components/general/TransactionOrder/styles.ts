@@ -19,7 +19,7 @@ export const ContainerFlex = styled.div`
   align-items:center;
 `
 
-export const Image = styled.img`
+export const Image = styled.div`
   margin-right: 0.4rem;
   height:1.7rem;
   width:1.7rem;

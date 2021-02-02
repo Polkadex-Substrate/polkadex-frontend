@@ -18,7 +18,7 @@ const Input = ({ label = 'Label', placeholder = 'Text..', type = "text", value="
     <S.Wrapper>
         <S.ContainerInput>
           <S.Label>
-            {icon !== 'None' && <img src={`/img/icons/${icon}.svg`} />} {label}
+            {icon !== 'None' && <img src={`/img/icons/${icon}.svg`} width="100%" height="100%" alt="Image" />} {label}
           </S.Label>
           <S.Box inputInfo={inputInfo} fullWidth={fullWidth}>
             <S.Input placeholder={placeholder} type={type} value={value} onChange={(e) => setValue && setValue(e.target.value)}/>

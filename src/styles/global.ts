@@ -65,6 +65,7 @@ const GlobalStyles: GlobalStyleComponent<
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 300;
+    font-display: swap;
     src: local(''),
         url('/fonts/work-sans-v8-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
   }
@@ -73,6 +74,7 @@ const GlobalStyles: GlobalStyleComponent<
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 400;
+    font-display: swap;
     src: local(''),
     url('/fonts/work-sans-v8-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
   }
@@ -81,12 +83,14 @@ const GlobalStyles: GlobalStyleComponent<
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 600;
+    font-display: swap;
     src: local(''),
     url('/fonts/work-sans-v8-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
   }
   /* Work Sans - Medium */
   @font-face {
     font-family: 'Work Sans Medium';
+    font-display: swap;
     src: local(''),
       url('/fonts/Work-Sans-Medium.ttf') format('truetype');
     font-style: normal;
@@ -94,6 +98,7 @@ const GlobalStyles: GlobalStyleComponent<
   /* Work Sans - Bold */
   @font-face {
     font-family: 'Work Sans Bold';
+    font-display: swap;
     src: local(''),
       url('/fonts/Work-Sans-Bold.ttf') format('truetype');
     font-style: normal;
@@ -101,6 +106,7 @@ const GlobalStyles: GlobalStyleComponent<
   /* Work Sans - ExtraBold */
   @font-face {
     font-family: 'Work Sans ExtraBold';
+    font-display: swap;
     src: local(''),
       url('/fonts/Work-Sans-ExtraBold.ttf') format('truetype');
     font-style: normal;
@@ -108,6 +114,7 @@ const GlobalStyles: GlobalStyleComponent<
   /* Work Sans - SemiBold */
   @font-face {
     font-family: 'Work Sans SemiBold';
+    font-display: swap;
     src: local(''),
       url('/fonts/Work-Sans-SemiBold.ttf') format('truetype');
     font-style: normal;

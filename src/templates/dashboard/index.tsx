@@ -3,12 +3,15 @@ import React, { useEffect,useState } from 'react'
 import { webSocket } from '../../components/dashboard/CustomChart/api/stream'
 import Graph from './blocks/Graph'
 import MarketOrder from './blocks/MarketOrder'
-import Menu from '../../components/Menu'
 import Transactions from './blocks/Transactions'
 import * as S from './styles'
 import Toast from '../../components/general/Toast'
 import Navbar from './blocks/Navbar'
 import { useTheme ,Theme} from '../../Context/ThemeContext'
+import dynamic from 'next/dynamic'
+
+const Menu = dynamic(() => import('../../components/Menu').then(), { ssr: false })
+
 
 export default function Dashboard({ account, blockchainApi }) {
 
