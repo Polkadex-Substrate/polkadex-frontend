@@ -9,7 +9,7 @@ const Logo = ({ href='#' }: LogoProps) => {
   const { theme, setTheme } = useTheme();
 
   return(
-  <S.Link href={href}>
+  <S.Link href={href} aria-label="Logo">
     <S.Svg xmlns="http://www.w3.org/2000/svg" width="118.516" height="24.013" viewBox="0 0 118.516 24.013">
       <g id="Logo" transform="translate(0 -14.834)">
         <S.LogoIcon id="Logo-Icon" transform="translate(0 14.834)">

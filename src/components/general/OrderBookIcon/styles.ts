@@ -21,6 +21,6 @@ export const Wrapper = styled.div<Partial<OrderBookProps>>`
 `
 
 
-export const Image = styled.img`
+export const Image = styled.div`
   width:100%;
 `

@@ -35,11 +35,13 @@ ${({ theme }) => css`
 `}
 `
 
-export const Image = styled.img<Partial<DropdownProps>>`
-  ${({active,width }) => css`
+export const Image = styled.div<Partial<DropdownProps>>`
+  ${({active }) => css`
     transform: ${active ? "rotate(180deg)" : "rotate(0deg)"};
-    width: ${width};
+ 
   `}
+ display:flex;
+ align-items:center;
 `
 // Dropdown Content
 export const WrapperContent = styled.div`

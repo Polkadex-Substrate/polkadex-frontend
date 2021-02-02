@@ -29,7 +29,7 @@ export const RowOne = styled.div`
   background-color: #24252C;
   box-shadow: 0px 100px 99px #0000002C;
   border-radius: 20px 20px 0px 0px;
-  width: 100%;
+  width: 110%;
   justify-content: space-between;
   align-items: center;
   padding-top: 0.5rem;

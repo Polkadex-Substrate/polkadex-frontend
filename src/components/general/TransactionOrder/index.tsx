@@ -16,7 +16,9 @@ const TransactionOrder = ({ data, remove }: Props) => (
       <S.ContainerFlex>
         {data.status ?
           <>
-            <S.Image src="/img/icons/Clock.svg" />
+            <S.Image >
+              <img src="/img/icons/Clock.svg" alt="img" height="100%" width="100%"/>
+              </S.Image>
             <span>Pending</span>
           </> :
           moment(data.date).format("LLL")
@@ -28,7 +30,9 @@ const TransactionOrder = ({ data, remove }: Props) => (
     <S.Td>
       <S.Tag>Pair</S.Tag>
       <S.ContainerFlex>
-        <S.Image src={`img/cryptocurrencies/BTC.png`}  />
+             <S.Image >
+              <img src={`img/cryptocurrencies/BTC.png`} alt="img" height="100%" width="100%"/>
+              </S.Image>
         <span>BTC / USDT</span>
       </S.ContainerFlex>
     </S.Td>
@@ -36,8 +40,10 @@ const TransactionOrder = ({ data, remove }: Props) => (
     <S.Td>
       <S.Tag>Side</S.Tag>
       <S.ContainerFlex>
-        <S.Image src={`img/icons/${data.side === 'AskLimit' ? 'Sell' : 'Buy'}.svg`} />
-        <span>{data.side === 'AskLimit' ? 'Sell' : 'Buy'}</span>
+             <S.Image >
+              <img src={`img/icons/${data.side === 'AskLimit' ? 'Sell' : 'Buy'}.svg`} alt="img" height="100%" width="100%"/>
+              </S.Image>
+         <span>{data.side === 'AskLimit' ? 'Sell' : 'Buy'}</span>
       </S.ContainerFlex>
     </S.Td>
 

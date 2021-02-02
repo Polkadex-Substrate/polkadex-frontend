@@ -9,7 +9,9 @@ export type OrderBookProps = {
 const OrderBookIcon = ({ icon, filterState, handleChange }: OrderBookProps) => {
   return (
     <S.Wrapper active={filterState === icon} onClick={() => handleChange(icon)}>
-      <S.Image src={`/img/icons/${icon}.svg`} />
+      <S.Image >
+        <img src={`/img/icons/${icon}.svg`}  width="100%" height="100%" alt="Image"/>
+        </S.Image>
     </S.Wrapper>
   )
 }
