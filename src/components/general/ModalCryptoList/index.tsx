@@ -28,7 +28,7 @@ const ModalCryptoList = ({ modalCloseHandler, setCryptoListLeftHandler, currenci
           <SearchBar placeholder="Search name or paste address" type="search" value={''} setValue={null} resize = "Active"/>
         </S.SearchWrapper>
         <S.TextWrapper>
-          <S.Image src={`/img/icons/Top-bottom-white.svg`}/>
+          <S.Image src={`/img/icons/Top-bottom-white.svg`} alt="Top-bottom-white"/>
           Coin
         </S.TextWrapper>
 

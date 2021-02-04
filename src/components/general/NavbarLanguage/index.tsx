@@ -10,11 +10,11 @@ const NavbarLanguage = () => {
     <S.Wrapper>
       <S.Header>
           <S.WrapperFlag>
-            <S.Image src="/img/icons/EN.svg"/>
+            <S.Image src="/img/icons/EN.svg" alt = "En Icon"/>
           </S.WrapperFlag>
           <S.Title>EN/USD</S.Title>
           <S.WrapperImage>
-          <S.Image src = {theme === Theme.Dark ? "/img/icons/ArrowTop.svg" : `/img/icons/ArrowDownBlack.svg` }/>
+          <S.Image src = {theme === Theme.Dark ? "/img/icons/ArrowTop.svg" : `/img/icons/ArrowDownBlack.svg`} alt="Arrow icon"/>
           </S.WrapperImage>
       </S.Header>
       <S.WrapperContent className="animation">

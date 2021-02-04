@@ -5,6 +5,7 @@ import * as S from './styles'
 import {
   ChartingLibraryWidgetOptions,
   IChartingLibraryWidget,
+
   LanguageCode,
   widget,
 } from '../../../../public/static/charting_library'
@@ -50,7 +51,6 @@ export class ChartContainer extends PureComponent<Partial<ChartContainerProps>, 
     fullscreen: false,
     autosize: true
   };
-
   private tvWidget: IChartingLibraryWidget | null = null;
 
   public getWidgetOptions(): ChartingLibraryWidgetOptions {

@@ -5,7 +5,7 @@ export type SingleLanguageProps = {
 }
 const NavbarSingleLanguage = ({ title="English", flag="EN"}:SingleLanguageProps) => (
   <S.WrapperSingleLanguage onClick={()=> console.log("Change Language to", flag) }>
-    <S.Image src={`/img/languages/${flag}.svg`} />
+    <S.Image src={`/img/languages/${flag}.svg` } alt="Flag icon" />
     <S.Title>
       {title}
     </S.Title>
