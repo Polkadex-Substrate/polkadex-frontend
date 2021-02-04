@@ -47,7 +47,7 @@ const WithdrawBTC = ({ currentCurrency, walletAddress, setWalletAddress, lastTra
             <S.Header>
                 <S.SymbolWrapper>
                     <S.ImageWrapper>
-                        <S.Image src={`img/cryptocurrencies/` + currentCurrency.type + `.png`}/>
+                        <S.Image src={`img/cryptocurrencies/` + currentCurrency.type + `.png`} alt="Bit coin image"/>
                     </S.ImageWrapper>
                     <S.InnerWrapper>
                         <S.Name>{currentCurrency.name}</S.Name>

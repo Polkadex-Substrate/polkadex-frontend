@@ -54,7 +54,7 @@ const OpenOrderTable = ({ data }: Props) => (
               <S.Td>
                 <S.Tag>Pair</S.Tag>
                 <S.ContainerFlex>
-                  <S.Image src={`img/cryptocurrencies/BTC.png`}  />
+                  <S.Image src={`img/cryptocurrencies/BTC.png`}  alt="BTC/UST" />
                   <span>BTC / USDT</span>
                 </S.ContainerFlex>
               </S.Td>
@@ -62,7 +62,7 @@ const OpenOrderTable = ({ data }: Props) => (
               <S.Td>
                 <S.Tag>Side</S.Tag>
                 <S.ContainerFlex>
-                  <S.Image src={`img/icons/${(order.side === 'AskLimit' || order.side === 'AskMarket' ) ? 'Sell' : 'Buy'}.svg`} />
+                  <S.Image src={`img/icons/${(order.side === 'AskLimit' || order.side === 'AskMarket' ) ? 'Sell' : 'Buy'}.svg`} alt="Buy/sell icon"/>
                   <span>{(order.side === 'AskLimit' || order.side === 'AskMarket' ) ? 'Sell' : 'Buy'}</span>
                 </S.ContainerFlex>
               </S.Td>

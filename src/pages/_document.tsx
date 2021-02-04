@@ -32,7 +32,8 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head>         
+        <Head>     
+          <title>Polkadex Trade</title>    
           <link rel="shortcut icon" href="/favicon.ico" />
         </Head>
         <body>

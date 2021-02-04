@@ -53,10 +53,6 @@ export const SpanTextBlur = styled.span`
   font-family: Work Sans;
 `;
 
-export const Image = styled.img`
-  width:90%;
-`
-
 export const WrapperImage = styled.div`
     display: flex;
     align-items: center;

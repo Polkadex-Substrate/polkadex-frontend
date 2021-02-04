@@ -13,7 +13,7 @@ const SearchBar = ({placeholder, type, value, setValue, resize = "NotActive"}: S
     const { theme, setTheme } = useTheme();
     return(
     <S.Wrapper>
-        <S.Image src={"/img/icons/" + (theme === Theme.Light ? "searchLm" : "Search" )+ ".svg" } className={resize}/>
+        <S.Image src={"/img/icons/" + (theme === Theme.Light ? "searchLm" : "Search" )+ ".svg" } alt="Search image" className={resize}/>
         <S.Input type={type} placeholder={placeholder} value={value} onChange={(e) => setValue(e.target.value)} />
     </S.Wrapper>)
 }

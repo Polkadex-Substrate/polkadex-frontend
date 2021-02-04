@@ -44,25 +44,25 @@ const SwapBox = ({ handleCryptoListModal, balance, currentCurrency }) => {
         <S.RowThree className={hideContent}>
           Transaction Route
           <CoinWrapper name={'Polkadot'} type={'DOT'}/>
-          <S.Image src={`/img/icons/double_arrow-white.svg`}/>
+          <S.Image src={`/img/icons/double_arrow-white.svg`} alt="arrowdown"/>
           <CoinWrapper name={'Thether'} type={'USDT'}/>
-          <S.Image src={`/img/icons/double_arrow-white.svg`}/>
+          <S.Image src={`/img/icons/double_arrow-white.svg`} alt="double arrow"/>
           <CoinWrapper name={'Bitcoin'} type={'BTC'}/>
         </S.RowThree>
       </S.SwapBoxWrapper>
       <S.BottomRow className={hideContent}>
         <S.BottomTextWrapper>
-          <S.HelperIconImage src={`/img/icons/help_outline-white.svg`}/>
+          <S.HelperIconImage src={`/img/icons/help_outline-white.svg`} alt="help_outline-white"/>
           <S.Blur>Minimum</S.Blur>
           <S.NoBlurText>0.01008 DOT</S.NoBlurText>
         </S.BottomTextWrapper>
         <S.BottomTextWrapper>
-          <S.HelperIconImage src={`/img/icons/help_outline-white.svg`}/>
+          <S.HelperIconImage src={`/img/icons/help_outline-white.svg`}  alt="help_outline-white"/>
           <S.Blur>Liquidity Provider Fee</S.Blur>
           <S.NoBlurText>0.00005991 BTC</S.NoBlurText>
         </S.BottomTextWrapper>
         <S.BottomTextWrapper>
-          <S.HelperIconImage src={`/img/icons/help_outline-white.svg`}/>
+          <S.HelperIconImage src={`/img/icons/help_outline-white.svg`}  alt="help_outline-white"/>
           <S.Blur>Price Impact</S.Blur>
           <S.TextSpecialColor>8.49%</S.TextSpecialColor>
         </S.BottomTextWrapper>
