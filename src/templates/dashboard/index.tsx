@@ -1,18 +1,15 @@
 import React, { useEffect,useState } from 'react'
 
 import { webSocket } from '../../components/dashboard/CustomChart/api/stream'
-import Graph from './blocks/Graph'
-import MarketOrder from './blocks/MarketOrder'
-import Transactions from './blocks/Transactions'
 import * as S from './styles'
 import Toast from '../../components/general/Toast'
-import Navbar from './blocks/Navbar'
 import { useTheme ,Theme} from '../../Context/ThemeContext'
 import dynamic from 'next/dynamic'
-
+import MarketOrder from './blocks/MarketOrder'
+import Graph from './blocks/Graph'
 const Menu = dynamic(() => import('../../components/Menu').then(), { ssr: false })
-
-
+const Navbar = dynamic<{ account:any , lastTradePrice:any , lastTradePriceType:any , blockValues:any}>(() => import('./blocks/Navbar').then(),{ ssr:false})
+const Transactions = dynamic<{newTradeData:any,data:any,openOrderData:any,activeIndex:any,setActiveIndex:any,remove:any}>(()=>import('./blocks/Transactions').then(),{ssr:false})
 export default function Dashboard({ account, blockchainApi }) {
 
   const [orderBookBids, setOrderBookBids] = useState([])
@@ -108,18 +105,19 @@ export default function Dashboard({ account, blockchainApi }) {
     setOpenOrders(finalOrders);
   }
 
-  const getInitialTheme = () => {
+  const getInitialTheme =  () => {
     let initialTheme = localStorage.getItem('theme');
     if (initialTheme) {
       setTheme(initialTheme === Theme.Light ? Theme.Light : Theme.Dark)
     } else {
-      initialTheme = Theme.Dark
+      initialTheme = Theme.Dark;
+      setTheme(Theme.Dark);
     }
     return initialTheme;
   }
 
   useEffect(() => {
-    localStorage.setItem('theme', getInitialTheme());
+    localStorage.setItem('theme',  getInitialTheme());
     const webSocketInstance = webSocket;
     fetchMarketData(webSocketInstance)
     fetchOrderBookBids(webSocketInstance)

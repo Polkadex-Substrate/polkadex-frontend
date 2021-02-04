@@ -10,8 +10,6 @@ import Navigation from './blocks/Navigation'
 import { webSocket } from '../../components/dashboard/CustomChart/api/stream'
 import { useTheme ,Theme} from '../../Context/ThemeContext'
 
-
-
 export type InputProps = {}
 
 export default function Wallet() {
@@ -146,7 +144,8 @@ export default function Wallet() {
     if (initialTheme) {
       setTheme(initialTheme === Theme.Light ? Theme.Light : Theme.Dark)
     } else {
-      initialTheme = Theme.Dark
+      initialTheme = Theme.Dark;
+      setTheme(Theme.Dark);
     }
     return initialTheme;
   }
