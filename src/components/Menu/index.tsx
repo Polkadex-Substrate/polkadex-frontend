@@ -82,7 +82,7 @@ const Menu = () => {
       <S.WrapperProfile>
         <Icon source={theme === Theme.Dark ? 'Notifications' : 'NotificationLm'} size="Small" background="None"/>
         <S.Profile>
-        <img width="100%" height="100%" src="/img/Avatar.png"/>
+        <img width="100%" height="100%" src="/img/Avatar.png" alt="Avatar png"/>
         </S.Profile>
       </S.WrapperProfile>
     </S.Wrapper>

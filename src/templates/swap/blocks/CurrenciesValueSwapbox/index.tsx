@@ -11,7 +11,7 @@ const CurrencyValueSwapBox = ({ value, type, text, handleClickEvent }) => {
       </S.NoDarkBlockWrapper>
       <S.DarkBlockWrapper>
         <S.RowInsideDarkBlockWrapper>
-          <S.CoinImage src={`img/cryptocurrencies/${type}.png`}/>
+          <S.CoinImage src={`img/cryptocurrencies/${type}.png`} alt="cryptocurrencies icon"/>
           <span>{type}</span>
           <SidebarDropdown rotation='rotate(0deg)' backgroundColor='#ffffff' hoverRotation='rotate(180deg)'
                            icon='ArrowDownBlack'/>

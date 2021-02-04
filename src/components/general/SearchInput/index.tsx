@@ -6,7 +6,7 @@ export type SearchInputProps = {
 }
 const SearchInput = ({placeholder, type}:SearchInputProps) => (
 <S.Wrapper>
-    <S.Image src="/img/icons/Search.svg" />
+    <S.Image src="/img/icons/Search.svg" alt="Search icon" />
     <S.Input type={type} placeholder={placeholder} />
 </S.Wrapper>
 )

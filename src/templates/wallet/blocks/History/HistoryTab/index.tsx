@@ -11,7 +11,7 @@ const HistoryTab = ({ history }) => {
             </S.TimeAndHashWrapper>
 
             <S.CurrencyWrapper>
-                <S.Image src={`img/icons/${history.side === 'AskLimit' ? 'Sell' : 'Buy'}.svg`} />
+                <S.Image src={`img/icons/${history.side === 'AskLimit' ? 'Sell' : 'Buy'}.svg`}  alt="Buy and sell icon"/>
                 <S.Currency side={history.side}>0.23422 DOT</S.Currency>
             </S.CurrencyWrapper>
         </S.MainWrapper>

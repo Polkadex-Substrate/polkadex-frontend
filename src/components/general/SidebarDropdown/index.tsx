@@ -13,7 +13,7 @@ const SidebarDropdown = ({ rotation = 'rotate(270deg)', backgroundColor='#1C2023
   return (
     <S.Wrapper hoverRotation={hoverRotation}>
         <S.WrapperImage backgroundColor = {backgroundColor}>
-          <S.Image src={`/img/icons/${icon}.svg`} rotation = {rotation} />
+          <S.Image src={`/img/icons/${icon}.svg`} rotation = {rotation} alt="arrow icon"/>
         </S.WrapperImage>     
     </S.Wrapper>
   )

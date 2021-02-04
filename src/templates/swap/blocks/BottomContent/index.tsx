@@ -239,7 +239,7 @@ const BottomContent = ({ balance }) => {
           <S.BottomLabel isAccordionActive={isAccordionActive}>
             <CustomToggle eventKey="0">
               <S.BottomTextWrapper>
-                <S.Image src={`/img/icons/show_chart-white.svg`}/>
+                <S.Image src={`/img/icons/show_chart-white.svg`} alt="show_chart icon"/>
                 <span>Pair Analytics</span>
                 <SidebarDropdown rotation='rotate(0deg)'
                                  backgroundColor='#1C2023'

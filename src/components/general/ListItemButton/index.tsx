@@ -13,7 +13,7 @@ export type ListItemProps = {
 const ListItemButton = ({ title, size = "Medium", darkMode = true, fullWidth = false, selected = false ,icon= false,icontype='News'}: ListItemProps) => (
   <S.Wrapper  size={size} darkMode={darkMode} fullWidth={fullWidth} selected={selected}  >
     {icon?<S.iconwrapper>
-          <S.Image src={`/img/icons/${icontype}.svg`} /> 
+          <S.Image src={`/img/icons/${icontype}.svg`} alt="List Icon" /> 
           {title} 
           </S.iconwrapper>
     :<S.Span>{title}</S.Span>
