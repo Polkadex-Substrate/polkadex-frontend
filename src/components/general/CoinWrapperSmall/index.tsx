@@ -4,7 +4,7 @@ const CoinWrapper = ({ name, type }) => {
 
   return (
     <S.CoinWrapper>
-      <S.CoinImage src={`img/cryptocurrencies/${type}.png`}/>
+      <S.CoinImage alt="cryptocurrencyimage" src={`img/cryptocurrencies/${type}.png`}/>
       <S.NameAndValueColumn>
         <span>{type}</span>
         <S.BlurText>{name}</S.BlurText>
