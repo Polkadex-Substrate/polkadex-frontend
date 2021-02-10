@@ -17,7 +17,7 @@ const Menu = () => {
       <S.WrapperLinks>
         <Logo size="Medium"/>
         <S.Container>
-          <S.WrapperIcon aria-label="Markets">
+          <S.WrapperIcon href="#" aria-label="Markets">
             <div>
               <Icon source={(theme === Theme.Dark ? 'Graph' : 'GraphLm')} size="Small" background="None"/>
             </div>
