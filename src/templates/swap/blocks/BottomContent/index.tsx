@@ -3,6 +3,7 @@ import { animated, useSpring } from 'react-spring'
 import { Accordion, useAccordionToggle } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as S from './styles'
+import Link from 'next/link'
 
 import { webSocket } from 'components/dashboard/CustomChart/api/stream'
 import Icon from 'components/general/Icon'
@@ -226,17 +227,21 @@ const BottomContent = ({ balance }) => {
           </S.Marginbottom>
           <Icon source="Settings" size="Medium" background="Gray"/>
         </S.IconColumn>
+        <Link href="/wallet">
         <S.LabelWithIcon>
           <S.IconWrapper>
             <Icon source="Wallet" size="Small" background="None"/>
           </S.IconWrapper>
-          <span>Connect to wallet</span>
+          
+            <span>Connect to wallet</span>
+          
         </S.LabelWithIcon>
+        </Link>
       </S.LeftColumn>
       <S.MiddleColumn>
         <SwapBox handleCryptoListModal={openCryptoListModal} balance={balance} currentCurrency={currentCurrency} />
         <Accordion defaultActiveKey="1">
-          <S.BottomLabel isAccordionActive={isAccordionActive}>
+          {/* <S.BottomLabel isAccordionActive={isAccordionActive}>
             <CustomToggle eventKey="0">
               <S.BottomTextWrapper>
                 <S.Image src={`/img/icons/show_chart-white.svg`} alt="show_chart icon"/>
@@ -247,7 +252,7 @@ const BottomContent = ({ balance }) => {
                                  icon='ArrowTop'/>
               </S.BottomTextWrapper>
             </CustomToggle>
-          </S.BottomLabel>
+          </S.BottomLabel> */}
 
           <Accordion.Collapse eventKey="0">
             <S.WrapperGraph>
@@ -270,9 +275,9 @@ const BottomContent = ({ balance }) => {
              </animated.div>
           </S.Overlay>
         )}
-        <S.BottomRightContentWrapper>
+        {/* <S.BottomRightContentWrapper>
           <S.BottomColor/> 1092049
-        </S.BottomRightContentWrapper>
+        </S.BottomRightContentWrapper> */}
       </S.RightColumn>
     </S.BottomContentWrapper>
   )

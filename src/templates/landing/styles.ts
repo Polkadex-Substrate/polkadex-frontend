@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { generateMedia } from 'styled-media-query'
 
 const customMedia = generateMedia({
-  custom: '1199px'
+  custom: '400px'
 })
 
 export const LeftWrapper = styled.div`

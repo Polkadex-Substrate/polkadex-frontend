@@ -8,4 +8,5 @@ export const Link = styled.a`
 export const LinkImage = styled.img`
   margin-right: 0.75rem;
   width: 19px;
+  height: auto;
 `

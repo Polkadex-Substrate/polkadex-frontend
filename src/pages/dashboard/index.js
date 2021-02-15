@@ -1,5 +1,7 @@
-import Dashboard from 'templates/dashboard'
+// import Dashboard from 'templates/dashboard'
 
-export default function DashboardPage(props) {
-  return <Dashboard {...props} />
-}
+
+
+// export default function DashboardPage(props) {
+//   return <Dashboard {...props} />
+// }
